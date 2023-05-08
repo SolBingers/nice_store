@@ -7,6 +7,6 @@ export const App = () => {
       <h1>Nice Shop</h1>
     </div>
   );
-}
+};
 
 export default App;
