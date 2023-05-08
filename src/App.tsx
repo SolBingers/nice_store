@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './App.scss';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { CategoryPage } from './pages/CategoryPage';
