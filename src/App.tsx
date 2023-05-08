@@ -11,7 +11,6 @@ import { ItemPage } from './pages/ItemPage';
 export const App: FC = () => {
   return (
     <div className="App">
-      <h1>Nice Shop</h1>
       <Routes>
         <Route path='/' element={<HomePage />} />
 
