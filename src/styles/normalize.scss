@@ -1,0 +1,15 @@
+@import './utils/variables';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: $color-semi-dark;
+  color: $color-light;
+}
