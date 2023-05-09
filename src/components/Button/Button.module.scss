@@ -9,10 +9,12 @@
   text-align: center;
   color: $color-light;
 
-  height: 32px;
   border-radius: 6px;
 
   transition: all 0.3s ease;
+  margin-bottom: 10px;
+
+  cursor: pointer;
 
   &--primary {
     background-color: $color-primary;
@@ -56,14 +58,14 @@
   }
 
   &--small {
-    width: 90px;
     font-size: 12px;
     line-height: 15px;
+    padding: 8px 13px;
   }
 
   &--large {
-    width: 123px;
     font-size: 16px;
     line-height: 20px;
+    padding: 6px 19px;
   }
 }

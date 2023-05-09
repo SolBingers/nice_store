@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import './Button.scss';
+import styles from './Button.module.scss';
 
 type ButtonProps = {
   text: string;
@@ -10,11 +10,11 @@ type ButtonProps = {
 };
 
 export const Button: FC<ButtonProps> = ({ text, type, size, onClick }) => {
-  const buttonClass = classNames('button', {
-    'button--primary': type === 'primary',
-    'button--secondary': type === 'secondary',
-    'button--small': size === 'small',
-    'button--large': size === 'large',
+  const buttonClass = classNames(styles.button, {
+    [styles['button--primary']]: type === 'primary',
+    [styles['button--secondary']]: type === 'secondary',
+    [styles['button--small']]: size === 'small',
+    [styles['button--large']]: size === 'large',
   });
 
   return (
