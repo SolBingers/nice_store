@@ -33,11 +33,7 @@ export const Categories: FC = () => {
                 [styles.activeLink]: isActive,
               },
             )} 
-            to="/#/phones"
-            onClick={(e) => {
-              e.preventDefault();
-              console.log('NavLink clicked 1');
-            }} 
+            to="/category/phones"
           >
             Phones
           </NavLink> 
@@ -49,11 +45,7 @@ export const Categories: FC = () => {
                 [styles.activeLink]: isActive,
               },
             )}  
-            to="/#/tablets" 
-            onClick={(e) => {
-              e.preventDefault();
-              console.log('NavLink clicked 2');
-            }} 
+            to="/category/tablets" 
           >
             Tablets
           </NavLink>  
@@ -65,11 +57,7 @@ export const Categories: FC = () => {
                 [styles.activeLink]: isActive,
               },
             )} 
-            to="/#/Accessories" 
-            onClick={(e) => {
-              e.preventDefault();
-              console.log('NavLink clicked 3');
-            }}
+            to="/category/accessories" 
           >
             Accessories
           </NavLink>
