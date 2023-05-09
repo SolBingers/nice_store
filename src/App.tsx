@@ -7,7 +7,6 @@ import { CategoryPage } from './pages/CategoryPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { ContactsPage } from './pages/ContactsPage';
 import { ItemPage } from './pages/ItemPage';
-import { Loader } from './components/Loader';
 
 export const App: FC = () => {
   return (
