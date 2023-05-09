@@ -11,7 +11,7 @@ export const SearchBar: FC = () => {
         className={searchBar.searchField}
       />
       <button className={searchBar.lensButton}>
-        <Lens />
+        <Lens className={searchBar.lens} />
       </button>
     </div>
   );

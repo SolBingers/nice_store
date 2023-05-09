@@ -2,7 +2,7 @@
 @import '../../styles/utils/mixins';
 
 .searchBar {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
@@ -19,10 +19,6 @@
     line-height: 15px;
   }
 
-  @include onTablets {
-    display: flex;
-  }
-
   &:hover * {
     fill: $color-light;
   }
@@ -32,6 +28,7 @@
   background-color: $color-black;
   color: $color-light;
   border: none;
+  width: 100%;
 
   font-size: 8px;
   font-weight: 400;
@@ -54,4 +51,8 @@
 .lensButton {
   background-color: $color-black;
   border: none;
+}
+
+.lens {
+  display: flex;
 }
