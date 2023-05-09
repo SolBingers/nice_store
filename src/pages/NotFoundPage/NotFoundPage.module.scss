@@ -1,0 +1,51 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.not-found-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.heading {
+  font-size: 80px;
+  color: $color-primary;
+
+  @include onTablets {
+    font-size: 100px;
+  }
+
+  @include onDesktop {
+    font-size: 120px;
+  }
+}
+
+.message {
+  font-size: 20px;
+  margin-bottom: 25px;
+
+  @include onTablets {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+
+  @include onDesktop {
+    font-size: 30px;
+  }
+}
+
+.link {
+  padding: 9px 20px;
+
+  color: $color-light;
+  border: 1px solid $color-light;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $color-primary;
+    border-color: $color-primary;
+  }
+}
