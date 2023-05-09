@@ -1,0 +1,13 @@
+@import '../../styles/utils/mixins';
+
+.intro {
+  display: block;
+}
+
+@include onDesktop {
+  .intro {
+    display: flex;
+    padding: 0 69px;
+    justify-content: space-between;
+  }
+}

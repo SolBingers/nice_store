@@ -7,7 +7,7 @@
   background-size: cover;
 }
 
-.firstSlideContent {
+.firstSlide__content {
   padding: 28px 0 45px 24px;
 }
 
@@ -77,10 +77,6 @@
 }
 
 @include onDesktop {
-  .firstSlide {
-    max-width: 944px;
-  }
-
   .firstSlideContent {
     padding: 120px 0 125px 45px;
   }
@@ -129,12 +125,6 @@
     line-height: 30px;
   }
 }
-
-@include onDesktop {
-  .secondSlide {
-    max-width: 944px;
-  }
-}
 /*#endregion */
 
 /*#region thirdSlide*/
@@ -181,8 +171,14 @@
 
 @include onDesktop {
   .thirdSlide {
-    max-width: 944px;
     height: 423px;
   }
 }
 /*#endregion */
+
+@include onDesktop {
+  .firstBanner {
+    width: 100%;
+    max-width: 944px;
+  }
+}
