@@ -20,7 +20,8 @@ $circle-size: 80px;
   height: $circle-size;
   border-radius: 50%;
   position: absolute;
-  animation: moveX 4s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
+  animation: moveX 4s linear 0s infinite alternate, 
+    moveY 6.8s linear 0s infinite alternate;
 }
 
 .dog {
@@ -33,26 +34,47 @@ $circle-size: 80px;
 }
 
 @keyframes moveX {
-  from { left: 0px; } to { left: calc($loader-width - $circle-size); }
+  from { 
+    left: 0px; 
+  } 
+  to { 
+    left: calc($loader-width - $circle-size); 
+  }
 }
 
 @keyframes moveY {
-  from { top: 0px; } to { top: calc($loader-height - $circle-size); }
+  from { 
+    top: 0px; 
+  } 
+  to { 
+    top: calc($loader-height - $circle-size); 
+  }
 }
 
 @media screen and (max-width: 744px) {
   .circle {
     width: 60px;
     height: 60px;
-    animation: moveX 2s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+    animation: moveX 2s linear 0s infinite alternate, 
+      moveY 3.4s linear 0s infinite alternate;
   }
 
   @keyframes moveX {
-    from { left: 0px; } to { left: calc($loader-width - 60px); }
+    from { 
+      left: 0px; 
+    } 
+    to { 
+      left: calc($loader-width - 60px); 
+    }
   }
   
   @keyframes moveY {
-    from { top: 0px; } to { top: calc($loader-height - 60px); }
+    from {
+       top: 0px; 
+      } 
+      to { 
+        top: calc($loader-height - 60px); 
+      }
   }
 }
 
@@ -60,14 +82,25 @@ $circle-size: 80px;
   .circle {
     width: 40px;
     height: 40px;
-    animation: moveX 1s linear 0s infinite alternate, moveY 1.7s linear 0s infinite alternate;
+    animation: moveX 1s linear 0s infinite alternate, 
+      moveY 1.7s linear 0s infinite alternate;
   }
 
   @keyframes moveX {
-    from { left: 0px; } to { left: calc($loader-width - 40px); }
+    from { 
+      left: 0px; 
+    }
+    to { 
+      left: calc($loader-width - 40px); 
+    }
   }
   
   @keyframes moveY {
-    from { top: 0px; } to { top: calc($loader-height - 40px); }
+    from { 
+      top: 0px; 
+    } 
+    to { 
+      top: calc($loader-height - 40px); 
+    }
   }
 }
