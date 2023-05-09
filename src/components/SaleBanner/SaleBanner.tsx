@@ -2,6 +2,7 @@ import React from 'react';
 import saleBanner from './SaleBanner.module.scss';
 import { Button } from '../Button';
 import rock from '../../images/rock.svg';
+import { Link } from 'react-router-dom';
 
 export const SaleBanner: React.FC = () => {
 
@@ -16,13 +17,13 @@ export const SaleBanner: React.FC = () => {
           SALE
         </h2>
 
-        <div className={saleBanner.button}>
+        <Link to='category/phones' className={saleBanner.button}>
           <Button 
             text='Shop Now' 
             type='secondary' 
             size='large'
           />
-        </div>
+        </Link>
       </div>
 
       <div className={saleBanner.bannerWhite}>
