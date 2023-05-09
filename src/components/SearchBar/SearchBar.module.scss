@@ -1,0 +1,43 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 24px;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: $color-black;
+
+
+  @include onTablets {
+    height: 36px;
+
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.searchField {
+  background-color: $color-black;
+  color: $color-light;
+  border: none;
+
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 10px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $color-grey;
+  }
+
+  @include onTablets {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
