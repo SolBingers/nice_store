@@ -1,0 +1,89 @@
+@import '../../styles/main.scss';
+
+.footer {
+  height: 48px;
+  width: 100%;
+  background-color: $color-black;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+
+  position:sticky;
+  bottom:24px;
+}
+.logo {
+  height: 21px;
+}
+
+.text {
+  color: $color-grey;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.text:active, .text:hover {
+  color: #F6F6F7;
+}
+
+
+.solBingers {
+  color: $color-primary;
+}
+
+.gitLink {
+  margin-right: 16px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+
+  color: $color-grey;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.links a {
+  color: $color-grey;
+}
+
+.links :active, .links :hover {
+  color: $color-hover-primary;
+}
+
+@include onTablets {
+  .footer {
+    height: 72px;
+    border-radius: 6px;
+    padding: 24px 36px;
+  
+  }
+
+  .logo {
+    height: 24px;
+  }
+
+  .text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .links {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .gitLink {
+    margin-right: 20px;
+  }
+}
+
+@include onDesktop {
+  .footer {
+    padding: 24px 40px;
+  }
+}
