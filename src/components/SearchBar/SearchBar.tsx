@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import searchBar from './SearchBar.module.scss';
+import { ReactComponent as Lens } from '../../images/lens.svg';
 
 export const SearchBar: FC = () => {
   return (
@@ -9,7 +10,9 @@ export const SearchBar: FC = () => {
         placeholder="Search on website..." 
         className={searchBar.searchField}
       />
-      <div>Prism</div>
+      <button className={searchBar.lensButton}>
+        <Lens />
+      </button>
     </div>
   );
 };

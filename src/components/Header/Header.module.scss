@@ -35,3 +35,24 @@
     line-height: 24px;
   }
 }
+
+.searchBar {
+  max-width: 400px;
+}
+
+.burgerButton {
+  background-color: $color-semi-dark;
+  border: none;
+}
+
+.burgerImage:hover * {
+  stroke: $color-light;
+}
+
+.favourites:hover * {
+  stroke: $color-primary;
+}
+
+.cart:hover * {
+  fill: $color-primary;
+}

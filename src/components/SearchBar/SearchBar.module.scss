@@ -10,12 +10,15 @@
   border-radius: 6px;
   background-color: $color-black;
 
-
   @include onTablets {
     height: 36px;
 
     font-size: 12px;
     line-height: 15px;
+  }
+
+  &:hover * {
+    fill: $color-light;
   }
 }
 
@@ -40,4 +43,9 @@
     font-size: 12px;
     line-height: 15px;
   }
+}
+
+.lensButton {
+  background-color: $color-black;
+  border: none;
 }

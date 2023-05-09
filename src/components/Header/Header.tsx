@@ -2,6 +2,9 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import header from './Header.module.scss';
 import { SearchBar } from '../SearchBar';
+import { ReactComponent as Burger } from '../../images/burger.svg';
+import { ReactComponent as Favourites } from '../../images/favourites.svg';
+import { ReactComponent as Cart } from '../../images/cart.svg';
 
 export const Header: FC = () => {
   return (
@@ -10,7 +13,9 @@ export const Header: FC = () => {
         <Link to="/" className={header.homeLink}>
           N🤝ce
         </Link>
-        <div>burger</div>
+        <button className={header.burgerButton}>
+          <Burger className={header.burgerImage} />
+        </button>
       </div>
 
       <div className={header.section}>
@@ -18,8 +23,8 @@ export const Header: FC = () => {
       </div>
 
       <div className={header.section}>
-        <div>like</div>
-        <div>cart</div>
+        <Favourites className={header.favourites} />
+        <Cart className={header.cart} />
       </div>
     </header>
   );
