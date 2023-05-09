@@ -40,30 +40,6 @@
   }
 }
 
-.searchBarSection {
-  display: block;
-  position: absolute;
-  left: 15px;
-  right: 15px;
-  z-index: 1;
-  transform: translateY(-40px);
-
-  transition: all 0.3s ease-out;
-
-  @include onTablets {
-    position: static;
-    transform: translateY(0);
-  }
-}
-
-.searchBarSection_showed {
-  transform: translateY(30px);
-
-  @include onTablets {
-    transform: translateY(0);
-  }
-}
-
 .homeLink {
   font-weight: 700;
   font-size: 16px;
@@ -98,14 +74,4 @@
 
 .cart:hover * {
   fill: $color-primary;
-}
-
-.lensButton {
-  @include onTablets {
-    display: none;
-  }
-}
-
-.lens:hover * {
-  fill: $color-light;
 }
