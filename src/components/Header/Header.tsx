@@ -8,10 +8,6 @@ import { ReactComponent as Cart } from '../../images/cart.svg';
 import { ReactComponent as Lens } from '../../images/lens.svg';
 import classNames from 'classnames';
 
-const ModalSearch: FC = () => {
-  return (<h1>Hi</h1>);
-};
-
 export const Header: FC = () => {
   const [isModalSearchShowed, changeIsModalSearchShowed] = useState(false);
 
