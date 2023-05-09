@@ -2,19 +2,25 @@
 @import '../../styles/utils/mixins';
 
 .searchBar {
-  display: flex;
+  display: none;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
   height: 24px;
   padding: 8px;
   border-radius: 6px;
   background-color: $color-black;
-
+  
   @include onTablets {
     height: 36px;
+    width: 310px;
 
     font-size: 12px;
     line-height: 15px;
+  }
+
+  @include onTablets {
+    display: flex;
   }
 
   &:hover * {

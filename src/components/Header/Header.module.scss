@@ -1,6 +1,22 @@
 @import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
+.button {
+  background-color: $color-semi-dark;
+  border: none;
+  padding: 0;
+}
+
+.icon {
+  height: 16px;
+  width: 16px;
+
+  @include onTablets {
+    height: 20px;
+    width: 20xp;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -29,6 +45,7 @@
   font-size: 16px;
   line-height: 19.5px;
   color: $color-light;
+  text-transform: uppercase;
 
   @include onTablets {
     font-size: 20px;
@@ -36,17 +53,19 @@
   }
 }
 
-.searchBar {
-  max-width: 400px;
-}
-
 .burgerButton {
-  background-color: $color-semi-dark;
-  border: none;
+  @include onDesktop {
+    display: none;
+  }
 }
 
 .burgerImage:hover * {
   stroke: $color-light;
+}
+
+.favourites {
+  height: 18px;
+  width: 18px;
 }
 
 .favourites:hover * {
@@ -55,4 +74,14 @@
 
 .cart:hover * {
   fill: $color-primary;
+}
+
+.lensButton {
+  @include onTablets {
+    display: none;
+  }
+}
+
+.lens:hover * {
+  fill: $color-light;
 }
