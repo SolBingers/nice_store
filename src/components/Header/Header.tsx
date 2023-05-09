@@ -1,10 +1,9 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import header from './Header.module.scss';
 import { ReactComponent as Burger } from '../../images/burger.svg';
 import { ReactComponent as Favourites } from '../../images/favourites.svg';
 import { ReactComponent as Cart } from '../../images/cart.svg';
-import { ReactComponent as Lens } from '../../images/lens.svg';
 import classNames from 'classnames';
 
 export const Header: FC = () => {
