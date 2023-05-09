@@ -13,38 +13,67 @@ export const Categories: FC = () => {
         <div className={styles.categories__title}>
           Categories
         </div>
+
         <button 
           onClick={() => setIsClosed(!isClosed)}
           className={classNames(
             styles.categories__input, 
-            isClosed ? styles.rotate : null,
+            {
+              [styles.rotate]: isClosed,
+            }
           )} 
         />
       </div>
       {!isClosed && (
         <div className={styles.categories__dropdown}>
           <NavLink 
-            className={styles.categories__customLink} 
-            to="/Phones" 
-            title="Phones" 
+            className={({ isActive }) => classNames(
+              styles.categories__customLink,
+              {
+                [styles.activeLink]: isActive,
+              },
+            )} 
+            to="/#/phones"
+            onClick={(e) => {
+              e.preventDefault();
+              console.log('NavLink clicked 1');
+            }} 
           >
             Phones
-          </NavLink>  
+          </NavLink> 
+
           <NavLink
-            className={styles.categories__customLink} 
-            to="/Tablets" 
-            title="Tablets" 
+            className={({ isActive }) => classNames(
+              styles.categories__customLink,
+              {
+                [styles.activeLink]: isActive,
+              },
+            )}  
+            to="/#/tablets" 
+            onClick={(e) => {
+              e.preventDefault();
+              console.log('NavLink clicked 2');
+            }} 
           >
             Tablets
           </NavLink>  
+
           <NavLink
-            className={styles.categories__customLink}
-            to="/Accessories" 
-            title="Accessories"
+            className={({ isActive }) => classNames(
+              styles.categories__customLink,
+              {
+                [styles.activeLink]: isActive,
+              },
+            )} 
+            to="/#/Accessories" 
+            onClick={(e) => {
+              e.preventDefault();
+              console.log('NavLink clicked 3');
+            }}
           >
             Accessories
           </NavLink>
- 
+
           <div className={styles.categories__rights}>
             All rights reserved.
           </div>
