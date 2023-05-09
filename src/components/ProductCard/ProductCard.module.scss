@@ -1,0 +1,153 @@
+@import '../../styles/utils/variables';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $color-semi-dark;
+
+  padding: 0 0 12px 0;
+  width: 230px;
+  height: 374px;
+
+  transition: box-shadow 0.3s, border-radius 0.3s, border 0.3s;
+
+  &:hover {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+  }
+
+  border-radius: 8px;
+}
+
+.icon {
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+  height: 185px;
+  width: 185px;
+}
+
+.heart {
+  fill: none;
+
+  &:hover {
+    fill: $color-primary
+  }
+}
+
+.iconContainer {
+  display: flex;
+  position: absolute;
+  padding: 8px 0 0 8px ;
+}
+
+.iconBackground {
+  display: block;
+  justify-content: center;
+  height: 186px;
+
+  transition: box-shadow 0.3s, border-radius 0.3s, border 0.3s;
+  background-color: $color-light;
+  border-radius: 8px;
+}
+
+.card:hover > .iconBackground {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.title {
+  margin-bottom: 8px;
+  min-height: 42px;
+  display: flex;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.link {
+  color: $color-light;
+}
+
+.prices {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  position: relative;
+  margin-right: 8px;
+
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 30px;
+
+  color: $color-primary;
+
+  &::before {
+    content: '$';
+  }
+}
+
+.priceBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.fullPrice {
+  font-weight: 500;
+  font-size: 17px;
+  text-decoration-line: line-through;
+  color: $color-grey;
+
+  &::before {
+    content: '$';
+  }
+}
+
+.breakLine {
+  margin-bottom: 12px;
+  width: 100%;
+
+  border: 1px solid $color-grey;
+}
+
+.name {
+  display: flex;
+}
+
+.features {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  display: flex;
+  justify-self: end;
+}
+
+.names {
+  font-size: 12px;
+  line-height: 15px;
+
+  color: $color-grey;
+}
+
+.chars {
+  text-align: end;
+
+  color: $color-light;
+  font-size: 15px;
+  line-height: 16px;
+}
+
+.info {
+  margin-bottom: 8px;
+}
+
+.infoContainer {
+  padding: 12px 12px 0 12px;
+}

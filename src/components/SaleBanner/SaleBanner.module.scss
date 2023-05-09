@@ -1,0 +1,152 @@
+@import  '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+
+.saleBanner {
+  display: flex;
+  flex-direction: column;
+}
+
+.bannerBlack {
+  border-radius: 8px;
+  height: 374px;
+  background-color: $color-black;
+}
+
+.big {
+  color: $color-primary;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+
+  margin-top: 43px;
+}
+
+.sale {
+  color: $color-primary;
+  font-weight: 300;
+  font-size: 96px;
+  line-height: 117px;
+  text-align: center;
+
+  margin-top: 10px;
+}
+
+.button {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.bannerWhite {
+  border-radius: 8px;
+  height: 374px;
+  background-color: #F6F6F7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rock {
+  height: 148px;
+  width: 148px;
+  margin-top: 67px;
+}
+
+.saleInfo {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: $color-black;
+
+  margin-top: 85px;
+}
+
+.yellowBold {
+  color: $color-primary;
+  font-weight: bold;
+}
+
+@include onTablets {
+  .saleBanner {
+    flex-direction: row;
+  }
+
+  .bannerBlack {
+    width: 50%;
+    border-radius: 6px;
+    height: 523px;
+  }
+
+  .big {
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 59px;
+  
+    margin-top: 125px;
+  }
+
+  .button {
+    margin-top: 45px;
+  }
+
+  .bannerWhite {
+    width: 50%;
+    border-radius: 6px;
+    height: 523px;
+  }
+
+  .rock {
+    height: 200px;
+    width: 200px;
+    margin-top: 141px;
+  }
+
+  .saleInfo {
+    margin-top: 95px;
+  }
+}
+
+@include onDesktop {
+  .bannerBlack {
+    border-radius: 8px;
+    height: 582px;
+  }
+
+  .big {
+    font-weight: 300;
+    font-size: 70px;
+    line-height: 85px;
+      
+    margin-top: 125px;
+  }
+
+  .sale {
+    font-weight: 300;
+    font-size: 150px;
+    line-height: 183px;
+  
+    margin-top: 0;
+  }
+
+  button {
+    margin-top: 25px;
+  }
+
+  .bannerWhite {
+    border-radius: 8px;
+    height: 582px;
+  }
+
+  .rock {
+    height: 240px;
+    width: 240px;
+    margin-top: 169px;
+  }
+
+  .saleInfo {
+    margin-top: 101px;
+  }
+}
