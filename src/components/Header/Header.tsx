@@ -8,12 +8,6 @@ import { ReactComponent as Lens } from '../../images/lens.svg';
 import classNames from 'classnames';
 
 export const Header: FC = () => {
-  const [isModalSearchShowed, changeIsModalSearchShowed] = useState(false);
-
-  const handleLenseClick = () => {
-    changeIsModalSearchShowed(state => !state);
-  };
-
   return (
     <>
       <header className={header.header}>
