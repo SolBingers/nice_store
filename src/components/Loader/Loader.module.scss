@@ -1,0 +1,106 @@
+@import '../../styles/utils/variables';
+
+$loader-width: 100%;
+$loader-height: 100%;
+$circle-size: 80px;
+
+.loader {
+  position: relative;
+  margin: 0 auto;
+  width: $loader-width;
+  height: $loader-height;
+  background-color: #2D2D2F;
+}
+
+.circle {
+  background-color: $color-primary;
+  box-shadow: inset -5px -5px 5px #191919b3, 15px 15px 2px #191919b3;
+  display: block;
+  width: $circle-size;
+  height: $circle-size;
+  border-radius: 50%;
+  position: absolute;
+  animation: moveX 4s linear 0s infinite alternate, 
+    moveY 6.8s linear 0s infinite alternate;
+}
+
+.dog {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+@keyframes moveX {
+  from { 
+    left: 0px; 
+  } 
+  to { 
+    left: calc($loader-width - $circle-size); 
+  }
+}
+
+@keyframes moveY {
+  from { 
+    top: 0px; 
+  } 
+  to { 
+    top: calc($loader-height - $circle-size); 
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .circle {
+    width: 60px;
+    height: 60px;
+    animation: moveX 2s linear 0s infinite alternate, 
+      moveY 3.4s linear 0s infinite alternate;
+  }
+
+  @keyframes moveX {
+    from { 
+      left: 0px; 
+    } 
+    to { 
+      left: calc($loader-width - 60px); 
+    }
+  }
+  
+  @keyframes moveY {
+    from {
+       top: 0px; 
+      } 
+      to { 
+        top: calc($loader-height - 60px); 
+      }
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .circle {
+    width: 40px;
+    height: 40px;
+    animation: moveX 1s linear 0s infinite alternate, 
+      moveY 1.7s linear 0s infinite alternate;
+  }
+
+  @keyframes moveX {
+    from { 
+      left: 0px; 
+    }
+    to { 
+      left: calc($loader-width - 40px); 
+    }
+  }
+  
+  @keyframes moveY {
+    from { 
+      top: 0px; 
+    } 
+    to { 
+      top: calc($loader-height - 40px); 
+    }
+  }
+}
