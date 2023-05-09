@@ -7,18 +7,11 @@ import { CategoryPage } from './pages/CategoryPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { ContactsPage } from './pages/ContactsPage';
 import { ItemPage } from './pages/ItemPage';
-import { Footer } from './components/Footer';
-import { SaleBanner } from './components/SaleBanner';
-import { Loader } from './components/Loader';
 
 
 export const App: FC = () => {
   return (
     <div className="App">
-      <div style={{height: '400px'}}>
-        <Loader/>
-      </div>
-      <SaleBanner/>
       <Routes>
         <Route path='/' element={<HomePage />} />
 
@@ -33,7 +26,6 @@ export const App: FC = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      <Footer />
     </div>
   );
 };
