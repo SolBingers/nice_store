@@ -1,0 +1,77 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.button {
+  background-color: $color-semi-dark;
+  border: none;
+  padding: 0;
+}
+
+.icon {
+  height: 16px;
+  width: 16px;
+
+  @include onTablets {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  padding: 16px;
+
+  @include onTablets {
+    height: 96px;
+    padding: 32px;
+  }
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @include onTablets {
+    gap: 24px;
+  }
+}
+
+.homeLink {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19.5px;
+  color: $color-light;
+  text-transform: uppercase;
+
+  @include onTablets {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.burgerButton {
+  @include onDesktop {
+    display: none;
+  }
+}
+
+.burgerImage:hover * {
+  stroke: $color-light;
+}
+
+.favourites {
+  height: 18px;
+  width: 18px;
+}
+
+.favourites:hover * {
+  stroke: $color-primary;
+}
+
+.cart:hover * {
+  fill: $color-primary;
+}
