@@ -1,4 +1,4 @@
-@import '../../styles/main.scss';
+@import '../../styles/utils/variables';
 
 $loader-width: 100%;
 $loader-height: 100%;
@@ -17,27 +17,26 @@ $circle-size: 80px;
   width: $loader-width;
   height: $loader-height;
   background-color: #2D2D2F;
+}
 
-  &_circle {
-    background-color: $color-primary;
-    box-shadow: inset -5px -5px 5px $color-black, 15px 15px 2px $color-black;
-    display: block;
-    width: $circle-size;
-    height: $circle-size;
-    border-radius: 50%;
-    position: absolute;
-    animation: moveX 4s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
-  }
+.circle {
+  background-color: $color-primary;
+  box-shadow: inset -5px -5px 5px $color-black, 15px 15px 2px $color-black;
+  display: block;
+  width: $circle-size;
+  height: $circle-size;
+  border-radius: 50%;
+  position: absolute;
+  animation: moveX 4s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
+}
 
-  &_dog {
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-
+.dog {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 @keyframes moveX {
@@ -49,7 +48,7 @@ $circle-size: 80px;
 }
 
 @media screen and (max-width: 744px) {
-  .loader_circle {
+  .circle {
     width: 60px;
     height: 60px;
     animation: moveX 2s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
@@ -65,7 +64,7 @@ $circle-size: 80px;
 }
 
 @media screen and (max-width: 428px) {
-  .loader_circle {
+  .circle {
     width: 40px;
     height: 40px;
     animation: moveX 1s linear 0s infinite alternate, moveY 1.7s linear 0s infinite alternate;
