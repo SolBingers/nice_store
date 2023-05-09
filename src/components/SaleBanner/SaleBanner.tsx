@@ -1,7 +1,7 @@
 import React from 'react';
 import saleBanner from './SaleBanner.module.scss';
 import { Button } from '../Button';
-import rock from '../../images/rock.svg';
+import rock from '../../images/rock.png';
 import { Link } from 'react-router-dom';
 
 export const SaleBanner: React.FC = () => {
