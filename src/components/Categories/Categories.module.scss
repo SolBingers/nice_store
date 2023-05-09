@@ -1,0 +1,70 @@
+@import '../../styles/utils/variables';
+
+.categories {
+  background-color: #191919;
+  border-radius: 6px;
+  width: 304px;
+
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 35px;
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    background-image: url('../../images/categories_button.svg');
+    background-size: cover;
+    width: 14px;
+    height: 8px;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .rotate {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  
+  &__dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 35px 25px;
+    height: 320px;
+  }
+
+  .invisible {
+    display: none;
+  }
+  
+  &__customLink {
+    color: $color-grey;
+    text-decoration: none;
+    padding: 6px 0px;
+  }
+
+  &__rights {
+    padding-top: 80%;
+    align-self: flex-end;
+    text-decoration-line: underline;
+    color: #576067;
+  }
+}
