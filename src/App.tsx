@@ -12,7 +12,6 @@ import { Loader } from './components/Loader';
 export const App: FC = () => {
   return (
     <div className="App">
-      <Loader/>
       <Routes>
         <Route path='/' element={<HomePage />} />
 
