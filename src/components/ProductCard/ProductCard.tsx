@@ -20,9 +20,9 @@ export const ProductCard: React.FC = () => (
 
     <div className={card.infoContainer}>
       <h3 className={card.title}>
-        <a href='/' className={card.link}>
-        Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
-        </a>
+        <div className={card.link}>
+          Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
+        </div>
       </h3>
 
       <p className={card.breakLine}></p>
