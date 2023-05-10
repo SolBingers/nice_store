@@ -10,7 +10,7 @@ $circle-size: 40px;
   margin: 0 auto;
   width: $loader-width;
   height: $loader-height;
-  background-color: #2D2D2F;
+  background-color: #2d2d2f;
 }
 
 .circle {
@@ -21,8 +21,8 @@ $circle-size: 40px;
   height: $circle-size;
   border-radius: 50%;
   position: absolute;
-  animation: moveX 1s linear 0s infinite alternate, 
-  moveY 1.7s linear 0s infinite alternate;
+  animation: moveX 1s linear 0s infinite alternate,
+    moveY 1.7s linear 0s infinite alternate;
 }
 
 .dog {
@@ -31,52 +31,51 @@ $circle-size: 40px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
-
 @keyframes moveX {
-  from { 
-    left: 0px; 
+  from {
+    left: 0px;
   }
-  to { 
-    left: calc($loader-width - $circle-size); 
+  to {
+    left: calc($loader-width - $circle-size);
   }
 }
 
 @keyframes moveY {
-  from { 
-    top: 0px; 
-  } 
-  to { 
-    top: calc($loader-height - $circle-size); 
+  from {
+    top: 0px;
+  }
+  to {
+    top: calc($loader-height - $circle-size);
   }
 }
 
-@include onTablets {
+@include onTablet {
   .circle {
     width: 60px;
     height: 60px;
-    animation: moveX 2s linear 0s infinite alternate, 
+    animation: moveX 2s linear 0s infinite alternate,
       moveY 3.4s linear 0s infinite alternate;
   }
 
   @keyframes moveX {
-    from { 
-      left: 0px; 
-    } 
-    to { 
-      left: calc($loader-width - 60px); 
+    from {
+      left: 0px;
+    }
+    to {
+      left: calc($loader-width - 60px);
     }
   }
-  
+
   @keyframes moveY {
     from {
-       top: 0px; 
-      } 
-      to { 
-        top: calc($loader-height - 60px); 
-      }
+      top: 0px;
+    }
+    to {
+      top: calc($loader-height - 60px);
+    }
   }
 }
 
@@ -84,25 +83,25 @@ $circle-size: 40px;
   .circle {
     width: 80px;
     height: 80px;
-    animation: moveX 4s linear 0s infinite alternate, 
+    animation: moveX 4s linear 0s infinite alternate,
       moveY 6.8s linear 0s infinite alternate;
   }
 
   @keyframes moveX {
-    from { 
-      left: 0px; 
-    } 
-    to { 
-      left: calc($loader-width - 80px); 
+    from {
+      left: 0px;
+    }
+    to {
+      left: calc($loader-width - 80px);
     }
   }
-  
+
   @keyframes moveY {
     from {
-       top: 0px; 
-      } 
-      to { 
-        top: calc($loader-height - 80px); 
-      }
+      top: 0px;
+    }
+    to {
+      top: calc($loader-height - 80px);
+    }
   }
 }
