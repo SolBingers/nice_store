@@ -5,7 +5,7 @@ import homePage from './HomePage.module.scss';
 import { ProductList } from '../../components/ProductList';
 import { CategoryBlock } from '../../components/CategoryBlock';
 import { SaleBanner } from '../../components/SaleBanner';
-import phones from '../../phones.json';
+import phones from '../../phonesForTest.json';
 
 export const HomePage: FC = () => (
   <main className={homePage.main}>
