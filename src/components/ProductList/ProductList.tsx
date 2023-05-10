@@ -4,26 +4,23 @@ import { Button } from '../Button';
 import { ProductCard } from '../ProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper';
-//import { Product } from '../types';
+import { Phone } from '../types/types';
 
 import 'swiper/css';
 import 'swiper/css/scrollbar';
+import { Link } from 'react-router-dom';
 
 type ProductListProps = {
   title: string;
-  //products: Product[];
+  products: Phone[];
 };
 
-export const ProductList: FC<ProductListProps> = ({ title }) => {
+export const ProductList: FC<ProductListProps> = ({ title, products }) => {
   return (
     <section className={productList.productList}>
       <h2 className={productList.title}>
         {title}
       </h2>
-
-      {/* {products.map((product) => (
-        <ProductCard product={product} key={product.id} />
-      ))} */}
 
       <Swiper
         freeMode={true}
@@ -55,51 +52,22 @@ export const ProductList: FC<ProductListProps> = ({ title }) => {
           }
         }}
       >
-        <SwiperSlide className={productList.swiper}>
-          <div className={productList.item}>
-            <ProductCard />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide className={productList.swiper}>
-          <div className={productList.item}>
-            <ProductCard />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide className={productList.swiper}>
-          <div className={productList.item}>
-            <ProductCard />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide className={productList.swiper}>
-          <div className={productList.item}>
-            <ProductCard />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide className={productList.swiper}>
-          <div className={productList.item}>
-            <ProductCard />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide className={productList.swiper}>
-          <div className={productList.item}>
-            <ProductCard />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide className={productList.swiper}>
-          <div className={productList.item}>
-            <ProductCard />
-          </div>
-        </SwiperSlide>
+        {products.map((product) => (
+          <SwiperSlide key={product.id}>
+            <ProductCard phone={product} />
+          </SwiperSlide>
+        ))}
 
       </Swiper>
 
-      <Button text={'Shop Now'} size={'large'} type={'secondary'} />
+      <Link to='category/phones'>
+        <Button
+          text={'Shop Now'}
+          size={'large'}
+          type={'secondary'}
+        />
+      </Link>
+
     </section >
   );
 };
