@@ -9,9 +9,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px;
-
-  position:sticky;
-  bottom:24px;
 }
 .logo {
   height: 21px;
@@ -45,10 +42,6 @@
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
-}
-
-.links a {
-  color: $color-grey;
 }
 
 .links :active, .links :hover {
