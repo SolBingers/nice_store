@@ -1,0 +1,73 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.title {
+  color: $color-grey;
+  padding-left: 6px;
+  font-weight: 400;
+}
+
+.main {
+  font-weight: 400;
+  width: 200px;
+  position: relative;
+  user-select: none;
+}
+
+.arrow {
+  stroke: $color-semi-dark;
+  transition: all 0.3s;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $color-semi-dark;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: $color-grey;
+
+    & svg {
+      stroke: $color-grey;
+    }
+
+    & .isActive {
+      stroke: $color-light;
+    }
+  }
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  top: 105%;
+  border-radius: 8px;
+  border: 1px solid $color-grey;
+  padding: 6px 0;
+  border-color: $color-light;
+}
+
+.item {
+  transition: all 0.3s;
+  padding: 0 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-semi-dark;
+  }
+}
+
+.isActive {
+  border-color: $color-light;
+  stroke: $color-light;
+
+  &:hover {
+    border-color: $color-light;
+    stroke: $color-light;
+  }
+}
