@@ -1,0 +1,38 @@
+@import '../../styles/main.scss';
+
+$card-width: 230px;
+
+.list {
+  background-color: $color-black;
+
+  justify-content: center;
+
+  display: grid;
+  row-gap: 24px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@include onTablet {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, $card-width);
+
+    column-gap: 64px;
+
+    row-gap: 32px;
+  }
+}
+
+@include onDesktop {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, $card-width);
+
+    column-gap: 69px;
+  }
+}

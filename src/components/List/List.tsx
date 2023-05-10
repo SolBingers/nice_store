@@ -1,10 +1,20 @@
 import React from 'react';
 import listStyle from './List.module.scss';
+import { ProductCard } from '../ProductCard';
+import { Phone } from '../types/types';
 
-export const List: React.FC = () => {
-  return (
-    <div className={listStyle.container}>
+type Props = {
+  products: Phone[]
+}
 
-    </div>
-  );
-};
+export const List: React.FC<Props> = ({ products }) => (
+  <div className={listStyle.list}>
+    {products.map(product => (
+      <div className={listStyle.card} key={product.id}>
+        <ProductCard
+          phone={product}
+        />
+      </div>
+    ))}
+  </div>
+);
