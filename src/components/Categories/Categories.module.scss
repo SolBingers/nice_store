@@ -1,10 +1,15 @@
 @import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
 
 .categories {
+  display: none;
   background-color: #191919;
   border-radius: 6px;
   width: 304px;
 
+  @include onDesktop {
+    display: block;
+  }
 
   &__header {
     display: flex;
@@ -40,7 +45,7 @@
     transform: translateY(-50%) rotate(180deg);
   }
 
-  
+
   &__dropdown {
     display: flex;
     flex-direction: column;
@@ -54,7 +59,7 @@
   .invisible {
     display: none;
   }
-  
+
   &__customLink {
     color: $color-grey;
     text-decoration: none;
@@ -88,5 +93,11 @@
     align-self: flex-end;
     text-decoration-line: underline;
     color: #576067;
+  }
+}
+
+@include onDesktop {
+  .categories {
+    display: block;
   }
 }

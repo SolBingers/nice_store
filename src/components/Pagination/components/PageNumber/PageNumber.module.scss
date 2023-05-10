@@ -1,0 +1,30 @@
+@import '../../../../styles/utils/variables';
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: $color-semi-dark;
+  color: $color-grey;
+
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-light;
+  }
+}
+
+.active {
+  background-color: $color-primary;
+  color: $color-light;
+}

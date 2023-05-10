@@ -42,9 +42,9 @@ export const ProductCard: FC<Props> = ({ phone }) => {
 
         <div className={card.features}>
           <div className={card.names}>
-            <p className={card.info}>screen</p>
-            <p className={card.info}>capacity</p>
-            <p className={card.info}>ram</p>
+            <p className={card.info}>Screen</p>
+            <p className={card.info}>Capacity</p>
+            <p className={card.info}>Ram</p>
           </div>
 
           <div className={card.chars}>

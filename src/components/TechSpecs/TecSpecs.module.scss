@@ -1,0 +1,51 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.container {
+  background-color: $color-black;
+  width: 100%;
+  border-radius: 8px;
+  padding: 24px;
+
+  @include onDesktop {
+    width: 460px;
+  }
+}
+
+.title {
+  margin-bottom: 32px;
+  font-size: 20px;
+}
+
+.specContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  color: $color-grey;
+}
+
+.specs {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+
+  color: $color-light;
+}
+
+.name,
+.specs {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.info:not(:last-child) {
+  margin-bottom: 14px;
+}
+
