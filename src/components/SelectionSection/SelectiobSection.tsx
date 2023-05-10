@@ -1,6 +1,7 @@
 import React from 'react';
 import selection from './SeleectionSection.module.scss';
 import { Button } from '../Button';
+import classNames from 'classnames';
 
 export const SelectionSection: React.FC = () => {
   return (
@@ -10,26 +11,44 @@ export const SelectionSection: React.FC = () => {
       </div>
 
       <div className={selection.colorSelect}>
-        <div className={selection.colorText}>
+        <div className={selection.selectText}>
           Color
         </div>
 
         <div className={selection.colors}>
-          <div className={selection.color}></div>
+          <div className={classNames(
+            selection.color,
+            selection.colorActive,
+          )} style={{backgroundColor: '#FCDBC1'}}></div>
 
-          <div className={selection.color}></div>
+          <div className={selection.color} style={{backgroundColor: '#5F7170'}}></div>
+
+          <div className={selection.color} style={{backgroundColor: '#4C4C4C'}}></div>
+
+          <div className={selection.color} style={{backgroundColor: '#F0F0F0'}}></div>
         </div>
       </div>
 
       <div className={selection.capacitySelect}>
-        <div className={selection.capacityText}>
+        <div className={selection.selectText}>
           Capacity
         </div>
 
         <div className={selection.capacitys}>
-          <div className={selection.capacity}></div>
+          <div className={classNames(
+            selection.capacity,
+            selection.capacityActive,
+          )}>
+            64GB
+          </div>
           
-          <div className={selection.capacity}></div>
+          <div className={selection.capacity}>
+            256GB
+          </div>
+
+          <div className={selection.capacity}>
+            512GB
+          </div>
         </div>
       </div>
 
@@ -43,7 +62,9 @@ export const SelectionSection: React.FC = () => {
         </div>
       </div>
 
-      <Button text='Shop Now' type='primary' size='small' />
+      <div className={selection.button}>
+        <Button text='Shop Now' type='primary' size='small' />
+      </div>
     </div>
   );
 };
