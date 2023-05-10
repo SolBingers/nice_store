@@ -2,6 +2,7 @@ import React from 'react';
 import selection from './SeleectionSection.module.scss';
 import { Button } from '../Button';
 import classNames from 'classnames';
+import { Color } from '../Color';
 
 export const SelectionSection: React.FC = () => {
   return (
@@ -16,16 +17,14 @@ export const SelectionSection: React.FC = () => {
         </div>
 
         <div className={selection.colors}>
-          <div className={classNames(
-            selection.color,
-            selection.colorActive,
-          )} style={{backgroundColor: '#FCDBC1'}}></div>
+          <Color color='#5F7170' isActive={true} />
 
-          <div className={selection.color} style={{backgroundColor: '#5F7170'}}></div>
+          <Color color='#5F7157' />
 
-          <div className={selection.color} style={{backgroundColor: '#4C4C4C'}}></div>
+          <Color color='#5F7112' />
 
-          <div className={selection.color} style={{backgroundColor: '#F0F0F0'}}></div>
+          <Color color='#5F7187' />
+
         </div>
       </div>
 
