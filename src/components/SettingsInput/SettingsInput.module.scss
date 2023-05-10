@@ -24,6 +24,7 @@
   }
 
   &:focus {
+    color: $color-light;
     border-color: $color-light;
   }
 }
