@@ -44,7 +44,7 @@
   }
 }
 
-@include onTablets {
+@include onTablet {
   .firstSlide {
     height: 333px;
 
@@ -120,7 +120,7 @@
   }
 }
 
-@include onTablets {
+@include onTablet {
   .secondSlide {
     height: 333px;
 
@@ -167,7 +167,7 @@
   }
 }
 
-@include onTablets {
+@include onTablet {
   .thirdSlide {
     height: 333px;
 
@@ -193,8 +193,6 @@
   .firstBanner {
     width: 100%;
     max-width: 944px;
-
-
   }
 }
 
@@ -212,7 +210,7 @@
   }
 }
 
-@include onTablets {
+@include onTablet {
   .mySwiper {
     :global(.swiper-pagination-bullet) {
       width: 15px;

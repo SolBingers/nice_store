@@ -10,17 +10,19 @@ import categoryAccessories from '../../images/categories/categoryAccessories.png
 
 export const CategoryBlock: FC = () => (
   <section className={categoryBlock.container}>
-    <div className={classNames(
-      grids.grid,
-      grids.tablet,
-      grids.desktop
-    )}>
-      <div className={classNames(
-        grids.item,
-        grids.item__tablet_1_8,
-        grids.item__desktop_1_8
-      )
-      }>
+    <div className={
+      classNames(
+        grids.grid,
+        grids.tablet,
+        grids.desktop,
+        categoryBlock.cards
+      )}>
+      <div className={
+        classNames(
+          grids.item,
+          grids.item__tablet_1_8,
+          grids.item__desktop_1_8
+        )}>
         <Link to="categories/phones">
           <CategoryCard
             imageUrl={categoryPhones}
@@ -31,12 +33,12 @@ export const CategoryBlock: FC = () => (
         </Link>
       </div>
 
-      <div className={classNames(
-        grids.item,
-        grids.item__tablet_1_8,
-        grids.item__desktop_9_16
-      )
-      }>
+      <div className={
+        classNames(
+          grids.item,
+          grids.item__tablet_1_8,
+          grids.item__desktop_9_16
+        )}>
         <Link to="categories/tablets">
           <CategoryCard
             imageUrl={categoryTablets}
@@ -47,12 +49,12 @@ export const CategoryBlock: FC = () => (
         </Link>
       </div>
 
-      <div className={classNames(
-        grids.item,
-        grids.item__tablet_1_8,
-        grids.item__desktop_17_24
-      )
-      }>
+      <div className={
+        classNames(
+          grids.item,
+          grids.item__tablet_1_8,
+          grids.item__desktop_17_24
+        )}>
         <Link to='categories/accessories'>
           <CategoryCard
             imageUrl={categoryAccessories}

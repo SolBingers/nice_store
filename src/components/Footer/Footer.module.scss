@@ -48,7 +48,7 @@
   color: $color-hover-primary;
 }
 
-@include onTablets {
+@include onTablet {
   .footer {
     height: 72px;
     border-radius: 6px;

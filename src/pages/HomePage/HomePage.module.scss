@@ -1,15 +1,48 @@
 @import '../../styles/utils/mixins';
 
-.intro {
+.main {
   display: block;
+  max-width: 1440px;
+
+  @include onDesktop {
+    padding: 0 69px;
+  }
 }
+
+
 
 @include onDesktop {
   .intro {
     display: flex;
     gap: 5px;
-    padding: 0 69px;
 
     justify-content: space-between;
   }
+}
+
+.container {
+  @include onDesktop {
+    display: flex;
+    flex-direction: column;
+    max-width: 1312px;
+    margin: 0 auto;
+  }
+}
+
+.banner {
+  align-self: flex-end;
+}
+
+.slider {
+  @include onDesktop {
+    max-width: 100%;
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+  }
+}
+
+.productList,
+.saleBanner {
+  padding-bottom: 24px;
 }

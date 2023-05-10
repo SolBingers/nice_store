@@ -44,7 +44,7 @@
     color: $color-light;
     text-transform: uppercase;
   
-    @include onTablets {
+    @include onTablet {
       font-size: 20px;
       line-height: 24px;
     }
@@ -65,7 +65,7 @@
     filter: brightness(100%);
     transition: filter 0.3s ease-in-out;
 
-    @include onTablets {
+    @include onTablet {
       width: 24px;
       height: 24px;
     }
