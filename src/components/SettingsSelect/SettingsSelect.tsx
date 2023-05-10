@@ -19,6 +19,7 @@ export const SettingsSelect: FC<Props> = ({
   setSelected,
 }) => {
   const [isActive, setIsActive] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(selected);
 
   const handleBtnClick = () => {
     setIsActive((state) => !state);
@@ -26,6 +27,7 @@ export const SettingsSelect: FC<Props> = ({
 
   const handleSelection = (option: string) => {
     setSelected(option);
+    setSelectedOption(option);
     setIsActive(false);
   };
 
@@ -40,7 +42,7 @@ export const SettingsSelect: FC<Props> = ({
           })}
           onClick={handleBtnClick}
         >
-          <span>{selected}</span>
+          <span>{selectedOption}</span>
           <Arrow
             className={classNames(settingsSelect.arrow, {
               [settingsSelect.isActive]: isActive,
