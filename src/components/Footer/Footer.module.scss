@@ -19,6 +19,7 @@
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
+  margin-left: 10px;
 }
 
 .text:active, .text:hover {
@@ -48,12 +49,12 @@
   color: $color-hover-primary;
 }
 
-@include onTablets {
+@include onTablet {
   .footer {
     height: 72px;
     border-radius: 6px;
     padding: 24px 36px;
-  
+
   }
 
   .logo {
