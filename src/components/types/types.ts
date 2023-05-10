@@ -14,6 +14,16 @@ export interface Phone {
   image: string;
 }
 
+export interface Person {
+  photo: string;
+  fullName: string;
+  Tl: boolean;
+  linkedInLink: string;
+  gitHubLink: string;
+  cvLink: string;
+  responsibilities: string[];
+} 
+
 export interface description {
   title: string;
   text: string[];
@@ -39,3 +49,4 @@ export interface PhoneSpec {
   zoom: string;
   cell: string[];
 }
+
