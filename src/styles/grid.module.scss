@@ -1,0 +1,54 @@
+@import './utils/mixins';
+
+.grid {
+  display: grid;
+  column-gap: 16px;
+
+  @include onTablet {
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 24px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(24, 1fr);
+    column-gap: 54px;
+  }
+}
+
+.desktop {
+  display: block;
+
+  @include onDesktop {
+    display: grid;
+  }
+}
+
+.tablet {
+  display: block;
+
+  @include onTablet {
+    display: grid;
+  }
+}
+
+.item {
+  @for $start from 1 through 8 {
+    @for $end from $start through 8 {
+      &__tablet_#{$start}_#{$end} {
+        @include onTablet {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+
+  @for $start from 1 through 24 {
+    @for $end from $start through 24 {
+      &__desktop_#{$start}_#{$end} {
+        @include onDesktop {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}

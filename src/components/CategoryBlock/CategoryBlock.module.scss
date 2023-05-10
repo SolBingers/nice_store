@@ -1,0 +1,13 @@
+@import '../../styles/utils/mixins';
+
+.container {
+  padding: 0 15px 0 15px;
+
+  @include onTablet {
+    padding: 0 173px 0 173px;
+  }
+
+  @include onDesktop {
+    padding: 0 70px 0 70px;
+  }
+}
