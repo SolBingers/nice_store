@@ -1,30 +1,81 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import {
+  Navigation,
+  EffectFade,
+  Pagination,
+  Autoplay,
+} from 'swiper';
+import { Button } from '../Button';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+import mobileSlide2 from '../../images/firstBanner/secondSlide.png';
 import firstBanner from './FirstBanner.module.scss';
-// import mobileSlide2 from '../../images/firstBanner/secondSlide.png';
 
 export const FirstBanner: React.FC = () => {
   return (
     <div className={firstBanner.firstBanner}>
-      <div className={firstBanner.firstSlide}>
-        <div className={firstBanner.firstSlideContent}>
-          <h2 className={firstBanner.firstSlideTitle}>the best choice of 2023</h2>
-          <p className={firstBanner.firstSlideProduct}>Iphone 11</p>
-          <p className={firstBanner.firstSlideInfo}>Still fast. Still unique. Still one of the best.</p>
-        </div>
-      </div>
+      <Swiper
+        modules={[
+          Navigation,
+          EffectFade,
+          Pagination,
+          Autoplay,
+        ]}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
 
-      {/* <div className={firstBanner.secondSlide}>
-        <div className={firstBanner.secondSlideContent}>
-          <h2 className={firstBanner.secondSlideTitle}>Now availible in our store</h2>
-          <p className={firstBanner.secondSlidInfo}>Be the first!</p>
-        </div>
-        <img className={firstBanner.secondSlideImg} src={mobileSlide2} alt="" />
-      </div> */}
+        }}
+        effect={'fade'}
+        speed={600}
+        loop
+        className={firstBanner.mySwiper}
+      >
+        <SwiperSlide className={firstBanner.swiperSlide}>
+          <div className={firstBanner.firstSlide}>
+            <div className={firstBanner.firstSlide__content}>
+              <h2 className={firstBanner.firstSlide__title}>the best choice of 2023</h2>
+              <p className={firstBanner.firstSlide__product}>Iphone 11</p>
+              <p className={firstBanner.firstSlide__info}>Still fast. Still unique. Still one of the best.</p>
 
-      {/* <div className={firstBanner.thirdSlide}>
-        <h2 className={firstBanner.thirdSlideTitle}>CHOOSE WHATEVER YOU WANT</h2>
-        <p className={firstBanner.thirdSlideInfo}>IPad Air</p>
-      </div> */}
+              <Button
+                text={'Shop Now'}
+                size={'small'}
+                type={'primary'}
+              />
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className={firstBanner.secondSlide}>
+            <div className={firstBanner.secondSlide__content}>
+              <h2 className={firstBanner.secondSlide__title}>Now availible in our store</h2>
+              <p className={firstBanner.secondSlide__info}>Be the first!</p>
+
+              <Button
+                text={'Shop Now'}
+                size={'small'}
+                type={'primary'}
+              />
+            </div>
+            <img className={firstBanner.secondSlide__img} src={mobileSlide2} alt="" />
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className={firstBanner.thirdSlide}>
+            <h2 className={firstBanner.thirdSlide__title}>CHOOSE WHATEVER YOU WANT</h2>
+            <p className={firstBanner.thirdSlide__info}>IPad Air</p>
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 };

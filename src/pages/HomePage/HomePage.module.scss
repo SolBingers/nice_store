@@ -7,7 +7,9 @@
 @include onDesktop {
   .intro {
     display: flex;
+    gap: 5px;
     padding: 0 69px;
+
     justify-content: space-between;
   }
 }
