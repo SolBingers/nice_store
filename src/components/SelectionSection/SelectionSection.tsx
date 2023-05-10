@@ -35,7 +35,7 @@ export const SelectionSection: React.FC<Props> = ({
         </div>
 
         <div className={selection.colors}>
-          {aviableColors?.map(col => ( 
+          {aviableColors.map(col => ( 
             <Color 
               color={col} 
               isActive={selectedColor === col} 

@@ -1,1 +1,1 @@
-export * from './SelectiobSection';
+export * from './SelectionSection';

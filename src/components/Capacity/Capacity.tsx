@@ -8,11 +8,10 @@ type Props = {
   isActive?: boolean;
 }
 
-export const Capacity:React.FC<Props> = (
-  {
-    capacity,
-    isActive,
-  }
+export const Capacity:React.FC<Props> = ({
+  capacity,
+  isActive,
+}
 ) => (
   <Link 
     to='/'  
@@ -22,6 +21,6 @@ export const Capacity:React.FC<Props> = (
         [capacityStyles.capacityActive] : isActive 
       }
     )}>
-    {`${capacity}GB`}
+    {`${capacity} GB`}
   </Link>
 );

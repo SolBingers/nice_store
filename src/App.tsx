@@ -8,7 +8,6 @@ import { FavouritesPage } from './pages/FavouritesPage';
 import { ContactsPage } from './pages/ContactsPage';
 import { ItemPage } from './pages/ItemPage';
 
-
 export const App: FC = () => {
   return (
     <div className="App">
@@ -26,7 +25,6 @@ export const App: FC = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      
     </div>
   );
 };

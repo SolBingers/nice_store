@@ -8,11 +8,10 @@ type Props = {
   isActive?: boolean,
 }
 
-export const Color: React.FC<Props> = ( 
-  {
-    color,
-    isActive, 
-  }) => (
+export const Color: React.FC<Props> = ({
+  color,
+  isActive, 
+}) => (
   <Link 
     to='/' 
     className={classNames(
@@ -20,7 +19,7 @@ export const Color: React.FC<Props> = (
       {
         [colorStyles.colorActive]: isActive,
       }
-    )} style={{backgroundColor: `${color}`}}>
-  </Link>
+    )} style={{backgroundColor: `${color}`}}
+  />
 );
 
