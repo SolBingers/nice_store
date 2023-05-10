@@ -1,0 +1,42 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.productList {
+  max-width: 1312px;
+  margin: 0 auto;
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-black;
+  padding: 14px 15px 22px;
+
+  @include onTablets {
+    padding: 25px 36px 30px 36px;
+  }
+}
+
+.title {
+  margin-bottom: 14px;
+  font-size: 16px;
+  line-height: 20px;
+
+  @include onTablets {
+    margin-bottom: 25px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 14px;
+  width: 100%;
+
+  @include onTablets {
+    margin-bottom: 25px;
+  }
+}

@@ -1,0 +1,73 @@
+@import '../../styles/main.scss';
+
+.selectiobSection {
+  background-color: $color-black;
+}
+
+.productName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.selectText {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: $color-grey;
+
+  margin-top: 16px;
+}
+
+.colors {
+  display: flex;
+
+  margin-top: 9px;
+}
+
+.capacitys {
+  display: flex;
+}
+
+
+.prices {
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+}
+
+.newPrice {
+  margin-right: 8px;
+
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.oldPrice {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: $color-grey;
+
+  text-decoration-line: line-through;
+}
+
+.button {
+  margin-top: 16px;
+}
+
+@include onDesktop {
+  .productName {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .prices {
+    margin-top: 24px;
+  }
+
+  .button {
+    margin-top: 13px;
+  }
+}

@@ -2,10 +2,14 @@
 @import '../../styles/utils/mixins';
 
 .categories {
+  display: none;
   background-color: #191919;
   border-radius: 6px;
   width: 304px;
-  display: none;
+
+  @include onDesktop {
+    display: block;
+  }
 
   &__header {
     display: flex;
