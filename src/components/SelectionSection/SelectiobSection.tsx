@@ -36,7 +36,11 @@ export const SelectionSection: React.FC<Props> = ({
 
         <div className={selection.colors}>
           {aviableColors?.map(col => ( 
-            <Color color={col} isActive={selectedColor === col} key={col}/> 
+            <Color 
+              color={col} 
+              isActive={selectedColor === col} 
+              key={col}
+            /> 
           ))}
 
         </div>
@@ -49,7 +53,11 @@ export const SelectionSection: React.FC<Props> = ({
 
         <div className={selection.capacitys}>
           {aviableCapacities.map(cap => (
-            <Capacity capacity={cap} isActive={selectedCapacity === cap} key={cap}/>
+            <Capacity 
+              capacity={cap} 
+              isActive={selectedCapacity === cap} 
+              key={cap}
+            />
           ))}
   
         </div>
