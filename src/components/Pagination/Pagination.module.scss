@@ -1,0 +1,10 @@
+@import '../../styles/utils/variables';
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 236px;
+  user-select: none;
+}
+
