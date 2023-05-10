@@ -13,13 +13,14 @@ export const Color: React.FC<Props> = (
     color,
     isActive, 
   }) => (
-  <Link to='/' className={classNames(
-    colorStyles.color,
-    {
-      [colorStyles.colorActive]: isActive,
-    }
-  )} style={{backgroundColor: `${color}`}}>
-
+  <Link 
+    to='/' 
+    className={classNames(
+      colorStyles.color,
+      {
+        [colorStyles.colorActive]: isActive,
+      }
+    )} style={{backgroundColor: `${color}`}}>
   </Link>
 );
 

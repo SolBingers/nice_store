@@ -29,35 +29,6 @@
   display: flex;
 }
 
-.capacity {
-  margin-top: 14px;
-
-  padding: 6px;
-
-  border-radius: 8px;
-  border: 1px solid $color-semi-dark;
-
-  background-color: $color-semi-dark;
-
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-
-  &:not(:last-child) {
-    margin-right: 8px;
-  }
-
-  &:hover {
-    border: 1px solid;
-    background-color: $color-black;
-  }
-
-  &Active {
-    border: 1px solid;
-    background-color: $color-black;
-  }
-
-}
 
 .prices {
   margin-top: 20px;

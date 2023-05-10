@@ -1,8 +1,8 @@
 import React from 'react';
 import selection from './SeleectionSection.module.scss';
 import { Button } from '../Button';
-import classNames from 'classnames';
 import { Color } from '../Color';
+import { Capacity } from '../Capacity/Capacity';
 
 export const SelectionSection: React.FC = () => {
   return (
@@ -34,20 +34,13 @@ export const SelectionSection: React.FC = () => {
         </div>
 
         <div className={selection.capacitys}>
-          <div className={classNames(
-            selection.capacity,
-            selection.capacityActive,
-          )}>
-            64GB
-          </div>
-          
-          <div className={selection.capacity}>
-            256GB
-          </div>
 
-          <div className={selection.capacity}>
-            512GB
-          </div>
+          <Capacity capacity='64GB' isActive={true}/>
+
+          <Capacity capacity='256GB'/>
+
+          <Capacity capacity='512GB'/>
+  
         </div>
       </div>
 
