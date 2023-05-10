@@ -12,8 +12,9 @@ import { Footer } from './components/Footer';
 
 export const App: FC = () => {
   return (
-    <div className="App">
+    <div className="app">
       <Header />
+
       <Routes>
         <Route path='/' element={<HomePage />} />
 
