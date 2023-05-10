@@ -26,6 +26,7 @@ export const App: FC = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      
     </div>
   );
 };

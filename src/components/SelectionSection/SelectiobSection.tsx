@@ -4,11 +4,29 @@ import { Button } from '../Button';
 import { Color } from '../Color';
 import { Capacity } from '../Capacity/Capacity';
 
-export const SelectionSection: React.FC = () => {
+type Props = {
+  name: string;
+  price: number;
+  fullPrice: number;
+  aviableColors: string[],
+  aviableCapacities: number[],
+  selectedColor: string,
+  selectedCapacity: number,
+}
+
+export const SelectionSection: React.FC<Props> = ({
+  name,
+  price,
+  fullPrice,
+  aviableColors,
+  aviableCapacities,
+  selectedColor,
+  selectedCapacity,
+}) => {
   return (
     <div className={selection.selectiobSection}>
       <div className={selection.productName}>
-        Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
+        {name}
       </div>
 
       <div className={selection.colorSelect}>
@@ -17,13 +35,9 @@ export const SelectionSection: React.FC = () => {
         </div>
 
         <div className={selection.colors}>
-          <Color color='#5F7170' isActive={true} />
-
-          <Color color='#5F7157' />
-
-          <Color color='#5F7112' />
-
-          <Color color='#5F7187' />
+          {aviableColors?.map(col => ( 
+            <Color color={col} isActive={selectedColor === col} key={col}/> 
+          ))}
 
         </div>
       </div>
@@ -34,23 +48,20 @@ export const SelectionSection: React.FC = () => {
         </div>
 
         <div className={selection.capacitys}>
-
-          <Capacity capacity='64GB' isActive={true}/>
-
-          <Capacity capacity='256GB'/>
-
-          <Capacity capacity='512GB'/>
+          {aviableCapacities.map(cap => (
+            <Capacity capacity={cap} isActive={selectedCapacity === cap} key={cap}/>
+          ))}
   
         </div>
       </div>
 
       <div className={selection.prices}>
         <div className={selection.newPrice}>
-          1199$
+          {`${price}$`}
         </div>
 
         <div className={selection.oldPrice}>
-          599$
+          {`${fullPrice}$`}
         </div>
       </div>
 
