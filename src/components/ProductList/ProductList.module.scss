@@ -12,7 +12,7 @@
   background-color: $color-black;
   padding: 14px 15px 22px;
 
-  @include onTablets {
+  @include onTablet {
     padding: 25px 36px 30px 36px;
   }
 }
@@ -22,7 +22,7 @@
   font-size: 16px;
   line-height: 20px;
 
-  @include onTablets {
+  @include onTablet {
     margin-bottom: 25px;
     font-size: 20px;
     line-height: 24px;
@@ -36,7 +36,7 @@
   margin-bottom: 14px;
   width: 100%;
 
-  @include onTablets {
+  @include onTablet {
     margin-bottom: 25px;
   }
 }
