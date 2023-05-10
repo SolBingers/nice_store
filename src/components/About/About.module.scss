@@ -1,0 +1,30 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 8px;
+  width: 100%;
+  padding: 24px;
+
+  background-color: $color-black;
+
+  @include onDesktop {
+    max-width: 430px;
+  }
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.description :not(:last-child) {
+  margin-bottom: 17px;
+}
+
+.text  {
+  font-weight: 400;
+  font-size: 12px;
+}

@@ -69,7 +69,7 @@
   font-weight: bold;
 }
 
-@include onTablets {
+@include onTablet {
   .saleBanner {
     flex-direction: row;
   }
