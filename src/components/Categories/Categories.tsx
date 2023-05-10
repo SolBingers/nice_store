@@ -25,7 +25,7 @@ export const Categories: FC = () => {
         />
       </div>
       {!isClosed && (
-        <div className={styles.categories__dropdown}>
+        <nav className={styles.categories__dropdown}>
           <NavLink 
             className={({ isActive }) => classNames(
               styles.categories__customLink,
@@ -65,7 +65,7 @@ export const Categories: FC = () => {
           <div className={styles.categories__rights}>
             All rights reserved.
           </div>
-        </div>
+        </nav>
       )}
     </div>
   );
