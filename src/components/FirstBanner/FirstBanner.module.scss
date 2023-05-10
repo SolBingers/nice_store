@@ -1,0 +1,229 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+/*#region firstSlide*/
+.firstSlide {
+  height: 190px;
+  background: url(../../images/firstBanner/firstSlide.jpg) center, no-repeat;
+  background-size: cover;
+
+  &__content {
+  padding: 28px 0 45px 24px;
+  }
+
+  &__title {
+    margin-bottom: 4px;
+
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: $color-semi-dark;
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+
+  &__product {
+    margin-bottom: 6px;
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: $color-black;
+    text-transform: uppercase;
+  }
+
+  &__info {
+    margin-bottom: 6px;
+
+    display: block;
+    width: 200px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: $color-black;
+  }
+}
+
+@include onTablets {
+  .firstSlide {
+    height: 333px;
+
+    &__content {
+    padding: 75px 0 76px 45px;
+    }
+
+    &__title {
+      margin-bottom: 4px;
+
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    &__product {
+      font-size: 42px;
+      line-height: 51px;
+    }
+
+    &__info {
+      width: 308px;
+      margin-bottom: 14px;
+
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+}
+
+@include onDesktop {
+  .firstSlide {
+    height: 426px;
+
+    &__content {
+      padding: 120px 0 125px 45px;
+    }
+  }
+}
+/*#endregion */
+
+/*#region secondSlide*/
+.secondSlide {
+  height: 190px;
+  display: flex;
+  background-color: $color-black;
+
+  &__content {
+    width: 40%;
+    padding: 28px 20px 28px 24px;
+  }
+
+  &__title {
+    margin-bottom: 6px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: $color-light;
+    text-transform: uppercase;
+  }
+
+  &__info {
+    margin-bottom: 15px;
+
+    font-weight: 400;
+    font-size: 10px;
+    color: $color-light;
+  }
+
+  &__img {
+    display: block;
+    width: 60%;
+  }
+}
+
+@include onTablets {
+  .secondSlide {
+    height: 333px;
+
+    &__content {
+    padding-top: 82px;
+    }
+
+    &__title {
+      font-size: 25px;
+      line-height: 30px;
+    }
+
+    &__info {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@include onDesktop {
+  .secondSlide {
+  height: 426px;
+  }
+}
+/*#endregion */
+
+/*#region thirdSlide*/
+.thirdSlide {
+  text-align: center;
+  height: 190px;
+  background: url(../../images/firstBanner/thirdSlide.jpg) center, no-repeat;
+  background-size: cover;
+
+  &__title {
+    font-weight: 700;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: $color-black
+  }
+
+  &__info {
+    font-size: 13px;
+    font-weight: 400;
+    color: $color-black;
+  }
+}
+
+@include onTablets {
+  .thirdSlide {
+    height: 333px;
+
+    &__title {
+    font-size: 36px;
+    }
+
+    &__info {
+    font-size: 20px;
+
+    }
+  }
+}
+
+@include onDesktop {
+  .thirdSlide {
+    height: 426px;
+  }
+}
+/*#endregion */
+
+@include onDesktop {
+  .firstBanner {
+    width: 100%;
+    max-width: 944px;
+
+
+  }
+}
+
+/*#region Swiper*/
+.mySwiper {
+  :global(.swiper-pagination-bullet) {
+    width: 10px;
+    height: 10px;
+    background: $color-grey;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background-color: $color-primary;
+    border: 1px solid $color-black;
+  }
+}
+
+@include onTablets {
+  .mySwiper {
+    :global(.swiper-pagination-bullet) {
+      width: 15px;
+      height: 15px;
+      background: $color-grey;
+    }
+
+    :global(.swiper-pagination-bullet-active) {
+      background-color: $color-primary;
+      border: 1px solid $color-black;
+    }
+  }
+}
+/*#endregion */

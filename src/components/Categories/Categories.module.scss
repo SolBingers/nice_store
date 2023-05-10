@@ -45,7 +45,7 @@
     transform: translateY(-50%) rotate(180deg);
   }
 
-  
+
   &__dropdown {
     display: flex;
     flex-direction: column;
@@ -59,7 +59,7 @@
   .invisible {
     display: none;
   }
-  
+
   &__customLink {
     color: $color-grey;
     text-decoration: none;
@@ -93,5 +93,11 @@
     align-self: flex-end;
     text-decoration-line: underline;
     color: #576067;
+  }
+}
+
+@include onDesktop {
+  .categories {
+    display: block;
   }
 }
