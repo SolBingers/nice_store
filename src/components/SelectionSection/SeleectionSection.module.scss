@@ -174,3 +174,18 @@
 .button {
   margin-top: 16px;
 }
+
+@include onDesktop {
+  .productName {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .prices {
+    margin-top: 24px;
+  }
+
+  .button {
+    margin-top: 13px;
+  }
+}
