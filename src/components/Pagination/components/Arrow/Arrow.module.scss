@@ -1,0 +1,39 @@
+@import '../../../../styles/utils/variables';
+@import '../../../../styles/utils/mixins';
+
+.arrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-semi-dark;
+
+  width: 32px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  & svg {
+    stroke: $color-grey;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+
+    & svg {
+      stroke: $color-light;
+    }
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+
+  &:hover {
+    background-color: $color-semi-dark;
+
+    & svg {
+      stroke: $color-grey;
+    }
+  }
+}
