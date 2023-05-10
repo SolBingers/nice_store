@@ -1,0 +1,24 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.input {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 14px;
+  padding: 12px;
+  outline: none;
+  color: $color-grey;
+  background-color: transparent;
+  border: 1px solid $color-semi-dark;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.title {
+  padding-left: 8px;
+  color: $color-grey;
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 14px;
+}
