@@ -6,7 +6,6 @@
   justify-content: space-between;
   background-color: $color-semi-dark;
 
-  padding: 0 0 12px 0;
   width: 230px;
   height: 374px;
 
@@ -30,6 +29,7 @@
 
 .heart {
   fill: none;
+  cursor: pointer;
 
   &:hover {
     fill: $color-primary
@@ -93,6 +93,7 @@
 .priceBar {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 
@@ -149,5 +150,5 @@
 }
 
 .infoContainer {
-  padding: 12px 12px 0 12px;
+  padding: 12px;
 }

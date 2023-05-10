@@ -1,0 +1,43 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+
+.container {
+  margin: 0 auto;
+  max-width: 400px;
+  cursor: pointer;
+}
+
+.cardContainer {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.photo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+
+  transition: transform 0.7s;
+
+  @include onDesktop {
+    max-width: 400px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.link {
+  color: $color-light;
+}
+
+.name {
+  line-height: 26px;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 16px 0 16px 0;
+}
