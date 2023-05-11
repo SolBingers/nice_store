@@ -16,11 +16,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 274px;
 
   @include onTablet {
     flex-direction: column;
-    width: 375px;
   }
 }
 
