@@ -1,0 +1,76 @@
+@import '../../styles/main.scss';
+
+.modal {
+  overflow: hidden;
+  background-color: $color-semi-dark;
+  border-radius: 8px;
+
+  position: sticky;
+  z-index: 2;
+  display: inline-block;
+
+  transform: scale(0);
+
+  padding: 24px;
+}
+
+.modalOpen {
+  display: block;
+  transform: scale(1);
+}
+
+.closeModal {
+  background: url('../../images/cross.svg');
+  height: 13px;
+  width: 13px;
+  cursor: pointer;
+  border: none;
+
+  display: none;
+}
+
+.blur {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $color-black;
+  opacity: 70%;
+}
+
+.blur__visible {
+  display: block;
+}
+
+.modalTitle {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+
+  margin-bottom: 24px;
+}
+
+.modalCard:not(:last-child) {
+  margin-bottom: 14px;
+}
+
+.cardInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 18px;
+}
+
+.totalPrice {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: $color-grey;
+}
+
+.price {
+  color: #F6F6F7;
+}

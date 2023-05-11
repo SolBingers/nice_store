@@ -7,9 +7,10 @@ import classNames from 'classnames';
 
 type Props = {
   productItem: Product,
-  onRemove: () => void,
-  onIncrese: () => void,
-  onDecrease: () => void, 
+  className?: string,
+  onRemove?: () => void,
+  onIncrese?: () => void,
+  onDecrease?: () => void, 
 }
 
 export const ProductItem: React.FC<Props> = ({
@@ -17,6 +18,7 @@ export const ProductItem: React.FC<Props> = ({
   onRemove,
   onIncrese,
   onDecrease,
+  className,
 }) => {
   const {
     image,
@@ -29,7 +31,10 @@ export const ProductItem: React.FC<Props> = ({
   const isDisabledPlus = count === 9;
 
   return (
-    <div className={productItemStyle.container}>
+    <div className={classNames(
+      productItemStyle.container,
+      className
+    )}>
       <div className={productItemStyle.header}>
         <div className={productItemStyle.imageContainer} >
           <img 
