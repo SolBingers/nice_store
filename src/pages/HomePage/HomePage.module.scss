@@ -1,12 +1,8 @@
 @import '../../styles/utils/mixins';
 
 .main {
-  max-width: 1262px;
+  max-width: 1304px;
   margin: 0 auto;
-
-  @include onDesktop {
-    padding: 0 20px;
-  }
 }
 
 @include onDesktop {

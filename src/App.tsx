@@ -13,7 +13,7 @@ import styles from './App.module.scss';
 
 export const App: FC = () => {
   return (
-    <div className="App">
+    <div className={styles.app}>
       <Header className={styles.header} />
 
       <main className={styles.main} >
