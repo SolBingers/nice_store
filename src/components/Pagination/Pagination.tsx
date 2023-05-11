@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import pagination from './Pagination.module.scss';
 import { Arrow } from './components/Arrow';
 import { PageNumber } from './components/PageNumber/PageNumber';
