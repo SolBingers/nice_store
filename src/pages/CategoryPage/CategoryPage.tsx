@@ -1,17 +1,24 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-import styles from './CategoryPage.module.scss';
 import { SettingsInput } from '../../components/SettingsInput';
 import { SettingsSelect } from '../../components/SettingsSelect';
+import classNames from 'classnames';
+import styles from './CategoryPage.module.scss';
+import { List } from '../../components/List';
+import phones from '../../phonesForTest.json';
+import { Categories } from '../../components/Categories';
+import { Pagination } from '../../components/Pagination';
 
-export const CategoryPage: FC = () => {
+type Props = {
+  className?: string;
+}
+
+export const CategoryPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
 
   return (
-    <div className={styles.main}>
-      <Header className={styles.header} />
+    <main className={classNames(className, styles.main)}>
+      <Categories />
 
       <div className={styles.content}>
         <p className={styles.title}>
@@ -19,17 +26,38 @@ export const CategoryPage: FC = () => {
         </p>
 
         <div className={styles.settings}>
-          <SettingsInput title="Product name" />
+          <SettingsInput 
+            className={styles.input}
+            title="Product name" 
+          />
+
           <SettingsSelect 
+            className={styles.select}
             title="Sort by"
             options={['Newest', 'Oldest']}
             selected = 'Newest'
             setSelected={() => {return;}}
           />
-        </div>
-      </div>
 
-      <Footer className={styles.footer} />
-    </div>
+          <SettingsSelect 
+            className={styles.select}
+            title="Items per page"
+            options={['8', '16', '24', '32']}
+            selected = '8'
+            setSelected={() => {return;}}
+          />
+        </div>
+
+        <List 
+          className={styles.list}
+          products={phones} 
+        />
+
+        <Pagination
+          className={styles.pagination}
+          currentPage={1} 
+        />
+      </div>
+    </main>
   );
 };

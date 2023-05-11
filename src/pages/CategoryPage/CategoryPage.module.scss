@@ -3,16 +3,9 @@
 
 .main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header {
-  width: 100%;
-}
-
-.footer {
-  max-width: 1280px;
+  align-items: start;
+  justify-content: center;
+  gap: 40px;
 }
 
 .content {
@@ -21,7 +14,7 @@
   align-items: center;
 
   width: 100%;
-  max-width: 1280px;
+  max-width: 960px;
 
   background-color: $color-black;
   border-radius: 8px;
@@ -29,14 +22,36 @@
 
 .title {
   display: block;
-  padding: 24px;
+  padding: 24px 24px 0;
+  margin-bottom: 24px;
   text-transform: capitalize;
+}
+
+.input {
+  width: 240px;
 }
 
 .settings {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 230px;
+  flex-wrap: wrap;
+  padding: 0 24px;
+  gap: 16px;
+  width: 100%;
+  max-width: 872px;
+  margin-bottom: 24px;
 }
 
+.select {
+  width: 140px;
+}
+
+.list,
+.pagination
+{
+  margin-bottom: 24px;
+
+  @include onTablet {
+    margin-bottom: 32px;
+  }
+}
