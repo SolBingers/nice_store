@@ -4,7 +4,7 @@ import { ProductCard } from '../ProductCard';
 import { Phone } from '../types/types';
 import classNames from 'classnames';
 
-type Props = {
+interface Props {
   className?: string;
   products: Phone[];
   favComp?: boolean;
