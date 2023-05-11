@@ -1,0 +1,24 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.about {
+  margin-bottom: 24px;
+}
+
+.productList {
+  margin-bottom: 24px;
+}
+
+@include onDesktop {
+  .itemInfo {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1312px;
+    margin: 0 auto;
+  }
+
+  .techSpecs {
+    margin: 0 0 24px 24px;
+  }
+}
+
