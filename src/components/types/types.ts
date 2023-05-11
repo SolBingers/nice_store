@@ -22,4 +22,14 @@ export interface Person {
   gitHubLink: string;
   cvLink: string;
   responsibilities: string[];
-} 
+}
+
+export interface Product {
+  image: string;
+  title: string;
+  onRemove: () => void;
+  onDecrease: () => void;
+  count: number;
+  onIncrease: () => void;
+  price: number;
+}
