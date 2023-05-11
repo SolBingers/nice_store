@@ -2,13 +2,12 @@ import details from './ProductDetails.module.scss';
 import React, { FC } from 'react';
 import { SelectionSection } from '../SelectionSection';
 import { ProductGallery } from '../ProductGallery/ProductGallery';
-import images from '../../api/gallery.json';
 
 export const ProductDetails: FC = () => {
   return (
     <div className={details.details}>
       <article className={details.gallery}>
-        <ProductGallery images={images.imageList} />
+        <ProductGallery images={[]} />
       </article>
 
       <article className={details.sellection}>
