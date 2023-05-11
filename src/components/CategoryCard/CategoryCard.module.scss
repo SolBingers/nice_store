@@ -42,5 +42,9 @@
 }
 
 .nameContainer {
-  padding: 16px 0 16px 0;
+  padding: 20px 0 20px 0;
+
+  @include onDesktop {
+    padding: 20px 0 0 0;
+  }
 }
