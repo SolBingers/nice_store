@@ -8,14 +8,16 @@ export const FavouritesPage: FC = () => {
 
   return (
     <div className={styles.favorites}>
-      <h1 className={styles.favorites__title}>
+      <div className={styles.favorites__container}>
+        <h1 className={styles.favorites__title}>
         Favorites
-      </h1>
-      <div className={styles.favorites__list}>
-        <List 
-          products={phonesJson}
-          favComp={favComp}
-        />
+        </h1>
+        <div className={styles.favorites__list}>
+          <List 
+            products={phonesJson}
+            favComp={favComp}
+          />
+        </div>
       </div>
     </div>
   );

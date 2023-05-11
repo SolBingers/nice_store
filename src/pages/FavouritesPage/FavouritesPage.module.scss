@@ -1,8 +1,10 @@
 @import '../../styles/main.scss';
 
 .favorites {
-  padding: 0 5%;
+  margin: 0 auto;
+  max-width: 1262px;
   background-color: $color-semi-dark;
+
 
   &__title {
     border-radius: 8px;
@@ -19,18 +21,11 @@
   }
 
   &__list {
-    box-sizing: content-box;
-    padding-bottom: 80px;
     background-color: $color-black;
     border-radius: 10px;
 
     @include onTablet {
       padding-bottom: 24px;
     }
-  }
-
-  &__footer {
-    padding-top: 24px;
-    padding-bottom: 24px;
   }
 }

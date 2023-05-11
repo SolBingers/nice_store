@@ -1,15 +1,5 @@
 @import '../../styles/main.scss';
 
-.container {
-  max-width: 1262px;
-  margin: 0 auto;
-  padding-bottom: 24px;
-
-  @include onDesktop {
-    padding: 0 20px 24px 20px;
-  }
-}
-
 .footer {
   height: 48px;
   width: 100%;
