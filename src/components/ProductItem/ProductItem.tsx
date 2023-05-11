@@ -53,7 +53,7 @@ export const ProductItem: React.FC<Props> = ({
                 [productItemStyle.disabledButton]: isDisabledMinus,
               }
             )}
-            onClick={onIncrese}
+            onClick={onDecrease}
           >
             <img src={minus} alt="minus"/>
           </button>
@@ -69,7 +69,7 @@ export const ProductItem: React.FC<Props> = ({
                 [productItemStyle.disabledButton]: isDisabledPlus,
               }
             )}
-            onClick={onDecrease}
+            onClick={onIncrese}
           >
             <img src={plus} alt="plus" />
           </button>
