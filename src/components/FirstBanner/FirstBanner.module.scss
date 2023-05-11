@@ -8,7 +8,7 @@
   background-size: cover;
 
   &__content {
-  padding: 28px 0 45px 24px;
+    padding: 28px 0 45px 24px;
   }
 
   &__title {
@@ -49,7 +49,7 @@
     height: 333px;
 
     &__content {
-    padding: 75px 0 76px 45px;
+      padding: 75px 0 76px 45px;
     }
 
     &__title {
@@ -125,7 +125,7 @@
     height: 333px;
 
     &__content {
-    padding-top: 82px;
+      padding-top: 82px;
     }
 
     &__title {
@@ -141,7 +141,7 @@
 
 @include onDesktop {
   .secondSlide {
-  height: 426px;
+    height: 426px;
   }
 }
 /*#endregion */
@@ -157,7 +157,7 @@
     font-weight: 700;
     font-size: 17px;
     text-transform: uppercase;
-    color: $color-black
+    color: $color-black;
   }
 
   &__info {
@@ -172,11 +172,11 @@
     height: 333px;
 
     &__title {
-    font-size: 36px;
+      font-size: 36px;
     }
 
     &__info {
-    font-size: 20px;
+      font-size: 20px;
 
     }
   }
