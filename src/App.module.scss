@@ -1,0 +1,18 @@
+@import './styles/utils/mixins';
+
+.header {
+  max-width: 1224px;
+  margin: 0 auto;
+}
+
+.main {
+  max-width: 1304px;
+  margin: 0 auto 24px;
+}
+
+.footer {
+  max-width: 1224px;
+  margin: 0 auto;
+
+  margin-bottom: 24px;
+}
