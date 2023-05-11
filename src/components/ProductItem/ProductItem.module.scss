@@ -1,0 +1,127 @@
+@import '../../styles/main.scss';
+
+button {
+  border: none;
+}
+
+.closeButton {
+	background: url('../../images/cross.svg');
+  height: 13px;
+  width: 13px;
+	border: none;
+	cursor: pointer;
+}
+
+.container {
+  background-color: $color-black;
+  border-radius: 8px;
+
+  padding: 6px 14px 14px 14px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imageContainer {
+  height: 60px;
+  width: 60px;
+  background-color: #C4C4C4;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 14px;
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+
+  margin-right: 20px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 13px;
+}
+
+.productsCounter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.decrease {
+  margin-right: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+  background-color: $color-grey;
+
+  border-radius: 6px;
+
+  transition: all 0.3s linear;
+
+  &:hover {
+    background-color: #6A6A6A;
+  }
+
+  &Active {
+    background-color: #6A6A6A;
+  }
+}
+
+.count {
+  margin-right: 16px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $color-grey;
+}
+
+.increase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+  background-color: $color-primary;
+
+  border-radius: 6px;
+
+  transition: all 0.3s linear;
+
+  &:hover {
+    background-color: $color-hover-primary;
+  }
+
+  &Active {
+    background-color: $color-hover-primary;
+  }
+}
+
+.price {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+}

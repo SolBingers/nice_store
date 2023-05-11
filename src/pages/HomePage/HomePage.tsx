@@ -6,8 +6,6 @@ import homePage from './HomePage.module.scss';
 
 export const HomePage: FC = () => (
   <>
-    <Header />
-
     <div className={homePage.intro}>
       <Categories />
       <FirstBanner />

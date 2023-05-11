@@ -50,3 +50,12 @@ export interface PhoneSpec {
   cell: string[];
 }
 
+export interface Product {
+  image: string;
+  title: string;
+  onRemove: () => void;
+  onDecrease: () => void;
+  count: number;
+  onIncrease: () => void;
+  price: number;
+}
