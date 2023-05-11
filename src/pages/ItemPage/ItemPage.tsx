@@ -9,10 +9,7 @@ import phoneSpec from '../../phoneSpecForTest.json';
 import phone from '../../phonesForTest.json';
 import itemPage from './ItemPage.module.scss';
 
-// import { useParams } from 'react-router-dom';
 export const ItemPage: FC = () => {
-  // const { itemId } = useParams();
-
   return (
     <>
       <div className={itemPage.product}>
