@@ -23,6 +23,5 @@ export const ProductDetails: FC = () => {
       </article>
 
     </div>
-
   );
 };

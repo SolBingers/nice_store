@@ -20,12 +20,13 @@ export const CategoryCard: FC<Props> = ({
         <img src={imageUrl} alt={imageAlt} className={category.photo} />
       </div>
       
-      <div className={category.nameContainer} ></div>
-      <h3 className={category.name}>
-        <a href={categoryLink} className={category.link}>
-          {categoryName}
-        </a>
-      </h3>
+      <div className={category.nameContainer} >
+        <h3 className={category.name}>
+          <a href={categoryLink} className={category.link}>
+            {categoryName}
+          </a>
+        </h3>
+      </div>
     </div>
   );
 };
