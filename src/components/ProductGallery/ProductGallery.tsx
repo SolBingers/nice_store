@@ -26,13 +26,12 @@ export const ProductGallery: FC<ProductGalleryProps> = ({ images }) => {
           return (
             <div
               key={imageId}
-              className={classNames([gallery.imagesContainer], {
+              className={classNames(gallery.imagesContainer, {
                 [gallery.isActive]: image === mainPhoto,
               }
               )}
             >
               <img
-                key={imageId}
                 src={image}
                 alt="phone__image"
                 className={gallery.image}
