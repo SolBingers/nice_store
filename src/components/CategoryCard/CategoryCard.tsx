@@ -19,7 +19,8 @@ export const CategoryCard: FC<Props> = ({
       <div className={category.cardContainer}>
         <img src={imageUrl} alt={imageAlt} className={category.photo} />
       </div>
-
+      
+      <div className={category.nameContainer} ></div>
       <h3 className={category.name}>
         <a href={categoryLink} className={category.link}>
           {categoryName}
