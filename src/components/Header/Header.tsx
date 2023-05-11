@@ -7,23 +7,27 @@ import { ReactComponent as Cart } from '../../images/cart.svg';
 import classNames from 'classnames';
 import { BurgerMenu } from '../BurgerMenu';
 
-export const Header: FC = () => {
+type Props = {
+  className?: string;
+}
+
+export const Header: FC<Props> = ({ className }) => {
   const [isOpened, setIsOpened] = useState(false);
   return (
-    <>
-      <header className={header.header}>
-        <div className={header.section}>
-          <Link to="/" className={header.homeLink}>
-            N🤝ce
-          </Link>
-          <button className={classNames(header.button, header.burgerButton)}>
-            <Burger 
-              className={header.burgerImage} 
-              onClick={() => setIsOpened(true)}
-            />
-          </button>
-        </div>
-
+    <header className={
+      classNames(header.header, className)
+    }>
+      <div className={header.section}>
+        <Link to="/" className={header.homeLink}>
+          N🤝ce
+        </Link>
+        <button className={classNames(header.button, header.burgerButton)}>
+          <Burger 
+            className={header.burgerImage} 
+            onClick={() => setIsOpened(true)}
+          />
+        </button>
+      </div>
         <div className={header.section}>
           <NavLink
             className={({ isActive }) => classNames(
