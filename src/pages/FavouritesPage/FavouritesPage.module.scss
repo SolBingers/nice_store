@@ -1,0 +1,35 @@
+@import '../../styles/main.scss';
+
+.favorites {
+  padding: 0 5%;
+  background-color: $color-semi-dark;
+
+  &__title {
+    text-align: center;
+    padding-top: 24px;
+    padding-bottom: 26px;
+    font-weight: 500;
+    line-height: 20px;
+    background-color: $color-black;
+
+    @include onDesktop {
+      padding-bottom: 36px;
+    }
+  }
+
+  &__list {
+    box-sizing: content-box;
+    padding-bottom: 80px;
+    background-color: $color-black;
+    border-radius: 10px;
+
+    @include onTablet {
+      padding-bottom: 24px;
+    }
+  }
+
+  &__footer {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
