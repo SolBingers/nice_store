@@ -28,7 +28,7 @@ export const ProductList: FC<ProductListProps> = ({ title, products }) => {
         grabCursor={true}
         modules={[FreeMode]}
         className={productList.products}
-        spaceBetween={32}
+        spaceBetween={60}
         breakpoints={{
           490: {
             slidesPerView: 1.9,

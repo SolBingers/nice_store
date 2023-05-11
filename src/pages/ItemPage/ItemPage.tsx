@@ -1,16 +1,33 @@
 import React, { FC } from 'react';
+import { About } from '../../components/About';
+import { TecSpecs } from '../../components/TechSpecs';
+import { ProductList } from '../../components/ProductList';
+import phoneSpec from '../../phoneSpecForTest.json';
+import phone from '../../phonesForTest.json';
+import itemPage from './ItemPage.module.scss';
 // import { useParams } from 'react-router-dom';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-
 export const ItemPage: FC = () => {
   // const { itemId } = useParams();
 
   return (
     <>
-      <Header />
+      <div className={itemPage.itemInfo}>
+        <div className={itemPage.about}>
+          <About phoneSpec={phoneSpec}/>
+        </div>
 
-      <Footer />
+        <div className={itemPage.techSpecs}>
+          <TecSpecs />
+        </div>
+      </div>
+
+      <div className={itemPage.productList}>
+        <ProductList
+          title={'You may also like'}
+          products={phone}
+        />
+      </div>
+
     </>
   );
 };
