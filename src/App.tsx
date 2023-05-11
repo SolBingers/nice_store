@@ -9,19 +9,11 @@ import { ContactsPage } from './pages/ContactsPage';
 import { ItemPage } from './pages/ItemPage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-<<<<<<< HEAD
-=======
-
->>>>>>> 36f7166 (implement component exept categories and product details components)
 
 export const App: FC = () => {
   return (
     <div className="App">
       <Header />
-<<<<<<< HEAD
-=======
-
->>>>>>> 36f7166 (implement component exept categories and product details components)
       <Routes>
         <Route path='/' element={<HomePage />} />
 
@@ -36,12 +28,7 @@ export const App: FC = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-<<<<<<< HEAD
       <Footer/>
-=======
-
-      <Footer />
->>>>>>> 36f7166 (implement component exept categories and product details components)
     </div>
   );
 };
