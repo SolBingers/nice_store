@@ -1,0 +1,81 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include onTablet {
+    flex-direction: row;
+    justify-content: left;
+  }
+}
+
+.images {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 274px;
+
+  @include onTablet {
+    flex-direction: column;
+    width: 375px;
+  }
+}
+
+.mainPhotoContainer {
+  width: 275px;
+  height: 275px;
+  display: flex;
+  justify-content: center;
+
+  @include onTablet {
+    margin-right: 20px;
+    width: 375px;
+    height: 376px;
+  }
+}
+
+.mainImage {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.imagesContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+
+  width: 50px;
+  height: 50px;
+
+  transition: all 0.3s;
+  @include onTablet {
+    margin-top: 0px;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.isActive {
+  display: flex;
+  justify-content: center;
+  transform: translateY(-10px);
+  box-sizing: border-box;
+
+  @include onTablet {
+    transform: translateX(-10px);
+  }
+}
