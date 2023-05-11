@@ -3,21 +3,31 @@ import productItemStyle from './ProductItem.module.scss';
 import { Product } from '../types/types';
 import minus from '../../images/minus.svg';
 import plus from '../../images/Plus.svg';
+import classNames from 'classnames';
 
 type Props = {
   productItem: Product,
+  onRemove?: () => void,
+  onIncrese?: () => void,
+  onDecrease?: () => void, 
 }
 
-export const ProductItem: React.FC<Props> = ({productItem}) => {
-  const  {
+export const ProductItem: React.FC<Props> = ({
+  productItem,
+  onRemove,
+  onIncrese,
+  onDecrease,
+}) => {
+  const {
     image,
     title,
-    onRemove,
-    onDecrease,
     count,
-    onIncrease,
     price,
   } = productItem;
+
+  const isDisabledMinus = count === 1;
+  const isDisabledPlus = count === 9;
+
   return (
     <div className={productItemStyle.container}>
       <div className={productItemStyle.header}>
@@ -32,20 +42,20 @@ export const ProductItem: React.FC<Props> = ({productItem}) => {
         <div className={productItemStyle.title}>
           {title}
         </div>
-
-        <button 
-          className={productItemStyle.closeButton}
-          onClick={onRemove}
-        />
       </div>
 
-      <div className={productItemStyle.info}>
+      <div className={productItemStyle.counterContainer}>
         <div className={productItemStyle.productsCounter}>
           <button 
-            className={productItemStyle.decrease}
-            onClick={onDecrease}
+            className={classNames(
+              productItemStyle.decrease,
+              productItemStyle.countButton, {
+                [productItemStyle.disabledButton]: isDisabledMinus,
+              }
+            )}
+            onClick={onIncrese}
           >
-            <img src={minus} alt="minus" />
+            <img src={minus} alt="minus"/>
           </button>
 
           <div className={productItemStyle.count}>
@@ -53,17 +63,27 @@ export const ProductItem: React.FC<Props> = ({productItem}) => {
           </div>
 
           <button 
-            className={productItemStyle.increase}
-            onClick={onIncrease}
+            className={classNames(
+              productItemStyle.increase,
+              productItemStyle.countButton,{
+                [productItemStyle.disabledButton]: isDisabledPlus,
+              }
+            )}
+            onClick={onDecrease}
           >
             <img src={plus} alt="plus" />
           </button>
         </div>
-
-        <div className={productItemStyle.price}>
-          {`${price}$`}
-        </div>
       </div>
+
+      <div className={productItemStyle.price}>
+        {`${price}$`}
+      </div>
+
+      <button 
+        className={productItemStyle.closeButton}
+        onClick={onRemove}
+      />
     </div>  
   );
 };

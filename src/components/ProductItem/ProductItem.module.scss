@@ -10,6 +10,10 @@ button {
   width: 13px;
 	border: none;
 	cursor: pointer;
+  justify-self: flex-end;
+
+  grid-column: 3;
+  grid-row: 1;
 }
 
 .container {
@@ -17,12 +21,21 @@ button {
   border-radius: 8px;
 
   padding: 6px 14px 14px 14px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3,auto);
+  grid-template-rows: repeat(2,auto);
+
+  row-gap: 13px;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@include onTablet {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .imageContainer {
@@ -51,34 +64,45 @@ button {
   margin-right: 20px;
 }
 
-.info {
+.header {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: space-between;
-
-  margin-top: 13px;
 }
+
+
+.counterContainer {
+  grid-row: 2;
+  grid-column: 1;
+}
+
 
 .productsCounter {
+  max-width: 100px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.decrease {
-  margin-right: 16px;
-
+.countButton {
   display: flex;
   align-items: center;
   justify-content: center;
 
   width: 25px;
   height: 25px;
-  background-color: $color-grey;
 
   border-radius: 6px;
 
   transition: all 0.3s linear;
+}
+
+.decrease {
+  margin-right: 16px;
+
+  background-color: $color-grey;
+
 
   &:hover {
     background-color: #6A6A6A;
@@ -99,17 +123,7 @@ button {
 }
 
 .increase {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 25px;
-  height: 25px;
   background-color: $color-primary;
-
-  border-radius: 6px;
-
-  transition: all 0.3s linear;
 
   &:hover {
     background-color: $color-hover-primary;
@@ -124,4 +138,15 @@ button {
   font-weight: 700;
   font-size: 22px;
   line-height: 27px;
+
+  grid-column: 3;
+
+  justify-self: flex-end;
+}
+
+.disabledButton {
+  pointer-events: none;
+
+  background-color: #6A6A6A;
+  opacity: 0.5;
 }

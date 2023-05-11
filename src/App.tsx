@@ -11,22 +11,37 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ProductItem } from './components/ProductItem';
 import phone from './images/phone.png';
-import { CategoryBlock } from './components/CategoryBlock';
 
 const Product = {
   image: `${phone}`,
   title: 'Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)',
-  onRemove: () => {return 1;},
-  onDecrease: () => {return 1;},
   count: 1,
-  onIncrease: () => {return 1;},
   price: 99,
 };
+
+const Product1 = {
+  image: `${phone}`,
+  title: 'Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)',
+  count: 2,
+  price: 99,
+};
+
+const Product2 = {
+  image: `${phone}`,
+  title: 'Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)',
+  count: 9,
+  price: 99,
+};
+
+const products = [Product, Product1, Product2];
 
 export const App: FC = () => {
   return (
     <div className="App">
-      <ProductItem productItem={Product}/>
+      {products.map(product => (
+        <ProductItem productItem={product} key={product.title}/>
+      ))}
+
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
