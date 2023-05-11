@@ -1,0 +1,100 @@
+@import '../../styles/main.scss';
+
+.container {
+  background-color: $color-black;
+  border-radius: 8px;
+  padding: 24px;
+  padding-bottom: 48px;
+
+  max-width: 382px;
+}
+
+.personInfo {
+  display: flex;
+  align-items: center;
+
+}
+
+.personPhotoInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 16px;
+
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+
+  background-color: #F6F6F7;
+  border: 2px solid $color-grey;
+}
+
+.personName {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.personSkill {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  margin-right: 30px;
+}
+
+.tl {
+  color: $color-primary;
+}
+
+.contacts {
+  margin-top: 32px;
+}
+
+.header {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.links {
+  margin-top: 12px;
+
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.link:not(:first-child) {
+  margin-top: 8px;
+} 
+
+.responsibilities {
+  margin-top: 24px;
+}
+
+.responsibilitiesText {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.responsibilitiesList {
+  margin-top: 12px;
+}
+
+.responsibility{
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+
+  &:not(:first-child) {
+    margin-top: 8px;
+  }
+}
+
+@include onTablet {
+  .container {
+    max-width: 400px;
+  }
+}

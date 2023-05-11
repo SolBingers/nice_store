@@ -1,6 +1,5 @@
-@import  '../../styles/utils/mixins';
+@import '../../styles/utils/mixins';
 @import '../../styles/utils/variables';
-
 
 .saleBanner {
   display: flex;
@@ -42,7 +41,7 @@
 .bannerWhite {
   border-radius: 8px;
   height: 374px;
-  background-color: #F6F6F7;
+  background-color: #f6f6f7;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +68,7 @@
   font-weight: bold;
 }
 
-@include onTablets {
+@include onTablet {
   .saleBanner {
     flex-direction: row;
   }
@@ -84,7 +83,7 @@
     font-weight: 300;
     font-size: 48px;
     line-height: 59px;
-  
+
     margin-top: 125px;
   }
 
@@ -119,7 +118,7 @@
     font-weight: 300;
     font-size: 70px;
     line-height: 85px;
-      
+
     margin-top: 125px;
   }
 
@@ -127,7 +126,7 @@
     font-weight: 300;
     font-size: 150px;
     line-height: 183px;
-  
+
     margin-top: 0;
   }
 

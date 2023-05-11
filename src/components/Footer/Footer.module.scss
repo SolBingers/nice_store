@@ -21,10 +21,10 @@
   line-height: 12px;
 }
 
-.text:active, .text:hover {
-  color: #F6F6F7;
+.text:active,
+.text:hover {
+  color: #f6f6f7;
 }
-
 
 .solBingers {
   color: $color-primary;
@@ -44,7 +44,8 @@
   line-height: 12px;
 }
 
-.links :active, .links :hover {
+.links :active,
+.links :hover {
   color: $color-hover-primary;
 }
 
@@ -53,7 +54,6 @@
     height: 72px;
     border-radius: 6px;
     padding: 24px 36px;
-  
   }
 
   .logo {

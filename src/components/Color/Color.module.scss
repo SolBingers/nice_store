@@ -1,13 +1,13 @@
 @import '../../styles/main.scss';
 
 .color {
+  position: relative;
+
   width: 30px;
   height: 30px;
 
   border: 2px solid #FFFFFF;
   border-radius: 50%;
-
-  position: relative;
 
   &:not(:last-child) {
     margin-right: 9px;
@@ -18,13 +18,14 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
 
     width: 30px;
     height: 30px;
+  
     border-radius: 50%;
     border: solid 1px;
 
+    transform: translateX(-50%) translateY(-50%);
     transition: all 0.3s linear;
   }
 
@@ -42,18 +43,17 @@
 
     &::after {
       content: '';
-    
-      background-color: $color-primary;
-    
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-    
-    
+
+      background-color: $color-primary;
+  
       width: 12px;
       height: 12px;
       border-radius: 50%;
+
+      transform: translateX(-50%) translateY(-50%);
     }
   }
 
@@ -63,28 +63,29 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translateX(-50%) translateY(-50%);
 
       width: 30px;
       height: 30px;
       border-radius: 50%;
       border: solid 1px $color-primary;
+
+      transform: translateX(-50%) translateY(-50%);
     }
 
     &::after {
       content: '';
-    
-      background-color: $color-primary;
-    
+
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translateX(-50%) translateY(-50%);
     
+      background-color: $color-primary;
     
       width: 12px;
       height: 12px;
       border-radius: 50%;
+
+      transform: translateX(-50%) translateY(-50%);
     }
   }
 }
