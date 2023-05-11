@@ -7,9 +7,9 @@ import classNames from 'classnames';
 
 type Props = {
   productItem: Product,
-  onRemove?: () => void,
-  onIncrese?: () => void,
-  onDecrease?: () => void, 
+  onRemove: () => void,
+  onIncrese: () => void,
+  onDecrease: () => void, 
 }
 
 export const ProductItem: React.FC<Props> = ({
