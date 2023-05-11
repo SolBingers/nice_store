@@ -5,11 +5,10 @@ button {
 }
 
 .closeButton {
-	background: url('../../images/cross.svg');
+  background: url('../../images/cross.svg');
   height: 13px;
   width: 13px;
-	border: none;
-	cursor: pointer;
+  cursor: pointer;
   justify-self: flex-end;
 
   grid-column: 3;
@@ -102,7 +101,6 @@ button {
   margin-right: 16px;
 
   background-color: $color-grey;
-
 
   &:hover {
     background-color: #6A6A6A;
