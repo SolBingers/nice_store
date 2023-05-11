@@ -6,11 +6,18 @@ import classNames from 'classnames';
 
 type Props = {
   className?: string;
-  products: Phone[]
+  products: Phone[];
+  favComp?: boolean;
 }
 
-export const List: React.FC<Props> = ({ products, className }) => (
-  <div className={classNames(className, listStyle.list)}>
+export const List: React.FC<Props> = ({ 
+  className,
+  products,
+  favComp,
+}) => (
+  <div className={classNames(listStyle.list,className,{
+    [listStyle.fourItem]: favComp,
+  })}>
     {products.map(product => (
       <div className={listStyle.card} key={product.id}>
         <ProductCard
