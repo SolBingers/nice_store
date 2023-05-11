@@ -23,17 +23,6 @@ export const Footer: FC<Props> = ({ className }) => (
       <Link to='/contacts' className={footer.contactLink}>
         CONTACTS
       </Link>
-  
-      <div className={footer.text}>
-        Developed by <span className={footer.solBingers}>SolBingers</span>
-      </div>
-
-      <div className={footer.links}>
-        <a href='https://github.com/SolBingers' className={footer.gitLink}>GITHUB</a>
-        <Link to='/contacts' className={footer.contactLink}>
-          CONTACTS
-        </Link>
-      </div>
     </div>
   </div>
 );
