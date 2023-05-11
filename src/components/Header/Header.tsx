@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import header from './Header.module.scss';
 import { ReactComponent as Burger } from '../../images/burger.svg';
 import { ReactComponent as Favourites } from '../../images/favourites.svg';
@@ -30,9 +30,17 @@ export const Header: FC<Props> = ({ className }) => {
       </div>
 
       <div className={header.section}>
-        <button className={header.button}>
+        <NavLink
+          className={({ isActive }) => classNames(
+            header.button,
+            {
+              [header.activeLink]: isActive,
+            },
+          )}  
+          to="/favourites"  
+        >
           <Favourites className={classNames(header.favourites, header.icon)} />
-        </button>
+        </NavLink>
         <button className={header.button}>
           <Cart className={classNames(header.cart, header.icon)} />
         </button>
