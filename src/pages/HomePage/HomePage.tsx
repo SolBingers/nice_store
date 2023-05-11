@@ -10,6 +10,7 @@ import phones from '../../phonesForTest.json';
 export const HomePage: FC = () => (
   <main className={homePage.main}>
     <div className={homePage.slider}>
+
       <Categories />
       <FirstBanner />
     </div>

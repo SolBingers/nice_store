@@ -9,28 +9,31 @@ import { ContactsPage } from './pages/ContactsPage';
 import { ItemPage } from './pages/ItemPage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import styles from './App.module.scss';
 
 export const App: FC = () => {
   return (
-    <div className="app">
-      <Header />
+    <div className="App">
+      <Header className={styles.header} />
 
-      <Routes>
-        <Route path='/' element={<HomePage />} />
+      <main className={styles.main} >
+        <Routes>
+          <Route path='/' element={<HomePage />} />
 
-        <Route path="category/:selectedCategory">
-          <Route index element={<CategoryPage />} />
-          <Route path=':itemId' element={<ItemPage />} />
-        </Route>
+          <Route path="category/:selectedCategory">
+            <Route index element={<CategoryPage />} />
+            <Route path=':itemId' element={<ItemPage />} />
+          </Route>
 
-        <Route path='favourites' element={<FavouritesPage />} />
+          <Route path='favourites' element={<FavouritesPage />} />
 
-        <Route path='contacts' element={<ContactsPage />} />
+          <Route path='contacts' element={<ContactsPage />} />
 
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-
-      <Footer />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
+      
+      <Footer className={styles.footer} />
     </div>
   );
 };
