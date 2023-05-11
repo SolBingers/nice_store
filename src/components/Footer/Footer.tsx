@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import footer from './Footer.module.scss';
 import logo from '../../images/Logo.svg';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
-export const Footer: React.FC = () => (
-  <div className={footer.footer}>
+type Props = {
+  className?: string;
+}
+
+export const Footer: FC<Props> = ({ className }) => (
+  <div className={classNames(className, footer.footer)}>
     <Link to='/'>
       <img src={logo} alt="Nice" className={footer.logo}/>
     </Link>

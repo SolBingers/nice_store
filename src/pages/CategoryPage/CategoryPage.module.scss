@@ -1,0 +1,61 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.main {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 40px;
+
+  @include onDesktop {
+    padding: 0 40px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  max-width: 960px;
+
+  background-color: $color-black;
+  border-radius: 8px;
+}
+
+.title {
+  display: block;
+  padding: 24px 24px 0;
+  margin-bottom: 24px;
+  text-transform: capitalize;
+}
+
+.input {
+  width: 240px;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 24px;
+  gap: 16px;
+  width: 100%;
+  max-width: 872px;
+  margin-bottom: 24px;
+}
+
+.select {
+  width: 140px;
+}
+
+.list,
+.pagination
+{
+  margin-bottom: 24px;
+
+  @include onTablet {
+    margin-bottom: 32px;
+  }
+}
