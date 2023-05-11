@@ -61,14 +61,3 @@ export interface NextAndPrev {
   page: number;
   limit: number;
 }
-
-
-export interface serverResponse {
-  data(data: unknown): unknown;
-  totalPhones: number;
-  next: NextAndPrev;
-  pages: number;
-  prev: NextAndPrev;
-  result: Phone[];
-  phoneSpec: PhoneSpec;
-}

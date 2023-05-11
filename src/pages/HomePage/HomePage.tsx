@@ -5,7 +5,7 @@ import homePage from './HomePage.module.scss';
 import { ProductList } from '../../components/ProductList';
 import { CategoryBlock } from '../../components/CategoryBlock';
 import { SaleBanner } from '../../components/SaleBanner';
-import { getPhones } from '../../api/phones';
+import { getAllPhones } from '../../api/phones';
 import { Phone } from '../../components/types/types';
 
 
@@ -16,7 +16,7 @@ export const HomePage: FC = () => {
   useEffect(() => {
     const getPhonesFromServer = async () => {
       try {
-        const phonesFromServer = await getPhones();
+        const phonesFromServer = await getAllPhones();
 
         setPhones(phonesFromServer);
       } catch (error) {
@@ -25,7 +25,7 @@ export const HomePage: FC = () => {
     };
 
     getPhonesFromServer();
-  }, [phones]);
+  }, []);
 
   return (
     <main className={homePage.main}>
