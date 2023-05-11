@@ -25,7 +25,6 @@ const Product = {
 export const App: FC = () => {
   return (
     <div className="App">
-      < />
       <ProductItem productItem={Product}/>
       <Header />
       <Routes>
