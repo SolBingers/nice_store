@@ -5,10 +5,8 @@ import homePage from './HomePage.module.scss';
 import { ProductList } from '../../components/ProductList';
 import { CategoryBlock } from '../../components/CategoryBlock';
 import { SaleBanner } from '../../components/SaleBanner';
-import { getAllPhones } from '../../api/phones';
+import { getAllPhones, getPhonesByType } from '../../api/phones';
 import { Phone } from '../../components/types/types';
-
-
 
 export const HomePage: FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -16,7 +14,7 @@ export const HomePage: FC = () => {
   useEffect(() => {
     const getPhonesFromServer = async () => {
       try {
-        const phonesFromServer = await getAllPhones();
+        const phonesFromServer = await getPhonesByType('new');
 
         setPhones(phonesFromServer);
       } catch (error) {
