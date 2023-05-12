@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { SettingsInput } from '../../components/SettingsInput';
 import { SettingsSelect } from '../../components/SettingsSelect';
@@ -7,8 +7,6 @@ import styles from './CategoryPage.module.scss';
 import { List } from '../../components/List';
 import { Categories } from '../../components/Categories';
 import { Pagination } from '../../components/Pagination';
-import { getAllPhones, getPhonesByType } from '../../api/phones';
-import { Phone } from '../../components/types/types';
 
 type Props = {
   className?: string;
@@ -16,15 +14,7 @@ type Props = {
 
 export const CategoryPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
-  const [phones, setPhones] = useState<Phone[]>([]);
   
-  useEffect(() => {
-    getPhonesByType('new')
-      .then((response) => {
-        setPhones(response);
-      });
-  }, []);
-
   return (
     <main className={classNames(className, styles.main)}>
       <Categories />
@@ -59,7 +49,7 @@ export const CategoryPage: FC<Props> = ({ className }) => {
 
         <List 
           className={styles.list}
-          products={phones} 
+          products={[]} 
         />
 
         <Pagination
