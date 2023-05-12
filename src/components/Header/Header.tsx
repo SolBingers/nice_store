@@ -17,7 +17,9 @@ export const Header: FC<Props> = ({ className }) => {
   const [isOpenedModal, setIsOpenedModal] = useState(false);
   return (
     <>
-      <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
+      {isOpenedModal && (
+        <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
+      )}
 
       <header className={
         classNames(header.header, className)

@@ -4,13 +4,13 @@ export interface Phone {
   phoneId: string
   itemId: string;
   name: string;
-  fullPrice: number;
-  price: number;
+  fullPrice: string;
+  price: string;
   screen: string;
   capacity: string;
   color: string;
   ram: string;
-  year: number;
+  year: string;
   image: string;
 }
 
@@ -50,9 +50,6 @@ export interface PhoneSpec {
   cell: string[];
 }
 
-export interface Product {
-  image: string;
-  title: string;
-  count: number;
-  price: number;
+export interface Product extends Phone {
+  count: number
 }

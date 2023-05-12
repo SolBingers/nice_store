@@ -12,6 +12,7 @@ import { Footer } from './components/Footer';
 import styles from './App.module.scss';
 
 export const App: FC = () => {
+  console.log(1);
   return (
     <div className="App">
       <Header className={styles.header} />
