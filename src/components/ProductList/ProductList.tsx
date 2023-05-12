@@ -5,6 +5,7 @@ import { ProductCard } from '../ProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper';
 import { Phone } from '../types/types';
+// import { useQuery } from 'react-query';
 
 import 'swiper/css';
 import 'swiper/css/scrollbar';
@@ -15,7 +16,33 @@ type ProductListProps = {
   products: Phone[];
 };
 
+// const getPhones = async () => {
+//   const { loadData } = await axios.get();
+
+//   return loadData;
+// };
+
 export const ProductList: FC<ProductListProps> = ({ title, products }) => {
+  // const { data, isLoading, isError } = useQuery(queryKey: ['repoData'], getPhones);
+
+  // const { isLoading, error, data } = useQuery({
+  //   queryKey: ['repoData'],
+  //   queryFn: () =>
+  //     fetch('https://api.github.com/repos/tannerlinsley/react-query').then(
+  //       (res) => res.json(),
+  //     ),
+  // });
+
+  // if (isLoading) return 'Loading...'
+
+  // if (isError) {
+  //   return 'An error has occurred'
+  // }
+
+  // if (!data) {
+  //   return <h3>No data</h3>
+  // }
+
   return (
     <section className={productList.productList}>
       <h2 className={productList.title}>
