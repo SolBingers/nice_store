@@ -16,6 +16,7 @@ type ProductListProps = {
 };
 
 export const ProductList: FC<ProductListProps> = ({ title, products }) => {
+
   return (
     <section className={productList.productList}>
       <h2 className={productList.title}>
@@ -29,7 +30,7 @@ export const ProductList: FC<ProductListProps> = ({ title, products }) => {
         className={productList.products}
         slidesPerView={'auto'}
       >
-        {products.map((product) => (
+        {products && products.length > 0 && products.map((product) => (
           <SwiperSlide className={productList.item} key={product.id}>
             <ProductCard phone={product} />
           </SwiperSlide>

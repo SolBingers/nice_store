@@ -2,26 +2,39 @@ import details from './ProductDetails.module.scss';
 import React, { FC } from 'react';
 import { SelectionSection } from '../SelectionSection';
 import { ProductGallery } from '../ProductGallery/ProductGallery';
+import { PhoneSpec } from '../types/types';
 
-export const ProductDetails: FC = () => {
+interface Props {
+  phoneData: PhoneSpec
+}
+
+export const ProductDetails: FC<Props> = ({ phoneData }) => {
+  const {
+    name,
+    priceDiscount,
+    priceRegular,
+    colorsAvailable,
+    capacityAvailable,
+    images,
+  } = phoneData;  
+  
   return (
     <div className={details.details}>
       <article className={details.gallery}>
-        <ProductGallery images={[]} />
+        <ProductGallery images={images} />
       </article>
 
       <article className={details.sellection}>
         <SelectionSection
-          name={'Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)'}
-          price={1199}
-          fullPrice={599}
-          aviableColors={['white', 'black', 'red']}
-          aviableCapacities={[64, 256, 128]}
+          name={name}
+          price={priceRegular}
+          fullPrice={priceDiscount}
+          aviableColors={colorsAvailable}
+          aviableCapacities={capacityAvailable}
           selectedColor={'white'}
-          selectedCapacity={256}
+          selectedCapacity={''}
         />
       </article>
-
     </div>
   );
 };

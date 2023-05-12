@@ -19,10 +19,9 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
     screen, 
     capacity, 
     price, 
-    fullPrice, 
-    ram 
-  } =
-    phone;
+    fullPrice,
+    ram } = phone;
+  
   const imageURL = BASE_URL + '/' + image;
 
   const [isButtonDissabled, setIsButtonDissabled] = useState(false);

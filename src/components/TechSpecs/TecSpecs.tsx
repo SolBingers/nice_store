@@ -3,7 +3,7 @@ import spec from './TecSpecs.module.scss';
 import { PhoneSpec } from '../types/types';
 
 interface Props {
-  phoneSpec: PhoneSpec | null
+  phoneSpec: PhoneSpec | undefined
 }
 
 export const TecSpecs: FC<Props> = ({ phoneSpec }) => {
