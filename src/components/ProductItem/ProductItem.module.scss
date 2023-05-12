@@ -1,0 +1,150 @@
+@import '../../styles/main.scss';
+
+button {
+  border: none;
+}
+
+.closeButton {
+  background: url('../../images/cross.svg');
+  height: 13px;
+  width: 13px;
+  cursor: pointer;
+  justify-self: flex-end;
+
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.container {
+  background-color: $color-black;
+  border-radius: 8px;
+
+  padding: 6px 14px 14px 14px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3,auto);
+  grid-template-rows: repeat(2,auto);
+
+  row-gap: 13px;
+}
+
+@include onTablet {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.imageContainer {
+  height: 60px;
+  width: 60px;
+  background-color: #C4C4C4;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 14px;
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+
+  margin-right: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.counterContainer {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+
+.productsCounter {
+  max-width: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.countButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 6px;
+
+  transition: all 0.3s linear;
+}
+
+.decrease {
+  margin-right: 16px;
+
+  background-color: $color-grey;
+
+  &:hover {
+    background-color: #6A6A6A;
+  }
+
+  &Active {
+    background-color: #6A6A6A;
+  }
+}
+
+.count {
+  margin-right: 16px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $color-grey;
+}
+
+.increase {
+  background-color: $color-primary;
+
+  &:hover {
+    background-color: $color-hover-primary;
+  }
+
+  &Active {
+    background-color: $color-hover-primary;
+  }
+}
+
+.price {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+
+  grid-column: 3;
+
+  justify-self: flex-end;
+}
+
+.disabledButton {
+  pointer-events: none;
+
+  background-color: #6A6A6A;
+  opacity: 0.5;
+}

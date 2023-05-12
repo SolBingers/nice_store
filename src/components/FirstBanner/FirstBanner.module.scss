@@ -177,6 +177,7 @@
 
     &__info {
       font-size: 20px;
+
     }
   }
 }
@@ -197,6 +198,7 @@
 
 /*#region Swiper*/
 .mySwiper {
+  border-radius: 8px;
   :global(.swiper-pagination-bullet) {
     width: 10px;
     height: 10px;

@@ -1,15 +1,23 @@
 @import '../../styles/utils/mixins';
 
-.intro {
-  display: block;
+.main {
+  max-width: 1304px;
+  margin: 0 auto;
 }
 
 @include onDesktop {
-  .intro {
+  .slider {
     display: flex;
     gap: 5px;
-    padding: 0 69px;
 
     justify-content: space-between;
   }
+}
+
+
+.slider,
+.categoryBlock,
+.productList,
+.saleBanner {
+  padding-bottom: 24px;
 }

@@ -3,13 +3,14 @@
 
 .blur {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   background-color: $color-black;
-  opacity: 70%;
+  opacity: 0.7;
+  z-index: 999;
 }
 
 .blur__visible {
@@ -17,7 +18,7 @@
 }
 
 .burger {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 70vh;
@@ -26,9 +27,12 @@
   padding: 24px 36px 36px;
   transform: translateX(-100%);
   transition: 0.5s;
+  z-index: 9999;
+  
 
   &__visible {
     transform: translateX(0);
+    box-shadow: 6px 0px 8px rgba(188, 188, 188, 0.08);
   }
 
   &__header {
@@ -42,7 +46,7 @@
     line-height: 20x;
     color: $color-light;
     text-transform: uppercase;
-
+  
     @include onTablet {
       font-size: 20px;
       line-height: 24px;

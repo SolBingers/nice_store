@@ -30,11 +30,9 @@ export const ProductList: FC<ProductListProps> = ({ title, products }) => {
         slidesPerView={'auto'}
       >
         {products.map((product) => (
-          <div className={productList.item} key={product.id}>
-            <SwiperSlide className={productList.item}>
-              <ProductCard phone={product} />
-            </SwiperSlide>
-          </div>
+          <SwiperSlide className={productList.item} key={product.id}>
+            <ProductCard phone={product} />
+          </SwiperSlide>
         ))}
 
       </Swiper>
