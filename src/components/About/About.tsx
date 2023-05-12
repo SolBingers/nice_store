@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import about from './About.module.scss';
-import { PhoneSpec } from '../types/types';
+import { PhoneSpec } from '../../types/PhoneSpec';
 
 interface Props {
   phoneSpec: PhoneSpec

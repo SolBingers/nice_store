@@ -32,14 +32,26 @@
   cursor: pointer;
 
   &:hover {
-    fill: $color-primary
+    fill: $color-primary;
   }
+}
+
+.heart__active {
+  fill: $color-primary;
 }
 
 .iconContainer {
   display: flex;
   position: absolute;
   padding: 8px 0 0 8px ;
+  background: none;
+  border: none;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: inherit;
+  fill: $color-primary;
 }
 
 .iconBackground {
