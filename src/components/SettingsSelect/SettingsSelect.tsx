@@ -39,8 +39,23 @@ export const SettingsSelect: FC<Props> = ({
     setIsActive(false);
   };
 
+  useEffect(() => {
+    const handleDocumentClick = () => {
+      setIsActive(false);
+    };
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
+
   return (
-    <div className={className}>
+    <div 
+      className={className}
+      onClick={(event) => event.stopPropagation()}
+    >
       <p className={settingsSelect.title}>{title}</p>
 
       <div className={settingsSelect.main}>
