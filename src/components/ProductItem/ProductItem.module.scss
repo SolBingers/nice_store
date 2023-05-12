@@ -30,14 +30,6 @@ button {
   row-gap: 13px;
 }
 
-@include onTablet {
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
 .imageContainer {
   height: 60px;
   width: 60px;
@@ -74,6 +66,8 @@ button {
 .counterContainer {
   grid-row: 2;
   grid-column: 1;
+
+  margin-right: 10px;
 }
 
 
@@ -141,6 +135,8 @@ button {
   grid-column: 3;
 
   justify-self: flex-end;
+
+  margin-right: 10px;
 }
 
 .disabledButton {
@@ -148,4 +144,40 @@ button {
 
   background-color: #6A6A6A;
   opacity: 0.5;
+}
+
+@include onTablet {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  .counterContainer{
+    grid-row: 1;
+    grid-column: 2;
+
+    justify-self: flex-end;
+  }
+
+  .price {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+  
+    grid-column: 3;
+  
+    justify-self: flex-end;
+  
+    margin-right: 10px;
+  }
+
+
+  .closeButton {
+    grid-column: 4;
+    grid-row: 1;
+  }
 }
