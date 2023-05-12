@@ -24,38 +24,17 @@ export const ProductList: FC<ProductListProps> = ({ title, products }) => {
 
       <Swiper
         freeMode={true}
-        slidesPerView={1.5}
         grabCursor={true}
         modules={[FreeMode]}
         className={productList.products}
-        spaceBetween={32}
-        breakpoints={{
-          490: {
-            slidesPerView: 1.9,
-          },
-
-          650: {
-            slidesPerView: 2.5,
-          },
-
-          768: {
-            spaceBetween: 20,
-            slidesPerView: 2.9,
-          },
-
-          900: {
-            slidesPerView: 3.5,
-          },
-
-          1200: {
-            slidesPerView: 5,
-          }
-        }}
+        slidesPerView={'auto'}
       >
         {products.map((product) => (
-          <SwiperSlide key={product.id}>
-            <ProductCard phone={product} />
-          </SwiperSlide>
+          <div className={productList.item} key={product.id}>
+            <SwiperSlide className={productList.item}>
+              <ProductCard phone={product} />
+            </SwiperSlide>
+          </div>
         ))}
 
       </Swiper>
