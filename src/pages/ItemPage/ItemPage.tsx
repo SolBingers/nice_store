@@ -5,14 +5,10 @@ import { ProductList } from '../../components/ProductList';
 import { ProductDetails } from '../../components/ProductDetails';
 import { Categories } from '../../components/Categories';
 
-import phoneSpec from '../../phoneSpecForTest.json';
-import phone from '../../phonesForTest.json';
 import itemPage from './ItemPage.module.scss';
 
-// import { useParams } from 'react-router-dom';
 export const ItemPage: FC = () => {
-  // const { itemId } = useParams();
-
+  
   return (
     <>
       <div className={itemPage.product}>
@@ -22,21 +18,20 @@ export const ItemPage: FC = () => {
 
       <div className={itemPage.productInfo}>
         <div className={itemPage.about}>
-          <About phoneSpec={phoneSpec}/>
+          <About phoneSpec={null} />
         </div>
 
         <div className={itemPage.techSpecs}>
-          <TecSpecs />
+          <TecSpecs phoneSpec={null} />
         </div>
       </div>
 
       <div className={itemPage.productList}>
         <ProductList
           title={'You may also like'}
-          products={phone}
+          products={[]}
         />
       </div>
-
     </>
   );
 };

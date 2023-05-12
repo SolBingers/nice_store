@@ -5,7 +5,6 @@ import { SettingsSelect } from '../../components/SettingsSelect';
 import classNames from 'classnames';
 import styles from './CategoryPage.module.scss';
 import { List } from '../../components/List';
-import phones from '../../phonesForTest.json';
 import { Categories } from '../../components/Categories';
 import { Pagination } from '../../components/Pagination';
 
@@ -15,11 +14,11 @@ type Props = {
 
 export const CategoryPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
-
+  
   return (
     <main className={classNames(className, styles.main)}>
       <Categories />
-
+      
       <div className={styles.content}>
         <p className={styles.title}>
           {selectedCategory}
@@ -50,7 +49,7 @@ export const CategoryPage: FC<Props> = ({ className }) => {
 
         <List 
           className={styles.list}
-          products={phones} 
+          products={[]} 
         />
 
         <Pagination

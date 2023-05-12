@@ -56,3 +56,8 @@ export interface Product {
   count: number;
   price: number;
 }
+
+export interface NextAndPrev {
+  page: number;
+  limit: number;
+}

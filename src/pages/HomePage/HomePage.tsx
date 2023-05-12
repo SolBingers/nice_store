@@ -5,30 +5,32 @@ import homePage from './HomePage.module.scss';
 import { ProductList } from '../../components/ProductList';
 import { CategoryBlock } from '../../components/CategoryBlock';
 import { SaleBanner } from '../../components/SaleBanner';
-import phones from '../../phonesForTest.json';
 
-export const HomePage: FC = () => (
-  <main className={homePage.main}>
-    <div className={homePage.slider}>
+export const HomePage: FC = () => {
 
-      <Categories />
-      <FirstBanner />
-    </div>
-    
-    <article className={homePage.productList}>
-      <ProductList title={'Shop now'} products={phones} />
-    </article>
+  return (
+    <main className={homePage.main}>
+      <div className={homePage.slider}>
 
-    <article className={homePage.categoryBlock}>
-      <CategoryBlock />
-    </article>
+        <Categories />
+        <FirstBanner />
+      </div>
+      
+      <article className={homePage.productList}>
+        <ProductList title={'Shop now'} products={[]} />
+      </article>
 
-    <article className={homePage.saleBanner}>
-      <SaleBanner />
-    </article>
+      <article className={homePage.categoryBlock}>
+        <CategoryBlock />
+      </article>
 
-    <article className={homePage.productList}>
-      <ProductList title={'Shop now'} products={phones} />
-    </article>
-  </main>
-);
+      <article className={homePage.saleBanner}>
+        <SaleBanner />
+      </article>
+
+      <article className={homePage.productList}>
+        <ProductList title={'Shop now'} products={[]} />
+      </article>
+    </main>
+  );
+};
