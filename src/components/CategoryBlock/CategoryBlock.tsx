@@ -10,23 +10,23 @@ export const CategoryBlock: FC = () => (
   <section className={categoryBlock.container}>
     <div className={categoryBlock.cardContainer}>
       <div className={categoryBlock.card}>
-        <Link to="/phones">
+        <Link to="/category/phones">
           <CategoryCard
             imageUrl={categoryPhones}
             imageAlt='Phones category'
             categoryName='Phones'
-            categoryLink='/phones'
+            categoryLink='/category/phones'
           />
         </Link>
       </div>
 
       <div className={categoryBlock.card}>
-        <Link to="/tablets">
+        <Link to="/category/tablets">
           <CategoryCard
             imageUrl={categoryTablets}
             imageAlt='Tablets category'
             categoryName='Tablets'
-            categoryLink='/tablets'
+            categoryLink='/category/tablets'
           />
         </Link>
       </div>
@@ -37,7 +37,7 @@ export const CategoryBlock: FC = () => (
             imageUrl={categoryAccessories}
             imageAlt='Accessories category'
             categoryName='Accessories'
-            categoryLink='/accessories'
+            categoryLink='/category/accessories'
           />
         </Link>
       </div>
