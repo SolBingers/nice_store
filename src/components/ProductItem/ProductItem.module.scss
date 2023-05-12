@@ -7,6 +7,7 @@ button {
 
 .closeButton {
   background: url('../../images/cross.svg');
+  background-position: center;
   height: 13px;
   width: 13px;
   cursor: pointer;
@@ -14,6 +15,10 @@ button {
 
   grid-column: 3;
   grid-row: 1;
+
+  &:hover {
+    filter: brightness(150%);
+  }
 }
 
 .container {

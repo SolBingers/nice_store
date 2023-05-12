@@ -33,10 +33,15 @@
 
 .closeModal {
   background: url('../../images/cross.svg');
+  background-position: center;
   height: 13px;
   width: 13px;
   cursor: pointer;
   border: none;
+
+  &:hover {
+    filter: brightness(150%);
+  }
 } 
 
 .blur {
