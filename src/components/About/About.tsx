@@ -3,7 +3,7 @@ import about from './About.module.scss';
 import { PhoneSpec } from '../types/types';
 
 interface Props {
-  phoneSpec: PhoneSpec | null
+  phoneSpec: PhoneSpec | undefined
 }
 
 export const About: FC<Props> = ({ phoneSpec }) => {

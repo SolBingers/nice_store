@@ -9,9 +9,9 @@ type Props = {
   price: number;
   fullPrice: number;
   aviableColors: string[],
-  aviableCapacities: number[],
+  aviableCapacities: string[],
   selectedColor: string,
-  selectedCapacity: number,
+  selectedCapacity: string,
 }
 
 export const SelectionSection: React.FC<Props> = ({

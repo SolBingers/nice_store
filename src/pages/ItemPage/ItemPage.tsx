@@ -1,45 +1,36 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { About } from '../../components/About';
 import { TecSpecs } from '../../components/TechSpecs';
 import { ProductList } from '../../components/ProductList';
 import { ProductDetails } from '../../components/ProductDetails';
 import { Categories } from '../../components/Categories';
-
 import itemPage from './ItemPage.module.scss';
+import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
 import { getPhoneById, getPhoneRecomended } from '../../api/phones';
 import { Phone, PhoneSpec } from '../../components/types/types';
-import { useParams } from 'react-router-dom';
+import { Loader } from '../../components/Loader';
 
 export const ItemPage: FC = () => {
   const { itemId = '0' } = useParams();
-  const [phones, setPhones] = useState<Phone[]>([]);
-  const [phoneSingle, setPhoneSingle] = useState<PhoneSpec| null>(null);
-    
-
-  useEffect(() => {
-    const getPhones = async () => {
-      try {
-        const getPhone = await getPhoneById(itemId);
-        setPhoneSingle(getPhone);
-        // const getRecommended = await getPhoneRecomended(itemId);
-        // console.log(itemId);
-        
-        // setPhones(getRecommended);
-
-      } finally {
-        console.log('Data');
-      }
-    };
-
-    getPhones();
-  }, []);
- 
   
+  const { data: phoneSingle, isLoading } = useQuery<PhoneSpec>(
+    'phone',
+    () => getPhoneById(itemId)
+  );
+
+  const { data: phones = [] } = useQuery<Phone[]>(
+    'phones',
+    () => getPhoneRecomended(itemId)
+  );
+
   return (
     <>
       <div className={itemPage.product}>
         <Categories />
-        <ProductDetails />
+        {(!phoneSingle || isLoading)
+          ? <Loader />
+          : <ProductDetails info={phoneSingle}/>}
       </div>
 
       <div className={itemPage.productInfo}>
