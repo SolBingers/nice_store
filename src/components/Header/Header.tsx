@@ -7,6 +7,7 @@ import { ReactComponent as Cart } from '../../images/cart.svg';
 import classNames from 'classnames';
 import { BurgerMenu } from '../BurgerMenu';
 import { ModalMenu } from '../ModalMenu';
+import { CartCounter } from '../CartCounter';
 
 type Props = {
   className?: string;
@@ -53,6 +54,7 @@ export const Header: FC<Props> = ({ className }) => {
             onClick={() => setIsOpenedModal(true)}
           >
             <Cart className={classNames(header.cart, header.icon)} />
+            <CartCounter/>
           </button>
         </div>
         <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened}/>
