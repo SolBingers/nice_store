@@ -11,7 +11,16 @@ interface Props {
 }
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
-  const { phoneId, image, name, screen, capacity, price, fullPrice, ram } =
+  const { 
+    phoneId, 
+    image, 
+    name, 
+    screen, 
+    capacity, 
+    price, 
+    fullPrice, 
+    ram 
+  } =
     phone;
 
   const [isButtonDissabled, setIsButtonDissabled] = useState(false);

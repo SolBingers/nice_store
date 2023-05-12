@@ -3,6 +3,7 @@
 .modal {
   background-color: $color-semi-dark;
   border-radius: 8px;
+  padding: 24px;
 
   position: fixed;
   z-index: 100;
@@ -10,12 +11,9 @@
   left: 50%;
 
   width: 100vw;
-
   max-width: 1000px;
 
   transform: scale(0);
-
-  padding: 24px;
   
   @include onTablet {
     width: 70vw;
@@ -50,7 +48,6 @@
   left: 0;
   background-color: $color-black;
   opacity: 70%;
-
   z-index: 99;
 }
 
@@ -62,7 +59,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-bottom: 24px;
 }
 
