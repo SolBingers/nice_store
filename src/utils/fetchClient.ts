@@ -5,7 +5,6 @@ export const client = {
     url: string,
   ): Promise<T> => {
     const path = `${BASE_URL}${url}`;
-    console.log(path);
 
     const response = await fetch(path);
     if (!response.ok)
