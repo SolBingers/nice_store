@@ -11,6 +11,7 @@ import classNames from 'classnames';
 interface Props {
   phone: Phone;
 }
+
 const BASE_URL = 'https://nice-store-api.onrender.com';
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
@@ -21,11 +22,12 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
     screen, 
     capacity, 
     price, 
-    fullPrice, 
-    ram 
-  } =
-    phone;
+    fullPrice,
+    ram } = phone;
+  
   const imageURL = BASE_URL + '/' + image;
+
+  const phonePath = `/category/phones/${phoneId}`;
 
   const [isButtonDissabled, setIsButtonDissabled] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -80,14 +82,14 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
           })} />
         </button>
 
-        <Link to={phoneId} className={card.image}>
+        <Link to={phonePath} className={card.image}>
           <img className={card.image} src={imageURL} alt='phone'/>
         </Link>
       </div>
 
       <div className={card.infoContainer}>
         <h3 className={card.title}>
-          <Link to={phoneId} className={card.link}>
+          <Link to={phonePath} className={card.link}>
             {name}
           </Link>
         </h3>

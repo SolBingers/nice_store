@@ -3,7 +3,7 @@ import about from './About.module.scss';
 import { PhoneSpec } from '../../components/types/types';
 
 interface Props {
-  phoneSpec: PhoneSpec | null
+  phoneSpec: PhoneSpec | undefined
 }
 
 export const About: FC<Props> = ({ phoneSpec }) => {
@@ -16,7 +16,7 @@ export const About: FC<Props> = ({ phoneSpec }) => {
           {phoneSpec?.description.map((element) => (
             <>
               <h3
-                key={phoneSpec.description.indexOf(element)}
+                key={phoneSpec.id}
                 className={about.subtitle}>
                 {element.title}
               </h3>
@@ -24,7 +24,7 @@ export const About: FC<Props> = ({ phoneSpec }) => {
                 <div className={about.textContainer}>
                   {element.text.map(el => (
                     <p
-                      key={element.text.indexOf(el)}
+                      key={element.title}
                       className={about.text}>
                       {el}
                     </p>

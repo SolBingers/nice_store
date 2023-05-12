@@ -21,4 +21,4 @@ export const getPhonesByType = (
 };
 
 export const getPhoneRecomended = (id: string): Promise<Phone[]> =>
-  client.get(`/products/${id}/recomended`);
+  client.get(`/products/${id}/recommended`);

@@ -4,7 +4,7 @@ import capacityStyles from './Capacity.module.scss';
 import { Link } from 'react-router-dom';
 
 type Props = {
-  capacity: number;
+  capacity: string;
   isActive?: boolean;
 }
 
@@ -21,6 +21,6 @@ export const Capacity:React.FC<Props> = ({
         [capacityStyles.capacityActive] : isActive 
       }
     )}>
-    {`${capacity} GB`}
+    {capacity}
   </Link>
 );

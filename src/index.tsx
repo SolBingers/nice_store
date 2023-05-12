@@ -24,3 +24,4 @@ root.render(
     </FavoriteProvider>
   </React.StrictMode>,
 );
+

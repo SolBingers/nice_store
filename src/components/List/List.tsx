@@ -18,8 +18,8 @@ export const List: React.FC<Props> = ({
   <div className={classNames(listStyle.list,className,{
     [listStyle.fourItem]: favComp,
   })}>
-    {products.map(product => (
-      <div className={listStyle.card} key={product.phoneId}>
+    {products && products.length > 0 && products.map(product => (
+      <div className={listStyle.card} key={product.id}>
         <ProductCard
           phone={product}
         />

@@ -10,34 +10,34 @@ export const CategoryBlock: FC = () => (
   <section className={categoryBlock.container}>
     <div className={categoryBlock.cardContainer}>
       <div className={categoryBlock.card}>
-        <Link to="categories/phones">
+        <Link to="/category/phones">
           <CategoryCard
             imageUrl={categoryPhones}
             imageAlt='Phones category'
             categoryName='Phones'
-            categoryLink='categories/phones'
+            categoryLink='/category/phones'
           />
         </Link>
       </div>
 
       <div className={categoryBlock.card}>
-        <Link to="categories/tablets">
+        <Link to="/category/tablets">
           <CategoryCard
             imageUrl={categoryTablets}
             imageAlt='Tablets category'
             categoryName='Tablets'
-            categoryLink='categories/tablets'
+            categoryLink='/category/tablets'
           />
         </Link>
       </div>
 
       <div className={categoryBlock.card}>
-        <Link to='categories/accessories'>
+        <Link to='/accessories'>
           <CategoryCard
             imageUrl={categoryAccessories}
             imageAlt='Accessories category'
             categoryName='Accessories'
-            categoryLink='categories/accessories'
+            categoryLink='/category/accessories'
           />
         </Link>
       </div>
