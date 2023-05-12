@@ -2,6 +2,7 @@ import React, { FC, useContext, useState } from 'react';
 import { List } from '../../components/List';
 import styles from './FavouritesPage.module.scss';
 import { FavoriteContext } from '../../contexts/FavoriteContext';
+import classNames from 'classnames';
 
 export const FavouritesPage: FC = () => {
   const [favComp] = useState(true);
@@ -10,7 +11,9 @@ export const FavouritesPage: FC = () => {
   return (
     <div className={styles.favorites}>
       <div className={styles.favorites__container}>
-        <h1 className={styles.favorites__title}>
+        <h1 className={classNames(styles.favorites__title,{
+          [styles.remove__radius]:phones.length !== 0,
+        })}>
           Favorites
         </h1>
         <div className={styles.favorites__list}>
