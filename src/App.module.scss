@@ -13,7 +13,12 @@
 
 .main {
   max-width: 1304px;
+  min-height: 80vh;
   margin: 0 auto 24px;
+
+  @include onTablet {
+    min-height: 70vh;
+  }
 }
 
 .footer {

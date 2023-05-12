@@ -19,12 +19,13 @@
   border-radius: 8px;
 }
 
-.icon {
+.image {
   display: flex;
   position: relative;
   margin: 0 auto;
   height: 185px;
   width: 185px;
+  object-fit: contain;
 }
 
 .heart {
@@ -40,21 +41,18 @@
   fill: $color-primary;
 }
 
-.iconContainer {
+.imageContainer {
   display: flex;
   position: absolute;
   padding: 8px 0 0 8px ;
-  background: none;
-  border: none;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  outline: inherit;
-  fill: $color-primary;
+  z-index: 2;
+
+  & svg {
+    fill: $color-light;
+  }
 }
 
-.iconBackground {
+.imageBackground {
   display: block;
   justify-content: center;
   height: 186px;
@@ -64,7 +62,7 @@
   border-radius: 8px;
 }
 
-.card:hover > .iconBackground {
+.card:hover > .imageBackground {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
@@ -166,4 +164,8 @@
 
 .infoContainer {
   padding: 12px;
+}
+
+.disabled {
+  pointer-events: none;
 }

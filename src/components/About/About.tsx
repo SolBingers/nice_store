@@ -3,7 +3,7 @@ import about from './About.module.scss';
 import { PhoneSpec } from '../../types/PhoneSpec';
 
 interface Props {
-  phoneSpec: PhoneSpec
+  phoneSpec: PhoneSpec | null
 }
 
 export const About: FC<Props> = ({ phoneSpec }) => {
@@ -13,7 +13,7 @@ export const About: FC<Props> = ({ phoneSpec }) => {
         <h2 className={about.title}>About</h2>
 
         <div className={about.description}>
-          {phoneSpec.description.map((element) => (
+          {phoneSpec?.description.map((element) => (
             <>
               <h3
                 key={phoneSpec.description.indexOf(element)}

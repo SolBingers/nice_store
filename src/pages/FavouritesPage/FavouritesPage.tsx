@@ -1,16 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 import { List } from '../../components/List';
 import styles from './FavouritesPage.module.scss';
-import { useLocalStoragePhones } from '../../customHooks/useLocalStorage';
 
 export const FavouritesPage: FC = () => {
   const [favComp] = useState(true);
-  const [phones,] = useLocalStoragePhones('phones');
-
-  useEffect(() =>{
-    console.log(phones);
-  },[phones]);
-
   return (
     <div className={styles.favorites}>
       <div className={styles.favorites__container}>

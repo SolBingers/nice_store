@@ -1,68 +1,62 @@
 import card from '../ProductCard/ProductCard.module.scss';
-import React, { FC, useEffect, useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ReactComponent as Favorite } from '../../images/emptyHeart.svg';
 import { Button } from '../Button';
-import { Phone } from '../../types/Phone';
+import { Phone, Product } from '../types/types';
 import { Link } from 'react-router-dom';
-import { useLocalStoragePhones } from '../../customHooks/useLocalStorage';
-import classNames from 'classnames';
+import { CartContext } from '../../contexts/CartContext';
 
 interface Props {
   phone: Phone;
 }
+const BASE_URL = 'https://nice-store-api.onrender.com';
 
-export const ProductCard: FC<Props> = ({ phone }) => {
+export const ProductCard: React.FC<Props> = ({ phone }) => {
   const { 
-    id,
-    phoneId,
-    image,
+    phoneId, 
+    image, 
     name, 
     screen, 
     capacity, 
     price, 
-    fullPrice,
-    ram,
-  } = phone;
+    fullPrice, 
+    ram 
+  } =
+    phone;
+  const imageURL = BASE_URL + '/' + image;
 
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [ ,setPhones ] = useLocalStoragePhones('phones');
+  const [isButtonDissabled, setIsButtonDissabled] = useState(false);
 
-  const handleFavoritePhone = () => {
-    if (isFavorite) {
-      setPhones.removePhone(id);
-    } else {
-      setPhones.addPhone(phone);
-    }
-    setIsFavorite(!isFavorite);
-  };
-
-  const isPhoneInLocalStorage = (id: string): boolean => {
-    const storedPhones = localStorage.getItem('phones');
-    if (!storedPhones) {
-      return false;
-    }
-    const parsedPhones: Phone[] = JSON.parse(storedPhones);
-    return parsedPhones.some((phone: Phone) => phone.id === id);
-  };
+  const { cart, addToCart } = useContext(CartContext);
 
   useEffect(() => {
-    setIsFavorite(isPhoneInLocalStorage(id));
-  }, [isFavorite]);
+    if (cart.find((product: Product) => product.phoneId === phoneId)) {
+      setIsButtonDissabled(true);
+    } else {
+      setIsButtonDissabled(false);
+    }
+  }, [cart]);
+
+  const handleAddToCart = () => {
+    setIsButtonDissabled(true);
+    const newProduct = {
+      ...phone,
+      count: 1,
+    };
+
+    addToCart(newProduct);
+  };
 
   return (
     <div className={card.card}>
-      <div className={card.iconBackground}>
-        <button 
-          className={card.iconContainer}
-          onClick={handleFavoritePhone}
-        >
-          <Favorite className={classNames(card.heart, {
-            [card.heart__active]: isFavorite === true,
-          })} />
-        </button>
+      <div className={card.imageBackground}>
+        <div className={card.imageContainer}>
+          <Favorite className={card.heart} />
+        </div>
 
-        <Link to={phoneId} className={card.icon}>
-          <img className={card.icon} src={image} alt='phone'/>
+
+        <Link to={phoneId} className={card.image}>
+          <img className={card.image} src={imageURL} alt='phone'/>
         </Link>
       </div>
 
@@ -96,7 +90,23 @@ export const ProductCard: FC<Props> = ({ phone }) => {
           </div>
 
           <div className={card.button}>
-            <Button text={'Add to cart'} size='small' type={'primary'} />
+            {!isButtonDissabled ? (
+              <Button
+                text={'Add to cart'}
+                size="small"
+                type={'primary'}
+                onClick={handleAddToCart}
+              />
+            ) : (
+              <div className={card.disabled}>
+                <Button
+                  text={'In cart'}
+                  size="small"
+                  type={'secondary'}
+                  onClick={handleAddToCart}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

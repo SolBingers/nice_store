@@ -7,9 +7,10 @@ import classNames from 'classnames';
 
 type Props = {
   productItem: Product,
-  onRemove: () => void,
-  onIncrese: () => void,
-  onDecrease: () => void, 
+  className?: string,
+  onRemove: (productName: string) => void,
+  onIncrese: (productName: string) => void,
+  onDecrease: (productName: string) => void, 
 }
 
 export const ProductItem: React.FC<Props> = ({
@@ -17,10 +18,12 @@ export const ProductItem: React.FC<Props> = ({
   onRemove,
   onIncrese,
   onDecrease,
+  className,
 }) => {
   const {
     image,
-    title,
+    name,
+    id,
     count,
     price,
   } = productItem;
@@ -29,7 +32,10 @@ export const ProductItem: React.FC<Props> = ({
   const isDisabledPlus = count === 9;
 
   return (
-    <div className={productItemStyle.container}>
+    <div className={classNames(
+      productItemStyle.container,
+      className
+    )}>
       <div className={productItemStyle.header}>
         <div className={productItemStyle.imageContainer} >
           <img 
@@ -40,7 +46,7 @@ export const ProductItem: React.FC<Props> = ({
         </div>
 
         <div className={productItemStyle.title}>
-          {title}
+          {name}
         </div>
       </div>
 
@@ -53,7 +59,7 @@ export const ProductItem: React.FC<Props> = ({
                 [productItemStyle.disabledButton]: isDisabledMinus,
               }
             )}
-            onClick={onDecrease}
+            onClick={() => onDecrease(id)}
           >
             <img src={minus} alt="minus"/>
           </button>
@@ -69,7 +75,7 @@ export const ProductItem: React.FC<Props> = ({
                 [productItemStyle.disabledButton]: isDisabledPlus,
               }
             )}
-            onClick={onIncrese}
+            onClick={() => onIncrese(id)}
           >
             <img src={plus} alt="plus" />
           </button>
@@ -77,12 +83,12 @@ export const ProductItem: React.FC<Props> = ({
       </div>
 
       <div className={productItemStyle.price}>
-        {`${price}$`}
+        {`${Number(price) * count}$`}
       </div>
 
       <button 
         className={productItemStyle.closeButton}
-        onClick={onRemove}
+        onClick={() => onRemove(id)}
       />
     </div>  
   );

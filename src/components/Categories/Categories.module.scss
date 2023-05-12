@@ -6,6 +6,7 @@
   background-color: #191919;
   border-radius: 6px;
   width: 304px;
+  height: fit-content;
 
   @include onDesktop {
     display: block;
@@ -13,6 +14,7 @@
 
   &__header {
     display: flex;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
     padding: 25px 35px;
@@ -89,7 +91,7 @@
   }
 
   &__rights {
-    padding-top: 80%;
+    padding-top: 90%;
     align-self: flex-end;
     text-decoration-line: underline;
     color: #576067;

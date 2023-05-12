@@ -13,7 +13,11 @@
 }
 
 .logo {
-  height: 21px;
+  height: 18px;
+
+  @include onTablet {
+    height: 21px;
+  }
 }
 
 .text {
@@ -22,7 +26,6 @@
   font-size: 10px;
   line-height: 12px;
   margin-left: 10px;
-  cursor: pointer;
 }
 
 .text:active,

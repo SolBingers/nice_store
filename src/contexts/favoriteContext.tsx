@@ -14,7 +14,7 @@ const initialValue = {
   addPhone: (item: Product) => {
     item;
   },
-  removeFromCart: (itemId: string) => {
+  removePhone: (itemId: string) => {
     itemId;
   },
 };
@@ -40,19 +40,19 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   }, []);
 
   const addPhone = (item: Product) => {
-    const updatedCart = [...cart, item];
+    const updatedCart = [...phone, item];
     setPhone(updatedCart);
     updateLocalStorage(updatedCart);
   };
 
-  const removeFromCart = (itemId: string) => {
-    const updatedCart = cart.filter((item: Phone) => item.id !== itemId);
+  const removePhone = (itemId: string) => {
+    const updatedCart = phone.filter((item: Phone) => item.id !== itemId);
     setPhone(updatedCart);
     updateLocalStorage(updatedCart);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addPhone, removeFromCart }}>
+    <CartContext.Provider value={{ phone, addPhone, removePhone }}>
       {children}
     </CartContext.Provider>
   );

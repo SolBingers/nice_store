@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction} from 'react';
 import styles from './BurgerMenu.module.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 interface Props {
@@ -12,18 +12,27 @@ export const BurgerMenu: FC<Props> = ({
   isOpen,
   setIsOpen,
 }) => {
-
+  const { search } = useLocation();
   const itemsLink = [
     {
-      path:'/category/phones',
+      path: {
+        pathname: '/category/phones',
+        search,
+      },
       title:'Phones'
     },
     {
-      path:'/category/tablets',
+      path: {
+        pathname: '/category/tablets',
+        search,
+      },
       title:'Tablets'
     },
     {
-      path:'/category/accessories',
+      path: {
+        pathname: '/category/accessories',
+        search,
+      },
       title:'Accessories'
     },
   ];
@@ -60,7 +69,7 @@ export const BurgerMenu: FC<Props> = ({
             <NavLink 
               className={styles.categories__customLink} 
               to={path}
-              key={path}
+              key={path.pathname}
             >
               {title}
             </NavLink> 
