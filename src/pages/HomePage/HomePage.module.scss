@@ -1,8 +1,41 @@
 @import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
 
 .main {
   max-width: 1304px;
   margin: 0 auto;
+}
+
+.loader {
+  max-width: 1312px;
+  height: 490px;
+  margin: 0 auto;
+  padding: 14px 15px 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: $color-black;
+  border-radius: 6px;
+
+  @include onTablet {
+    height: 534px;
+  }
+
+  &__title {
+    margin-bottom: 14px;
+
+    font-size: 16px;
+    line-height: 20px;
+
+    @include onTablet {
+      margin-bottom: 25px;
+      
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
 }
 
 @include onDesktop {

@@ -44,7 +44,6 @@ export const ProductList: FC<ProductListProps> = ({ title, products }) => {
           type={'secondary'}
         />
       </Link>
-
     </section >
   );
 };
