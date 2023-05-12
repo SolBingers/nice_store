@@ -3,16 +3,11 @@ const BASE_URL = 'https://nice-store-api.onrender.com';
 export const client = {
   get: async <T>(
     url: string,
-    searchParams: [string, string][] = [],
   ): Promise<T> => {
-    
-    const urlWithParams = new URL(`${BASE_URL}${url}`);
+    const path = `${BASE_URL}${url}`;
+    console.log(path);
 
-    searchParams.forEach(([key, value]) => {
-      urlWithParams.searchParams.set(key, value);
-    });
-
-    const response = await fetch(urlWithParams.toString());
+    const response = await fetch(path);
     if (!response.ok)
       throw new Error('Cant load data');
 

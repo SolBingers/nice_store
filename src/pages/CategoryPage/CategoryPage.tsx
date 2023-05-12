@@ -7,7 +7,7 @@ import styles from './CategoryPage.module.scss';
 import { List } from '../../components/List';
 import { Categories } from '../../components/Categories';
 import { Pagination } from '../../components/Pagination';
-import { getPhonesByType } from '../../api/phones';
+import { getAllPhones, getPhonesByType } from '../../api/phones';
 import { Phone } from '../../components/types/types';
 
 type Props = {
@@ -19,7 +19,9 @@ export const CategoryPage: FC<Props> = ({ className }) => {
   const [phones, setPhones] = useState<Phone[]>([]);
   
   useEffect(() => {
-    getPhonesByType('new', { count:8 })
+    getAllPhones({
+      page: 8
+    })
       .then((response) => {
         setPhones(response);
       });

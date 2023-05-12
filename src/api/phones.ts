@@ -1,24 +1,40 @@
 import { Phone, PhoneSpec } from '../components/types/types';
 import { client } from '../utils/fetchClient';
 
+interface Params {
+  page?: number,
+  count?: number,
+  sort?: 'newest' | 'oldest',
+}
 
-export const getAllPhones = async (): Promise<Phone[]> =>
-  client.get('/products');
+export const getAllPhones = async ({
+  page,
+  count,
+  sort,
+}: Params): Promise<Phone[]> => {
+  const params = [];
+  if (page) {
+    params.push(`page=${page}`);
+  }
+  if (count) {
+    params.push(`count=${count}`);
+  }
+  if (sort) {
+    params.push(`sort=${sort}`);
+  }
+
+  const query = params ? params.join('&') : '';
+
+  return client.get(`/products?${query}`);
+};
 
 export const getPhoneById = (id: string): Promise<PhoneSpec> =>
   client.get(`/products/${id}`);
 
 export const getPhonesByType = (
   type?: 'discount' | 'new',
-  options: { page?: number; count?: number; sort?: 'newest' | 'oldest' } = {}
 ): Promise<Phone[]> => {
-  const searchParams: [string, string][] = [];
-
-  if (options.page) searchParams.push(['page', options.page.toString()]);
-  if (options.count) searchParams.push(['count', options.count.toString()]);
-  if (options.sort) searchParams.push(['sort', options.sort]);
-
-  return client.get(`/products/${type}`, searchParams);
+  return client.get(`/products/${type}`);
 };
 
 export const getPhoneRecomended = (id: string): Promise<Phone[]> =>
