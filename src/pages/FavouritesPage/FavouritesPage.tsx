@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import { List } from '../../components/List';
 import styles from './FavouritesPage.module.scss';
-import phonesJson from './phones.json';
 
 export const FavouritesPage: FC = () => {
   const [favComp] = useState(true);
@@ -14,7 +13,7 @@ export const FavouritesPage: FC = () => {
         </h1>
         <div className={styles.favorites__list}>
           <List 
-            products={phonesJson}
+            products={[]}
             favComp={favComp}
           />
         </div>
