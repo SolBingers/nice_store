@@ -16,14 +16,21 @@ const getPhones = async (type: 'discount' | 'new') => {
 };
 
 export const HomePage: FC = () => {
-  const { data: discountData } = useQuery('discount', () => getPhones('discount'));
-  const { data: newData } = useQuery('new', () => getPhones('new'));
+  const { data: discountData } = useQuery(
+    'discount',
+    () => getPhones('discount'),
+  );
+  
+  const { data: newData } = useQuery(
+    'new',
+    () => getPhones('new'),
+  );
 
   return (
     <main className={homePage.main}>
       <div className={homePage.slider}>
         <Categories />
-        
+
         <FirstBanner />
       </div>
 
