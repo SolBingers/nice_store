@@ -19,6 +19,7 @@ export const ProductCard: FC<Props> = ({ phone }) => {
     price, 
     fullPrice,
     ram } = phone;
+    
   return (
     <div className={card.card}>
       <div className={card.iconBackground}>

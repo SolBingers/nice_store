@@ -16,8 +16,8 @@ export const ProductDetails: FC<Props> = ({ phoneData }) => {
     colorsAvailable,
     capacityAvailable,
     images,
-  } = phoneData;
-
+  } = phoneData;  
+  
   return (
     <div className={details.details}>
       <article className={details.gallery}>

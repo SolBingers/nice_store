@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { About } from '../../components/About';
 import { TecSpecs } from '../../components/TechSpecs';
 import { ProductList } from '../../components/ProductList';
@@ -27,7 +27,11 @@ export const ItemPage: FC = () => {
   return (
     <>
       {!phoneSingle || isLoading
-        ? <Loader />
+        ?  (
+          <div className={itemPage.loader}>
+            <Loader />
+          </div>
+        )
         : (
           <>
             <div className={itemPage.product}>
