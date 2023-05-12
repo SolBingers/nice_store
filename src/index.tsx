@@ -8,10 +8,12 @@ const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);
 root.render(
-  <HashRouter >
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </HashRouter>
+  <React.StrictMode>
+    <HashRouter >
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </HashRouter>
+  </React.StrictMode>
 );
 

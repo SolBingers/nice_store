@@ -7,37 +7,64 @@ import classNames from 'classnames';
 type Props = {
   currentPage: number;
   className?: string;
+  maxPage: number;
+  setSelectedPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export const Pagination: FC<Props> = ({ currentPage, className }) => {
-  const [pageNumber, setPageNumber] = useState(currentPage);
-  const maxPage = 10;
-  let pages: number[] = []; 
-  
-  if (pageNumber === 1) pages = [pageNumber, pageNumber + 1, pageNumber + 2];
-  if (pageNumber > 1) pages = [pageNumber - 1, pageNumber, pageNumber + 1];
-  if (pageNumber === maxPage) pages = [pageNumber - 2, pageNumber - 1, pageNumber];
+export const Pagination: FC<Props> = ({ 
+  className,
+  currentPage,
+  maxPage,
+  setSelectedPage,
+}) => {
+  const pages = getPageNumbers(currentPage, maxPage);
 
   return (
     <div className={classNames(className, pagination.main)}>
       <Arrow 
         type="left" 
-        disabled={pageNumber === 1}
-        setPageNumber={setPageNumber}
+        disabled={currentPage === 1}
+        setPageNumber={setSelectedPage}
       />
       {pages.map(number => (
         <PageNumber 
           key={number}
           page={number} 
-          isActive={pageNumber === number}
-          setPageNumber={setPageNumber}
+          isActive={currentPage === number}
+          setPageNumber={setSelectedPage}
         />
       ))}
       <Arrow 
         type="right" 
-        disabled={pageNumber === maxPage}
-        setPageNumber={setPageNumber}
+        disabled={currentPage === maxPage}
+        setPageNumber={setSelectedPage}
       />
     </div>
   );
 };
+
+function getPageNumbers(currentPage: number, maxPage:number) {
+  const result = [];
+
+  if (currentPage > maxPage) currentPage = maxPage;
+
+  if (currentPage === 1) {
+    while (currentPage < maxPage && result.length < 3) {
+      result.push(currentPage);
+      currentPage++;
+    }
+
+    return result;
+  }
+
+  if (currentPage === maxPage) {
+    while (currentPage > 0 && result.length < 3) {
+      result.unshift(currentPage);
+      currentPage--;
+    }
+
+    return result;
+  }
+
+  return [currentPage - 1, currentPage, currentPage + 1];
+}

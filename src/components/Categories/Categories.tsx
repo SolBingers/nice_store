@@ -1,10 +1,11 @@
 import React, { FC, useState } from 'react';
 import styles from './Categories.module.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 export const Categories: FC = () => {
   const [isClosed,setIsClosed] = useState(false);
+  const { search } = useLocation();
 
   
   return (
@@ -33,7 +34,10 @@ export const Categories: FC = () => {
                 [styles.activeLink]: isActive,
               },
             )} 
-            to="/category/phones"
+            to={{
+              pathname: '/category/phones',
+              search,
+            }}
           >
             Phones
           </NavLink> 
@@ -45,7 +49,10 @@ export const Categories: FC = () => {
                 [styles.activeLink]: isActive,
               },
             )}  
-            to="/category/tablets" 
+            to={{
+              pathname: '/category/tablets',
+              search,
+            }}
           >
             Tablets
           </NavLink>  
@@ -57,7 +64,10 @@ export const Categories: FC = () => {
                 [styles.activeLink]: isActive,
               },
             )} 
-            to="/category/accessories" 
+            to={{
+              pathname: '/category/accessories',
+              search,
+            }}
           >
             Accessories
           </NavLink>
