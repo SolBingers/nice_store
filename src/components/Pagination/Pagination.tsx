@@ -11,7 +11,12 @@ type Props = {
 
 export const Pagination: FC<Props> = ({ currentPage, className }) => {
   const [pageNumber, setPageNumber] = useState(currentPage);
-  const pages = [pageNumber, pageNumber + 1, pageNumber + 2];
+  const maxPage = 10;
+  let pages: number[] = []; 
+  
+  if (pageNumber === 1) pages = [pageNumber, pageNumber + 1, pageNumber + 2];
+  if (pageNumber > 1) pages = [pageNumber - 1, pageNumber, pageNumber + 1];
+  if (pageNumber === maxPage) pages = [pageNumber - 2, pageNumber - 1, pageNumber];
 
   return (
     <div className={classNames(className, pagination.main)}>
@@ -30,6 +35,7 @@ export const Pagination: FC<Props> = ({ currentPage, className }) => {
       ))}
       <Arrow 
         type="right" 
+        disabled={pageNumber === maxPage}
         setPageNumber={setPageNumber}
       />
     </div>
