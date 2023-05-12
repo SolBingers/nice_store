@@ -10,6 +10,7 @@ import { Pagination } from '../../components/Pagination';
 import { getAllPhones } from '../../api/phones';
 import { useQuery } from 'react-query';
 import { Phone } from '../../components/types/types';
+import { Loader } from '../../components/Loader';
 
 type Props = {
   className?: string;
@@ -32,6 +33,7 @@ export const CategoryPage: FC<Props> = ({ className }) => {
   };
   
   const {
+    isLoading,
     data,
     refetch
   } = useQuery<Response>('products', getPhones);
@@ -72,17 +74,25 @@ export const CategoryPage: FC<Props> = ({ className }) => {
           />
         </div>
 
-        {data && <List 
-          className={styles.list}
-          products={data.data} 
-        />}
+        {data && !isLoading ? (
+          <List 
+            className={styles.list}
+            products={data.data} 
+          />
+        ) : (
+          <div className={styles.loaderContainer} >
+            <Loader />
+          </div>
+        )}
 
-        {data && <Pagination
-          className={styles.pagination}
-          currentPage={selectedPage}
-          setSelectedPage={setSelectedPage}
-          maxPage={data.pages}
-        />}
+        {data && (
+          <Pagination
+            className={styles.pagination}
+            currentPage={selectedPage}
+            setSelectedPage={setSelectedPage}
+            maxPage={data.pages}
+          />
+        )}
       </div>
     </main>
   );
