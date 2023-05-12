@@ -33,7 +33,8 @@ export const CategoryPage: FC<Props> = ({ className }) => {
           <SettingsSelect 
             className={styles.select}
             title="Sort by"
-            options={['Newest', 'Oldest']}
+            apiTitle="sort"
+            options={['Newest', 'Oldest', 'Cheapest']}
             selected = 'Newest'
             setSelected={() => {return;}}
           />
@@ -41,7 +42,8 @@ export const CategoryPage: FC<Props> = ({ className }) => {
           <SettingsSelect 
             className={styles.select}
             title="Items per page"
-            options={['8', '16', '24', '32']}
+            apiTitle="count"
+            options={['4', '8', '12', '16']}
             selected = '8'
             setSelected={() => {return;}}
           />
