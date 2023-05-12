@@ -1,6 +1,6 @@
 import React from 'react';
 import productItemStyle from './ProductItem.module.scss';
-import { Product } from '../../types/Product';
+import { Product } from '../../components/types/types';
 import minus from '../../images/minus.svg';
 import plus from '../../images/Plus.svg';
 import classNames from 'classnames';

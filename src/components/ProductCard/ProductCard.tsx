@@ -5,6 +5,8 @@ import { Button } from '../Button';
 import { Phone, Product } from '../types/types';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
+import { FavoriteContext } from '../../contexts/FavoriteContext';
+import classNames from 'classnames';
 
 interface Props {
   phone: Phone;
@@ -26,8 +28,27 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   const imageURL = BASE_URL + '/' + image;
 
   const [isButtonDissabled, setIsButtonDissabled] = useState(false);
-
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { phones, addPhone, removePhone } = useContext(FavoriteContext);
   const { cart, addToCart } = useContext(CartContext);
+
+
+  const handleFavoritePhone = () => {
+    if (isFavorite) {
+      removePhone(phoneId);
+    } else {
+      addPhone(phone);
+    }
+
+  };
+
+  useEffect(() => {
+    if(phones.find((phone: Phone) => phone.phoneId === phoneId)) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  },[phones]);
 
   useEffect(() => {
     if (cart.find((product: Product) => product.phoneId === phoneId)) {
@@ -50,10 +71,14 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   return (
     <div className={card.card}>
       <div className={card.imageBackground}>
-        <div className={card.imageContainer}>
-          <Favorite className={card.heart} />
-        </div>
-
+        <button 
+          className={card.iconContainer}
+          onClick={handleFavoritePhone}
+        >
+          <Favorite className={classNames(card.heart, {
+            [card.heart__active]: isFavorite === true,
+          })} />
+        </button>
 
         <Link to={phoneId} className={card.image}>
           <img className={card.image} src={imageURL} alt='phone'/>

@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
-import { Product } from '../types/Product';
 import { useLocalStorage } from '../customHooks/useLocalStorage';
-import { Phone } from '../types/Phone';
+import { Phone } from '../components/types/types';
 
 interface Context {
-  phone: Phone[];
+  phones: Phone[];
   addPhone: (item: Phone) => void;
   removePhone: (itemId: string) => void;
 }
 
 const initialValue = {
-  phone: [],
-  addPhone: (item: Product) => {
+  phones: [],
+  addPhone: (item: Phone) => {
     item;
   },
   removePhone: (itemId: string) => {
@@ -19,41 +18,41 @@ const initialValue = {
   },
 };
 
-export const CartContext = React.createContext<Context>(initialValue);
+export const FavoriteContext = React.createContext<Context>(initialValue);
 
 type Props = {
   children: React.ReactNode;
 };
 
-export const CartProvider: React.FC<Props> = ({ children }) => {
-  const [phone, setPhone] = useLocalStorage<Product[]>('phone', []);
+export const FavoriteProvider: React.FC<Props> = ({ children }) => {
+  const [phones, setPhones] = useLocalStorage<Phone[]>('phones', []);
 
-  const updateLocalStorage = (phoneData: Product[]) => {
-    localStorage.setItem('phone', JSON.stringify(phoneData));
+  const updateLocalStorage = (phonesData: Phone[]) => {
+    localStorage.setItem('phones', JSON.stringify(phonesData));
   };
 
   useEffect(() => {
-    const storedCart = localStorage.getItem('phone');
-    if (storedCart) {
-      setPhone(JSON.parse(storedCart));
+    const storedPhone= localStorage.getItem('phones');
+    if (storedPhone) {
+      setPhones(JSON.parse(storedPhone));
     }
   }, []);
 
-  const addPhone = (item: Product) => {
-    const updatedCart = [...phone, item];
-    setPhone(updatedCart);
-    updateLocalStorage(updatedCart);
+  const addPhone = (item: Phone) => {
+    const updatedPhone = [...phones, item];
+    setPhones(updatedPhone);
+    updateLocalStorage(updatedPhone);
   };
 
-  const removePhone = (itemId: string) => {
-    const updatedCart = phone.filter((item: Phone) => item.id !== itemId);
-    setPhone(updatedCart);
-    updateLocalStorage(updatedCart);
+  const removePhone = (phoneId: string) => {
+    const updatedPhone = phones.filter((phone: Phone) => phone.phoneId !== phoneId);
+    setPhones(updatedPhone);
+    updateLocalStorage(updatedPhone);
   };
 
   return (
-    <CartContext.Provider value={{ phone, addPhone, removePhone }}>
+    <FavoriteContext.Provider value={{ phones, addPhone, removePhone }}>
       {children}
-    </CartContext.Provider>
+    </FavoriteContext.Provider>
   );
 };

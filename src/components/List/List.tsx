@@ -1,7 +1,7 @@
 import React from 'react';
 import listStyle from './List.module.scss';
 import { ProductCard } from '../ProductCard';
-import { Phone } from '../../types/Phone';
+import { Phone } from '../../components/types/types';
 import classNames from 'classnames';
 
 interface Props {
@@ -19,7 +19,7 @@ export const List: React.FC<Props> = ({
     [listStyle.fourItem]: favComp,
   })}>
     {products.map(product => (
-      <div className={listStyle.card} key={product.id}>
+      <div className={listStyle.card} key={product.phoneId}>
         <ProductCard
           phone={product}
         />
