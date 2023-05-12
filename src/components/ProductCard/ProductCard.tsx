@@ -9,6 +9,7 @@ import { CartContext } from '../../contexts/CartContext';
 interface Props {
   phone: Phone;
 }
+const BASE_URL = 'https://nice-store-api.onrender.com';
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
   const { 
@@ -22,6 +23,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
     ram 
   } =
     phone;
+  const imageURL = BASE_URL + '/' + image;
 
   const [isButtonDissabled, setIsButtonDissabled] = useState(false);
 
@@ -47,13 +49,14 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
 
   return (
     <div className={card.card}>
-      <div className={card.iconBackground}>
-        <div className={card.iconContainer}>
+      <div className={card.imageBackground}>
+        <div className={card.imageContainer}>
           <Favorite className={card.heart} />
         </div>
 
-        <Link to={phoneId} className={card.icon}>
-          <img className={card.icon} src={image} alt="phone" />
+
+        <Link to={phoneId} className={card.image}>
+          <img className={card.image} src={imageURL} alt='phone'/>
         </Link>
       </div>
 
