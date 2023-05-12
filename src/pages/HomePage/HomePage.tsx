@@ -14,7 +14,7 @@ export const HomePage: FC = () => {
   useEffect(() => {
     const getPhonesFromServer = async () => {
       try {
-        const phonesFromServer = await getPhonesByType('new');
+        const phonesFromServer = await getAllPhones({});
 
         setPhones(phonesFromServer);
       } catch (error) {
