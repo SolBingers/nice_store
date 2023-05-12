@@ -14,13 +14,18 @@ export const PageNumber: FC<Props> = ({
   isActive = false,
   setPageNumber,
 }) => {
-  const [, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const stringPage = page.toString();
   const handleClick = () => {
     setPageNumber(page);
   };
 
   useEffect(() => {
-    isActive && setSearchParams({ page: `${page}` });
+    if (isActive) {
+      searchParams.delete('page');
+      searchParams.append('page', stringPage);
+      setSearchParams(searchParams);
+    }
   }, [isActive]);
 
   return (
