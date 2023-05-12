@@ -5,10 +5,10 @@ import { ProductGallery } from '../ProductGallery/ProductGallery';
 import { PhoneSpec } from '../types/types';
 
 interface Props {
-  info: PhoneSpec
+  phoneData: PhoneSpec
 }
 
-export const ProductDetails: FC<Props> = ({ info }) => {
+export const ProductDetails: FC<Props> = ({ phoneData }) => {
   const {
     name,
     priceDiscount,
@@ -16,7 +16,8 @@ export const ProductDetails: FC<Props> = ({ info }) => {
     colorsAvailable,
     capacityAvailable,
     images,
-  } = info;
+  } = phoneData;
+
   return (
     <div className={details.details}>
       <article className={details.gallery}>
@@ -34,7 +35,6 @@ export const ProductDetails: FC<Props> = ({ info }) => {
           selectedCapacity={''}
         />
       </article>
-
     </div>
   );
 };

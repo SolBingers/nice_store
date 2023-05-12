@@ -21,34 +21,38 @@ export const ItemPage: FC = () => {
 
   const { data: phones = [] } = useQuery<Phone[]>(
     'phones',
-    () => getPhoneRecomended(itemId)
+    () =>  getPhoneRecomended(itemId)
   );
 
   return (
     <>
-      <div className={itemPage.product}>
-        <Categories />
-        {(!phoneSingle || isLoading)
-          ? <Loader />
-          : <ProductDetails info={phoneSingle}/>}
-      </div>
+      {!phoneSingle || isLoading
+        ? <Loader />
+        : (
+          <>
+            <div className={itemPage.product}>
+              <Categories />
+              <ProductDetails phoneData={phoneSingle}/>
+            </div>
+      
+            <div className={itemPage.productInfo}>
+              <div className={itemPage.about}>
+                <About phoneSpec={phoneSingle} />
+              </div>
+      
+              <div className={itemPage.techSpecs}>
+                <TecSpecs phoneSpec={phoneSingle} />
+              </div>
+            </div>
 
-      <div className={itemPage.productInfo}>
-        <div className={itemPage.about}>
-          <About phoneSpec={phoneSingle} />
-        </div>
-
-        <div className={itemPage.techSpecs}>
-          <TecSpecs phoneSpec={phoneSingle} />
-        </div>
-      </div>
-
-      <div className={itemPage.productList}>
-        <ProductList
-          title={'You may also like'}
-          products={phones}
-        />
-      </div>
+            <div className={itemPage.productList}>
+              <ProductList
+                title={'You may also like'}
+                products={phones}
+              />
+            </div>
+          </>
+        )}
     </>
   );
 };
