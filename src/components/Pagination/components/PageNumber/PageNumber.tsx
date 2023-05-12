@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import styles from './PageNumber.module.scss';
 import classNames from 'classnames';
-import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 type Props = {
   page: number;
