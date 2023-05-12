@@ -22,8 +22,8 @@ export const HomePage: FC = () => {
   return (
     <main className={homePage.main}>
       <div className={homePage.slider}>
-
         <Categories />
+        
         <FirstBanner />
       </div>
 
