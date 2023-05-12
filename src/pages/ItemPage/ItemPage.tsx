@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { About } from '../../components/About';
 import { TecSpecs } from '../../components/TechSpecs';
 import { ProductList } from '../../components/ProductList';
