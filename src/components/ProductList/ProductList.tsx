@@ -4,7 +4,7 @@ import { Button } from '../Button';
 import { ProductCard } from '../ProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper';
-import { Phone } from '../types/types';
+import { Phone } from '../../components/types/types';
 
 import 'swiper/css';
 import 'swiper/css/scrollbar';

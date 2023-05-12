@@ -33,8 +33,12 @@
   cursor: pointer;
 
   &:hover {
-    fill: $color-primary
+    fill: $color-primary;
   }
+}
+
+.heart__active {
+  fill: $color-primary;
 }
 
 .imageContainer {

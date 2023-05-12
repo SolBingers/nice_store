@@ -1,6 +1,6 @@
 import React from 'react';
 import personCardStyle from './PersonCard.module.scss';
-import { Person } from '../types/types';
+import { Person } from '../../components/types/types';
 
 type Props = {
   personInfo: Person;

@@ -70,6 +70,7 @@ export const BurgerMenu: FC<Props> = ({
               className={styles.categories__customLink} 
               to={path}
               key={path.pathname}
+              onClick={() => setIsOpen(false)}
             >
               {title}
             </NavLink> 
