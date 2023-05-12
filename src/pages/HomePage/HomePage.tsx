@@ -5,8 +5,19 @@ import homePage from './HomePage.module.scss';
 import { ProductList } from '../../components/ProductList';
 import { CategoryBlock } from '../../components/CategoryBlock';
 import { SaleBanner } from '../../components/SaleBanner';
+import { getPhonesByType } from '../../api/phones';
+import { useQuery } from 'react-query';
+import { Loader } from '../../components/Loader';
+
+const getPhones = async (type: 'discount' | 'new') => {
+  const loadData = await getPhonesByType(type);
+
+  return loadData;
+};
 
 export const HomePage: FC = () => {
+  const { data: discountData } = useQuery('discount', () => getPhones('discount'));
+  const { data: newData } = useQuery('new', () => getPhones('new'));
 
   return (
     <main className={homePage.main}>
@@ -15,9 +26,21 @@ export const HomePage: FC = () => {
         <Categories />
         <FirstBanner />
       </div>
-      
+
       <article className={homePage.productList}>
-        <ProductList title={'Shop now'} products={[]} />
+        {!discountData
+          ? (
+            <div className={homePage.loader}>
+              <h2 className={homePage.loader__title}>
+                Hot prices
+              </h2>
+
+              <Loader />
+            </div>
+          )
+          : (
+            <ProductList title='Hot prices' products={discountData} />
+          )}
       </article>
 
       <article className={homePage.categoryBlock}>
@@ -29,7 +52,19 @@ export const HomePage: FC = () => {
       </article>
 
       <article className={homePage.productList}>
-        <ProductList title={'Shop now'} products={[]} />
+        {!newData
+          ? (
+            <div className={homePage.loader}>
+              <h2 className={homePage.loader__title}>
+                Brand NEW
+              </h2>
+
+              <Loader />
+            </div>
+          )
+          : (
+            <ProductList title='Brand NEW' products={newData} />
+          )}
       </article>
     </main>
   );
