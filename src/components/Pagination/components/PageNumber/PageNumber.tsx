@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import styles from './PageNumber.module.scss';
 import classNames from 'classnames';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 type Props = {
   page: number;
@@ -14,31 +14,23 @@ export const PageNumber: FC<Props> = ({
   isActive = false,
   setPageNumber,
 }) => {
-  const { hash } = useLocation();
-  const navigate = useNavigate();
+  const [, setSearchParams] = useSearchParams();
   const handleClick = () => {
     setPageNumber(page);
   };
 
   useEffect(() => {
-    isActive && navigate({
-      pathname: hash,
-      search: `?page=${page}`,
-    });
+    isActive && setSearchParams({ page: `${page}` });
   }, [isActive]);
 
   return (
-    <Link
-      to={{
-        pathname: hash,
-        search: `?page=${page}`,
-      }}
+    <div
       className={classNames(styles.main, {
         [styles.active]: isActive
       })}
       onClick={handleClick}
     >
       {page}
-    </Link>
+    </div>
   );
 };
