@@ -30,11 +30,15 @@
     }
   }
 
+  .remove__radius {
+    border-radius: 0;
+  }
+
   &__emptyList {
     border-radius: 8px;
     text-align: center;
-    padding-top: 24px;
-    padding-bottom: 10px;
+    padding-top: 180px;
+    padding-bottom: 175px;
     margin-top: 24px;
     font-weight: 500;
     line-height: 20px;
