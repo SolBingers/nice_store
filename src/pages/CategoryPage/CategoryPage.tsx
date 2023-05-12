@@ -19,7 +19,7 @@ export const CategoryPage: FC<Props> = ({ className }) => {
   const [phones, setPhones] = useState<Phone[]>([]);
   
   useEffect(() => {
-    getPhonesByType('new', { count:8 })
+    getPhonesByType('new')
       .then((response) => {
         setPhones(response);
       });
