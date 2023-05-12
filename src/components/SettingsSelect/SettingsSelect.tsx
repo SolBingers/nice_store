@@ -1,25 +1,33 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import settingsSelect from './SettingsSelect.module.scss';
 import { ReactComponent as Arrow } from '../../images/chevron-down.svg';
 import classNames from 'classnames';
+import { useSearchParams } from 'react-router-dom';
 
 type Props = {
   className?: string;
   title: string;
+  apiTitle: string;
   options: string[];
-  selected?: string;
   setSelected: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const SettingsSelect: FC<Props> = ({
   className,
   title,
+  apiTitle,
   options,
-  selected = 'Choose One',
   setSelected,
 }) => {
   const [isActive, setIsActive] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(selected);
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    searchParams.delete(apiTitle);
+    searchParams.append(apiTitle, selectedOption.toLowerCase());
+    setSearchParams(searchParams);
+  }, [selectedOption]);
 
   const handleBtnClick = () => {
     setIsActive((state) => !state);

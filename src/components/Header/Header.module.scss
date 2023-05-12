@@ -74,6 +74,10 @@
   stroke: $color-primary;
 }
 
+.activeLink * {
+  stroke: $color-primary;
+}
+
 .cart:hover * {
   fill: $color-primary;
 }

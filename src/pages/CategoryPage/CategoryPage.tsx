@@ -1,25 +1,49 @@
-import React, { FC } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { FC, useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import { SettingsInput } from '../../components/SettingsInput';
 import { SettingsSelect } from '../../components/SettingsSelect';
 import classNames from 'classnames';
 import styles from './CategoryPage.module.scss';
 import { List } from '../../components/List';
-import phones from '../../phonesForTest.json';
 import { Categories } from '../../components/Categories';
 import { Pagination } from '../../components/Pagination';
+import { getAllPhones } from '../../api/phones';
+import { useQuery } from 'react-query';
+import { Phone } from '../../components/types/types';
 
 type Props = {
   className?: string;
 }
 
+type Response = {
+  data: Phone[],
+  pages: number,
+}
+
 export const CategoryPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
+  const [, setSelectedSort] = useState('');
+  const [, setSelectedItemsPerPage] = useState('');
+  const [selectedPage, setSelectedPage] = useState(1);
+  const { search } = useLocation();
+  
+  const getPhones = async () => {
+    return await getAllPhones(search);
+  };
+  
+  const {
+    data,
+    refetch
+  } = useQuery<Response>('products', getPhones);
+
+  useEffect(() => {
+    refetch();
+  }, [search]);
 
   return (
     <main className={classNames(className, styles.main)}>
       <Categories />
-
+      
       <div className={styles.content}>
         <p className={styles.title}>
           {selectedCategory}
@@ -34,29 +58,31 @@ export const CategoryPage: FC<Props> = ({ className }) => {
           <SettingsSelect 
             className={styles.select}
             title="Sort by"
-            options={['Newest', 'Oldest']}
-            selected = 'Newest'
-            setSelected={() => {return;}}
+            apiTitle="sort"
+            options={['Newest', 'Oldest', 'Cheapest']}
+            setSelected={setSelectedSort}
           />
 
           <SettingsSelect 
             className={styles.select}
             title="Items per page"
-            options={['8', '16', '24', '32']}
-            selected = '8'
-            setSelected={() => {return;}}
+            apiTitle="count"
+            options={['6', '12', '18']}
+            setSelected={setSelectedItemsPerPage}
           />
         </div>
 
-        <List 
+        {data && <List 
           className={styles.list}
-          products={phones} 
-        />
+          products={data.data} 
+        />}
 
-        <Pagination
+        {data && <Pagination
           className={styles.pagination}
-          currentPage={1} 
-        />
+          currentPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+          maxPage={data.pages}
+        />}
       </div>
     </main>
   );

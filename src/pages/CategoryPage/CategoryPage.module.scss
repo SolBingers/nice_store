@@ -6,10 +6,6 @@
   align-items: start;
   justify-content: center;
   gap: 40px;
-
-  @include onDesktop {
-    padding: 0 40px;
-  }
 }
 
 .content {
@@ -18,10 +14,13 @@
   align-items: center;
 
   width: 100%;
-  max-width: 960px;
 
   background-color: $color-black;
   border-radius: 8px;
+
+  @include onDesktop {
+    max-width: 960px;
+  }
 }
 
 .title {

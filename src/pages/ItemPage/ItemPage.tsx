@@ -1,8 +1,37 @@
 import React, { FC } from 'react';
-import { useParams } from 'react-router-dom';
+import { About } from '../../components/About';
+import { TecSpecs } from '../../components/TechSpecs';
+import { ProductList } from '../../components/ProductList';
+import { ProductDetails } from '../../components/ProductDetails';
+import { Categories } from '../../components/Categories';
+
+import itemPage from './ItemPage.module.scss';
 
 export const ItemPage: FC = () => {
-  const { itemId } = useParams();
+  
+  return (
+    <>
+      <div className={itemPage.product}>
+        <Categories />
+        <ProductDetails />
+      </div>
 
-  return (<h1>Item Page {itemId}</h1>);
+      <div className={itemPage.productInfo}>
+        <div className={itemPage.about}>
+          <About phoneSpec={null} />
+        </div>
+
+        <div className={itemPage.techSpecs}>
+          <TecSpecs phoneSpec={null} />
+        </div>
+      </div>
+
+      <div className={itemPage.productList}>
+        <ProductList
+          title={'You may also like'}
+          products={[]}
+        />
+      </div>
+    </>
+  );
 };

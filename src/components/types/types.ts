@@ -53,3 +53,8 @@ export interface PhoneSpec {
 export interface Product extends Phone {
   count: number
 }
+
+export interface NextAndPrev {
+  page: number;
+  limit: number;
+}

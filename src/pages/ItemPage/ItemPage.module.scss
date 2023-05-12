@@ -1,0 +1,60 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.product {
+  margin-bottom: 24px;
+}
+
+.about {
+  margin-bottom: 24px;
+}
+
+.techSpecs {
+  margin-bottom: 24px;
+}
+
+.productList {
+  margin-bottom: 24px;
+}
+
+@include onTablet {
+  .product {
+    padding: 0 24px;
+  }
+
+  .about {
+    padding: 0 24px;
+  }
+
+  .techSpecs {
+    padding: 0 24px 0 24px;
+  }
+}
+
+@include onDesktop {
+  .about {
+    padding: 0;
+  }
+
+  .product {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    max-width: 1312px;
+    margin: 0 auto 24px;
+    padding: 0;
+  }
+  
+  .productInfo {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1312px;
+    margin: 0 auto;
+  }
+
+  .techSpecs {
+    margin: 0 0 24px 24px;
+    padding: 0;
+  }
+}
+
