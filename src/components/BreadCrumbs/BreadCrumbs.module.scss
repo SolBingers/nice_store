@@ -1,0 +1,29 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.item {
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.active {
+    color: #666;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+li:not(:first-child)::before {
+  content: '>';
+  margin: 0 5px;
+}
