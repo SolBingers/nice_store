@@ -1,31 +1,13 @@
 import { Phone, PhoneSpec } from '../components/types/types';
 import { client } from '../utils/fetchClient';
 
-interface Params {
-  page?: number,
-  count?: number,
-  sort?: 'newest' | 'oldest',
-}
+type Response = {
+  data: Phone[],
+  pages: number,
+};
 
-export const getAllPhones = async ({
-  page,
-  count,
-  sort,
-}: Params): Promise<Phone[]> => {
-  const params = [];
-  if (page) {
-    params.push(`page=${page}`);
-  }
-  if (count) {
-    params.push(`count=${count}`);
-  }
-  if (sort) {
-    params.push(`sort=${sort}`);
-  }
-
-  const query = params ? params.join('&') : '';
-
-  return client.get(`/products?${query}`);
+export const getAllPhones = async (search: string): Promise<Response> => {
+  return client.get(`/products${search}`);
 };
 
 export const getPhoneById = (id: string): Promise<PhoneSpec> =>

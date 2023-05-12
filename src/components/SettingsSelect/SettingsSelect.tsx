@@ -9,7 +9,6 @@ type Props = {
   title: string;
   apiTitle: string;
   options: string[];
-  selected?: string;
   setSelected: React.Dispatch<React.SetStateAction<string>>;
 };
 
@@ -18,12 +17,17 @@ export const SettingsSelect: FC<Props> = ({
   title,
   apiTitle,
   options,
-  selected = 'Choose One',
   setSelected,
 }) => {
   const [isActive, setIsActive] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(selected);
+  const [selectedOption, setSelectedOption] = useState(options[0]);
   const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    searchParams.delete(apiTitle);
+    searchParams.append(apiTitle, selectedOption.toLowerCase());
+    setSearchParams(searchParams);
+  }, [selectedOption]);
 
   const handleBtnClick = () => {
     setIsActive((state) => !state);
@@ -34,12 +38,6 @@ export const SettingsSelect: FC<Props> = ({
     setSelectedOption(option);
     setIsActive(false);
   };
-
-  useEffect(() => {
-    searchParams.delete(apiTitle);
-    searchParams.append(apiTitle, selectedOption.toLowerCase());
-    setSearchParams(searchParams);
-  }, [selectedOption]);
 
   return (
     <div className={className}>
