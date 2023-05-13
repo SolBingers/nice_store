@@ -1,7 +1,10 @@
+@import '../../styles/utils/variables';
+
 .breadcrumbs {
   display: flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 12px;
+  gap: 12px;
   margin-bottom: 10px;
 }
 
@@ -22,8 +25,24 @@
     }
   }
 }
-
-li:not(:first-child)::before {
-  content: '>';
-  margin: 0 5px;
+.pathLink {
+  font-size: 12px;
+  text-decoration: none;
+  color: $color-grey;
 }
+
+.breadcrumbs:last-child {
+  pointer-events: none;
+  color: $color-hover-secondary;
+}
+
+// &_link {
+//   font-weight: 700;
+//   font-size: 0.75rem;
+//   color: $color-white;
+
+//   &:last-child {
+//     color: $color-secondary;
+//     pointer-events: none;
+//   }
+// }
