@@ -1,20 +1,40 @@
 @import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
 
 .breadcrumbs {
   display: flex;
   align-items: center;
-  font-size: 12px;
-  gap: 12px;
+  font-size: 10px;
   margin-bottom: 10px;
+
+  @include onTablet {
+    font-size: 14px;
+  }
 }
 
 .pathLink {
-  font-size: 12px;
-  text-decoration: none;
+  margin: 0 5px;
+}
+
+.active {
+  color: $color-light;
+  pointer-events: none;
+}
+
+.crumb {
   color: $color-grey;
 }
 
-.breadcrumbs:last-child {
-  pointer-events: none;
-  color: $color-hover-secondary;
+.crumb:last-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.homeLink {
+  font-size: 14px;
+
+  @include onTablet {
+    font-size: 16px;
+  }
 }
