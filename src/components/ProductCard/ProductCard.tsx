@@ -5,7 +5,7 @@ import { Button } from '../Button';
 import { Phone, Product } from '../types/types';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
-import { FavoriteContext } from '../../contexts/FavoriteContext';
+import { FavoriteContext } from '../../contexts/favoriteContext';
 import classNames from 'classnames';
 
 interface Props {

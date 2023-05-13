@@ -1,7 +1,7 @@
 import React, { FC, useContext, useState } from 'react';
 import { List } from '../../components/List';
 import styles from './FavouritesPage.module.scss';
-import { FavoriteContext } from '../../contexts/FavoriteContext';
+import { FavoriteContext } from '../../contexts/favoriteContext';
 import classNames from 'classnames';
 
 export const FavouritesPage: FC = () => {

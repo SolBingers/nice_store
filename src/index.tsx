@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import App from './App';
 import { CartProvider } from './contexts/CartContext';
-import { FavoriteProvider } from './contexts/FavoriteContext';
+import { FavoriteProvider } from './contexts/favoriteContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient();

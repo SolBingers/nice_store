@@ -1,6 +1,7 @@
 @import '../../styles/utils/variables';
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,10 +32,19 @@
 .heart {
   fill: none;
   cursor: pointer;
+  transition: fill 0.7s;
 
   &:hover {
     fill: $color-primary;
   }
+}
+
+.iconContainer {
+  position: absolute;
+  background-color: $color-light;
+  border-radius: 10px;
+  top: 5px;
+  left: 2px;
 }
 
 .heart__active {

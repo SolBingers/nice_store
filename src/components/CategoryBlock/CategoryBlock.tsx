@@ -15,7 +15,6 @@ export const CategoryBlock: FC = () => (
             imageUrl={categoryPhones}
             imageAlt='Phones category'
             categoryName='Phones'
-            categoryLink='/category/phones'
           />
         </Link>
       </div>
@@ -26,7 +25,6 @@ export const CategoryBlock: FC = () => (
             imageUrl={categoryTablets}
             imageAlt='Tablets category'
             categoryName='Tablets'
-            categoryLink='/category/tablets'
           />
         </Link>
       </div>
@@ -37,7 +35,6 @@ export const CategoryBlock: FC = () => (
             imageUrl={categoryAccessories}
             imageAlt='Accessories category'
             categoryName='Accessories'
-            categoryLink='/category/accessories'
           />
         </Link>
       </div>

@@ -1,5 +1,5 @@
 import details from './ProductDetails.module.scss';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { SelectionSection } from '../SelectionSection';
 import { ProductGallery } from '../ProductGallery/ProductGallery';
 import { PhoneSpec } from '../types/types';
@@ -9,8 +9,6 @@ interface Props {
 }
 
 export const ProductDetails: FC<Props> = ({ phoneData }) => {
-  const [imageURLs, setImageURLs] = useState<string[]>([]);
-
   const {
     name,
     priceDiscount,
@@ -24,16 +22,11 @@ export const ProductDetails: FC<Props> = ({ phoneData }) => {
 
   const BASE_URL = 'https://nice-store-api.onrender.com';
 
-  const imageURL = images.map(elemet => {
+  const imageURLs = images.map(elemet => {
     const fullPath = BASE_URL + '/' + elemet;
 
     return fullPath;
   });
-
-
-  useEffect(() => {
-    setImageURLs(imageURL);
-  }, [imageURL]);
 
   return (
     <div className={details.details}>
