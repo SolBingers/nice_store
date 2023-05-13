@@ -1,8 +1,9 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import pagination from './Pagination.module.scss';
 import { Arrow } from './components/Arrow';
 import { PageNumber } from './components/PageNumber/PageNumber';
 import classNames from 'classnames';
+import { useSearchParams } from 'react-router-dom';
 
 type Props = {
   className?: string;
@@ -13,8 +14,23 @@ export const Pagination: FC<Props> = ({
   className,
   maxPage,
 }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
   const pages = getPageNumbers(currentPage, maxPage);
+
+  useEffect(() => {
+    searchParams.delete('page');
+    searchParams.append('page', currentPage.toString());
+    setSearchParams(searchParams);
+  }, [currentPage]);
+
+  useEffect(() => {
+    const searchPage = searchParams.get('page') || currentPage;
+
+    if (+searchPage !== currentPage) {
+      setCurrentPage(+searchPage);
+    }
+  }, [searchParams]);
 
   return (
     <div className={classNames(className, pagination.main)}>
