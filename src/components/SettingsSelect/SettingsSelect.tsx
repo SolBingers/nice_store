@@ -17,9 +17,10 @@ export const SettingsSelect: FC<Props> = ({
   apiTitle,
   options,
 }) => {
-  const [isActive, setIsActive] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const initialValue = searchParams.get(apiTitle) || options[0];
+  const [selectedOption, setSelectedOption] = useState(initialValue);
+  const [isActive, setIsActive] = useState(false);
 
   const handleBtnClick = () => {
     setIsActive((state) => !state);
@@ -47,10 +48,7 @@ export const SettingsSelect: FC<Props> = ({
   }, []);
 
   return (
-    <div 
-      className={className}
-      onClick={(event) => event.stopPropagation()}
-    >
+    <div className={className} onClick={(event) => event.stopPropagation()}>
       <p className={settingsSelect.title}>{title}</p>
 
       <div className={settingsSelect.main}>

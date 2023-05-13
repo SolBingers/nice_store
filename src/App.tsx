@@ -13,13 +13,13 @@ import styles from './App.module.scss';
 import { ToTopButton } from './components/ToTopButton';
 
 export const App: FC = () => {
-  const location = useLocation(); 
+  const { pathname } = useLocation(); 
 
   useEffect(() => {
     window.scrollTo({
       top: 0,
     });
-  }, [location]);
+  }, [pathname]);
 
   return (
     <div className={styles.app}>

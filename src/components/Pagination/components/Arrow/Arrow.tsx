@@ -8,34 +8,24 @@ type ArrowProps = {
   type: 'left' | 'right';
   disabled?: boolean;
   setPageNumber: React.Dispatch<React.SetStateAction<number>>;
-}
+};
 
-export const Arrow: FC<ArrowProps> = ({ 
-  type, 
+export const Arrow: FC<ArrowProps> = ({
+  type,
   disabled = false,
   setPageNumber,
 }) => {
-  const arrow = type === 'left' ? (
-    <Left />
-  ) : (
-    <Right />
-  );
+  const arrow = type === 'left' ? <Left /> : <Right />;
 
   const handleClick = () => {
-    setPageNumber(prev => type === 'left' 
-      ? prev - 1 
-      : prev + 1
-    );
+    setPageNumber((prev) => (type === 'left' ? prev - 1 : prev + 1));
   };
 
   return (
-    <div 
-      className={classNames(
-        arrowStyle.arrowContainer, 
-        {
-          [arrowStyle.disabled] : disabled,
-        }
-      )}
+    <div
+      className={classNames(arrowStyle.arrowContainer, {
+        [arrowStyle.disabled]: disabled,
+      })}
       onClick={handleClick}
     >
       {arrow}
