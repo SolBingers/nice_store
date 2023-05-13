@@ -5,7 +5,7 @@
   display: none;
   background-color: #191919;
   border-radius: 6px;
-  width: 304px;
+  width: 23%;
   height: fit-content;
 
   @include onDesktop {
@@ -55,6 +55,7 @@
     font-weight: 500;
     padding: 0 35px 25px;
     height: 356px;
+    min-width: 230px;
   }
 
   &__container {
@@ -97,7 +98,6 @@
   }
 
   &__rights {
-    padding-top: 90%;
     align-self: flex-end;
     text-decoration-line: underline;
     color: #576067;

@@ -41,7 +41,7 @@
 @include onDesktop {
   .slider {
     display: flex;
-    gap: 5px;
+    column-gap: 2%;
     align-items: start;
     justify-content: space-between;
   }
@@ -51,5 +51,5 @@
 .categoryBlock,
 .productList,
 .saleBanner {
-  padding-bottom: 24px;
+  margin-bottom: 24px;
 }
