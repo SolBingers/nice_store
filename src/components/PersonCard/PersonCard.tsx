@@ -60,7 +60,7 @@ export const PersonCard: React.FC<Props> = ({ personInfo }) => {
             <a href={gitHubLink}>GitHub</a>
           </li>
 
-          <li className={personCardStyle.CVLink}>
+          <li className={personCardStyle.link}>
             <a href={cvLink}>CV</a>
           </li>
         </ul>
