@@ -7,13 +7,9 @@ export const CartCounter: React.FC = () => {
 
   let count = 0;
 
-  cart.forEach(product => {
+  cart.forEach((product) => {
     count += product.count;
   });
 
-  return (
-    <div className={counterStyle.container}>
-      {`${count}`}
-    </div>
-  );
+  return <div className={counterStyle.container}>{`${count}`}</div>;
 };

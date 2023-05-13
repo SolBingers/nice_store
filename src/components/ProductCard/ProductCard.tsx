@@ -15,16 +15,9 @@ interface Props {
 const BASE_URL = 'https://nice-store-api.onrender.com';
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
-  const { 
-    phoneId, 
-    image, 
-    name, 
-    screen, 
-    capacity, 
-    price, 
-    fullPrice,
-    ram } = phone;
-  
+  const { phoneId, image, name, screen, capacity, price, fullPrice, ram } =
+    phone;
+
   const imageURL = BASE_URL + '/' + image;
 
   const phonePath = `/category/phones/${phoneId}`;
@@ -34,23 +27,21 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   const { phones, addPhone, removePhone } = useContext(FavoriteContext);
   const { cart, addToCart } = useContext(CartContext);
 
-
   const handleFavoritePhone = () => {
     if (isFavorite) {
       removePhone(phoneId);
     } else {
       addPhone(phone);
     }
-
   };
 
   useEffect(() => {
-    if(phones.find((phone: Phone) => phone.phoneId === phoneId)) {
+    if (phones.find((phone: Phone) => phone.phoneId === phoneId)) {
       setIsFavorite(true);
     } else {
       setIsFavorite(false);
     }
-  },[phones]);
+  }, [phones]);
 
   useEffect(() => {
     if (cart.find((product: Product) => product.phoneId === phoneId)) {
@@ -73,17 +64,16 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   return (
     <div className={card.card}>
       <div className={card.imageBackground}>
-        <button 
-          className={card.iconContainer}
-          onClick={handleFavoritePhone}
-        >
-          <Favorite className={classNames(card.heart, {
-            [card.heart__active]: isFavorite === true,
-          })} />
+        <button className={card.iconContainer} onClick={handleFavoritePhone}>
+          <Favorite
+            className={classNames(card.heart, {
+              [card.heart__active]: isFavorite === true,
+            })}
+          />
         </button>
 
         <Link to={phonePath} className={card.image}>
-          <img className={card.image} src={imageURL} alt='phone'/>
+          <img className={card.image} src={imageURL} alt="phone" />
         </Link>
       </div>
 

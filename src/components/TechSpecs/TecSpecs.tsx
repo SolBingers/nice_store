@@ -3,20 +3,18 @@ import spec from './TecSpecs.module.scss';
 import { PhoneSpec } from '../types/types';
 
 interface Props {
-  phoneSpec: PhoneSpec | undefined
+  phoneSpec: PhoneSpec | undefined;
 }
 
 export const TecSpecs: FC<Props> = ({ phoneSpec }) => {
-
-
   const listOfSpec = [
-    {name: 'Screen', value: phoneSpec?.screen},
-    {name: 'Resolution', value: phoneSpec?.resolution},
-    {name: 'Processor', value: phoneSpec?.processor},
-    {name: 'RAM', value: phoneSpec?.ram},
-    {name: 'Built in memory', value: phoneSpec?.capacity},
-    {name: 'Camera', value: phoneSpec?.camera},
-    {name: 'Zoom', value: phoneSpec?.zoom},
+    { name: 'Screen', value: phoneSpec?.screen },
+    { name: 'Resolution', value: phoneSpec?.resolution },
+    { name: 'Processor', value: phoneSpec?.processor },
+    { name: 'RAM', value: phoneSpec?.ram },
+    { name: 'Built in memory', value: phoneSpec?.capacity },
+    { name: 'Camera', value: phoneSpec?.camera },
+    { name: 'Zoom', value: phoneSpec?.zoom },
   ];
 
   return (

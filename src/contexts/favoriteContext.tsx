@@ -32,7 +32,7 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
   };
 
   useEffect(() => {
-    const storedPhone= localStorage.getItem('phones');
+    const storedPhone = localStorage.getItem('phones');
     if (storedPhone) {
       setPhones(JSON.parse(storedPhone));
     }
@@ -45,7 +45,9 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
   };
 
   const removePhone = (phoneId: string) => {
-    const updatedPhone = phones.filter((phone: Phone) => phone.phoneId !== phoneId);
+    const updatedPhone = phones.filter(
+      (phone: Phone) => phone.phoneId !== phoneId,
+    );
     setPhones(updatedPhone);
     updateLocalStorage(updatedPhone);
   };

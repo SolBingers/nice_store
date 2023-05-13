@@ -10,20 +10,18 @@ interface Props {
   favComp?: boolean;
 }
 
-export const List: React.FC<Props> = ({ 
-  className,
-  products,
-  favComp,
-}) => (
-  <div className={classNames(listStyle.list,className,{
-    [listStyle.fourItem]: favComp,
-  })}>
-    {products && products.length > 0 && products.map(product => (
-      <div className={listStyle.card} key={product.id}>
-        <ProductCard
-          phone={product}
-        />
-      </div>
-    ))}
+export const List: React.FC<Props> = ({ className, products, favComp }) => (
+  <div
+    className={classNames(listStyle.list, className, {
+      [listStyle.fourItem]: favComp,
+    })}
+  >
+    {products &&
+      products.length > 0 &&
+      products.map((product) => (
+        <div className={listStyle.card} key={product.id}>
+          <ProductCard phone={product} />
+        </div>
+      ))}
   </div>
 );

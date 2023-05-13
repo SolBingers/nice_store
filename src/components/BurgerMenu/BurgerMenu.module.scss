@@ -28,7 +28,6 @@
   transform: translateX(-100%);
   transition: 0.5s;
   z-index: 9999;
-  
 
   &__visible {
     transform: translateX(0);
@@ -46,7 +45,7 @@
     line-height: 20x;
     color: $color-light;
     text-transform: uppercase;
-  
+
     @include onTablet {
       font-size: 20px;
       line-height: 24px;

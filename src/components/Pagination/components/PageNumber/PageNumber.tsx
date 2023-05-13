@@ -6,17 +6,17 @@ type Props = {
   page: number;
   isActive?: boolean;
   setPageNumber: React.Dispatch<React.SetStateAction<number>>;
-}
+};
 
-export const PageNumber: FC<Props> = ({ 
-  page, 
+export const PageNumber: FC<Props> = ({
+  page,
   isActive = false,
   setPageNumber,
 }) => {
   return (
     <div
       className={classNames(styles.main, {
-        [styles.active]: isActive
+        [styles.active]: isActive,
       })}
       onClick={() => setPageNumber(page)}
     >

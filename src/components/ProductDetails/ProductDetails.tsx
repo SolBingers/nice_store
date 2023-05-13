@@ -5,7 +5,7 @@ import { ProductGallery } from '../ProductGallery/ProductGallery';
 import { PhoneSpec } from '../types/types';
 
 interface Props {
-  phoneData: PhoneSpec
+  phoneData: PhoneSpec;
 }
 
 export const ProductDetails: FC<Props> = ({ phoneData }) => {
@@ -18,11 +18,11 @@ export const ProductDetails: FC<Props> = ({ phoneData }) => {
     color,
     capacity,
     images,
-  } = phoneData;  
+  } = phoneData;
 
   const BASE_URL = 'https://nice-store-api.onrender.com';
 
-  const imageURLs = images.map(elemet => {
+  const imageURLs = images.map((elemet) => {
     const fullPath = BASE_URL + '/' + elemet;
 
     return fullPath;

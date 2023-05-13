@@ -13,8 +13,8 @@ export const CategoryBlock: FC = () => (
         <Link to="/category/phones">
           <CategoryCard
             imageUrl={categoryPhones}
-            imageAlt='Phones category'
-            categoryName='Phones'
+            imageAlt="Phones category"
+            categoryName="Phones"
           />
         </Link>
       </div>
@@ -23,18 +23,18 @@ export const CategoryBlock: FC = () => (
         <Link to="/category/tablets">
           <CategoryCard
             imageUrl={categoryTablets}
-            imageAlt='Tablets category'
-            categoryName='Tablets'
+            imageAlt="Tablets category"
+            categoryName="Tablets"
           />
         </Link>
       </div>
 
       <div className={categoryBlock.card}>
-        <Link to='/accessories'>
+        <Link to="/accessories">
           <CategoryCard
             imageUrl={categoryAccessories}
-            imageAlt='Accessories category'
-            categoryName='Accessories'
+            imageAlt="Accessories category"
+            categoryName="Accessories"
           />
         </Link>
       </div>

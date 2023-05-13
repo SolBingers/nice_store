@@ -6,12 +6,12 @@ import classNames from 'classnames';
 
 type Props = {
   className?: string;
-}
+};
 
 export const Footer: FC<Props> = ({ className }) => (
   <div className={classNames(className, footer.footer)}>
-    <Link to='/'>
-      <img src={logo} alt="Nice" className={footer.logo}/>
+    <Link to="/">
+      <img src={logo} alt="Nice" className={footer.logo} />
     </Link>
 
     <div className={footer.text}>
@@ -19,8 +19,10 @@ export const Footer: FC<Props> = ({ className }) => (
     </div>
 
     <div className={footer.links}>
-      <a href='https://github.com/SolBingers' className={footer.gitLink}>GITHUB</a>
-      <Link to='/contacts' className={footer.contactLink}>
+      <a href="https://github.com/SolBingers" className={footer.gitLink}>
+        GITHUB
+      </a>
+      <Link to="/contacts" className={footer.contactLink}>
         CONTACTS
       </Link>
     </div>

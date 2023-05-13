@@ -47,7 +47,6 @@
     transform: translateY(-50%) rotate(180deg);
   }
 
-
   &__dropdown {
     display: flex;
     flex-direction: column;
@@ -80,7 +79,7 @@
 
   .activeLink::after {
     border-radius: 1px;
-    content: "";
+    content: '';
     display: block;
     width: 50%;
     height: 2px;

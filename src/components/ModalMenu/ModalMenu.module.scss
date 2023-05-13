@@ -15,7 +15,7 @@
   max-width: 1000px;
 
   transform: scale(0);
-  
+
   @include onTablet {
     width: 70vw;
   }
@@ -43,7 +43,7 @@
   &:hover {
     filter: brightness(150%);
   }
-} 
+}
 
 .blur {
   display: none;
@@ -99,5 +99,5 @@
 }
 
 .price {
-  color: #F6F6F7;
+  color: #f6f6f7;
 }

@@ -1,7 +1,7 @@
 export interface Phone {
   id: string;
   category: string;
-  phoneId: string
+  phoneId: string;
   itemId: string;
   name: string;
   fullPrice: string;
@@ -22,7 +22,7 @@ export interface Person {
   gitHubLink: string;
   cvLink: string;
   responsibilities: string[];
-} 
+}
 
 export interface description {
   title: string;
@@ -51,7 +51,7 @@ export interface PhoneSpec {
 }
 
 export interface Product extends Phone {
-  count: number
+  count: number;
 }
 
 export interface NextAndPrev {

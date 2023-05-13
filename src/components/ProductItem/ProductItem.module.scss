@@ -29,8 +29,8 @@ button {
 
   display: grid;
 
-  grid-template-columns: repeat(3,auto);
-  grid-template-rows: repeat(2,auto);
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
 
   row-gap: 13px;
 }
@@ -38,7 +38,7 @@ button {
 .imageContainer {
   height: 60px;
   width: 60px;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   border-radius: 8px;
 
   display: flex;
@@ -67,14 +67,12 @@ button {
   align-items: center;
 }
 
-
 .counterContainer {
   grid-row: 2;
   grid-column: 1;
 
   margin-right: 10px;
 }
-
 
 .productsCounter {
   max-width: 100px;
@@ -103,11 +101,11 @@ button {
   background-color: $color-grey;
 
   &:hover {
-    background-color: #6A6A6A;
+    background-color: #6a6a6a;
   }
 
   &Active {
-    background-color: #6A6A6A;
+    background-color: #6a6a6a;
   }
 }
 
@@ -147,7 +145,7 @@ button {
 .disabledButton {
   pointer-events: none;
 
-  background-color: #6A6A6A;
+  background-color: #6a6a6a;
   opacity: 0.5;
 }
 
@@ -161,7 +159,7 @@ button {
     justify-content: center;
   }
 
-  .counterContainer{
+  .counterContainer {
     grid-row: 1;
     grid-column: 2;
 
@@ -172,14 +170,13 @@ button {
     font-weight: 700;
     font-size: 22px;
     line-height: 27px;
-  
+
     grid-column: 3;
-  
+
     justify-self: flex-end;
-  
+
     margin-right: 10px;
   }
-
 
   .closeButton {
     grid-column: 4;

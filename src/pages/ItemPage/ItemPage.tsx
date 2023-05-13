@@ -15,51 +15,44 @@ import { BreadCrumbs } from '../../components/BreadCrumbs';
 export const ItemPage: FC = () => {
   const { itemId = '0' } = useParams();
 
-  const { data: phoneSingle, isLoading } = useQuery<PhoneSpec>(
-    'phone',
-    () => getPhoneById(itemId)
+  const { data: phoneSingle, isLoading } = useQuery<PhoneSpec>('phone', () =>
+    getPhoneById(itemId),
   );
 
-  const { data: phones = [] } = useQuery<Phone[]>(
-    'phones',
-    () => getPhoneRecomended(itemId)
+  const { data: phones = [] } = useQuery<Phone[]>('phones', () =>
+    getPhoneRecomended(itemId),
   );
 
   return (
     <>
       <BreadCrumbs />
 
-      {!phoneSingle || isLoading
-        ? (
-          <div className={itemPage.loader}>
-            <Loader />
+      {!phoneSingle || isLoading ? (
+        <div className={itemPage.loader}>
+          <Loader />
+        </div>
+      ) : (
+        <>
+          <div className={itemPage.product}>
+            <Categories />
+            <ProductDetails phoneData={phoneSingle} />
           </div>
-        )
-        : (
-          <>
-            <div className={itemPage.product}>
-              <Categories />
-              <ProductDetails phoneData={phoneSingle} />
+
+          <div className={itemPage.productInfo}>
+            <div className={itemPage.about}>
+              <About phoneSpec={phoneSingle} />
             </div>
 
-            <div className={itemPage.productInfo}>
-              <div className={itemPage.about}>
-                <About phoneSpec={phoneSingle} />
-              </div>
-
-              <div className={itemPage.techSpecs}>
-                <TecSpecs phoneSpec={phoneSingle} />
-              </div>
+            <div className={itemPage.techSpecs}>
+              <TecSpecs phoneSpec={phoneSingle} />
             </div>
+          </div>
 
-            <div className={itemPage.productList}>
-              <ProductList
-                title={'You may also like'}
-                products={phones}
-              />
-            </div>
-          </>
-        )}
+          <div className={itemPage.productList}>
+            <ProductList title={'You may also like'} products={phones} />
+          </div>
+        </>
+      )}
     </>
   );
 };

@@ -18,10 +18,7 @@ export const Button: FC<ButtonProps> = ({ text, type, size, onClick }) => {
   });
 
   return (
-    <button
-      className={buttonClass}
-      onClick={onClick}
-    >
+    <button className={buttonClass} onClick={onClick}>
       {text}
     </button>
   );

@@ -6,7 +6,7 @@
   width: 30px;
   height: 30px;
 
-  border: 2px solid #FFFFFF;
+  border: 2px solid #ffffff;
   border-radius: 50%;
 
   &:not(:last-child) {
@@ -21,7 +21,7 @@
 
     width: 30px;
     height: 30px;
-  
+
     border-radius: 50%;
     border: solid 1px;
 
@@ -36,7 +36,6 @@
   }
 
   &:hover {
-
     &::before {
       border: solid 1px $color-primary;
     }
@@ -48,7 +47,7 @@
       left: 50%;
 
       background-color: $color-primary;
-  
+
       width: 12px;
       height: 12px;
       border-radius: 50%;
@@ -78,9 +77,9 @@
       position: absolute;
       top: 50%;
       left: 50%;
-    
+
       background-color: $color-primary;
-    
+
       width: 12px;
       height: 12px;
       border-radius: 50%;

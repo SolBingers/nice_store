@@ -13,7 +13,6 @@
 .personInfo {
   display: flex;
   align-items: center;
-
 }
 
 .personPhotoInfo {
@@ -27,7 +26,7 @@
   width: 56px;
   border-radius: 50%;
 
-  background-color: #F6F6F7;
+  background-color: #f6f6f7;
   border: 2px solid $color-grey;
 }
 
@@ -68,7 +67,7 @@
 
 .link:not(:first-child) {
   margin-top: 8px;
-} 
+}
 
 .responsibilities {
   margin-top: 24px;
@@ -84,7 +83,7 @@
   margin-top: 12px;
 }
 
-.responsibility{
+.responsibility {
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;

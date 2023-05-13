@@ -15,12 +15,12 @@ import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 type Props = {
   className?: string;
-}
+};
 
 type Response = {
-  data: Phone[],
-  pages: number,
-}
+  data: Phone[];
+  pages: number;
+};
 
 export const CategoryPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
@@ -30,11 +30,10 @@ export const CategoryPage: FC<Props> = ({ className }) => {
     return await getAllPhones(search);
   };
 
-  const {
-    isLoading,
-    data,
-    refetch
-  } = useQuery<Response>('products', getPhones);
+  const { isLoading, data, refetch } = useQuery<Response>(
+    'products',
+    getPhones,
+  );
 
   useEffect(() => {
     refetch();
@@ -48,15 +47,10 @@ export const CategoryPage: FC<Props> = ({ className }) => {
         <Categories />
 
         <div className={styles.content}>
-          <p className={styles.title}>
-            {selectedCategory}
-          </p>
+          <p className={styles.title}>{selectedCategory}</p>
 
           <div className={styles.settings}>
-            <SettingsInput
-              className={styles.input}
-              title="Product name"
-            />
+            <SettingsInput className={styles.input} title="Product name" />
 
             <SettingsSelect
               className={styles.select}
@@ -74,21 +68,15 @@ export const CategoryPage: FC<Props> = ({ className }) => {
           </div>
 
           {data && !isLoading ? (
-            <List
-              className={styles.list}
-              products={data.data}
-            />
+            <List className={styles.list} products={data.data} />
           ) : (
-            <div className={styles.loaderContainer} >
+            <div className={styles.loaderContainer}>
               <Loader />
             </div>
           )}
 
           {data && (
-            <Pagination
-              className={styles.pagination}
-              maxPage={data.pages}
-            />
+            <Pagination className={styles.pagination} maxPage={data.pages} />
           )}
         </div>
       </main>

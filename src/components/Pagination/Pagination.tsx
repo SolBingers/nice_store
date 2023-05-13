@@ -8,12 +8,9 @@ import { useSearchParams } from 'react-router-dom';
 type Props = {
   className?: string;
   maxPage: number;
-}
+};
 
-export const Pagination: FC<Props> = ({ 
-  className,
-  maxPage,
-}) => {
+export const Pagination: FC<Props> = ({ className, maxPage }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
   const pages = getPageNumbers(currentPage, maxPage);
@@ -34,21 +31,21 @@ export const Pagination: FC<Props> = ({
 
   return (
     <div className={classNames(className, pagination.main)}>
-      <Arrow 
-        type="left" 
+      <Arrow
+        type="left"
         disabled={currentPage === 1}
         setPageNumber={setCurrentPage}
       />
-      {pages.map(number => (
-        <PageNumber 
+      {pages.map((number) => (
+        <PageNumber
           key={number}
-          page={number} 
+          page={number}
           isActive={currentPage === number}
           setPageNumber={setCurrentPage}
         />
       ))}
-      <Arrow 
-        type="right" 
+      <Arrow
+        type="right"
         disabled={currentPage === maxPage}
         setPageNumber={setCurrentPage}
       />
@@ -56,7 +53,7 @@ export const Pagination: FC<Props> = ({
   );
 };
 
-function getPageNumbers(currentPage: number, maxPage:number) {
+function getPageNumbers(currentPage: number, maxPage: number) {
   const result = [];
 
   if (currentPage > maxPage) currentPage = maxPage;

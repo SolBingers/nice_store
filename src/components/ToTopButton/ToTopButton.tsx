@@ -23,12 +23,9 @@ export const ToTopButton: FC = () => {
   return (
     <ToTop
       onClick={scrollToTop}
-      className={classNames(
-        styles.button, 
-        {
-          [styles.isShowed]: isShowed,
-        }
-      )}
+      className={classNames(styles.button, {
+        [styles.isShowed]: isShowed,
+      })}
     />
   );
 };

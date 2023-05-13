@@ -17,39 +17,28 @@ export const PersonCard: React.FC<Props> = ({ personInfo }) => {
     responsibilities,
   } = personInfo;
 
-
   return (
     <div className={personCardStyle.container}>
       <div className={personCardStyle.personInfo}>
         <div className={personCardStyle.personPhotoInfo}>
-          <img 
-            src={photo} 
+          <img
+            src={photo}
             alt="Photo"
             className={personCardStyle.personPhotoInfoImg}
           />
         </div>
-        
-        <div className={personCardStyle.personTextInfo}>
-          <div className={personCardStyle.personName}>
-            {fullName}
-          </div>
 
-          <div className={personCardStyle.personSkill}>
-            Fullstack Developer
-          </div>
+        <div className={personCardStyle.personTextInfo}>
+          <div className={personCardStyle.personName}>{fullName}</div>
+
+          <div className={personCardStyle.personSkill}>Fullstack Developer</div>
         </div>
 
-        { Tl && (
-          <div className={personCardStyle.tl}>
-            TL
-          </div>
-        )}
+        {Tl && <div className={personCardStyle.tl}>TL</div>}
       </div>
 
       <div className={personCardStyle.contacts}>
-        <div className={personCardStyle.header}>
-          CONTACTS & CV
-        </div>
+        <div className={personCardStyle.header}>CONTACTS & CV</div>
 
         <ul className={personCardStyle.links}>
           <li className={personCardStyle.link}>
@@ -72,11 +61,8 @@ export const PersonCard: React.FC<Props> = ({ personInfo }) => {
         </div>
 
         <ul className={personCardStyle.responsibilitiesList}>
-          {responsibilities.map(respons => (
-            <li 
-              className={personCardStyle.responsibility}
-              key={respons}
-            >
+          {responsibilities.map((respons) => (
+            <li className={personCardStyle.responsibility} key={respons}>
               {respons}
             </li>
           ))}

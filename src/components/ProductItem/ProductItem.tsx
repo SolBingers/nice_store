@@ -6,12 +6,12 @@ import plus from '../../images/Plus.svg';
 import classNames from 'classnames';
 
 type Props = {
-  productItem: Product,
-  className?: string,
-  onRemove: (productName: string) => void,
-  onIncrese: (productName: string) => void,
-  onDecrease: (productName: string) => void, 
-}
+  productItem: Product;
+  className?: string;
+  onRemove: (productName: string) => void;
+  onIncrese: (productName: string) => void;
+  onDecrease: (productName: string) => void;
+};
 
 export const ProductItem: React.FC<Props> = ({
   productItem,
@@ -20,60 +20,45 @@ export const ProductItem: React.FC<Props> = ({
   onDecrease,
   className,
 }) => {
-  const {
-    image,
-    name,
-    id,
-    count,
-    price,
-  } = productItem;
+  const { image, name, id, count, price } = productItem;
 
   const isDisabledMinus = count === 1;
   const isDisabledPlus = count === 9;
 
   return (
-    <div className={classNames(
-      productItemStyle.container,
-      className
-    )}>
+    <div className={classNames(productItemStyle.container, className)}>
       <div className={productItemStyle.header}>
-        <div className={productItemStyle.imageContainer} >
-          <img 
-            className={productItemStyle.image}
-            src={image} 
-            alt="phone"
-          />
+        <div className={productItemStyle.imageContainer}>
+          <img className={productItemStyle.image} src={image} alt="phone" />
         </div>
 
-        <div className={productItemStyle.title}>
-          {name}
-        </div>
+        <div className={productItemStyle.title}>{name}</div>
       </div>
 
       <div className={productItemStyle.counterContainer}>
         <div className={productItemStyle.productsCounter}>
-          <button 
+          <button
             className={classNames(
               productItemStyle.decrease,
-              productItemStyle.countButton, {
+              productItemStyle.countButton,
+              {
                 [productItemStyle.disabledButton]: isDisabledMinus,
-              }
+              },
             )}
             onClick={() => onDecrease(id)}
           >
-            <img src={minus} alt="minus"/>
+            <img src={minus} alt="minus" />
           </button>
 
-          <div className={productItemStyle.count}>
-            {count}
-          </div>
+          <div className={productItemStyle.count}>{count}</div>
 
-          <button 
+          <button
             className={classNames(
               productItemStyle.increase,
-              productItemStyle.countButton,{
+              productItemStyle.countButton,
+              {
                 [productItemStyle.disabledButton]: isDisabledPlus,
-              }
+              },
             )}
             onClick={() => onIncrese(id)}
           >
@@ -86,10 +71,10 @@ export const ProductItem: React.FC<Props> = ({
         {`${Number(price) * count}$`}
       </div>
 
-      <button 
+      <button
         className={productItemStyle.closeButton}
         onClick={() => onRemove(id)}
       />
-    </div>  
+    </div>
   );
 };

@@ -4,66 +4,57 @@ import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 export const Categories: FC = () => {
-  const [isClosed,setIsClosed] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
   const { search } = useLocation();
 
-  
   return (
     <div className={styles.categories}>
       <div className={styles.categories__header}>
-        <div className={styles.categories__title}>
-          Categories
-        </div>
+        <div className={styles.categories__title}>Categories</div>
 
-        <button 
+        <button
           onClick={() => setIsClosed(!isClosed)}
-          className={classNames(
-            styles.categories__input, 
-            {
-              [styles.rotate]: isClosed,
-            }
-          )} 
+          className={classNames(styles.categories__input, {
+            [styles.rotate]: isClosed,
+          })}
         />
       </div>
       {!isClosed && (
         <nav className={styles.categories__dropdown}>
-          <NavLink 
-            className={({ isActive }) => classNames(
-              styles.categories__customLink,
-              {
+          <NavLink
+            className={({ isActive }) =>
+              classNames(styles.categories__customLink, {
                 [styles.activeLink]: isActive,
-              },
-            )} 
+              })
+            }
             to={{
               pathname: '/category/phones',
               search,
             }}
           >
             Phones
-          </NavLink> 
+          </NavLink>
 
           <NavLink
-            className={({ isActive }) => classNames(
-              styles.categories__customLink,
-              {
+            className={({ isActive }) =>
+              classNames(styles.categories__customLink, {
                 [styles.activeLink]: isActive,
-              },
-            )}  
+              })
+            }
             to={{
               pathname: '/category/tablets',
               search,
             }}
           >
             Tablets
-          </NavLink>  
+          </NavLink>
 
           <NavLink
-            className={({ isActive }) => classNames(
-              styles.categories__customLink,
-              {
+            className={({ isActive }) =>
+              classNames(styles.categories__customLink, {
                 [styles.activeLink]: isActive,
-              },
-            )} 
+              })
+            }
             to={{
               pathname: '/category/accessories',
               search,
@@ -72,9 +63,7 @@ export const Categories: FC = () => {
             Accessories
           </NavLink>
 
-          <div className={styles.categories__rights}>
-            All rights reserved.
-          </div>
+          <div className={styles.categories__rights}>All rights reserved.</div>
         </nav>
       )}
     </div>

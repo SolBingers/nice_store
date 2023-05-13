@@ -11,7 +11,7 @@ import { CartCounter } from '../CartCounter';
 
 type Props = {
   className?: string;
-}
+};
 
 export const Header: FC<Props> = ({ className }) => {
   const [isOpened, setIsOpened] = useState(false);
@@ -22,16 +22,14 @@ export const Header: FC<Props> = ({ className }) => {
         <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
       )}
 
-      <header className={
-        classNames(header.header, className)
-      }>
+      <header className={classNames(header.header, className)}>
         <div className={header.section}>
           <Link to="/" className={header.homeLink}>
             N🤝ce
           </Link>
           <button className={classNames(header.button, header.burgerButton)}>
-            <Burger 
-              className={header.burgerImage} 
+            <Burger
+              className={header.burgerImage}
               onClick={() => setIsOpened(true)}
             />
           </button>
@@ -39,25 +37,26 @@ export const Header: FC<Props> = ({ className }) => {
 
         <div className={header.section}>
           <NavLink
-            className={({ isActive }) => classNames(
-              header.button,
-              {
+            className={({ isActive }) =>
+              classNames(header.button, {
                 [header.activeLink]: isActive,
-              },
-            )}
+              })
+            }
             to="/favourites"
           >
-            <Favourites className={classNames(header.favourites, header.icon)} />
+            <Favourites
+              className={classNames(header.favourites, header.icon)}
+            />
           </NavLink>
-          <button 
+          <button
             className={header.button}
             onClick={() => setIsOpenedModal(true)}
           >
             <Cart className={classNames(header.cart, header.icon)} />
-            <CartCounter/>
+            <CartCounter />
           </button>
         </div>
-        <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened}/>
+        <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened} />
       </header>
     </>
   );

@@ -12,11 +12,7 @@ export const ProductGallery: FC<ProductGalleryProps> = ({ images }) => {
   return (
     <div className={gallery.gallery}>
       <div className={gallery.mainPhotoContainer}>
-        <img
-          src={mainPhoto}
-          alt="phone__image"
-          className={gallery.mainImage}
-        />
+        <img src={mainPhoto} alt="phone__image" className={gallery.mainImage} />
       </div>
 
       <div className={gallery.images}>
@@ -28,8 +24,7 @@ export const ProductGallery: FC<ProductGalleryProps> = ({ images }) => {
               key={imageId}
               className={classNames(gallery.imagesContainer, {
                 [gallery.isActive]: image === mainPhoto,
-              }
-              )}
+              })}
             >
               <img
                 src={image}
