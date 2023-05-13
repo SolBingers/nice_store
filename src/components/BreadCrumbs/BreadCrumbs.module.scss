@@ -8,23 +8,6 @@
   margin-bottom: 10px;
 }
 
-.item {
-  font-size: 12px;
-  color: #666;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &.active {
-    color: #666;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
 .pathLink {
   font-size: 12px;
   text-decoration: none;
@@ -35,14 +18,3 @@
   pointer-events: none;
   color: $color-hover-secondary;
 }
-
-// &_link {
-//   font-weight: 700;
-//   font-size: 0.75rem;
-//   color: $color-white;
-
-//   &:last-child {
-//     color: $color-secondary;
-//     pointer-events: none;
-//   }
-// }
