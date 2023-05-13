@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { SettingsInput } from '../../components/SettingsInput';
 import { SettingsSelect } from '../../components/SettingsSelect';
