@@ -24,8 +24,6 @@ type Response = {
 
 export const CategoryPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
-  const [, setSelectedSort] = useState('');
-  const [, setSelectedItemsPerPage] = useState('');
   const [selectedPage, setSelectedPage] = useState(1);
   const { search } = useLocation();
 
@@ -66,7 +64,6 @@ export const CategoryPage: FC<Props> = ({ className }) => {
               title="Sort by"
               apiTitle="sort"
               options={['Newest', 'Oldest', 'Cheapest']}
-              setSelected={setSelectedSort}
             />
 
             <SettingsSelect
@@ -74,7 +71,6 @@ export const CategoryPage: FC<Props> = ({ className }) => {
               title="Items per page"
               apiTitle="count"
               options={['6', '12', '18']}
-              setSelected={setSelectedItemsPerPage}
             />
           </div>
 

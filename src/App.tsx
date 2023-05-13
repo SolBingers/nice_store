@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import './styles/main.scss';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { CategoryPage } from './pages/CategoryPage';
@@ -13,6 +13,14 @@ import styles from './App.module.scss';
 import { ToTopButton } from './components/ToTopButton';
 
 export const App: FC = () => {
+  const location = useLocation(); 
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, [location]);
+
   return (
     <div className={styles.app}>
       <Header className={styles.header} />
