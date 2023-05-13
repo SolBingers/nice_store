@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/nice_store/static/css/main.0089ca97.css",
-    "main.js": "/nice_store/static/js/main.341f1fff.js",
+    "main.css": "/nice_store/static/css/main.f0ef85c6.css",
+    "main.js": "/nice_store/static/js/main.25440029.js",
     "static/media/thirdSlide.jpg": "/nice_store/static/media/thirdSlide.008090f23fa7d1d25753.jpg",
     "static/media/firstSlide.jpg": "/nice_store/static/media/firstSlide.2d01b5d730029f2ba2f0.jpg",
     "static/media/secondSlide.png": "/nice_store/static/media/secondSlide.913f2dd165fc355dd4f4.png",
@@ -24,11 +24,11 @@
     "static/media/chevron-left.svg": "/nice_store/static/media/chevron-left.a6c854854b8a8b4a394dcfedbb245ab1.svg",
     "static/media/chevron-down.svg": "/nice_store/static/media/chevron-down.39a461a8c9fa6481507e91408e98d3f8.svg",
     "static/media/chevron-right.svg": "/nice_store/static/media/chevron-right.8699f5c59d077a8f3ea9d8aeda88a5f3.svg",
-    "main.0089ca97.css.map": "/nice_store/static/css/main.0089ca97.css.map",
-    "main.341f1fff.js.map": "/nice_store/static/js/main.341f1fff.js.map"
+    "main.f0ef85c6.css.map": "/nice_store/static/css/main.f0ef85c6.css.map",
+    "main.25440029.js.map": "/nice_store/static/js/main.25440029.js.map"
   },
   "entrypoints": [
-    "static/css/main.0089ca97.css",
-    "static/js/main.341f1fff.js"
+    "static/css/main.f0ef85c6.css",
+    "static/js/main.25440029.js"
   ]
 }
