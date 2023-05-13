@@ -43,6 +43,12 @@ export const CategoryPage: FC<Props> = ({ className }) => {
     refetch();
   }, [search]);
 
+  useEffect(() => {
+    if (data?.pages || 1 < selectedPage) {
+      setSelectedPage(data?.pages || 1);
+    }
+  }, [data?.pages]);
+
   return (
     <>
       <BreadCrumbs />
