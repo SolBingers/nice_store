@@ -1,0 +1,39 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.button {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  height: 48px;
+  width: 48px;
+  opacity: 0.5;
+  z-index: 10;
+  background-color: $color-black;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  scale: 0;
+
+  @include onDesktop {
+    bottom: 60px;
+    right: 60px;
+  }
+
+  & * {
+    fill: $color-grey;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    opacity: 1;
+
+    & * {
+      fill: $color-black
+    }
+  }
+}
+
+.isShowed {
+  scale: 1;
+}
