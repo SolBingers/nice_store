@@ -10,10 +10,11 @@ import { useQuery } from 'react-query';
 import { getPhoneById, getPhoneRecomended } from '../../api/phones';
 import { Phone, PhoneSpec } from '../../components/types/types';
 import { Loader } from '../../components/Loader';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 export const ItemPage: FC = () => {
   const { itemId = '0' } = useParams();
-  
+
   const { data: phoneSingle, isLoading } = useQuery<PhoneSpec>(
     'phone',
     () => getPhoneById(itemId)
@@ -21,13 +22,15 @@ export const ItemPage: FC = () => {
 
   const { data: phones = [] } = useQuery<Phone[]>(
     'phones',
-    () =>  getPhoneRecomended(itemId)
+    () => getPhoneRecomended(itemId)
   );
 
   return (
     <>
+      <BreadCrumbs />
+
       {!phoneSingle || isLoading
-        ?  (
+        ? (
           <div className={itemPage.loader}>
             <Loader />
           </div>
@@ -36,14 +39,14 @@ export const ItemPage: FC = () => {
           <>
             <div className={itemPage.product}>
               <Categories />
-              <ProductDetails phoneData={phoneSingle}/>
+              <ProductDetails phoneData={phoneSingle} />
             </div>
-      
+
             <div className={itemPage.productInfo}>
               <div className={itemPage.about}>
                 <About phoneSpec={phoneSingle} />
               </div>
-      
+
               <div className={itemPage.techSpecs}>
                 <TecSpecs phoneSpec={phoneSingle} />
               </div>

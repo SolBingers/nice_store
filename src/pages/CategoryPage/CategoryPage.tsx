@@ -11,6 +11,7 @@ import { getAllPhones } from '../../api/phones';
 import { useQuery } from 'react-query';
 import { Phone } from '../../components/types/types';
 import { Loader } from '../../components/Loader';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 type Props = {
   className?: string;
@@ -27,11 +28,11 @@ export const CategoryPage: FC<Props> = ({ className }) => {
   const [, setSelectedItemsPerPage] = useState('');
   const [selectedPage, setSelectedPage] = useState(1);
   const { search } = useLocation();
-  
+
   const getPhones = async () => {
     return await getAllPhones(search);
   };
-  
+
   const {
     isLoading,
     data,
@@ -43,57 +44,61 @@ export const CategoryPage: FC<Props> = ({ className }) => {
   }, [search]);
 
   return (
-    <main className={classNames(className, styles.main)}>
-      <Categories />
-      
-      <div className={styles.content}>
-        <p className={styles.title}>
-          {selectedCategory}
-        </p>
+    <>
+      <BreadCrumbs />
 
-        <div className={styles.settings}>
-          <SettingsInput 
-            className={styles.input}
-            title="Product name" 
-          />
+      <main className={classNames(className, styles.main)}>
+        <Categories />
 
-          <SettingsSelect 
-            className={styles.select}
-            title="Sort by"
-            apiTitle="sort"
-            options={['Newest', 'Oldest', 'Cheapest']}
-            setSelected={setSelectedSort}
-          />
+        <div className={styles.content}>
+          <p className={styles.title}>
+            {selectedCategory}
+          </p>
 
-          <SettingsSelect 
-            className={styles.select}
-            title="Items per page"
-            apiTitle="count"
-            options={['6', '12', '18']}
-            setSelected={setSelectedItemsPerPage}
-          />
-        </div>
+          <div className={styles.settings}>
+            <SettingsInput
+              className={styles.input}
+              title="Product name"
+            />
 
-        {data && !isLoading ? (
-          <List 
-            className={styles.list}
-            products={data.data} 
-          />
-        ) : (
-          <div className={styles.loaderContainer} >
-            <Loader />
+            <SettingsSelect
+              className={styles.select}
+              title="Sort by"
+              apiTitle="sort"
+              options={['Newest', 'Oldest', 'Cheapest']}
+              setSelected={setSelectedSort}
+            />
+
+            <SettingsSelect
+              className={styles.select}
+              title="Items per page"
+              apiTitle="count"
+              options={['6', '12', '18']}
+              setSelected={setSelectedItemsPerPage}
+            />
           </div>
-        )}
 
-        {data && (
-          <Pagination
-            className={styles.pagination}
-            currentPage={selectedPage}
-            setSelectedPage={setSelectedPage}
-            maxPage={data.pages}
-          />
-        )}
-      </div>
-    </main>
+          {data && !isLoading ? (
+            <List
+              className={styles.list}
+              products={data.data}
+            />
+          ) : (
+            <div className={styles.loaderContainer} >
+              <Loader />
+            </div>
+          )}
+
+          {data && (
+            <Pagination
+              className={styles.pagination}
+              currentPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+              maxPage={data.pages}
+            />
+          )}
+        </div>
+      </main>
+    </>
   );
 };
