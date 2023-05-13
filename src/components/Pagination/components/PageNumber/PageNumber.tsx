@@ -15,17 +15,14 @@ export const PageNumber: FC<Props> = ({
   setPageNumber,
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
+
   const handleClick = () => {
     setPageNumber(page);
-  };
 
-  useEffect(() => {
-    if (isActive) {
-      searchParams.delete('page');
-      searchParams.append('page', page.toString());
-      setSearchParams(searchParams);
-    }
-  }, [isActive]);
+    searchParams.delete('page');
+    searchParams.append('page', page.toString());
+    setSearchParams(searchParams);
+  };
 
   return (
     <div

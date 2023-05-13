@@ -1,22 +1,19 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import pagination from './Pagination.module.scss';
 import { Arrow } from './components/Arrow';
 import { PageNumber } from './components/PageNumber/PageNumber';
 import classNames from 'classnames';
 
 type Props = {
-  currentPage: number;
   className?: string;
   maxPage: number;
-  setSelectedPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const Pagination: FC<Props> = ({ 
   className,
-  currentPage,
   maxPage,
-  setSelectedPage,
 }) => {
+  const [currentPage, setCurrentPage] = useState(1);
   const pages = getPageNumbers(currentPage, maxPage);
 
   return (
@@ -24,20 +21,20 @@ export const Pagination: FC<Props> = ({
       <Arrow 
         type="left" 
         disabled={currentPage === 1}
-        setPageNumber={setSelectedPage}
+        setPageNumber={setCurrentPage}
       />
       {pages.map(number => (
         <PageNumber 
           key={number}
           page={number} 
           isActive={currentPage === number}
-          setPageNumber={setSelectedPage}
+          setPageNumber={setCurrentPage}
         />
       ))}
       <Arrow 
         type="right" 
         disabled={currentPage === maxPage}
-        setPageNumber={setSelectedPage}
+        setPageNumber={setCurrentPage}
       />
     </div>
   );

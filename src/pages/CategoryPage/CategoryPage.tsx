@@ -24,7 +24,6 @@ type Response = {
 
 export const CategoryPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
-  const [selectedPage, setSelectedPage] = useState(1);
   const { search } = useLocation();
 
   const getPhones = async () => {
@@ -88,8 +87,6 @@ export const CategoryPage: FC<Props> = ({ className }) => {
           {data && (
             <Pagination
               className={styles.pagination}
-              currentPage={selectedPage}
-              setSelectedPage={setSelectedPage}
               maxPage={data.pages}
             />
           )}
