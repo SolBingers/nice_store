@@ -10,6 +10,7 @@ import { ItemPage } from './pages/ItemPage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import styles from './App.module.scss';
+import { ToTopButton } from './components/ToTopButton';
 
 export const App: FC = () => {
   return (
@@ -34,6 +35,8 @@ export const App: FC = () => {
       </main>
       
       <Footer className={styles.footer} />
+
+      <ToTopButton />
     </div>
   );
 };
