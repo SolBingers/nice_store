@@ -2,32 +2,23 @@ import React, { FC, useEffect, useState } from 'react';
 import settingsSelect from './SettingsSelect.module.scss';
 import { ReactComponent as Arrow } from '../../images/chevron-down.svg';
 import classNames from 'classnames';
-import { useSearchParams } from 'react-router-dom';
 
 type Props = {
   className?: string;
   title: string;
-  apiTitle: string;
   options: string[];
+  selectedlValue: string;
   setSelected: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const SettingsSelect: FC<Props> = ({
   className,
   title,
-  apiTitle,
   options,
+  selectedlValue,
   setSelected,
 }) => {
   const [isActive, setIsActive] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  useEffect(() => {
-    searchParams.delete(apiTitle);
-    searchParams.append(apiTitle, selectedOption.toLowerCase());
-    setSearchParams(searchParams);
-  }, [selectedOption]);
 
   const handleBtnClick = () => {
     setIsActive((state) => !state);
@@ -35,7 +26,6 @@ export const SettingsSelect: FC<Props> = ({
 
   const handleSelection = (option: string) => {
     setSelected(option);
-    setSelectedOption(option);
     setIsActive(false);
   };
 
@@ -65,7 +55,7 @@ export const SettingsSelect: FC<Props> = ({
           })}
           onClick={handleBtnClick}
         >
-          <span>{selectedOption}</span>
+          <span>{toPresentableString(selectedlValue)}</span>
           <Arrow
             className={classNames(settingsSelect.arrow, {
               [settingsSelect.isActive]: isActive,
@@ -81,7 +71,7 @@ export const SettingsSelect: FC<Props> = ({
                 className={settingsSelect.item}
                 onClick={() => handleSelection(option)}
               >
-                {option}
+                {toPresentableString(option)}
               </div>
             ))}
           </div>
@@ -90,3 +80,7 @@ export const SettingsSelect: FC<Props> = ({
     </div>
   );
 };
+
+function toPresentableString(str: string) {
+  return str.slice(0, 1).toUpperCase() + str.slice(1).toLowerCase();
+}

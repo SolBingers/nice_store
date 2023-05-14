@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { SettingsInput } from '../../components/SettingsInput';
 import { SettingsSelect } from '../../components/SettingsSelect';
 import classNames from 'classnames';
@@ -24,13 +24,13 @@ type Response = {
 
 export const AccessoriesPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
-  const [, setSelectedSort] = useState('');
-  const [, setSelectedItemsPerPage] = useState('');
+  const [selectedSort, setSelectedSort] = useState('newest');
+  const [selectedCount, setSelectedCount] = useState('6');
   const [selectedPage, setSelectedPage] = useState(1);
-  const { search } = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const getAccessories = async () => {
-    return await getAllAccessories(search);
+    return await getAllAccessories(searchParams.toString());
   };
 
   const { isLoading, data, refetch } = useQuery<Response>(
@@ -40,7 +40,41 @@ export const AccessoriesPage: FC<Props> = ({ className }) => {
 
   useEffect(() => {
     refetch();
-  }, [search]);
+
+    const searchSort = searchParams.get('sort');
+    const searchCount = searchParams.get('count');
+    const searchPage = searchParams.get('page');
+
+    setSelectedSort(searchSort || 'newest');
+    setSelectedCount(searchCount || '6');
+    setSelectedPage(+(searchPage || '1'));
+  }, [searchParams]);
+
+  useEffect(() => {
+    const searchSort = searchParams.get('sort');
+    const searchCount = searchParams.get('count');
+    const searchPage = searchParams.get('page');
+
+    if (
+      searchSort !== selectedSort
+      || searchCount !== selectedCount
+      || searchPage !== selectedPage.toString()
+    ) {
+      searchParams.set('sort', selectedSort);
+      searchParams.set('count', selectedCount);
+      searchParams.set('page', selectedPage.toString());
+      
+      setSearchParams(searchParams);
+    }
+  }, [selectedSort, selectedCount, selectedPage]);
+
+  useEffect(() => {
+    const newMaxPages = data?.pages || 1;
+
+    if (selectedPage > newMaxPages) {
+      setSelectedPage(newMaxPages);
+    }
+  }, [data?.pages]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,17 +96,17 @@ export const AccessoriesPage: FC<Props> = ({ className }) => {
             <SettingsSelect
               className={styles.select}
               title="Sort by"
-              apiTitle="sort"
-              options={['Newest', 'Oldest', 'Cheapest']}
+              selectedlValue={selectedSort}
+              options={['newest', 'oldest', 'cheapest']}
               setSelected={setSelectedSort}
             />
 
             <SettingsSelect
               className={styles.select}
               title="Items per page"
-              apiTitle="count"
+              selectedlValue={selectedCount}
               options={['6', '12', '18']}
-              setSelected={setSelectedItemsPerPage}
+              setSelected={setSelectedCount}
             />
           </div>
 
