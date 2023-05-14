@@ -4,8 +4,9 @@
 .main {
   display: flex;
   align-items: start;
-  justify-content: center;
-  gap: 40px;
+  justify-content: space-between;
+
+  column-gap: 2%;
 }
 
 .content {
@@ -17,9 +18,12 @@
 
   background-color: $color-black;
   border-radius: 8px;
+  padding: 0 24px;
 
   @include onDesktop {
     max-width: 960px;
+
+    width: 75%;
   }
 }
 
@@ -38,7 +42,6 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0 24px;
   gap: 16px;
   width: 100%;
   max-width: 872px;
