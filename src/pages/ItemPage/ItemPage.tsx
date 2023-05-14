@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { About } from '../../components/About';
 import { TecSpecs } from '../../components/TechSpecs';
 import { ProductList } from '../../components/ProductList';
@@ -15,13 +15,17 @@ import { BreadCrumbs } from '../../components/BreadCrumbs';
 export const ItemPage: FC = () => {
   const { itemId = '0' } = useParams();
 
-  const { data: phoneSingle, isLoading } = useQuery<PhoneSpec>('phone', () =>
+  const { data: phoneSingle, isLoading, refetch } = useQuery<PhoneSpec>('phone', () =>
     getItemById(itemId),
   );
 
   const { data: phones = [] } = useQuery<Phone[]>('phones', () =>
     getItemRecomended(itemId),
   );
+
+  useEffect(() => {
+    refetch();
+  }, [itemId]);
 
   return (
     <>

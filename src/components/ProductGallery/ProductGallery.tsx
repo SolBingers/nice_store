@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import gallery from './ProductGallery.module.scss';
 
 type ProductGalleryProps = {
@@ -8,6 +8,10 @@ type ProductGalleryProps = {
 
 export const ProductGallery: FC<ProductGalleryProps> = ({ images }) => {
   const [mainPhoto, setMainPhoto] = useState(images[0]);
+
+  useEffect(() => {
+    setMainPhoto(images[0]);
+  }, []);
 
   return (
     <div className={gallery.gallery}>
