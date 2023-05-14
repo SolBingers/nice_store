@@ -27,50 +27,53 @@ export const Categories: FC = () => {
       </div>
       {!isClosed && (
         <nav className={styles.categories__dropdown}>
-          <NavLink 
-            className={({ isActive }) => classNames(
-              styles.categories__customLink,
-              {
-                [styles.activeLink]: isActive,
-              },
-            )} 
-            to={{
-              pathname: '/category/phones',
-              search,
-            }}
-          >
-            Phones
-          </NavLink> 
+          <div className={styles.categories__container}>
 
-          <NavLink
-            className={({ isActive }) => classNames(
-              styles.categories__customLink,
-              {
-                [styles.activeLink]: isActive,
-              },
-            )}  
-            to={{
-              pathname: '/category/tablets',
-              search,
-            }}
-          >
-            Tablets
-          </NavLink>  
+            <NavLink 
+              className={({ isActive }) => classNames(
+                styles.categories__customLink,
+                {
+                  [styles.activeLink]: isActive,
+                },
+              )} 
+              to={{
+                pathname: '/category/phones',
+                search,
+              }}
+            >
+              Phones
+            </NavLink> 
 
-          <NavLink
-            className={({ isActive }) => classNames(
-              styles.categories__customLink,
-              {
-                [styles.activeLink]: isActive,
-              },
-            )} 
-            to={{
-              pathname: '/category/accessories',
-              search,
-            }}
-          >
-            Accessories
-          </NavLink>
+            <NavLink
+              className={({ isActive }) => classNames(
+                styles.categories__customLink,
+                {
+                  [styles.activeLink]: isActive,
+                },
+              )}  
+              to={{
+                pathname: '/category/tablets',
+                search,
+              }}
+            >
+              Tablets
+            </NavLink>  
+
+            <NavLink
+              className={({ isActive }) => classNames(
+                styles.categories__customLink,
+                {
+                  [styles.activeLink]: isActive,
+                },
+              )} 
+              to={{
+                pathname: '/category/accessories',
+                search,
+              }}
+            >
+              Accessories
+            </NavLink>
+          </div>
 
           <div className={styles.categories__rights}>
             All rights reserved.

@@ -29,7 +29,7 @@ $card-width: 230px;
   .list {
     display: grid;
     grid-template-columns: repeat(3, $card-width);
-    column-gap: 69px;
+    column-gap: 48px;
   }
 
   .fourItem{
