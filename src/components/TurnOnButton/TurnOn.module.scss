@@ -1,0 +1,41 @@
+@import '../../styles/main.scss';
+
+.container {
+  width: 80px;
+  height: 34px;
+  border-radius: 17px;
+  position: relative;
+  cursor: pointer;
+
+  background-color: $color-grey;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 32px;
+    width: 32px;
+    border: 2px solid $color-grey;
+    border-radius: 50%;
+    background-color: $color-hover-secondary;
+    background-image: url('../../images/dog.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    transition: all 0.3s linear;
+  }
+
+  &Active {
+    background-color: $color-hover-primary;
+
+    &::after {
+      content: '';
+      display: block;
+      border: 2px solid $color-hover-primary;
+      left: 100%;
+      transform: translateY(-50%) translateX(-100%);
+    }
+  }
+}

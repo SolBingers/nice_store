@@ -1,9 +1,9 @@
-import dog from './smileFace/photo_2023-05-13_14-52-58 (2).jpg';
-import smileFace from './smileFace/photo_2023-05-13_14-52-58.jpg';
+
+import logo from '../../images/dog.svg';
 
 export const mateStudents = [
   {
-    photo: `${dog}`,
+    photo: `${logo}`,
     fullName: 'Anastasia Kuznetsova',
     Tl: true,
     linkedInLink: 'https://www.linkedin.com/in/bogdan-maliuta-217048274/',
@@ -19,7 +19,7 @@ export const mateStudents = [
     ],
   },
   {
-    photo: `${smileFace}`,
+    photo: `${logo}`,
     fullName: 'Bogdan Maliuta',
     Tl: false,
     linkedInLink: 'https://www.linkedin.com/in/bogdan-maliuta-217048274/',
@@ -35,7 +35,7 @@ export const mateStudents = [
     ],
   },
   {
-    photo: `${smileFace}`,
+    photo: `${logo}`,
     fullName: 'Bogdan Maliuta',
     Tl: false,
     linkedInLink: 'https://www.linkedin.com/in/bogdan-maliuta-217048274/',
@@ -51,7 +51,7 @@ export const mateStudents = [
     ],
   },
   {
-    photo: `${smileFace}`,
+    photo: `${logo}`,
     fullName: 'Bogdan Maliuta',
     Tl: false,
     linkedInLink: 'https://www.linkedin.com/in/bogdan-maliuta-217048274/',
@@ -67,7 +67,7 @@ export const mateStudents = [
     ],
   },
   {
-    photo: `${smileFace}`,
+    photo: `${logo}`,
     fullName: 'Bogdan Maliuta',
     Tl: false,
     linkedInLink: 'https://www.linkedin.com/in/bogdan-maliuta-217048274/',
@@ -83,7 +83,7 @@ export const mateStudents = [
     ],
   },
   {
-    photo: `${smileFace}`,
+    photo: `${logo}`,
     fullName: 'Bogdan Maliuta',
     Tl: false,
     linkedInLink: 'https://www.linkedin.com/in/bogdan-maliuta-217048274/',
@@ -99,7 +99,7 @@ export const mateStudents = [
     ],
   },
   {
-    photo: `${smileFace}`,
+    photo: `${logo}`,
     fullName: 'Bogdan Maliuta',
     Tl: false,
     linkedInLink: 'https://www.linkedin.com/in/bogdan-maliuta-217048274/',
