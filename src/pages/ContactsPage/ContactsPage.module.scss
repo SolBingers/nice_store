@@ -1,9 +1,32 @@
+@import '../../styles/utils/mixins';
+
 .container {
   display: grid;
   justify-content: center;
   row-gap: 24px;
 
-  padding: 0 24px 24px 24px;
+  padding: 50px 24px 24px 24px;
+}
+
+.playMusic {
+  background-color: inherit;
+}
+
+.memeModeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 16px;
+
+  @include onTablet {
+    padding-left: 32px;
+  }
+}
+.memeMode {
+  font-weight: 700;
+  font-size: 20px;
+
+  margin-right: 20px;
 }
 
 @media (min-width:900px) {

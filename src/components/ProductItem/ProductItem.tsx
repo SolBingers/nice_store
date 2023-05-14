@@ -28,6 +28,9 @@ export const ProductItem: React.FC<Props> = ({
     price,
   } = productItem;
 
+  const BASE_URL = 'https://nice-store-api.onrender.com';
+  const imageURL = BASE_URL + '/' + image;
+
   const isDisabledMinus = count === 1;
   const isDisabledPlus = count === 9;
 
@@ -40,7 +43,7 @@ export const ProductItem: React.FC<Props> = ({
         <div className={productItemStyle.imageContainer} >
           <img 
             className={productItemStyle.image}
-            src={image} 
+            src={imageURL} 
             alt="phone"
           />
         </div>
