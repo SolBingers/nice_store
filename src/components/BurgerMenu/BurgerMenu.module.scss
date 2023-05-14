@@ -21,7 +21,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 70vh;
+  width: 70vw;
   height: 100vh;
   background-color: $color-black;
   padding: 24px 36px 36px;
@@ -90,9 +90,10 @@
   .categories__dropdown {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-between;
     font-size: 14px;
     font-weight: 500;
+    height: 95%;
   }
 
   .categories__customLink {
@@ -107,9 +108,14 @@
   }
 
   .categories__rights {
-    align-self: flex-end;
-    padding-top: 100%;
     text-decoration-line: underline;
     color: #576067;
+    align-self: flex-end;
+  }
+
+  .categories__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
   }
 }
