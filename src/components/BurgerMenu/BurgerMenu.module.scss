@@ -21,7 +21,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 70vh;
+  width: 70vw;
   height: 100vh;
   background-color: $color-black;
   padding: 24px 36px 36px;
@@ -107,8 +107,10 @@
   }
 
   .categories__rights {
-    align-self: flex-end;
-    padding-top: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-top: 64vh;
     text-decoration-line: underline;
     color: #576067;
   }

@@ -75,7 +75,6 @@ export const BurgerMenu: FC<Props> = ({
               {title}
             </NavLink> 
           ))}
-
           <div className={styles.categories__rights}>
             All rights reserved.
           </div>
