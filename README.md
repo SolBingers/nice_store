@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Nice Store Full-stack Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Nice Store Full-stack Project! This README file will provide you with an overview of our project, its features, and instructions on how to set it up and get started.
 
-## Available Scripts
+## Project Description
 
-In the project directory, you can run:
+Nice Store is platform that offers a wide range of gadgets for tech enthusiasts. Our goal is to provide an enjoyable shopping experience where users can explore and purchase their favorite gadgets with ease. This project focuses on both the frontend and backend aspects, creating a full-stack application that covers all necessary functionalities. Here you can see the Front-end side.
 
-### `npm start`
+## Preview
+You can see the demo [HERE](https://solbingers.github.io/nice_store/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The Nice Store Project includes the following key features:
 
-### `npm test`
+<!-- - **User Authentication**: Users can create accounts, log in, and manage their profiles. This feature enables personalized shopping experiences, order tracking, and saved preferences. -->
+- **Product Catalog**: Users can browse through a vast selection of gadgets, with detailed information and images for each product.
+- **Search and Filtering**: Customers can search for specific gadgets using keywords and apply filters to refine their search results.
+- **Shopping Cart**: Users can add items to their shopping cart, review the contents, and proceed to checkout for secure payments.
+- **Favourites**: Users can add item to the favourites and explore them on the favourites page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+The Nice Store utilizes the following technologies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend**: HTML, SCSS, TypeScript, React.js, ReactQuery, Swiper.js for building the user interface and managing state.
+- **Backend**: Node.js, Express.js, and Sequelize.js for creating a RESTful API and managing data storage.
+- **Database**: Postgress for storing product information, user data, and order details.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To install and set up the Nice Store on your local machine, follow these steps:
 
-### `npm run eject`
+1. Clone the project repository from GitHub:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone https://github.com/nicestore/nice-store.git
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Navigate to the project directory:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   cd nice-store
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Install the dependencies for the frontend and backend. Run the following command::
 
-## Learn More
+   ```bash
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. Start the development server. Run the following command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   npm start
+   ```
 
-### Code Splitting
+   The server will be accessible at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+Once the project is up and running, you can access the Nice Store application in your web browser. Here are a few instructions on how to use the application:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Upon accessing the Nice Store application in your web browser, you will be presented with the homepage showcasing featured gadgets and product categories.
 
-### Making a Progressive Web App
+- You can browse through the different categories and use the search functionality to find specific gadgets. Clicking on a product will take you to the detailed product page, where you can view additional information and images.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- You can add items to your shopping cart by selecting the desired quantity and clicking the "Add to Cart" button. And also you can add some item to your favourites by clicking on heart buttons.
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+We welcome contributions to the Nice Store Project! If you would like to contribute, please follow these steps:
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the project repository on GitHub.
+2. Create a new branch for your feature or bug fix.
+3. Implement your changes and ensure that the code adheres to the project's coding style and guidelines.
+4. Commit and push your changes to your forked repository.
+5. Submit a pull request with a detailed description of your changes and the problem it solves.
+6. Your pull request will be reviewed by the project maintainers, and any necessary feedback or adjustments will be provided.
+7. Once your changes have been approved, they will be merged into the main repository.
