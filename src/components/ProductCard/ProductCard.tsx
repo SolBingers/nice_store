@@ -16,18 +16,20 @@ const BASE_URL = 'https://nice-store-api.onrender.com';
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
   const { 
-    phoneId, 
+    itemId, 
     image, 
     name, 
     screen, 
     capacity, 
     price, 
     fullPrice,
-    ram } = phone;
+    category,
+    ram 
+  } = phone;
   
   const imageURL = BASE_URL + '/' + image;
 
-  const phonePath = `/category/phones/${phoneId}`;
+  const itemPath = `/${category}/${itemId}`;
 
   const [isButtonDissabled, setIsButtonDissabled] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -37,7 +39,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
 
   const handleFavoritePhone = () => {
     if (isFavorite) {
-      removePhone(phoneId);
+      removePhone(itemId);
     } else {
       addPhone(phone);
     }
@@ -45,7 +47,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   };
 
   useEffect(() => {
-    if(phones.find((phone: Phone) => phone.phoneId === phoneId)) {
+    if(phones.find((phone: Phone) => phone.itemId === itemId)) {
       setIsFavorite(true);
     } else {
       setIsFavorite(false);
@@ -53,7 +55,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   },[phones]);
 
   useEffect(() => {
-    if (cart.find((product: Product) => product.phoneId === phoneId)) {
+    if (cart.find((product: Product) => product.itemId === itemId)) {
       setIsButtonDissabled(true);
     } else {
       setIsButtonDissabled(false);
@@ -82,14 +84,14 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
           })} />
         </button>
 
-        <Link to={phonePath} className={card.image}>
+        <Link to={itemPath} className={card.image}>
           <img className={card.image} src={imageURL} alt='phone'/>
         </Link>
       </div>
 
       <div className={card.infoContainer}>
         <h3 className={card.title}>
-          <Link to={phonePath} className={card.link}>
+          <Link to={itemPath} className={card.link}>
             {name}
           </Link>
         </h3>

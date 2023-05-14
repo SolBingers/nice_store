@@ -10,7 +10,7 @@ export const CategoryBlock: FC = () => (
   <section className={categoryBlock.container}>
     <div className={categoryBlock.cardContainer}>
       <div className={categoryBlock.card}>
-        <Link to="/category/phones">
+        <Link to="/phones">
           <CategoryCard
             imageUrl={categoryPhones}
             imageAlt='Phones category'
@@ -20,7 +20,7 @@ export const CategoryBlock: FC = () => (
       </div>
 
       <div className={categoryBlock.card}>
-        <Link to="/category/tablets">
+        <Link to="/tablets">
           <CategoryCard
             imageUrl={categoryTablets}
             imageAlt='Tablets category'

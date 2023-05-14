@@ -5,26 +5,22 @@ import homePage from './HomePage.module.scss';
 import { ProductList } from '../../components/ProductList';
 import { CategoryBlock } from '../../components/CategoryBlock';
 import { SaleBanner } from '../../components/SaleBanner';
-import { getPhonesByType } from '../../api/phones';
+import { getProductsByType } from '../../api/products';
 import { useQuery } from 'react-query';
 import { Loader } from '../../components/Loader';
 
 const getPhones = async (type: 'discount' | 'new') => {
-  const loadData = await getPhonesByType(type);
+  const loadData = await getProductsByType(type);
 
   return loadData;
 };
 
 export const HomePage: FC = () => {
-  const { data: discountData } = useQuery(
-    'discount',
-    () => getPhones('discount'),
+  const { data: discountData } = useQuery('discount', () =>
+    getPhones('discount'),
   );
-  
-  const { data: newData } = useQuery(
-    'new',
-    () => getPhones('new'),
-  );
+
+  const { data: newData } = useQuery('new', () => getPhones('new'));
 
   return (
     <main className={homePage.main}>
@@ -35,19 +31,15 @@ export const HomePage: FC = () => {
       </div>
 
       <article className={homePage.productList}>
-        {!discountData
-          ? (
-            <div className={homePage.loader}>
-              <h2 className={homePage.loader__title}>
-                Hot prices
-              </h2>
+        {!discountData ? (
+          <div className={homePage.loader}>
+            <h2 className={homePage.loader__title}>Hot prices</h2>
 
-              <Loader />
-            </div>
-          )
-          : (
-            <ProductList title='Hot prices' products={discountData} />
-          )}
+            <Loader />
+          </div>
+        ) : (
+          <ProductList title="Hot prices" products={discountData} />
+        )}
       </article>
 
       <article className={homePage.categoryBlock}>
@@ -59,19 +51,15 @@ export const HomePage: FC = () => {
       </article>
 
       <article className={homePage.productList}>
-        {!newData
-          ? (
-            <div className={homePage.loader}>
-              <h2 className={homePage.loader__title}>
-                Brand NEW
-              </h2>
+        {!newData ? (
+          <div className={homePage.loader}>
+            <h2 className={homePage.loader__title}>Brand NEW</h2>
 
-              <Loader />
-            </div>
-          )
-          : (
-            <ProductList title='Brand NEW' products={newData} />
-          )}
+            <Loader />
+          </div>
+        ) : (
+          <ProductList title="Brand NEW" products={newData} />
+        )}
       </article>
     </main>
   );

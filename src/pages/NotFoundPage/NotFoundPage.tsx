@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import notFoundPage from './NotFoundPage.module.scss';
+import cuteDog from '../../images/cuteDog.gif';
 
 export const NotFoundPage: FC = () => (
   <div className={`${notFoundPage['not-found-page']}`}>
@@ -15,5 +16,7 @@ export const NotFoundPage: FC = () => (
     <Link to="/" className={notFoundPage.link}>
       Go To Homepage
     </Link>
+
+    <img className={notFoundPage.gif} src={cuteDog} alt="cute dog" />
   </div >
 );

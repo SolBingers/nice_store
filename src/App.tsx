@@ -11,6 +11,9 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import styles from './App.module.scss';
 import { ToTopButton } from './components/ToTopButton';
+import { PhonesPage } from './pages/PhonesPage';
+import { TabletsPage } from './pages/TabletsPage';
+import { AccessoriesPage } from './pages/AccessoriesPage';
 
 export const App: FC = () => {
   return (
@@ -21,8 +24,18 @@ export const App: FC = () => {
         <Routes>
           <Route path='/' element={<HomePage />} />
 
-          <Route path="category/:selectedCategory">
-            <Route index element={<CategoryPage />} />
+          <Route path='phones'>
+            <Route index element={<PhonesPage />} />
+            <Route path=':itemId' element={<ItemPage />} />
+          </Route>
+
+          <Route path='tablets'>
+            <Route index element={<TabletsPage />} />
+            <Route path=':itemId' element={<ItemPage />} />
+          </Route>
+
+          <Route path='accessories'>
+            <Route index element={<AccessoriesPage />} />
             <Route path=':itemId' element={<ItemPage />} />
           </Route>
 

@@ -49,3 +49,16 @@
     border-color: $color-primary;
   }
 }
+
+.gif {
+  display: block;
+  width: 80vw;
+
+  @include onTablet {
+    width: 50vw;
+  }
+
+  @include onDesktop {
+    width: 40vw;
+  }
+}

@@ -37,7 +37,7 @@ export const Categories: FC = () => {
                 },
               )} 
               to={{
-                pathname: '/category/phones',
+                pathname: '/phones',
                 search,
               }}
             >
@@ -52,7 +52,7 @@ export const Categories: FC = () => {
                 },
               )}  
               to={{
-                pathname: '/category/tablets',
+                pathname: '/tablets',
                 search,
               }}
             >
@@ -67,7 +67,7 @@ export const Categories: FC = () => {
                 },
               )} 
               to={{
-                pathname: '/category/accessories',
+                pathname: '/accessories',
                 search,
               }}
             >

@@ -44,8 +44,8 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
     updateLocalStorage(updatedPhone);
   };
 
-  const removePhone = (phoneId: string) => {
-    const updatedPhone = phones.filter((phone: Phone) => phone.phoneId !== phoneId);
+  const removePhone = (itemId: string) => {
+    const updatedPhone = phones.filter((phone: Phone) => phone.itemId !== itemId);
     setPhones(updatedPhone);
     updateLocalStorage(updatedPhone);
   };
