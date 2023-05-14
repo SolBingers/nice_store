@@ -11,15 +11,15 @@ export const getAllProducts = async (search: string): Promise<Response> => {
 };
 
 export const getAllPhones = async (search: string): Promise<Response> => {
-  return client.get(`/products/phones${search}`);
+  return client.get(`/products/phones?${search}`);
 };
 
 export const getAllTablets = async (search: string): Promise<Response> => {
-  return client.get(`/products/tablets${search}`);
+  return client.get(`/products/tablets?${search}`);
 };
 
 export const getAllAccessories = async (search: string): Promise<Response> => {
-  return client.get(`/products/accessories${search}`);
+  return client.get(`/products/accessories?${search}`);
 };
 
 export const getItemById = (id: string): Promise<PhoneSpec> =>

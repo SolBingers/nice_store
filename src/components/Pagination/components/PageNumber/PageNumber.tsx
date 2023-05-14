@@ -1,7 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import styles from './PageNumber.module.scss';
 import classNames from 'classnames';
-import { useSearchParams } from 'react-router-dom';
 
 type Props = {
   page: number;
@@ -14,18 +13,9 @@ export const PageNumber: FC<Props> = ({
   isActive = false,
   setPageNumber,
 }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const handleClick = () => {
     setPageNumber(page);
   };
-
-  useEffect(() => {
-    if (isActive) {
-      searchParams.delete('page');
-      searchParams.append('page', page.toString());
-      setSearchParams(searchParams);
-    }
-  }, [isActive]);
 
   return (
     <div
