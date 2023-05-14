@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import styles from './PageNumber.module.scss';
 import classNames from 'classnames';
 
