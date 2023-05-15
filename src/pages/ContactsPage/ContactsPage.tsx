@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useEffect} from 'react';
 import { mateStudents } from './mateStudents';
 import contactPageStyle from './ContactsPage.module.scss';
 import { PersonCard } from '../../components/PersonCard';
@@ -22,6 +22,10 @@ export const ContactsPage:React.FC = () => {
   const handleTogle = () => {
     setIsActiveTogler(!isActiveTogler);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
 
   return (
     <>
