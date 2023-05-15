@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Categories } from '../../components/Categories/Categories';
 import { FirstBanner } from '../../components/FirstBanner';
 import homePage from './HomePage.module.scss';
