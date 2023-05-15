@@ -8,7 +8,9 @@ export const CartCounter: React.FC = () => {
   let count = 0;
 
   cart.forEach(product => {
-    count += product.count;
+    count += 1;
+
+    return product;
   });
 
   return (
