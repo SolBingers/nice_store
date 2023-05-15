@@ -1,28 +1,28 @@
-import React, { Dispatch, FC, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import auth from './AuthForm.module.scss';
 import { Button } from '../Button';
 import classNames from 'classnames';
+import { validateEmail, validatePassword, validateUsername } from '../../utils/helpers/formValidation';
+import { register } from '../../api/auth';
 
 type AuthFormProps = {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  onSubmit: (email: string, password: string) => void;
 };
 
-export const AuthForm: React.FC<AuthFormProps> = ({ isOpen, setIsOpen, onSubmit }) => {
+export const AuthForm: React.FC<AuthFormProps> = ({ isOpen, setIsOpen }) => {
   const [isRegistration, setIsRegistration] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
 
-
   const setErrorMessage = (error: string) => {
     setError(error);
 
     setTimeout(() => {
       setError('');
-    }, 5000);
+    }, 3000);
   };
 
   const closeModal = () => {
@@ -33,6 +33,19 @@ export const AuthForm: React.FC<AuthFormProps> = ({ isOpen, setIsOpen, onSubmit 
     setError('');
   };
 
+  const handleRegistration = async (username: string, email: string, password: string) => {
+    try {
+      const user = await register(username, email, password);
+      console.log(user);
+      closeModal();
+    } catch (error) {
+      setErrorMessage('Something went wrong');
+      console.log(error);
+    }
+  };
+
+  // const handleLogin = async (email: string, password: string) => {};
+
   const handleSubmit = () => {
     if (!name
       || !password
@@ -41,7 +54,28 @@ export const AuthForm: React.FC<AuthFormProps> = ({ isOpen, setIsOpen, onSubmit 
       return;
     }
 
-    onSubmit(email, password);
+    const validatedEmail = validateEmail(email);
+    const validatedPassword = validatePassword(password);
+    const validatedUsername = validateUsername(name);
+
+    if (!validatedEmail) {
+      setErrorMessage('Invalid email');
+      return;
+    }
+
+    if (!validatedPassword) {
+      setErrorMessage('Password must be at least 6 characters');
+      return;
+    }
+
+    if(!validatedUsername) {
+      setErrorMessage('Invalid username');
+      return;
+    }
+
+    if (isRegistration) {
+      handleRegistration(name, email, password);
+    } 
   };
 
   return (
@@ -49,6 +83,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ isOpen, setIsOpen, onSubmit 
       className={classNames(auth.form, {
         [auth.formVisible]: isOpen === true,
       })}
+      onSubmit={(e) => e.preventDefault()}
     >
       <button
         className={auth.close}

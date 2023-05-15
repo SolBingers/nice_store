@@ -83,7 +83,7 @@ export const Header: FC<Props> = ({ className }) => {
           </div>
         </div>
         <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened} />
-        <AuthForm isOpen={isOpenedAuth} setIsOpen={setIsOpenedAuth} onSubmit={() => null}></AuthForm>
+        <AuthForm isOpen={isOpenedAuth} setIsOpen={setIsOpenedAuth} />
       </header>
     </>
   );

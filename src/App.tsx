@@ -3,7 +3,6 @@ import './styles/main.scss';
 import { Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
-import { CategoryPage } from './pages/CategoryPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { ContactsPage } from './pages/ContactsPage';
 import { ItemPage } from './pages/ItemPage';
@@ -14,6 +13,7 @@ import { ToTopButton } from './components/ToTopButton';
 import { PhonesPage } from './pages/PhonesPage';
 import { TabletsPage } from './pages/TabletsPage';
 import { AccessoriesPage } from './pages/AccessoriesPage';
+import { ActivationPage } from './pages/ActivationPage';
 
 export const App: FC = () => {
   return (
@@ -42,6 +42,8 @@ export const App: FC = () => {
           <Route path='favourites' element={<FavouritesPage />} />
 
           <Route path='contacts' element={<ContactsPage />} />
+
+          <Route path='activate/:activationToken' element={<ActivationPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
