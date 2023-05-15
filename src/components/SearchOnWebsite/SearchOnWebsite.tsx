@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import searchStyles from './SearchOnWebsite.module.scss';
 import lens from '../../images/lens.svg';
 import cross from '../../images/cross.svg';
-import { getAllProducts } from '../../api/products';
-import { useQuery } from 'react-query';
+// import { getAllProducts } from '../../api/products';
+// import { useQuery } from 'react-query';
 // import { Product } from '../types/types';
 
 export const SearchOnWebsite: React.FC = () => {
@@ -13,9 +13,9 @@ export const SearchOnWebsite: React.FC = () => {
   // const [isError, setIsError] = useState(false);
 
 
-  const getProducts = async () => {
-    return await getAllProducts(query);
-  };
+  // const getProducts = async () => {
+  //   return await getAllProducts(query);
+  // };
 
   // const { isLoading, data, refetch } = useQuery<Response>(
   //   'products',
