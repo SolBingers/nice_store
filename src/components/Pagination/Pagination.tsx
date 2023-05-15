@@ -5,8 +5,8 @@ import { PageNumber } from './components/PageNumber/PageNumber';
 import classNames from 'classnames';
 
 type Props = {
-  currentPage: number;
   className?: string;
+  currentPage: number;
   maxPage: number;
   setSelectedPage: React.Dispatch<React.SetStateAction<number>>;
 }
