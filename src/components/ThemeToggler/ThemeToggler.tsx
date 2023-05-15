@@ -1,6 +1,8 @@
 import React, { FC, useEffect } from 'react';
 import { useLocalStorage } from '../../customHooks/useLocalStorage';
 import { Color } from '../types/Color';
+import styles from './ThemeToggler.module.scss';
+import classNames from 'classnames';
 
 export const ThemeToggler: FC = () => {
   const [theme, setTheme] = useLocalStorage('theme', 'dark');
@@ -32,11 +34,27 @@ export const ThemeToggler: FC = () => {
       '--color-contrast',
       isDark ? Color.Light : Color.Dark,
     );
+
+    root.style.setProperty(
+      '--color-contrast-background',
+      isDark ? Color.Light_Grey : Color.Semi_Dark,
+    );
   }, [theme]);
 
   const handleToggleTheme = () => {
     setTheme((prev: string) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
-  return <div onClick={handleToggleTheme}>ThemeToggler</div>;
+  return (
+    <div 
+      className={classNames(
+        styles.main,
+        { [styles.isLight] : theme === 'light'}
+      )}
+      onClick={handleToggleTheme}
+    >
+      <div className={styles.background} />
+      <div className={styles.primary} />
+    </div>
+  );
 };

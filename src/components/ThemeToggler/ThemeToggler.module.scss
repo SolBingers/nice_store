@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: rotate(45deg);
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.2;
+  }
+}
+
+.background {
+  width: 100%;
+  height: 50%;
+  background-color: var(--color-contrast-background);
+}
+
+.primary {
+  width: 100%;
+  height: 50%;
+  background-color: var(--color-primary);
+}
+
+.isLight {
+  transform: rotate(315deg);
+}
