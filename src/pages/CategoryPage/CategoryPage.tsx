@@ -48,7 +48,9 @@ export const CategoryPage: FC<Props> = ({ className }) => {
       <BreadCrumbs />
 
       <main className={classNames(className, styles.main)}>
-        <Categories />
+
+        <Categories className={styles.categoriesContainer}/>
+
 
         <div className={styles.content}>
           <p className={styles.title}>
