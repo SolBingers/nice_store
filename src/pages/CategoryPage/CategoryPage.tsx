@@ -14,23 +14,24 @@ type Props = {
 
 export const CategoryPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
-  
+
   return (
     <main className={classNames(className, styles.main)}>
       <Categories />
-      
+
       <div className={styles.content}>
         <p className={styles.title}>
           {selectedCategory}
         </p>
 
         <div className={styles.settings}>
-          <SettingsInput 
+          <SettingsInput
             className={styles.input}
-            title="Product name" 
+            title="Product name"
+            placeholder='...'
           />
 
-          <SettingsSelect 
+          <SettingsSelect
             className={styles.select}
             title="Sort by"
             apiTitle="sort"
@@ -39,7 +40,7 @@ export const CategoryPage: FC<Props> = ({ className }) => {
             setSelected={() => {return;}}
           />
 
-          <SettingsSelect 
+          <SettingsSelect
             className={styles.select}
             title="Items per page"
             apiTitle="count"
@@ -49,14 +50,14 @@ export const CategoryPage: FC<Props> = ({ className }) => {
           />
         </div>
 
-        <List 
+        <List
           className={styles.list}
-          products={[]} 
+          products={[]}
         />
 
         <Pagination
           className={styles.pagination}
-          currentPage={1} 
+          currentPage={1}
         />
       </div>
     </main>

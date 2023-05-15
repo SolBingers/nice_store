@@ -5,7 +5,7 @@ import button from './Button.module.scss';
 type ButtonProps = {
   text: string;
   type: 'primary' | 'secondary';
-  size: 'small' | 'large';
+  size: 'small' | 'large' | 'extraLarge';
   onClick?: () => void;
 };
 
@@ -15,6 +15,7 @@ export const Button: FC<ButtonProps> = ({ text, type, size, onClick }) => {
     [button.secondary]: type === 'secondary',
     [button.small]: size === 'small',
     [button.large]: size === 'large',
+    [button.extraLarge]: size === 'extraLarge',
   });
 
   return (
