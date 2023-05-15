@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Product } from '../components/types/types';
+import { Product } from '../types/types';
 import { useLocalStorage } from '../customHooks/useLocalStorage';
 
 interface Context {

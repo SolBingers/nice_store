@@ -2,14 +2,14 @@ import card from '../ProductCard/ProductCard.module.scss';
 import React, { useState, useEffect, useContext } from 'react';
 import { ReactComponent as Favorite } from '../../images/emptyHeart.svg';
 import { Button } from '../Button';
-import { Phone, Product } from '../types/types';
+import { ProductItem, Product } from '../../types/types';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
 import { FavoriteContext } from '../../contexts/favoriteContext';
 import classNames from 'classnames';
 
 interface Props {
-  phone: Phone;
+  phone: ProductItem;
 }
 
 const BASE_URL = 'https://nice-store-api.onrender.com';
@@ -47,7 +47,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   };
 
   useEffect(() => {
-    if(phones.find((phone: Phone) => phone.itemId === itemId)) {
+    if(phones.find((phone: ProductItem) => phone.itemId === itemId)) {
       setIsFavorite(true);
     } else {
       setIsFavorite(false);

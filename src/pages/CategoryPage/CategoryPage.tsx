@@ -7,22 +7,23 @@ import styles from './CategoryPage.module.scss';
 import { List } from '../../components/List';
 import { Categories } from '../../components/Categories';
 import { Pagination } from '../../components/Pagination';
-import { getAllPhones } from '../../api/products';
 import { useQuery } from 'react-query';
-import { Phone } from '../../components/types/types';
+import { ProductItem } from '../../types/types';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { getAllProducts } from '../../api/products';
 
 type Props = {
   className?: string;
+  category: string;
 };
 
 type Response = {
-  data: Phone[];
+  data: ProductItem[];
   pages: number;
 };
 
-export const CategoryPage: FC<Props> = ({ className }) => {
+export const CategoryPage: FC<Props> = ({ className, category }) => {
   const { selectedCategory } = useParams();
   const [selectedSort, setSelectedSort] = useState('newest');
   const [selectedCount, setSelectedCount] = useState('6');
@@ -30,7 +31,7 @@ export const CategoryPage: FC<Props> = ({ className }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const getPhones = async () => {
-    return await getAllPhones(searchParams.toString());
+    return await getAllProducts(category, searchParams.toString());
   };
 
   const { isLoading, data, refetch } = useQuery<Response>(
@@ -87,7 +88,6 @@ export const CategoryPage: FC<Props> = ({ className }) => {
       <main className={classNames(className, styles.main)}>
 
         <Categories className={styles.categoriesContainer}/>
-
 
         <div className={styles.content}>
           <p className={styles.title}>{selectedCategory}</p>

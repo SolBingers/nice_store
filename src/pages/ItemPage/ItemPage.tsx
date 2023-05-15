@@ -8,18 +8,18 @@ import itemPage from './ItemPage.module.scss';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getItemById, getItemRecomended } from '../../api/products';
-import { Phone, PhoneSpec } from '../../components/types/types';
+import { ProductItem, ProductItemSpec } from '../../types/types';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 export const ItemPage: FC = () => {
   const { itemId = '0' } = useParams();
 
-  const { data: phoneSingle, isLoading, refetch } = useQuery<PhoneSpec>('phone', () =>
+  const { data: phoneSingle, isLoading, refetch } = useQuery<ProductItemSpec>('phone', () =>
     getItemById(itemId),
   );
 
-  const { data: phones = [] } = useQuery<Phone[]>('phones', () =>
+  const { data: phones = [] } = useQuery<ProductItem[]>('phones', () =>
     getItemRecomended(itemId),
   );
 
@@ -48,11 +48,11 @@ export const ItemPage: FC = () => {
 
           <div className={itemPage.productInfo}>
             <div className={itemPage.about}>
-              <About phoneSpec={phoneSingle} />
+              <About ProductItemSpec={phoneSingle} />
             </div>
 
             <div className={itemPage.techSpecs}>
-              <TecSpecs phoneSpec={phoneSingle} />
+              <TecSpecs ProductItemSpec={phoneSingle} />
             </div>
           </div>
 

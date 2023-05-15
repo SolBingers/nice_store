@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { useLocalStorage } from '../../customHooks/useLocalStorage';
-import { Color } from '../types/Color';
+import { Color } from '../../types/Color';
 import styles from './ThemeToggler.module.scss';
 import classNames from 'classnames';
 
