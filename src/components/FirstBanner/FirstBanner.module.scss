@@ -1,4 +1,3 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 /*#region firstSlide*/
@@ -17,7 +16,7 @@
     font-weight: 500;
     font-size: 10px;
     line-height: 12px;
-    color: $color-semi-dark;
+    color: var(--color-main-background);
     opacity: 0.5;
     text-transform: uppercase;
   }
@@ -28,7 +27,7 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
-    color: $color-black;
+    color: var(--color-semi-background);
     text-transform: uppercase;
   }
 
@@ -40,7 +39,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
-    color: $color-black;
+    color: var(--color-semi-background);
   }
 }
 
@@ -89,7 +88,7 @@
 .secondSlide {
   height: 190px;
   display: flex;
-  background-color: $color-black;
+  background-color: var(--color-semi-background);
 
   &__content {
     width: 40%;
@@ -102,7 +101,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 18px;
-    color: $color-light;
+    color: var(--color-contrast);
     text-transform: uppercase;
   }
 
@@ -111,7 +110,7 @@
 
     font-weight: 400;
     font-size: 10px;
-    color: $color-light;
+    color: var(--color-contrast);
   }
 
   &__img {
@@ -157,13 +156,13 @@
     font-weight: 700;
     font-size: 17px;
     text-transform: uppercase;
-    color: $color-black;
+    color: var(--color-semi-background);
   }
 
   &__info {
     font-size: 13px;
     font-weight: 400;
-    color: $color-black;
+    color: var(--color-semi-background);
   }
 }
 
@@ -177,7 +176,6 @@
 
     &__info {
       font-size: 20px;
-
     }
   }
 }
@@ -201,12 +199,12 @@
   :global(.swiper-pagination-bullet) {
     width: 10px;
     height: 10px;
-    background: $color-grey;
+    background: var(--color-grey);
   }
 
   :global(.swiper-pagination-bullet-active) {
-    background-color: $color-primary;
-    border: 1px solid $color-black;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-semi-background);
   }
 }
 
@@ -215,12 +213,12 @@
     :global(.swiper-pagination-bullet) {
       width: 15px;
       height: 15px;
-      background: $color-grey;
+      background: var(--color-grey);
     }
 
     :global(.swiper-pagination-bullet-active) {
-      background-color: $color-primary;
-      border: 1px solid $color-black;
+      background-color: var(--color-primary);
+      border: 1px solid var(--color-semi-background);
     }
   }
 }

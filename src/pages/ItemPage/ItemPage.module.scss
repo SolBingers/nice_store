@@ -1,5 +1,4 @@
 @import '../../styles/utils/mixins';
-@import '../../styles/utils/variables';
 
 .product {
   margin-bottom: 24px;
@@ -52,10 +51,10 @@
     margin: 0 auto;
     min-width: 800px;
     min-height: 800px;
-    
+
     padding: 100px;
   }
-  
+
   .productInfo {
     display: flex;
     justify-content: flex-end;
@@ -68,4 +67,3 @@
     padding: 0;
   }
 }
-

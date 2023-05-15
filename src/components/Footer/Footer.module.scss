@@ -1,10 +1,9 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 .footer {
   height: 48px;
   width: 100%;
-  background-color: $color-black;
+  background-color: var(--color-semi-background);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -21,7 +20,7 @@
 }
 
 .text {
-  color: $color-grey;
+  color: var(--color-grey);
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
@@ -34,7 +33,7 @@
 }
 
 .solBingers {
-  color: $color-primary;
+  color: var(--color-primary);
 }
 
 .gitLink {
@@ -45,7 +44,7 @@
   display: flex;
   justify-content: space-between;
 
-  color: $color-grey;
+  color: var(--color-grey);
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
@@ -53,7 +52,7 @@
 
 .links :active,
 .links :hover {
-  color: $color-hover-primary;
+  color: var(--color-hover-primary);
 }
 
 @include onTablet {
@@ -61,7 +60,6 @@
     height: 72px;
     border-radius: 6px;
     padding: 24px 36px;
-
   }
 
   .logo {

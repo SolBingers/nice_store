@@ -1,8 +1,7 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 .modal {
-  background-color: $color-semi-dark;
+  background-color: var(--color-main-background);
   border-radius: 8px;
   padding: 24px;
 
@@ -15,7 +14,7 @@
   max-width: 1000px;
 
   transform: scale(0);
-  
+
   @include onTablet {
     width: 70vw;
   }
@@ -29,7 +28,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
-  color: $color-hover-primary;
+  color: var(--color-hover-primary);
 }
 
 .closeModal {
@@ -44,7 +43,7 @@
   &:hover {
     filter: brightness(150%);
   }
-} 
+}
 
 .blur {
   display: none;
@@ -53,7 +52,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: $color-black;
+  background-color: var(--color-semi-background);
   opacity: 70%;
   z-index: 99;
 }
@@ -96,9 +95,9 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
-  color: $color-grey;
+  color: var(--color-grey);
 }
 
 .price {
-  color: #F6F6F7;
+  color: #f6f6f7;
 }

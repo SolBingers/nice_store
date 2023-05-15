@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import { BurgerMenu } from '../BurgerMenu';
 import { ModalMenu } from '../ModalMenu';
 import { CartCounter } from '../CartCounter';
+import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
 
 type Props = {
   className?: string;
@@ -57,6 +58,7 @@ export const Header: FC<Props> = ({ className }) => {
             <CartCounter/>
           </button>
         </div>
+        <ThemeToggler />
         <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened}/>
       </header>
     </>

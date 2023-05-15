@@ -1,4 +1,3 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 .productList {
@@ -9,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $color-black;
+  background-color: var(--color-semi-background);
   padding: 14px 15px 22px;
 
   @include onTablet {
