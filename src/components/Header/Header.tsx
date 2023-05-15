@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import { BurgerMenu } from '../BurgerMenu';
 import { ModalMenu } from '../ModalMenu';
 import { CartCounter } from '../CartCounter';
+import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
 
 type Props = {
   className?: string;
@@ -26,9 +27,15 @@ export const Header: FC<Props> = ({ className }) => {
         classNames(header.header, className)
       }>
         <div className={header.section}>
-          <Link to="/" className={header.homeLink}>
+          <Link
+            to="/"
+            className={header.homeLink}
+          >
             N🤝ce
           </Link>
+
+          <ThemeToggler />
+
           <button className={classNames(header.button, header.burgerButton)}>
             <Burger 
               className={header.burgerImage} 

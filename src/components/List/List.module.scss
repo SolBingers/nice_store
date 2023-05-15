@@ -1,10 +1,9 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 $card-width: 230px;
 
 .list {
-  background-color: $color-black;
+  background-color: var(--color-semi-background);
   justify-content: center;
   display: grid;
   row-gap: 24px;
@@ -25,14 +24,14 @@ $card-width: 230px;
   }
 }
 
-@media (min-width:900px) {
+@media (min-width: 900px) {
   .list {
     display: grid;
     grid-template-columns: repeat(3, $card-width);
     column-gap: 48px;
   }
 
-  .fourItem{
+  .fourItem {
     grid-template-columns: repeat(4, $card-width);
     column-gap: 4%;
   }

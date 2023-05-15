@@ -1,8 +1,7 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 .selectiobSection {
-  background-color: $color-black;
+  background-color: var(--color-semi-background);
 }
 
 .productName {
@@ -15,7 +14,7 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
-  color: $color-grey;
+  color: var(--color-grey);
 
   margin-top: 16px;
 }
@@ -29,7 +28,6 @@
 .capacitys {
   display: flex;
 }
-
 
 .prices {
   display: flex;
@@ -49,7 +47,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  color: $color-grey;
+  color: var(--color-grey);
 
   text-decoration-line: line-through;
 }

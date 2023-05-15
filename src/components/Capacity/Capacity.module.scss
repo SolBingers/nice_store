@@ -1,14 +1,12 @@
-@import '../../styles/utils/variables';
-
 .capacity {
   margin-top: 14px;
 
   padding: 6px;
 
   border-radius: 8px;
-  border: 1px solid $color-semi-dark;
+  border: 1px solid var(--color-main-background);
 
-  background-color: $color-semi-dark;
+  background-color: var(--color-main-background);
 
   font-weight: 400;
   font-size: 14px;
@@ -22,11 +20,11 @@
 
   &:hover {
     border: 1px solid;
-    background-color: $color-black;
+    background-color: var(--color-semi-background);
   }
 
   &Active {
     border: 1px solid;
-    background-color: $color-black;
+    background-color: var(--color-semi-background);
   }
 }

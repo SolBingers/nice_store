@@ -7,16 +7,16 @@
   position: relative;
   cursor: pointer;
 
-  background-color: $color-grey;
+  background-color: var(--color-grey);
 
   &::after {
     content: '';
     display: block;
     height: 24px;
     width: 24px;
-    border: 2px solid $color-grey;
+    border: 2px solid var(--color-grey);
     border-radius: 50%;
-    background-color: $color-hover-secondary;
+    background-color: var(--color-hover-secondary);
     background-image: url('../../images/dog.svg');
     background-position: center;
     background-repeat: no-repeat;
@@ -28,12 +28,12 @@
   }
 
   &Active {
-    background-color: $color-hover-primary;
+    background-color: var(--color-hover-primary);
 
     &::after {
       content: '';
       display: block;
-      border: 2px solid $color-hover-primary;
+      border: 2px solid var(--color-hover-primary);
       left: 100%;
       transform: translateY(-50%) translateX(-100%);
     }
