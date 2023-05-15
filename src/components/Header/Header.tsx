@@ -27,7 +27,10 @@ export const Header: FC<Props> = ({ className }) => {
         classNames(header.header, className)
       }>
         <div className={header.section}>
-          <Link to="/" className={header.homeLink}>
+          <Link
+            to="/"
+            className={header.homeLink}
+          >
             N🤝ce
           </Link>
 

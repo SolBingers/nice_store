@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--color-main-background);
+  border: 1px solid #19191976;
 
   width: 230px;
   height: 374px;
@@ -39,7 +40,7 @@
 
 .iconContainer {
   position: absolute;
-  background-color: var(--color-contrast);
+  background-color: transparent;
   border-radius: 10px;
   top: 5px;
   left: 2px;
@@ -66,7 +67,7 @@
   height: 186px;
 
   transition: box-shadow 0.3s, border-radius 0.3s, border 0.3s;
-  background-color: var(--color-contrast);
+  background-color: var(--image-background);
   border-radius: 8px;
 }
 

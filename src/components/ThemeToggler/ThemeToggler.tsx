@@ -14,6 +14,7 @@ export const ThemeToggler: FC = () => {
     root.style.setProperty('--color-primary', Color.Primary);
     root.style.setProperty('--hover-primary', Color.Hover_Primary);
     root.style.setProperty('--hover-secondary', Color.Hover_Secondary);
+    root.style.setProperty('--image-background', Color.Light);
   }, []);
 
   useEffect(() => {
