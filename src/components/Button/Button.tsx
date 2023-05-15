@@ -6,11 +6,12 @@ type ButtonProps = {
   text: string;
   type: 'primary' | 'secondary';
   size: 'small' | 'large';
+  additionalClass?: string;
   onClick?: () => void;
 };
 
-export const Button: FC<ButtonProps> = ({ text, type, size, onClick }) => {
-  const buttonClass = classNames(button.button, {
+export const Button: FC<ButtonProps> = ({ text, type, size, additionalClass, onClick }) => {
+  const buttonClass = classNames(button.button, additionalClass, {
     [button.primary]: type === 'primary',
     [button.secondary]: type === 'secondary',
     [button.small]: size === 'small',
