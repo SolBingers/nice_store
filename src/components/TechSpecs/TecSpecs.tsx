@@ -1,22 +1,22 @@
 import React, { FC } from 'react';
 import spec from './TecSpecs.module.scss';
-import { PhoneSpec } from '../types/types';
+import { ProductItemSpec } from '../../types/types';
 
 interface Props {
-  phoneSpec: PhoneSpec | undefined
+  ProductItemSpec: ProductItemSpec | undefined
 }
 
-export const TecSpecs: FC<Props> = ({ phoneSpec }) => {
+export const TecSpecs: FC<Props> = ({ ProductItemSpec }) => {
 
 
   const listOfSpec = [
-    {name: 'Screen', value: phoneSpec?.screen},
-    {name: 'Resolution', value: phoneSpec?.resolution},
-    {name: 'Processor', value: phoneSpec?.processor},
-    {name: 'RAM', value: phoneSpec?.ram},
-    {name: 'Built in memory', value: phoneSpec?.capacity},
-    {name: 'Camera', value: phoneSpec?.camera},
-    {name: 'Zoom', value: phoneSpec?.zoom},
+    {name: 'Screen', value: ProductItemSpec?.screen},
+    {name: 'Resolution', value: ProductItemSpec?.resolution},
+    {name: 'Processor', value: ProductItemSpec?.processor},
+    {name: 'RAM', value: ProductItemSpec?.ram},
+    {name: 'Built in memory', value: ProductItemSpec?.capacity},
+    {name: 'Camera', value: ProductItemSpec?.camera},
+    {name: 'Zoom', value: ProductItemSpec?.zoom},
   ];
 
   return (

@@ -2,10 +2,10 @@ import details from './ProductDetails.module.scss';
 import React, { FC } from 'react';
 import { SelectionSection } from '../SelectionSection';
 import { ProductGallery } from '../ProductGallery/ProductGallery';
-import { PhoneSpec } from '../types/types';
+import { ProductItemSpec } from '../../types/types';
 
 interface Props {
-  phoneData: PhoneSpec
+  phoneData: ProductItemSpec
 }
 
 export const ProductDetails: FC<Props> = ({ phoneData }) => {

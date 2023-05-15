@@ -1,4 +1,4 @@
-export interface Phone {
+export interface ProductItem {
   id: string;
   category: string;
   itemId: string;
@@ -28,7 +28,7 @@ export interface description {
   text: string[];
 }
 
-export interface PhoneSpec {
+export interface ProductItemSpec {
   id: string;
   namespaceId: string;
   name: string;
@@ -49,7 +49,7 @@ export interface PhoneSpec {
   cell: string[];
 }
 
-export interface Product extends Phone {
+export interface Product extends ProductItem {
   count: number
 }
 

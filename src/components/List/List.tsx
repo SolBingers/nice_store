@@ -1,12 +1,12 @@
 import React from 'react';
 import listStyle from './List.module.scss';
 import { ProductCard } from '../ProductCard';
-import { Phone } from '../../components/types/types';
+import { ProductItem } from '../../types/types';
 import classNames from 'classnames';
 
 interface Props {
   className?: string;
-  products: Phone[];
+  products: ProductItem[];
   favComp?: boolean;
 }
 

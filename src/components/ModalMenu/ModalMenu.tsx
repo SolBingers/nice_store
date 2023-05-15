@@ -3,7 +3,7 @@ import modalStyle from './ModalMenu.module.scss';
 import classNames from 'classnames';
 import { ProductItem } from '../ProductItem';
 import { Button } from '../Button';
-import { Product } from '../types/types';
+import { Product } from '../../types/types';
 import { useLocalStorage } from '../../customHooks/useLocalStorage';
 import { CartContext } from '../../contexts/CartContext';
 type Props = {
