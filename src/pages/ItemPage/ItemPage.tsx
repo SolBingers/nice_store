@@ -27,6 +27,10 @@ export const ItemPage: FC = () => {
     refetch();
   }, [itemId]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
+
   return (
     <>
       <BreadCrumbs />
