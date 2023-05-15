@@ -3,13 +3,20 @@ import styles from './Categories.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
-export const Categories: FC = () => {
+type Props = {
+  className?: string,
+}
+
+export const Categories: FC<Props> = ({ className }) => {
   const [isClosed,setIsClosed] = useState(false);
   const { search } = useLocation();
 
   
   return (
-    <div className={styles.categories}>
+    <div className={classNames(
+      styles.categories,
+      className,
+    )}>
       <div className={styles.categories__header}>
         <div className={styles.categories__title}>
           Categories

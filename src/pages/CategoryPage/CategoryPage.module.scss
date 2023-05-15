@@ -9,6 +9,11 @@
   column-gap: 2%;
 }
 
+.categoriesContainer {
+  position: sticky;
+  top: 30px;
+}
+
 .content {
   display: flex;
   flex-direction: column;

@@ -11,7 +11,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import mobileSlide2 from '../../images/firstBanner/secondSlide.png';
 import firstBanner from './FirstBanner.module.scss';
 
 export const FirstBanner: React.FC = () => {
@@ -65,7 +64,7 @@ export const FirstBanner: React.FC = () => {
                 type={'primary'}
               />
             </div>
-            <img className={firstBanner.secondSlide__img} src={mobileSlide2} alt="" />
+            <div className={firstBanner.secondSlide__img} />
           </div>
         </SwiperSlide>
 
