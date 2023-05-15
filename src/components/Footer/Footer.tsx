@@ -10,8 +10,11 @@ type Props = {
 
 export const Footer: FC<Props> = ({ className }) => (
   <div className={classNames(className, footer.footer)}>
-    <Link to='/'>
-      <img src={logo} alt="Nice" className={footer.logo}/>
+    <Link 
+      to='/'
+      className={footer.homeLink}
+    >
+      N🤝ce
     </Link>
 
     <div className={footer.text}>
