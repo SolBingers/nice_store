@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import pagination from './Pagination.module.scss';
 import { Arrow } from './components/Arrow';
 import { PageNumber } from './components/PageNumber/PageNumber';
