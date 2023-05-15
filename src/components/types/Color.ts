@@ -5,6 +5,7 @@ export enum Color {
   Light_Grey = '#ecebeb',
   Semi_Dark = '#2d2d2f',
   Primary = '#efb41a',
+  Banner_Light = '#e1e1e1',
 
   Hover_Primary = '#a17709',
   Hover_Secondary = '#5c5c5c80',

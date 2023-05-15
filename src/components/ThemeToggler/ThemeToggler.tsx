@@ -40,6 +40,11 @@ export const ThemeToggler: FC = () => {
       '--color-contrast-background',
       isDark ? Color.Light_Grey : Color.Semi_Dark,
     );
+
+    root.style.setProperty(
+      '--color--sale-banner-background',
+      isDark ? Color.Dark : Color.Banner_Light,
+    );
   }, [theme]);
 
   const handleToggleTheme = () => {
