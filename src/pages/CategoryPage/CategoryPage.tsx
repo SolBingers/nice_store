@@ -91,7 +91,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
 
           <div className={styles.settings}>
             <SettingsInput className={styles.input} title="Product name" />
-
+            
             <SettingsSelect
               className={styles.select}
               title="Sort by"
