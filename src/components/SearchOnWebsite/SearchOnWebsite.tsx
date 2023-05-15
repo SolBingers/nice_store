@@ -8,23 +8,23 @@ import { useQuery } from 'react-query';
 
 export const SearchOnWebsite: React.FC = () => {
   const [query, setQuery] = useState('');
-  const [products, setProducts] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  // const [products, setProducts] = useState<Product[]>([]);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [isError, setIsError] = useState(false);
 
 
   const getProducts = async () => {
     return await getAllProducts(query);
   };
 
-  const { isLoading, data, refetch } = useQuery<Response>(
-    'products',
-    getProducts,
-  );
+  // const { isLoading, data, refetch } = useQuery<Response>(
+  //   'products',
+  //   getProducts,
+  // );
 
-  useEffect(() => {
-    refetch();
-  }, [query]);
+  // useEffect(() => {
+  //   refetch();
+  // }, [query]);
 
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
