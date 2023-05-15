@@ -3,11 +3,11 @@ import { useLocation, useParams } from 'react-router-dom';
 import { SettingsInput } from '../../components/SettingsInput';
 import { SettingsSelect } from '../../components/SettingsSelect';
 import classNames from 'classnames';
-import styles from './CategoryPage.module.scss';
+import styles from '../CategoryPage/CategoryPage.module.scss';
 import { List } from '../../components/List';
 import { Categories } from '../../components/Categories';
 import { Pagination } from '../../components/Pagination';
-import { getAllPhones } from '../../api/products';
+import { getAllTablets } from '../../api/products';
 import { useQuery } from 'react-query';
 import { Phone } from '../../components/types/types';
 import { Loader } from '../../components/Loader';
@@ -22,20 +22,20 @@ type Response = {
   pages: number;
 };
 
-export const CategoryPage: FC<Props> = ({ className }) => {
+export const TabletsPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
   const [, setSelectedSort] = useState('');
   const [, setSelectedItemsPerPage] = useState('');
   const [selectedPage, setSelectedPage] = useState(1);
   const { search } = useLocation();
 
-  const getPhones = async () => {
-    return await getAllPhones(search);
+  const getTablets = async () => {
+    return await getAllTablets(search);
   };
 
   const { isLoading, data, refetch } = useQuery<Response>(
     'products',
-    getPhones,
+    getTablets,
   );
 
   useEffect(() => {

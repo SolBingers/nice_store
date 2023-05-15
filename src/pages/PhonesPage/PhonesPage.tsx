@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { SettingsInput } from '../../components/SettingsInput';
 import { SettingsSelect } from '../../components/SettingsSelect';
 import classNames from 'classnames';
-import styles from './CategoryPage.module.scss';
+import styles from '../CategoryPage/CategoryPage.module.scss';
 import { List } from '../../components/List';
 import { Categories } from '../../components/Categories';
 import { Pagination } from '../../components/Pagination';
@@ -22,7 +22,7 @@ type Response = {
   pages: number;
 };
 
-export const CategoryPage: FC<Props> = ({ className }) => {
+export const PhonesPage: FC<Props> = ({ className }) => {
   const { selectedCategory } = useParams();
   const [, setSelectedSort] = useState('');
   const [, setSelectedItemsPerPage] = useState('');

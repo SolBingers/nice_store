@@ -38,7 +38,7 @@ export const ProductList: FC<ProductListProps> = ({ title, products }) => {
 
       </Swiper>
 
-      <Link to='category/phones'>
+      <Link to='/phones'>
         <Button
           text={'Shop Now'}
           size={'large'}

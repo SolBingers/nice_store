@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { About } from '../../components/About';
 import { TecSpecs } from '../../components/TechSpecs';
 import { ProductList } from '../../components/ProductList';
@@ -7,7 +7,7 @@ import { Categories } from '../../components/Categories';
 import itemPage from './ItemPage.module.scss';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { getPhoneById, getPhoneRecomended } from '../../api/phones';
+import { getItemById, getItemRecomended } from '../../api/products';
 import { Phone, PhoneSpec } from '../../components/types/types';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
@@ -15,51 +15,48 @@ import { BreadCrumbs } from '../../components/BreadCrumbs';
 export const ItemPage: FC = () => {
   const { itemId = '0' } = useParams();
 
-  const { data: phoneSingle, isLoading } = useQuery<PhoneSpec>(
-    'phone',
-    () => getPhoneById(itemId)
+  const { data: phoneSingle, isLoading, refetch } = useQuery<PhoneSpec>('phone', () =>
+    getItemById(itemId),
   );
 
-  const { data: phones = [] } = useQuery<Phone[]>(
-    'phones',
-    () => getPhoneRecomended(itemId)
+  const { data: phones = [] } = useQuery<Phone[]>('phones', () =>
+    getItemRecomended(itemId),
   );
+
+  useEffect(() => {
+    refetch();
+  }, [itemId]);
 
   return (
     <>
       <BreadCrumbs />
 
-      {!phoneSingle || isLoading
-        ? (
-          <div className={itemPage.loader}>
-            <Loader />
+      {!phoneSingle || isLoading ? (
+        <div className={itemPage.loader}>
+          <Loader />
+        </div>
+      ) : (
+        <>
+          <div className={itemPage.product}>
+            <Categories />
+            <ProductDetails phoneData={phoneSingle} />
           </div>
-        )
-        : (
-          <>
-            <div className={itemPage.product}>
-              <Categories />
-              <ProductDetails phoneData={phoneSingle} />
+
+          <div className={itemPage.productInfo}>
+            <div className={itemPage.about}>
+              <About phoneSpec={phoneSingle} />
             </div>
 
-            <div className={itemPage.productInfo}>
-              <div className={itemPage.about}>
-                <About phoneSpec={phoneSingle} />
-              </div>
-
-              <div className={itemPage.techSpecs}>
-                <TecSpecs phoneSpec={phoneSingle} />
-              </div>
+            <div className={itemPage.techSpecs}>
+              <TecSpecs phoneSpec={phoneSingle} />
             </div>
+          </div>
 
-            <div className={itemPage.productList}>
-              <ProductList
-                title={'You may also like'}
-                products={phones}
-              />
-            </div>
-          </>
-        )}
+          <div className={itemPage.productList}>
+            <ProductList title={'You may also like'} products={phones} />
+          </div>
+        </>
+      )}
     </>
   );
 };

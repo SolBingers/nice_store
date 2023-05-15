@@ -18,7 +18,7 @@ export const ProductDetails: FC<Props> = ({ phoneData }) => {
     color,
     capacity,
     images,
-  } = phoneData;  
+  } = phoneData;
 
   const BASE_URL = 'https://nice-store-api.onrender.com';
 
