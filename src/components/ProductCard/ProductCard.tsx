@@ -83,7 +83,6 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
             [card.heart__active]: isFavorite === true,
           })} />
         </button>
-
         <Link to={itemPath} className={card.image}>
           <img className={card.image} src={imageURL} alt='phone'/>
         </Link>
