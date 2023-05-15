@@ -8,6 +8,8 @@ import classNames from 'classnames';
 import { BurgerMenu } from '../BurgerMenu';
 import { ModalMenu } from '../ModalMenu';
 import { CartCounter } from '../CartCounter';
+import { AuthForm } from '../AuthForm';
+import MyLogo from '../../images/dog.svg';
 
 type Props = {
   className?: string;
@@ -16,6 +18,7 @@ type Props = {
 export const Header: FC<Props> = ({ className }) => {
   const [isOpened, setIsOpened] = useState(false);
   const [isOpenedModal, setIsOpenedModal] = useState(false);
+  const [isOpenedAuth, setIsOpenedAuth] = useState(false);
   return (
     <>
       {isOpenedModal && (
@@ -30,8 +33,8 @@ export const Header: FC<Props> = ({ className }) => {
             N🤝ce
           </Link>
           <button className={classNames(header.button, header.burgerButton)}>
-            <Burger 
-              className={header.burgerImage} 
+            <Burger
+              className={header.burgerImage}
               onClick={() => setIsOpened(true)}
             />
           </button>
@@ -49,15 +52,31 @@ export const Header: FC<Props> = ({ className }) => {
           >
             <Favourites className={classNames(header.favourites, header.icon)} />
           </NavLink>
-          <button 
+          <button
             className={header.button}
             onClick={() => setIsOpenedModal(true)}
           >
             <Cart className={classNames(header.cart, header.icon)} />
-            <CartCounter/>
+            <CartCounter />
           </button>
+
+          <div className={header.userAccount}>
+            <button className={classNames(header.button, header.loginButton)}
+              onClick={() => setIsOpenedAuth(true)}>
+              <img
+                src={MyLogo}
+                alt="loader_dog"
+                className={header.dog}
+              />
+            </button>
+
+            <p className={header.userName}>
+              Guest
+            </p>
+          </div>
         </div>
-        <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened}/>
+        <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened} />
+        <AuthForm isOpen={isOpenedAuth} setIsOpen={setIsOpenedAuth} onSubmit={() => null}></AuthForm>
       </header>
     </>
   );
