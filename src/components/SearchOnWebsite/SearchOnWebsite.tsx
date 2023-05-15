@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import searchStyles from './SearchOnWebsite.module.scss';
 import lens from '../../images/lens.svg';
 import cross from '../../images/cross.svg';
+import { getAllProducts } from '../../api/products';
+import { useQuery } from 'react-query';
 // import { Product } from '../types/types';
 
 export const SearchOnWebsite: React.FC = () => {
   const [query, setQuery] = useState('');
-  // const [products, setProducts] = useState<Product[]>([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [isError, setIsError] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
 
-  // const getProductsFromServer = async () => {
-  //   try {
-  //     const productsFromServer = await ();
+  const getProducts = async () => {
+    return await getAllProducts(query);
+  };
 
-  //     setProducts(productsFromServer);
-  //   } catch {
-  //     setIsError(true);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
+  const { isLoading, data, refetch } = useQuery<Response>(
+    'products',
+    getProducts,
+  );
 
-  // useEffect(() => {
-  //   getProductsFromServer();
-  // }, []);
+  useEffect(() => {
+    refetch();
+  }, [query]);
 
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
