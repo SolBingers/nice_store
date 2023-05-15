@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import footer from './Footer.module.scss';
-import logo from '../../images/Logo.svg';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
