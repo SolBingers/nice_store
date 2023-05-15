@@ -1,0 +1,28 @@
+@import '../../styles//utils/mixins';
+
+.container {
+  padding: 10px 20px 10px 10px;
+  top: 50px;
+  width: 280px;
+  min-height: 100px;
+  max-height: 300px;
+  position: absolute;
+  border-radius: 8px;
+  background-color: var(--color-grey);
+  z-index: 200;
+  overflow-y: scroll;
+  transform: translateX(-25%);
+
+  @include onTablet {
+    width: 450px;
+    transform: translateX(-15%);
+  }
+}
+
+
+.notFound {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 700;
+}
