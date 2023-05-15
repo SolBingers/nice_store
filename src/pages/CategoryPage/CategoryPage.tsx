@@ -40,6 +40,10 @@ export const CategoryPage: FC<Props> = ({ className }) => {
   } = useQuery<Response>('products', getPhones);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
+
+  useEffect(() => {
     refetch();
   }, [search]);
 
