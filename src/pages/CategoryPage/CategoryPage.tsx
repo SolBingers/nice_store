@@ -39,6 +39,10 @@ export const CategoryPage: FC<Props> = ({ className }) => {
   );
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
+
+  useEffect(() => {
     refetch();
   }, [search]);
 
