@@ -42,6 +42,10 @@ export const AccessoriesPage: FC<Props> = ({ className }) => {
     refetch();
   }, [search]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
+
   return (
     <>
       <BreadCrumbs />

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Categories } from '../../components/Categories/Categories';
 import { FirstBanner } from '../../components/FirstBanner';
 import homePage from './HomePage.module.scss';
@@ -21,6 +21,10 @@ export const HomePage: FC = () => {
   );
 
   const { data: newData } = useQuery('new', () => getPhones('new'));
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
 
   return (
     <main className={homePage.main}>
