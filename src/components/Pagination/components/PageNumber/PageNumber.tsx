@@ -5,7 +5,7 @@ import classNames from 'classnames';
 type Props = {
   page: number;
   isActive?: boolean;
-  setPageNumber: React.Dispatch<React.SetStateAction<number>>;
+  setPageNumber: (page: string) => void;
 }
 
 export const PageNumber: FC<Props> = ({ 
@@ -14,7 +14,7 @@ export const PageNumber: FC<Props> = ({
   setPageNumber,
 }) => {
   const handleClick = () => {
-    setPageNumber(page);
+    setPageNumber(page.toString());
   };
 
   return (

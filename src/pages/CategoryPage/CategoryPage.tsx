@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { SettingsInput } from '../../components/SettingsInput';
 import { SettingsSelect } from '../../components/SettingsSelect';
@@ -25,69 +25,66 @@ type Response = {
 
 export const CategoryPage: FC<Props> = ({ className, category }) => {
   const { selectedCategory } = useParams();
-  const [selectedSort, setSelectedSort] = useState('newest');
-  const [selectedCount, setSelectedCount] = useState('6');
-  const [selectedPage, setSelectedPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get('page') || '1';
+  const sort = searchParams.get('sort') || 'newest';
+  const count = searchParams.get('count') || '6';
 
-  const getPhones = async () => {
+  function updateSearch(params: { [key: string]: string | null }) {
+    Object.entries(params).forEach(([key, value]) => {
+      if (!value) {
+        searchParams.delete(key);
+      } else {
+        searchParams.set(key, value);
+      }
+    });
+
+    setSearchParams(searchParams);
+  }
+
+  const onSortChange = (sort: string) => {
+    updateSearch({ sort });
+  };
+
+  const onCountChange = (count: string) => {
+    updateSearch({ count });
+  };
+
+  const onPageChange = (page: string) => {
+    updateSearch({ page });
+  };
+
+  const getProducts = async () => {
     return await getAllProducts(category, searchParams.toString());
   };
 
   const { isLoading, data, refetch } = useQuery<Response>(
     'products',
-    getPhones,
+    getProducts,
   );
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  },[]);
-
-  useEffect(() => {
     refetch();
-
-    const searchSort = searchParams.get('sort');
-    const searchCount = searchParams.get('count');
-    const searchPage = searchParams.get('page');
-
-    setSelectedSort(searchSort || 'newest');
-    setSelectedCount(searchCount || '6');
-    setSelectedPage(+(searchPage || '1'));
   }, [searchParams]);
-
-  useEffect(() => {
-    const searchSort = searchParams.get('sort');
-    const searchCount = searchParams.get('count');
-    const searchPage = searchParams.get('page');
-
-    if (
-      searchSort !== selectedSort
-      || searchCount !== selectedCount
-      || searchPage !== selectedPage.toString()
-    ) {
-      searchParams.set('sort', selectedSort);
-      searchParams.set('count', selectedCount);
-      searchParams.set('page', selectedPage.toString());
-      
-      setSearchParams(searchParams);
-    }
-  }, [selectedSort, selectedCount, selectedPage]);
 
   useEffect(() => {
     const newMaxPages = data?.pages || 1;
 
-    if (selectedPage > newMaxPages) {
-      setSelectedPage(newMaxPages);
+    if (+page > newMaxPages) {
+      onPageChange(newMaxPages.toString());
     }
   }, [data?.pages]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
 
   return (
     <>
       <BreadCrumbs />
 
       <main className={classNames(className, styles.main)}>
-
-        <Categories className={styles.categoriesContainer}/>
+        <Categories />
 
         <div className={styles.content}>
           <p className={styles.title}>{selectedCategory}</p>
@@ -98,17 +95,17 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             <SettingsSelect
               className={styles.select}
               title="Sort by"
-              selectedlValue={selectedSort}
+              selectedlValue={sort}
               options={['newest', 'oldest', 'cheapest']}
-              setSelected={setSelectedSort}
+              setSelected={onSortChange}
             />
 
             <SettingsSelect
               className={styles.select}
               title="Items per page"
-              selectedlValue={selectedCount}
+              selectedlValue={count}
               options={['6', '12', '18']}
-              setSelected={setSelectedCount}
+              setSelected={onCountChange}
             />
           </div>
 
@@ -123,8 +120,8 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
           {data && (
             <Pagination
               className={styles.pagination}
-              currentPage={selectedPage}
-              setSelectedPage={setSelectedPage}
+              currentPage={page}
+              setSelectedPage={onPageChange}
               maxPage={data.pages}
             />
           )}

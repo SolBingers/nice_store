@@ -8,7 +8,7 @@ type Props = {
   title: string;
   options: string[];
   selectedlValue: string;
-  setSelected: React.Dispatch<React.SetStateAction<string>>;
+  setSelected: (value: string) => void;
 };
 
 export const SettingsSelect: FC<Props> = ({
