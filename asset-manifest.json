@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/nice_store/static/css/main.f0ef85c6.css",
-    "main.js": "/nice_store/static/js/main.25440029.js",
+    "main.css": "/nice_store/static/css/main.ded92bdc.css",
+    "main.js": "/nice_store/static/js/main.3d4576e0.js",
+    "static/media/Rick.mp3": "/nice_store/static/media/Rick.693cd9e996292a0f9ad5.mp3",
     "static/media/thirdSlide.jpg": "/nice_store/static/media/thirdSlide.008090f23fa7d1d25753.jpg",
     "static/media/firstSlide.jpg": "/nice_store/static/media/firstSlide.2d01b5d730029f2ba2f0.jpg",
     "static/media/secondSlide.png": "/nice_store/static/media/secondSlide.913f2dd165fc355dd4f4.png",
+    "static/media/cuteDog.gif": "/nice_store/static/media/cuteDog.54f13b4d62fc0541ea86.gif",
     "static/media/categoryAccessories.png": "/nice_store/static/media/categoryAccessories.4cf24089a577d9686da9.png",
     "static/media/categoryPhones.png": "/nice_store/static/media/categoryPhones.e0a179c7140c34805807.png",
     "static/media/categoryTablets.png": "/nice_store/static/media/categoryTablets.724269daaa543f743340.png",
     "static/media/rock.png": "/nice_store/static/media/rock.87cef568641758ae6596.png",
+    "static/media/photo_2023-05-13_14-52-58 (2).jpg": "/nice_store/static/media/photo_2023-05-13_14-52-58 (2).3d075ddaa55b1779e5c6.jpg",
     "static/media/dog.svg": "/nice_store/static/media/dog.5660f275970d0b3089f75339d055522d.svg",
-    "static/media/Logo.svg": "/nice_store/static/media/Logo.038018f42da5c444555166820016149b.svg",
     "static/media/cart.svg": "/nice_store/static/media/cart.ea6a20c726ac44946f51c9322d0110c4.svg",
     "static/media/cross.svg": "/nice_store/static/media/cross.25591088a23216d78b9a.svg",
     "static/media/iconBurger.svg": "/nice_store/static/media/iconBurger.81573e3986351e343fbf.svg",
@@ -20,15 +22,16 @@
     "static/media/emptyHeart.svg": "/nice_store/static/media/emptyHeart.7be69f755123879aff7caa0faa03b986.svg",
     "static/media/favourites.svg": "/nice_store/static/media/favourites.4b297a2e4c779df4a9ae3fa56c47dcb1.svg",
     "static/media/minus.svg": "/nice_store/static/media/minus.aed0d2c09243effc6974f5d846069715.svg",
+    "static/media/to_top_arrow.svg": "/nice_store/static/media/to_top_arrow.a41184c0f1d6365fff926ecaeec74d68.svg",
     "static/media/categories_button.svg": "/nice_store/static/media/categories_button.edd902fb185a65bf770a.svg",
     "static/media/chevron-left.svg": "/nice_store/static/media/chevron-left.a6c854854b8a8b4a394dcfedbb245ab1.svg",
     "static/media/chevron-down.svg": "/nice_store/static/media/chevron-down.39a461a8c9fa6481507e91408e98d3f8.svg",
     "static/media/chevron-right.svg": "/nice_store/static/media/chevron-right.8699f5c59d077a8f3ea9d8aeda88a5f3.svg",
-    "main.f0ef85c6.css.map": "/nice_store/static/css/main.f0ef85c6.css.map",
-    "main.25440029.js.map": "/nice_store/static/js/main.25440029.js.map"
+    "main.ded92bdc.css.map": "/nice_store/static/css/main.ded92bdc.css.map",
+    "main.3d4576e0.js.map": "/nice_store/static/js/main.3d4576e0.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0ef85c6.css",
-    "static/js/main.25440029.js"
+    "static/css/main.ded92bdc.css",
+    "static/js/main.3d4576e0.js"
   ]
 }
