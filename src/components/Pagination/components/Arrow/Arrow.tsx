@@ -3,11 +3,12 @@ import { ReactComponent as Left } from '../../../../images/chevron-left.svg';
 import { ReactComponent as Right } from '../../../../images/chevron-right.svg';
 import arrowStyle from './Arrow.module.scss';
 import classNames from 'classnames';
+import { useSearchParams } from 'react-router-dom';
 
 type ArrowProps = {
   type: 'left' | 'right';
   disabled?: boolean;
-  setPageNumber: React.Dispatch<React.SetStateAction<number>>;
+  setPageNumber: (page: string) => void;
 }
 
 export const Arrow: FC<ArrowProps> = ({ 
@@ -20,12 +21,15 @@ export const Arrow: FC<ArrowProps> = ({
   ) : (
     <Right />
   );
+  const [searchParams,] = useSearchParams();
 
   const handleClick = () => {
-    setPageNumber(prev => type === 'left' 
-      ? prev - 1 
-      : prev + 1
-    );
+    const current = searchParams.get('page') || '1';
+    const newPage = type === 'left' 
+      ? +current - 1 
+      : +current + 1;
+
+    setPageNumber(newPage.toString());
   };
 
   return (
