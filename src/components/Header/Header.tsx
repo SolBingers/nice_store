@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import { BurgerMenu } from '../BurgerMenu';
 import { ModalMenu } from '../ModalMenu';
 import { CartCounter } from '../CartCounter';
+import { SearchOnWebsite } from '../SearchOnWebsite';
 
 type Props = {
   className?: string;
@@ -38,6 +39,7 @@ export const Header: FC<Props> = ({ className }) => {
         </div>
 
         <div className={header.section}>
+          <SearchOnWebsite/>
           <NavLink
             className={({ isActive }) => classNames(
               header.button,

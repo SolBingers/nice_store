@@ -6,6 +6,10 @@ type Response = {
   pages: number,
 };
 
+export const getAllProducts = async (search: string): Promise<Response> => {
+  return client.get(`/products${search}`);
+};
+
 export const getAllPhones = async (search: string): Promise<Response> => {
   return client.get(`/products/phones${search}`);
 };
