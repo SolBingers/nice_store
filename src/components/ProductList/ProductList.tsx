@@ -4,7 +4,7 @@ import { Button } from '../Button';
 import { ProductCard } from '../ProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper';
-import { Phone } from '../../components/types/types';
+import { ProductItem } from '../../types/types';
 
 import 'swiper/css';
 import 'swiper/css/scrollbar';
@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 type ProductListProps = {
   title: string;
-  products: Phone[];
+  products: ProductItem[];
 };
 
 export const ProductList: FC<ProductListProps> = ({ title, products }) => {
