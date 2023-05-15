@@ -12,6 +12,7 @@ import { ProductItem } from '../../types/types';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { getAllProducts } from '../../api/products';
+import { Button } from '../../components/Button';
 
 type Props = {
   className?: string;
@@ -29,6 +30,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
   const page = searchParams.get('page') || '1';
   const sort = searchParams.get('sort') || 'newest';
   const count = searchParams.get('count') || '6';
+  const query = searchParams.get('query') || '';
 
   function updateSearch(params: { [key: string]: string | null }) {
     Object.entries(params).forEach(([key, value]) => {
@@ -54,6 +56,10 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     updateSearch({ page });
   };
 
+  const onQueryChange = (query: string) => {
+    updateSearch({ query });
+  };
+
   const getProducts = async () => {
     return await getAllProducts(category, searchParams.toString());
   };
@@ -62,6 +68,13 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     'products',
     getProducts,
   );
+  
+  const replaceSpacesWithDashes = (query: string) => {
+    if (query.includes(' ')) {
+      return query.split(' ').join('-');
+    }
+    return query;
+  };
 
   useEffect(() => {
     refetch();
@@ -87,10 +100,21 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
         <Categories />
 
         <div className={styles.content}>
-          <p className={styles.title}>{selectedCategory}</p>
 
           <div className={styles.settings}>
-            <SettingsInput className={styles.input} title="Product name" />
+            <SettingsInput 
+              className={styles.input} 
+              title="Product name" 
+              query={query}
+              setQuery={onQueryChange}  
+            />
+
+            <Button 
+              text={'Search'} 
+              type={'secondary'} 
+              size={'large'} 
+              styleSearch={'customize_search'}
+            />
             
             <SettingsSelect
               className={styles.select}
