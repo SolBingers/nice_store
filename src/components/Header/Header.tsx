@@ -31,6 +31,9 @@ export const Header: FC<Props> = ({ className }) => {
           <Link to="/" className={header.homeLink}>
             N🤝ce
           </Link>
+
+          <ThemeToggler />
+
           <button className={classNames(header.button, header.burgerButton)}>
             <Burger 
               className={header.burgerImage} 
@@ -60,7 +63,6 @@ export const Header: FC<Props> = ({ className }) => {
             <CartCounter/>
           </button>
         </div>
-        <ThemeToggler />
         <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened}/>
       </header>
     </>
