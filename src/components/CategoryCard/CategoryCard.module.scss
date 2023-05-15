@@ -1,6 +1,4 @@
 @import '../../styles/utils/mixins';
-@import '../../styles/utils/variables';
-
 
 .container {
   margin: 0 auto;
@@ -32,7 +30,7 @@
 }
 
 .link {
-  color: $color-light;
+  color: var(--color-contrast);
 }
 
 .name {

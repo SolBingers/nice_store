@@ -1,11 +1,10 @@
-@import '../../../../styles/utils/variables';
 @import '../../../../styles/utils/mixins';
 
 .arrowContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $color-semi-dark;
+  background-color: var(--color-main-background);
 
   width: 32px;
   height: 40px;
@@ -13,14 +12,14 @@
   cursor: pointer;
 
   & svg {
-    stroke: $color-grey;
+    stroke: var(--color-grey);
   }
 
   &:hover {
-    background-color: $color-primary;
+    background-color: var(--color-primary);
 
     & svg {
-      stroke: $color-light;
+      stroke: var(--color-contrast);
     }
   }
 }
@@ -30,10 +29,10 @@
   pointer-events: none;
 
   &:hover {
-    background-color: $color-semi-dark;
+    background-color: var(--color-main-background);
 
     & svg {
-      stroke: $color-grey;
+      stroke: var(--color-grey);
     }
   }
 }
