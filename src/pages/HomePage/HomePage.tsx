@@ -72,15 +72,16 @@ export const HomePage: FC = () => {
       <ToastContainer
         position="top-right"
         autoClose={3000}
-        hideProgressBar={true}
+        hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
-        draggable
+        progressStyle={{background: Color.Primary}}
+        className={'customNotification'}
         closeButton={false}
+        draggable
         pauseOnHover
-        theme="light"
+        theme='light'
         toastStyle={{color: Color.Grey}}
       />
     </main>

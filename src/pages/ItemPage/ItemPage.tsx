@@ -58,22 +58,23 @@ export const ItemPage: FC = () => {
           <div className={itemPage.productList}>
             <ProductList title={'You may also like'} products={phones} />
           </div>
-
-          <ToastContainer
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={true}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-            toastStyle={{color: Color.Grey}}
-          />
         </>
       )}
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        closeButton={false}
+        pauseOnHover
+        theme="light"
+        toastStyle={{color: Color.Grey}}
+      />
     </>
   );
 };

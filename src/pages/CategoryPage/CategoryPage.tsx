@@ -14,6 +14,7 @@ import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { getAllProducts } from '../../api/products';
 import { ToastContainer } from 'react-toastify';
 import { Color } from '../../types/Color';
+import '../../styles/notification.scss';
 
 type Props = {
   className?: string;
@@ -128,21 +129,22 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             />
           )}
         </div>
-
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={true}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme='light'
-          toastStyle={{color: Color.Grey}}
-        />
       </main>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        progressStyle={{background: Color.Primary}}
+        className={'customNotification'}
+        closeButton={false}
+        draggable
+        pauseOnHover
+        theme='light'
+        toastStyle={{color: Color.Grey}}
+      />
     </>
   );
 };
