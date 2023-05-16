@@ -1,0 +1,52 @@
+@import '../../styles/utils/mixins';
+
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @include onDesktop {
+    justify-content: start;
+  }
+}
+
+.itemsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 49vh;
+  overflow-y: auto;
+}
+
+.totalSum {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0 0 0;
+
+  &__title {
+    color: var(--color-grey);
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__sum {
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--color-light);
+
+    &::after {
+      content: '$';
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: none;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}

@@ -1,0 +1,55 @@
+@import '../../styles/utils/mixins';
+
+.modal {
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--color-main-background);
+  border-radius: 8px;
+  padding: 24px;
+
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+
+  width: 100vw;
+  max-width: 400px;
+
+  transform: scale(0);
+
+  @include onTablet {
+    width: 70vw;
+  }
+}
+
+.modalOpen {
+  transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+.blur {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--color-semi-background);
+  opacity: 70%;
+  z-index: 99;
+}
+
+.blur__visible {
+  display: block;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+
