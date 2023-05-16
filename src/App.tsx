@@ -13,6 +13,7 @@ import { ToTopButton } from './components/ToTopButton';
 import { PhonesPage } from './pages/PhonesPage';
 import { TabletsPage } from './pages/TabletsPage';
 import { AccessoriesPage } from './pages/AccessoriesPage';
+import { CheckoutPage } from './pages/CheckoutPage/CheckoutPage';
 
 export const App: FC = () => {
   return (
@@ -41,6 +42,8 @@ export const App: FC = () => {
           <Route path='favourites' element={<FavouritesPage />} />
 
           <Route path='contacts' element={<ContactsPage />} />
+
+          <Route path='checkout' element={<CheckoutPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
