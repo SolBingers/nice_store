@@ -20,13 +20,15 @@ export const Header: FC<Props> = ({ className }) => {
   const [isOpenedModal, setIsOpenedModal] = useState(false);
   return (
     <>
-      {isOpenedModal && (
-        <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
-      )}
-
       <header className={
         classNames(header.header, className)
       }>
+        {isOpenedModal && (
+          <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
+        )}
+
+        <SearchOnWebsite/>
+
         <div className={header.section}>
           <Link
             to="/"
@@ -46,7 +48,6 @@ export const Header: FC<Props> = ({ className }) => {
         </div>
 
         <div className={header.section}>
-          <SearchOnWebsite/>
           <NavLink
             className={({ isActive }) => classNames(
               header.button,

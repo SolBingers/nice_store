@@ -15,6 +15,7 @@ import { getAllProducts } from '../../api/products';
 import { ToastContainer } from 'react-toastify';
 import { Color } from '../../types/Color';
 import '../../styles/notification.scss';
+import { updateSearch } from '../../utils/helpers';
 
 type Props = {
   className?: string;
@@ -33,32 +34,20 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
   const count = searchParams.get('count') || '6';
 
 
-  function updateSearch(params: { [key: string]: string | null }) {
-    Object.entries(params).forEach(([key, value]) => {
-      if (!value) {
-        searchParams.delete(key);
-      } else {
-        searchParams.set(key, value);
-      }
-    });
-
-    setSearchParams(searchParams);
-  }
-
   const onSortChange = (sort: string) => {
-    updateSearch({ sort });
+    updateSearch({ sort }, searchParams, setSearchParams);
   };
 
   const onCountChange = (count: string) => {
-    updateSearch({ count });
+    updateSearch({ count }, searchParams, setSearchParams);
   };
 
   const onPageChange = (page: string) => {
-    updateSearch({ page });
+    updateSearch({ page }, searchParams, setSearchParams);
   };
 
   const onQueryChange = (query: string) => {
-    updateSearch({ query });
+    updateSearch({ query }, searchParams, setSearchParams);
   };
 
   const getProducts = async () => {

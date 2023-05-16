@@ -2,23 +2,23 @@
 
 .container {
   padding: 10px 20px 10px 10px;
-  top: 50px;
-  width: 80vw;
-  right: 50%;
   min-height: 100px;
-  max-height: 250px;
+  top: 50px;
+  left: 0;
+  width: 100vw;
+  max-height: 100vh;
   position: absolute;
   border-radius: 8px;
   background-color: var(--color-grey);
   z-index: 200;
   overflow-y: scroll;
-  transform: translateX(50%);
+  
 
   @include onTablet {
-    width: auto;
+    left: initial;
+    width: 400px;
     top: 80px;
-    right: 10px;
-    left: 50%;
+    right: 40px;
     max-height: 350px;
     transform: translateX(0);
   }

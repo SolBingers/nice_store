@@ -5,7 +5,6 @@ import App from './App';
 import { CartProvider } from './contexts/CartContext';
 import { FavoriteProvider } from './contexts/favoriteContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { SearchProvider } from './contexts/SearchContext';
 
 const queryClient = new QueryClient();
 
@@ -16,13 +15,11 @@ root.render(
   <React.StrictMode>
     <FavoriteProvider>
       <CartProvider>
-        <SearchProvider>
-          <QueryClientProvider client={queryClient}>
-            <HashRouter>
-              <App />
-            </HashRouter>
-          </QueryClientProvider>
-        </SearchProvider>
+        <QueryClientProvider client={queryClient}>
+          <HashRouter>
+            <App />
+          </HashRouter>
+        </QueryClientProvider>
       </CartProvider>
     </FavoriteProvider>
   </React.StrictMode>,

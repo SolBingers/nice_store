@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useRef, KeyboardEvent } from 'react';
 import searchStyles from './SearchOnWebsite.module.scss';
 import lens from '../../images/lens.svg';
 import cross from '../../images/cross.svg';
@@ -7,8 +7,8 @@ import { useQuery } from 'react-query';
 import { ProductItem } from '../../types/types';
 import { SearchModal } from '../SearchModal';
 import classNames from 'classnames';
-import { SearchContext } from '../../contexts/SearchContext';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, useSearchParams} from 'react-router-dom';
+import { updateSearch } from '../../utils/helpers';
 
 type Response = {
   data: ProductItem[];
@@ -16,29 +16,30 @@ type Response = {
 };
 
 export const SearchOnWebsite: React.FC = () => {
-  const { query, setQuery } = useContext(SearchContext);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isSearchAviable, setIsSearchAviable] = useState(false);
   const navigate = useNavigate();
-  
-  const casedQuery = query.replaceAll(' ', '-').toLowerCase();
+  const query = searchParams.get('query') || '';
+  const inputRef = useRef<HTMLInputElement>(null);
+  const onQueryChange = (query: string) => {
 
-  const getProducts = async () => {
-    return await getSearchProducts(`query=${casedQuery}`);
+    updateSearch({ query }, searchParams, setSearchParams);
   };
 
-  const {isLoading, data, refetch } = useQuery<Response>(
-    'products', 
-    getProducts, 
-    {
-      enabled: false,
-    });
+  useEffect(() => {
+    const handleDocumentClick = (event: MouseEvent) => {
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if(event.target.value !== ' ') {
-      setQuery(event.target.value.replace('  ', ' '));
-    }
-  };
+      if (!(event.target instanceof HTMLInputElement)) {
+        setIsSearchAviable(false);
+      }
+    };
 
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
@@ -52,71 +53,94 @@ export const SearchOnWebsite: React.FC = () => {
     };
   }, [query]);
 
-  const handleEnableSearch = () => {
-    setIsSearchAviable(!isSearchAviable);
+  const getProducts = async () => {
+    return await getSearchProducts(searchParams.toString().split('+').join('-').toLowerCase());
   };
+
+  const {isLoading, data, refetch } = useQuery<Response>(
+    'products', 
+    getProducts, 
+    {
+      enabled: false,
+    });
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsSearchAviable(true);
+
+    if(event.target.value !== ' ') {
+      onQueryChange(event.target.value.replace('  ', ' '));
+    }
+
+    return true;
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      const form = event.currentTarget.form;
+      if (form) {
+        form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+      }
+    }
+  };
+
+  const handleEnableSearch = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    setIsSearchAviable(true);
+    console.log('en');
+    event.stopPropagation();
+  };
+
 
   const handleClear = () => {
-    setQuery('');
+    onQueryChange('');
   };
   
-  const handleOnSubmit = () => {
-    handleClear();
-    navigate('/search');
-  };
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
+    setIsSearchAviable(false);
+    navigate(`/search?${searchParams}`);
+  };
 
   return (
     <>
-      <div
-        className={classNames(searchStyles.blur, {
-          [searchStyles.blur__visible]: query.length > 0 || isSearchAviable,
-        })}
-        onClick={handleClear}
-        onDoubleClick={() => setIsSearchAviable(false)}
-      />
-      <div className={searchStyles.container}>
-        <button className={classNames(
-          isSearchAviable 
-            ? [searchStyles.closeSearch]
-            : [searchStyles.openSearch],
-          
-        )} onClick={handleEnableSearch}
+      <div className={searchStyles.container} >
+        <button 
+          className={searchStyles.openSearch} 
+          onClick={handleEnableSearch}
         >
-          {isSearchAviable ?(
-            <img src={cross} alt="lens" className={searchStyles.lensOpen}/>
-          ) :(
-            <img src={lens} alt="lens" className={searchStyles.lensOpen}/>
-          )}
+          <img src={lens} alt="lens" className={searchStyles.lensOpen}/>
         </button>
+
+        <form className={classNames(
+          searchStyles.formContainer,{
+            [searchStyles.formContainerOpen]: isSearchAviable,
+          }
+        )}
+        onSubmit={handleOnSubmit}
+        >
+          <input 
+            type="text" 
+            className={searchStyles.input}
+            placeholder='Search on website...'
+            value={query}
+            onChange={handleSearch}
+            onKeyDown={handleKeyDown}
+            ref={inputRef}
+          />
+
+          {query.length > 0 && (
+            <button className={searchStyles.cross} onClick={handleClear}>
+              <img src={cross} alt="cross" className={searchStyles.crossImage}/>
+            </button>
+          )}
+          <button className={searchStyles.submit} type='submit'>
+            <img src={lens} alt="lens" className={searchStyles.lens}/>
+          </button>
+        </form>
       </div>
 
-      <form className={classNames(
-        searchStyles.formContainer,{
-          [searchStyles.formContainerOpen]: isSearchAviable,
-        }
-      )}
-      onSubmit={handleOnSubmit}
-      >
-        <input 
-          type="text" 
-          className={searchStyles.input}
-          placeholder='Search on website...'
-          value={query}
-          onChange={handleSearch}
-        />
-
-        {query.length > 0 && (
-          <button className={searchStyles.cross} onClick={handleClear}>
-            <img src={cross} alt="cross" className={searchStyles.crossImage}/>
-          </button>
-        )}
-        <button className={searchStyles.submit} type='submit'>
-          <img src={lens} alt="lens" className={searchStyles.lens}/>
-        </button>
-      </form>
-
-      {query.length > 0 && (
+      {isSearchAviable && (
         <SearchModal items={data?.data} isLoading={isLoading}/>
       )}
     </>
