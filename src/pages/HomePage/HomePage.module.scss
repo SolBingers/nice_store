@@ -40,7 +40,7 @@
 @include onDesktop {
   .slider {
     display: flex;
-    column-gap: 2%;
+    column-gap: 24px;
     align-items: flex-start;
     justify-content: space-between;
   }

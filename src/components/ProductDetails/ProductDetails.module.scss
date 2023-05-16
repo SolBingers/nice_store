@@ -6,21 +6,13 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
+  gap: 24px;
 
   border-radius: 8px;
   background-color: var(--color-semi-background);
-  
-  @include onDesktop {
-    flex-direction: row;
-    align-items: start;
-    max-width: 944px;
-  }
-}
 
-.gallery {
-  margin-bottom: 16px;
-  @include onDesktop {
-    margin-right: 40px;
+  @include onTablet {
+    flex-direction: row;
   }
 }
 
