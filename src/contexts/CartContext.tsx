@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Product } from '../types/types';
 import { useLocalStorage } from '../customHooks/useLocalStorage';
+import { toast } from 'react-toastify';
 
 interface Context {
   cart: Product[];
@@ -26,6 +27,8 @@ type Props = {
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
   const [cart, setCart] = useLocalStorage<Product[]>('cart', []);
+  const notifyAdd = () => toast('Product added to cart 🤝');
+  const notifyRemove = () => toast('Product removed from cart 🤝');
 
   const updateLocalStorage = (cartData: Product[]) => {
     localStorage.setItem('cart', JSON.stringify(cartData));
@@ -42,12 +45,14 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     const updatedCart = [...cart, item];
     setCart(updatedCart);
     updateLocalStorage(updatedCart);
+    notifyAdd();
   };
 
   const removeFromCart = (itemId: string) => {
     const updatedCart = cart.filter((item: Product) => item.id !== itemId);
     setCart(updatedCart);
     updateLocalStorage(updatedCart);
+    notifyRemove();
   };
 
   return (

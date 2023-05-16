@@ -45,6 +45,16 @@ export const ThemeToggler: FC = () => {
       '--color--sale-banner-background',
       isDark ? Color.Dark : Color.Banner_Light,
     );
+
+    root.style.setProperty(
+      '--toastify-color-light',
+      isDark ? Color.Dark : Color.Light
+    );
+    
+    root.style.setProperty(
+      '--toastify-color-light',
+      isDark ? Color.Dark : Color.Light
+    );
   }, [theme]);
 
   const handleToggleTheme = () => {

@@ -11,6 +11,8 @@ import { getItemById, getItemRecomended } from '../../api/products';
 import { ProductItem, ProductItemSpec } from '../../types/types';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { ToastContainer } from 'react-toastify';
+import { Color } from '../../types/Color';
 
 export const ItemPage: FC = () => {
   const { itemId = '0' } = useParams();
@@ -59,6 +61,20 @@ export const ItemPage: FC = () => {
           <div className={itemPage.productList}>
             <ProductList title={'You may also like'} products={phones} />
           </div>
+
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            toastStyle={{color: Color.Grey}}
+          />
         </>
       )}
     </>
