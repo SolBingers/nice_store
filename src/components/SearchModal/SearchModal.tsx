@@ -2,15 +2,21 @@ import React from 'react';
 import styles from './SearchModal.module.scss';
 import { ProductItem } from '../../types/types';
 import { SearchItem } from '../SearchItem/SearchItem';
+import { Loader } from '../Loader';
 
 type Props = {
   items?: ProductItem[],
+  isLoading: boolean,
 }
 
-export const SearchModal: React.FC<Props> = ({ items }) => {
+export const SearchModal: React.FC<Props> = ({ items, isLoading }) => {
 
   return (
     <div className={styles.container}>
+      {isLoading && (
+        <Loader />
+      )}
+
       {items?.length !== 0 ? (
         <div className={styles.item}>
           {items?.map(item => (

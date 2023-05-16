@@ -3,19 +3,24 @@
 .container {
   padding: 10px 20px 10px 10px;
   top: 50px;
-  width: 280px;
+  width: 80vw;
+  right: 50%;
   min-height: 100px;
-  max-height: 300px;
+  max-height: 250px;
   position: absolute;
   border-radius: 8px;
   background-color: var(--color-grey);
   z-index: 200;
   overflow-y: scroll;
-  transform: translateX(-25%);
+  transform: translateX(50%);
 
   @include onTablet {
-    width: 450px;
-    transform: translateX(-15%);
+    width: auto;
+    top: 80px;
+    right: 10px;
+    left: 50%;
+    max-height: 350px;
+    transform: translateX(0);
   }
 }
 

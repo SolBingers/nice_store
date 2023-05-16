@@ -10,6 +10,10 @@ export const getAllProducts = async (category: string ,search: string): Promise<
   return client.get(`/products${category}?${search}`);
 };
 
+export const getSearchProducts = async (search: string): Promise<Response> => {
+  return client.get(`/products?${search}`);
+};
+
 export const getItemById = (id: string): Promise<ProductItemSpec> =>
   client.get(`/products/${id}`);
 

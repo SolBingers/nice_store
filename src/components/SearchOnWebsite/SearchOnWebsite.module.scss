@@ -1,56 +1,52 @@
 @import '../../styles/main.scss';
 
 .container {
-  position: relative;
+  position: absolute;
+  right: 22vw;
 }
 
 .openSearch {
-  position: absolute;
-  height: 36px;
-  width: 30px;
+  position: relative;
+  height: 26px;
+  width: 26px;
   transform: translateX(-85%);
-  background-color: var(--color-grey);
-  border: 2px solid var(--color-contrast);
-  border-radius: 8px 0 0 8px;
+  background-color: var(--color-semi-background);
+  border: 2px solid var(--color-grey);
+  border-radius: 8px;
+}
 
-  &::after {
-    content: '>>';
-
-    height: 30px;
-  }
+.lensOpen {
+  position: absolute;
+  right: 3px;
+  top: 3px;
 }
 
 .closeSearch {
   position: absolute;
-  height: 36px;
-  width: 40px;
-  transform: translateX(-85%);
-  background-color: var(--color-grey);
-  border: 2px solid var(--color-contrast);
-  border-radius: 8px 0 0 8px;
-
-  &::after {
-    content: '<<';
-
-    height: 30px;
-  }
+  left: -72vw;
+  top: -13px;
+  height: 26px;
+  width: 26px;
+  background-color: var(--color-semi-background);
+  border: 2px solid var(--color-grey);
+  border-radius: 8px;
+  z-index: 250;
 }
 
 .formContainer {
-  width: 50px;
+  display: none;
+}
+
+.formContainerOpen {
+  display: block;
+  right: 10px;
+  left: 10px;
   height: 36px;
   border-radius: 8px;
   border: 1px solid var(--color-semi-background);
   background-color: var(--color-semi-background);
-  position: relative;
-}
-
-.formContainerOpen {
-  width: 140px;
-
-  @media (max-width:400px) {
-    width: 100px;
-  }
+  position: absolute;
+  z-index: 100;
 }
 
 .input {
@@ -64,7 +60,7 @@
   font-size: 12px;
   line-height: 15px;
   color: var(--color-contrast);
-  padding-left: 10px;
+  padding-left: 70px;
 
   &:focus {
     border: 1px solid var(--color-grey);
@@ -100,6 +96,7 @@
   top: 50%;
   right: 0%;
   background-color: inherit;
+  z-index: 300;
 
   transform: translateY(-50%) translateX(-50%);
 
@@ -113,7 +110,7 @@
 .blur {
   display: none;
   position: fixed;
-  top: 0;
+  top: 50px;
   bottom: 0;
   right: 0;
   left: 0;
@@ -125,16 +122,33 @@
 }
 
 @include onTablet {
-  .openSearch {
-    display: none;
+  .input {
+    padding-left: 10px;
   }
-  
-  .closeSearch {
+
+  .blur{
+    top: 0;
+  }
+
+  .container {
+    position: relative;
+    right: 0;
+  }
+
+  .openSearch {
     display: none;
   }
 
   .formContainer {
-    width: 310px;
+    position: relative;
+    width: 320px;
+    display: block;
+    right: 10px;
+    left: 10px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid var(--color-semi-background);
+    background-color: var(--color-semi-background);
   }
 
   ::placeholder {
