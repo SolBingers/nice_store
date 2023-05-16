@@ -8,8 +8,8 @@
   padding: 24px;
 
   border-radius: 8px;
-
   background-color: var(--color-semi-background);
+  
   @include onDesktop {
     flex-direction: row;
     align-items: start;
@@ -26,4 +26,5 @@
 
 .sellection {
   align-self: flex-start;
+  flex: 50%;
 }
