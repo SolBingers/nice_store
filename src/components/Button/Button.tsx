@@ -9,7 +9,12 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-export const Button: FC<ButtonProps> = ({ text, type, size, onClick }) => {
+export const Button: FC<ButtonProps> = ({
+  text,
+  type,
+  size,
+  onClick, 
+}) => {
   const buttonClass = classNames(button.button, {
     [button.primary]: type === 'primary',
     [button.secondary]: type === 'secondary',
