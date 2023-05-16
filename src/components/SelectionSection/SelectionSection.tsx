@@ -6,22 +6,28 @@ import { Capacity } from '../Capacity/Capacity';
 
 type Props = {
   name: string;
+  namespaceId: string;
   price: number;
   fullPrice: number;
   aviableColors: string[],
   aviableCapacities: string[],
   selectedColor: string,
   selectedCapacity: string,
+  capacity: string,
+  color: string,
 }
 
 export const SelectionSection: React.FC<Props> = ({
   name,
+  namespaceId,
   price,
   fullPrice,
   aviableColors,
   aviableCapacities,
   selectedColor,
   selectedCapacity,
+  capacity,
+  color,
 }) => {
   return (
     <div className={selection.selectiobSection}>
@@ -35,12 +41,14 @@ export const SelectionSection: React.FC<Props> = ({
         </div>
 
         <div className={selection.colors}>
-          {aviableColors.map(col => ( 
-            <Color 
-              color={col} 
-              isActive={selectedColor === col} 
+          {aviableColors.map(col => (
+            <Color
+              color={col}
+              isActive={selectedColor === col}
               key={col}
-            /> 
+              namespaceId={namespaceId}
+              capacity={capacity}
+            />
           ))}
 
         </div>
@@ -53,13 +61,15 @@ export const SelectionSection: React.FC<Props> = ({
 
         <div className={selection.capacitys}>
           {aviableCapacities.map(cap => (
-            <Capacity 
-              capacity={cap} 
-              isActive={selectedCapacity === cap} 
+            <Capacity
+              capacity={cap}
+              isActive={selectedCapacity === cap}
               key={cap}
+              color={color}
+              namespaceId={namespaceId}
             />
           ))}
-  
+
         </div>
       </div>
 
@@ -74,7 +84,7 @@ export const SelectionSection: React.FC<Props> = ({
       </div>
 
       <div className={selection.button}>
-        <Button text='Shop Now' type='primary' size='small' />
+        <Button text='Add to cart' type='primary' size='small' />
       </div>
     </div>
   );

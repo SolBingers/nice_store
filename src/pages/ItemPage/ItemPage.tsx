@@ -11,8 +11,15 @@ import { getItemById, getItemRecomended } from '../../api/products';
 import { ProductItem, ProductItemSpec } from '../../types/types';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { ToastContainer } from 'react-toastify';
+import { Color } from '../../types/Color';
+import classNames from 'classnames';
 
-export const ItemPage: FC = () => {
+type Props = {
+  className?: string;
+}
+
+export const ItemPage: FC<Props> = ({ className }) => {
   const { itemId = '0' } = useParams();
 
   const { data: phoneSingle, isLoading, refetch } = useQuery<ProductItemSpec>('phone', () =>
@@ -25,11 +32,8 @@ export const ItemPage: FC = () => {
 
   useEffect(() => {
     refetch();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [itemId]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  },[]);
 
   return (
     <>
@@ -40,26 +44,45 @@ export const ItemPage: FC = () => {
           <Loader />
         </div>
       ) : (
-        <>
-          <div className={itemPage.product}>
+        <main className={classNames(className, itemPage.main)}>
+
+          <div className={itemPage.container} >
             <Categories />
-            <ProductDetails phoneData={phoneSingle} />
-          </div>
 
-          <div className={itemPage.productInfo}>
-            <div className={itemPage.about}>
-              <About ProductItemSpec={phoneSingle} />
-            </div>
+            <div className={itemPage.product}>
+              <ProductDetails phoneData={phoneSingle} />
 
-            <div className={itemPage.techSpecs}>
-              <TecSpecs ProductItemSpec={phoneSingle} />
+              <div className={itemPage.productInfo}>
+                <div className={itemPage.about}>
+                  <About ProductItemSpec={phoneSingle} />
+                </div>
+
+                <div className={itemPage.techSpecs}>
+                  <TecSpecs ProductItemSpec={phoneSingle} />
+                </div>
+              </div>
             </div>
           </div>
 
           <div className={itemPage.productList}>
             <ProductList title={'You may also like'} products={phones} />
           </div>
-        </>
+
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            closeButton={false}
+            pauseOnHover
+            theme="light"
+            toastStyle={{color: Color.Grey}}
+          />
+        </main>
       )}
     </>
   );

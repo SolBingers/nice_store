@@ -20,27 +20,25 @@ export const TecSpecs: FC<Props> = ({ ProductItemSpec }) => {
   ];
 
   return (
-    <section>
-      <div className={spec.container}>
-        <h3 className={spec.title}>Tech specs</h3>
-        <div className={spec.specContainer}>
-          <div className={spec.name}>
-            {listOfSpec.map((el) => (
-              <p key={listOfSpec.indexOf(el)} className={spec.info}>
-                {el.name}
-              </p>
-            ))}
-          </div>
+    <div className={spec.container}>
+      <h3 className={spec.title}>Tech specs</h3>
+      <div className={spec.specContainer}>
+        <div className={spec.name}>
+          {listOfSpec.map((el) => (
+            <p key={listOfSpec.indexOf(el)} className={spec.info}>
+              {el.name}
+            </p>
+          ))}
+        </div>
 
-          <div className={spec.specs}>
-            {listOfSpec.map((el) => (
-              <p key={listOfSpec.indexOf(el)} className={spec.info}>
-                {el.value}
-              </p>
-            ))}
-          </div>
+        <div className={spec.specs}>
+          {listOfSpec.map((el) => (
+            <p key={listOfSpec.indexOf(el)} className={spec.info}>
+              {el.value}
+            </p>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };

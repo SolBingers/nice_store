@@ -5,7 +5,7 @@
   align-items: flex-start;
   justify-content: space-between;
 
-  column-gap: 2%;
+  column-gap: 24px;
 }
 
 .categoriesContainer {
@@ -50,6 +50,7 @@
   width: 100%;
   max-width: 872px;
   margin-bottom: 24px;
+  padding-top: 24px;
 }
 
 .select {

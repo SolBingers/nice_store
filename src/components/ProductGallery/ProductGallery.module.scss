@@ -14,7 +14,8 @@
 .images {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 6px;
 
   @include onTablet {
     flex-direction: column;
@@ -22,6 +23,9 @@
 }
 
 .mainPhotoContainer {
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 8px;
   width: 275px;
   height: 275px;
   display: flex;
@@ -29,20 +33,26 @@
 
   @include onTablet {
     margin-right: 20px;
-    width: 375px;
-    height: 376px;
+    min-width: 300px;
+    min-height: 300px;
   }
 }
 
 .mainImage {
-  height: 100%;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
+  height: 95%;
+  width: auto;
 }
 
 .imagesContainer {
+  background-color: #fff;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 16px;
 
   width: 50px;
@@ -57,9 +67,8 @@
 }
 
 .image {
-  height: 100%;
-  width: 100%;
-  border-radius: 8px;
+  height: 90%;
+  width: auto;
 
   &:not(:last-child) {
     margin-right: 8px;

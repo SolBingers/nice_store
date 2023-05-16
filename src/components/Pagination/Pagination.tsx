@@ -6,9 +6,9 @@ import classNames from 'classnames';
 
 type Props = {
   className?: string;
-  currentPage: number;
+  currentPage: string;
   maxPage: number;
-  setSelectedPage: React.Dispatch<React.SetStateAction<number>>;
+  setSelectedPage: (page: string) => void;
 }
 
 export const Pagination: FC<Props> = ({ 
@@ -18,53 +18,55 @@ export const Pagination: FC<Props> = ({
   setSelectedPage,
 }) => {
   const pages = getPageNumbers(currentPage, maxPage);
+  const numberPage = +currentPage;
 
   return (
     <div className={classNames(className, pagination.main)}>
       <Arrow 
         type="left" 
-        disabled={currentPage === 1}
+        disabled={numberPage === 1}
         setPageNumber={setSelectedPage}
       />
       {pages.map(number => (
         <PageNumber 
           key={number}
           page={number} 
-          isActive={currentPage === number}
+          isActive={numberPage === number}
           setPageNumber={setSelectedPage}
         />
       ))}
       <Arrow 
         type="right" 
-        disabled={currentPage === maxPage}
+        disabled={numberPage === maxPage}
         setPageNumber={setSelectedPage}
       />
     </div>
   );
 };
 
-function getPageNumbers(currentPage: number, maxPage:number) {
+function getPageNumbers(page: string, maxPage:number) {
+  let numberPage = +page;
   const result = [];
 
-  if (currentPage > maxPage) currentPage = maxPage;
+  if (numberPage > maxPage) numberPage = maxPage;
 
-  if (currentPage === 1) {
-    while (currentPage < maxPage && result.length < 3) {
-      result.push(currentPage);
-      currentPage++;
+  if (numberPage === 1) {
+    while (numberPage <= maxPage && result.length < 3) {
+      result.push(numberPage);
+      numberPage++;
     }
 
     return result;
   }
 
-  if (currentPage === maxPage) {
-    while (currentPage > 0 && result.length < 3) {
-      result.unshift(currentPage);
-      currentPage--;
+  if (numberPage === maxPage) {
+    while (numberPage >= 0 && result.length < 3) {
+      result.unshift(numberPage);
+      numberPage--;
     }
 
     return result;
   }
 
-  return [currentPage - 1, currentPage, currentPage + 1];
+  return [numberPage - 1, numberPage, numberPage + 1];
 }

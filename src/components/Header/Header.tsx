@@ -9,7 +9,7 @@ import { BurgerMenu } from '../BurgerMenu';
 import { ModalMenu } from '../ModalMenu';
 import { CartCounter } from '../CartCounter';
 import { SearchOnWebsite } from '../SearchOnWebsite';
-import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
+import { ThemeToggler } from '../ThemeToggler';
 
 type Props = {
   className?: string;

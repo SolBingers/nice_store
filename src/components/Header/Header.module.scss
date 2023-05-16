@@ -1,7 +1,7 @@
 @import '../../styles/utils/mixins';
 
 .button {
-  background-color: var(--color-main-background);
+  background-color: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
@@ -63,11 +63,6 @@
 
 .burgerImage:hover * {
   stroke: var(--color-contrast);
-}
-
-.favourites {
-  height: 18px;
-  width: 18px;
 }
 
 .favourites:hover * {

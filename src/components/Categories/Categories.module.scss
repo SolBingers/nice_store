@@ -106,5 +106,7 @@
 @include onDesktop {
   .categories {
     display: block;
+    position: sticky;
+    top: 24px;
   }
 }

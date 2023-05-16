@@ -12,7 +12,7 @@
   padding: 14px 15px 22px;
 
   @include onTablet {
-    padding: 25px 36px 30px 36px;
+    padding: 25px 26px 30px;
   }
 }
 
@@ -34,6 +34,7 @@
   justify-content: flex-start;
   margin-bottom: 14px;
   width: 100%;
+  padding: 10px;
 
   @include onTablet {
     margin-bottom: 25px;
