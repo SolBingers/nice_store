@@ -12,7 +12,6 @@ import { ProductItem } from '../../types/types';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { getAllProducts } from '../../api/products';
-import { Button } from '../../components/Button';
 
 type Props = {
   className?: string;
@@ -25,12 +24,11 @@ type Response = {
 };
 
 export const CategoryPage: FC<Props> = ({ className, category }) => {
-  const { selectedCategory } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page') || '1';
   const sort = searchParams.get('sort') || 'newest';
   const count = searchParams.get('count') || '6';
-  const query = searchParams.get('query') || '';
+
 
   function updateSearch(params: { [key: string]: string | null }) {
     Object.entries(params).forEach(([key, value]) => {
@@ -69,13 +67,6 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     getProducts,
   );
   
-  const replaceSpacesWithDashes = (query: string) => {
-    if (query.includes(' ')) {
-      return query.split(' ').join('-');
-    }
-    return query;
-  };
-
   useEffect(() => {
     refetch();
   }, [searchParams]);
@@ -105,15 +96,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             <SettingsInput 
               className={styles.input} 
               title="Product name" 
-              query={query}
               setQuery={onQueryChange}  
-            />
-
-            <Button 
-              text={'Search'} 
-              type={'secondary'} 
-              size={'large'} 
-              styleSearch={'customize_search'}
             />
             
             <SettingsSelect

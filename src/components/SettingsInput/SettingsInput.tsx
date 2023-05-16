@@ -1,20 +1,39 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import settingsInput from './SettingsInput.module.scss';
 import classNames from 'classnames';
+import { useDebounce } from 'use-debounce';
 
 type Props = {
   className?: string;
   title: string;
-  query?: string;
-  setQuery?: (input: string) => void | undefined;
+  setQuery?: (input: string) => void;
 }
 
 export const SettingsInput: FC<Props> = ({ 
   className,
   title,
-  query,
   setQuery,
 }) => {
+  const [text, setText] = useState('');
+
+  const handleSpaces = (text: string) => {
+    const modifiedValue = text.replace(/ /g, '-');
+    return modifiedValue;
+  };
+
+  const [debouncedQuery] = useDebounce(handleSpaces(text), 1000);
+
+  const handleChangeParams = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    setText(inputValue);
+  };
+
+  useEffect(() => {
+    if (setQuery) {
+      setQuery(debouncedQuery);
+    }
+  }, [debouncedQuery]); 
+
   return (
     <div className={classNames(className, settingsInput.main)} >
       <p className={settingsInput.title} >{title}</p>
@@ -22,8 +41,8 @@ export const SettingsInput: FC<Props> = ({
         type="text" 
         placeholder="..."
         className={settingsInput.input}
-        value={query}
-        // onChange={(event) => setQuery(event.target.value)}
+        value={text}  
+        onChange={handleChangeParams}
       />
     </div>
   );
