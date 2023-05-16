@@ -19,11 +19,11 @@ export const SearchOnWebsite: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [isSearchAviable, setIsSearchAviable] = useState(false);
   const navigate = useNavigate();
-  const query = searchParams.get('query') || '';
+  const query = searchParams.get('querySearch') || '';
   const inputRef = useRef<HTMLInputElement>(null);
-  const onQueryChange = (query: string) => {
+  const onQueryChange = (querySearch: string) => {
 
-    updateSearch({ query }, searchParams, setSearchParams);
+    updateSearch({ querySearch }, searchParams, setSearchParams);
   };
 
   useEffect(() => {
@@ -54,11 +54,11 @@ export const SearchOnWebsite: React.FC = () => {
   }, [query]);
 
   const getProducts = async () => {
-    return await getSearchProducts(searchParams.toString().split('+').join('-').toLowerCase());
+    return await getSearchProducts(searchParams.toString().split('+').join('-').replace('querySearch', 'query'));
   };
 
   const {isLoading, data, refetch } = useQuery<Response>(
-    'products', 
+    'searchProduct', 
     getProducts, 
     {
       enabled: false,

@@ -23,7 +23,7 @@ export const SearchPage:React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   
   const getProducts = async () => {
-    return await getSearchProducts(searchParams.toString());
+    return await getSearchProducts(searchParams.toString().split('+').join('-').replace('querySearch', 'query'));
   };
 
   const page = searchParams.get('page') || '1';
@@ -33,7 +33,7 @@ export const SearchPage:React.FC = () => {
   };
 
   const {isLoading, data, refetch} = useQuery<Response>(
-    'products',
+    'searchProduct',
     getProducts);
 
   useEffect(() => {
