@@ -9,16 +9,6 @@ export const ThemeToggler: FC = () => {
 
   useEffect(() => {
     const root = document.documentElement;
-
-    root.style.setProperty('--color-grey', Color.Grey);
-    root.style.setProperty('--color-primary', Color.Primary);
-    root.style.setProperty('--hover-primary', Color.Hover_Primary);
-    root.style.setProperty('--hover-secondary', Color.Hover_Secondary);
-    root.style.setProperty('--image-background', Color.Light);
-  }, []);
-
-  useEffect(() => {
-    const root = document.documentElement;
     const isDark = theme === 'dark';
 
     root.style.setProperty(

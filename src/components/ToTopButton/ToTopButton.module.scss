@@ -2,7 +2,7 @@
 
 .button {
   position: fixed;
-  bottom: 30px;
+  bottom: 70px;
   right: 20px;
   height: 48px;
   width: 48px;
@@ -14,8 +14,8 @@
   transition: all 0.3s;
   scale: 0;
 
-  @include onDesktop {
-    bottom: 60px;
+  @include onTablet {
+    bottom: 100px;
     right: 60px;
   }
 

@@ -9,10 +9,6 @@
   padding: 24px;
 
   background-color: var(--color-semi-background);
-
-  @include onDesktop {
-    max-width: 430px;
-  }
 }
 
 .title {

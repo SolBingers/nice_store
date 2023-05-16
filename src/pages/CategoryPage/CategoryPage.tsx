@@ -137,6 +137,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
           )}
         </div>
       </main>
+      
       <ToastContainer
         position="top-right"
         autoClose={3000}
