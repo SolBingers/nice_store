@@ -51,7 +51,7 @@ function getPageNumbers(page: string, maxPage:number) {
   if (numberPage > maxPage) numberPage = maxPage;
 
   if (numberPage === 1) {
-    while (numberPage < maxPage && result.length < 3) {
+    while (numberPage <= maxPage && result.length < 3) {
       result.push(numberPage);
       numberPage++;
     }
@@ -60,7 +60,7 @@ function getPageNumbers(page: string, maxPage:number) {
   }
 
   if (numberPage === maxPage) {
-    while (numberPage > 0 && result.length < 3) {
+    while (numberPage >= 0 && result.length < 3) {
       result.unshift(numberPage);
       numberPage--;
     }
