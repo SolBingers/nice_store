@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import settingsInput from './SettingsInput.module.scss';
 import classNames from 'classnames';
 import { useDebounce } from 'use-debounce';
