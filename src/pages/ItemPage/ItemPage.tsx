@@ -77,6 +77,7 @@ export const ItemPage: FC<Props> = ({ className }) => {
             rtl={false}
             pauseOnFocusLoss
             draggable
+            closeButton={false}
             pauseOnHover
             theme="light"
             toastStyle={{color: Color.Grey}}

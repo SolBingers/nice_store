@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { SettingsInput } from '../../components/SettingsInput';
 import { SettingsSelect } from '../../components/SettingsSelect';
 import classNames from 'classnames';
@@ -14,6 +14,7 @@ import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { getAllProducts } from '../../api/products';
 import { ToastContainer } from 'react-toastify';
 import { Color } from '../../types/Color';
+import '../../styles/notification.scss';
 
 type Props = {
   className?: string;
@@ -26,11 +27,11 @@ type Response = {
 };
 
 export const CategoryPage: FC<Props> = ({ className, category }) => {
-  const { selectedCategory } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page') || '1';
   const sort = searchParams.get('sort') || 'newest';
   const count = searchParams.get('count') || '6';
+
 
   function updateSearch(params: { [key: string]: string | null }) {
     Object.entries(params).forEach(([key, value]) => {
@@ -56,6 +57,10 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     updateSearch({ page });
   };
 
+  const onQueryChange = (query: string) => {
+    updateSearch({ query });
+  };
+
   const getProducts = async () => {
     return await getAllProducts(category, searchParams.toString());
   };
@@ -64,7 +69,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     'products',
     getProducts,
   );
-
+  
   useEffect(() => {
     refetch();
   }, [searchParams]);
@@ -89,11 +94,14 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
         <Categories />
 
         <div className={styles.content}>
-          <p className={styles.title}>{selectedCategory}</p>
 
           <div className={styles.settings}>
-            <SettingsInput className={styles.input} title="Product name" />
-
+            <SettingsInput 
+              className={styles.input} 
+              title="Product name" 
+              setQuery={onQueryChange}  
+            />
+            
             <SettingsSelect
               className={styles.select}
               title="Sort by"
@@ -129,15 +137,17 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
           )}
         </div>
       </main>
-
+      
       <ToastContainer
         position="top-right"
         autoClose={3000}
-        hideProgressBar={true}
+        hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
+        progressStyle={{background: Color.Primary}}
+        className={'customNotification'}
+        closeButton={false}
         draggable
         pauseOnHover
         theme='light'
