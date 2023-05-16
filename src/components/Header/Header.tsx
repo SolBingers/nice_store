@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import { BurgerMenu } from '../BurgerMenu';
 import { ModalMenu } from '../ModalMenu';
 import { CartCounter } from '../CartCounter';
-import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
+import { ThemeToggler } from '../ThemeToggler';
 
 type Props = {
   className?: string;
