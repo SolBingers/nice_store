@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import selection from './SeleectionSection.module.scss';
 import { Button } from '../Button';
 import { Color } from '../Color';
 import { Capacity } from '../Capacity/Capacity';
-import { Phone, PhoneSpec, Product } from '../types/types';
-import { CartContext } from '../../contexts/CartContext';
 
 type Props = {
   name: string;
