@@ -8,6 +8,9 @@ import { SaleBanner } from '../../components/SaleBanner';
 import { getProductsByType } from '../../api/products';
 import { useQuery } from 'react-query';
 import { Loader } from '../../components/Loader';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/scss/main.scss';
+import { Color } from '../../types/Color';
 
 const getPhones = async (type: 'discount' | 'new') => {
   const loadData = await getProductsByType(type);
@@ -65,6 +68,21 @@ export const HomePage: FC = () => {
           <ProductList title="Brand NEW" products={newData} />
         )}
       </article>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        closeButton={false}
+        pauseOnHover
+        theme="light"
+        toastStyle={{color: Color.Grey}}
+      />
     </main>
   );
 };

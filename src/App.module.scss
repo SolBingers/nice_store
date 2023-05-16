@@ -1,4 +1,8 @@
 @import './styles/utils/mixins';
+:root {
+  --toastify-toast-width: 280px;
+  --toastify-color-light: #a8a8a8;
+}
 
 .app {
   @include onDesktop {

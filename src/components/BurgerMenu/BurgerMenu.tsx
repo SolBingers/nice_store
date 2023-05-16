@@ -16,21 +16,21 @@ export const BurgerMenu: FC<Props> = ({
   const itemsLink = [
     {
       path: {
-        pathname: '/category/phones',
+        pathname: '/phones',
         search,
       },
       title:'Phones'
     },
     {
       path: {
-        pathname: '/category/tablets',
+        pathname: '/tablets',
         search,
       },
       title:'Tablets'
     },
     {
       path: {
-        pathname: '/category/accessories',
+        pathname: '/accessories',
         search,
       },
       title:'Accessories'

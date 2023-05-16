@@ -1,6 +1,6 @@
 import React from 'react';
 import personCardStyle from './PersonCard.module.scss';
-import { Person } from '../../components/types/types';
+import { Person } from '../../types/types';
 import classNames from 'classnames';
 import dog from '../../images/smileFace/photo_2023-05-13_14-52-58 (2).jpg';
 

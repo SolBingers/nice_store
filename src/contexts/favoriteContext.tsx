@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
 import { useLocalStorage } from '../customHooks/useLocalStorage';
-import { Phone } from '../components/types/types';
+import { ProductItem } from '../types/types';
+import { toast } from 'react-toastify';
 
 interface Context {
-  phones: Phone[];
-  addPhone: (item: Phone) => void;
+  phones: ProductItem[];
+  addPhone: (item: ProductItem) => void;
   removePhone: (itemId: string) => void;
 }
 
 const initialValue = {
   phones: [],
-  addPhone: (item: Phone) => {
+  addPhone: (item: ProductItem) => {
     item;
   },
   removePhone: (itemId: string) => {
@@ -25,9 +26,12 @@ type Props = {
 };
 
 export const FavoriteProvider: React.FC<Props> = ({ children }) => {
-  const [phones, setPhones] = useLocalStorage<Phone[]>('phones', []);
+  const notifyAdd = () => toast('Product added to favorites 🤝');
+  const notifyRemove = () => toast('Product removed from favorites 🤝');
 
-  const updateLocalStorage = (phonesData: Phone[]) => {
+  const [phones, setPhones] = useLocalStorage<ProductItem[]>('phones', []);
+
+  const updateLocalStorage = (phonesData: ProductItem[]) => {
     localStorage.setItem('phones', JSON.stringify(phonesData));
   };
 
@@ -38,16 +42,18 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
     }
   }, []);
 
-  const addPhone = (item: Phone) => {
+  const addPhone = (item: ProductItem) => {
     const updatedPhone = [...phones, item];
     setPhones(updatedPhone);
     updateLocalStorage(updatedPhone);
+    notifyAdd();
   };
 
   const removePhone = (itemId: string) => {
-    const updatedPhone = phones.filter((phone: Phone) => phone.itemId !== itemId);
+    const updatedPhone = phones.filter((phone: ProductItem) => phone.itemId !== itemId);
     setPhones(updatedPhone);
     updateLocalStorage(updatedPhone);
+    notifyRemove();
   };
 
   return (

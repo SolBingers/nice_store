@@ -1,4 +1,3 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 .breadcrumbs {
@@ -6,6 +5,7 @@
   align-items: center;
   font-size: 10px;
   margin-bottom: 10px;
+  padding-left: 20px;
 
   @include onTablet {
     font-size: 14px;
@@ -17,12 +17,12 @@
 }
 
 .active {
-  color: $color-light;
+  color: var(--color-contrast);
   pointer-events: none;
 }
 
 .crumb {
-  color: $color-grey;
+  color: var(--color-grey);
 }
 
 .crumb:last-child {
