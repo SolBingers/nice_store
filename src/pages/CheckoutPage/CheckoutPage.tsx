@@ -18,11 +18,30 @@ interface FormInputs {
 
 
 export const CheckoutPage: React.FC = () => {
-  const { handleSubmit, control, formState: {errors} } = useForm<FormInputs>({
+  const {
+    handleSubmit,
+    control,
+    formState: {errors, isValid },
+    reset,
+  } = useForm<FormInputs>({
     mode: 'onBlur',
   });
 
-  const onSubmit: SubmitHandler<FormInputs> = data => console.log(data);
+  const onSubmit: SubmitHandler<FormInputs> = data => {
+    alert(JSON.stringify(data));
+    reset();
+  };
+
+  const {
+    firstName,
+    sureName,
+    country,
+    city,
+    address,
+    apartment,
+    expireDate,
+    cardNumber
+  } = errors;
 
   return (
     <div className={checkout.container}>
@@ -40,7 +59,10 @@ export const CheckoutPage: React.FC = () => {
           <Controller
             name="firstName"
             control={control}
-            rules={{ required: true }}
+            rules={{
+              required: true,
+              pattern: /^[A-Za-zА-Яа-яЁёІіЇїЄє]{2,20}$/,
+            }}
             render={({ field }) =>
               <SettingsInput
                 className={checkout.form__input}
@@ -51,13 +73,25 @@ export const CheckoutPage: React.FC = () => {
           />
 
           <div className={checkout.form__inputError}>
-            {(errors.firstName && 'Name is require')}
+            {firstName?.type === 'required' &&
+            <p>This field is required</p>}
+
+            {firstName?.type === 'pattern' &&
+              <p>Alphabetical characters only</p>
+            }
           </div>
+
 
           <Controller
             name="sureName"
             control={control}
-            rules={{ required: true}}
+            rules={{
+              required: true,
+              pattern: {
+                value: /^[A-Za-zА-Яа-яЁёІіЇїЄє]{2,20}$/,
+                message: ''
+              }
+            }}
             render={({ field }) =>
               <SettingsInput
                 className={checkout.form__input}
@@ -68,7 +102,13 @@ export const CheckoutPage: React.FC = () => {
           />
 
           <div className={checkout.form__inputError}>
-            {errors.sureName && 'Surename is require'}
+            {sureName?.type === 'required'
+              &&
+            <p>This field is required</p>}
+
+            {sureName?.type === 'pattern' &&
+              <p>Alphabetical characters only</p>
+            }
           </div>
         </div>
 
@@ -77,7 +117,10 @@ export const CheckoutPage: React.FC = () => {
             <Controller
               name="country"
               control={control}
-              rules={{ required: true }}
+              rules={{
+                required: true,
+                pattern: /^([^0-9]*)$/,
+              }}
               render={({ field }) =>
                 <SettingsInput
                   className={checkout.form__input}
@@ -88,13 +131,20 @@ export const CheckoutPage: React.FC = () => {
             />
 
             <div className={checkout.form__inputError}>
-              {errors.country && 'Country is require'}
+              {/* {country?.type === 'required' &&
+              <p>This field is required</p>} */}
+
+              {country?.type === 'pattern' &&
+                <p>Alphabetical characters only</p>}
             </div>
 
             <Controller
               name="city"
               control={control}
-              rules={{ required: true }}
+              rules={{
+                required: true,
+                pattern: /^([^0-9]*)$/,
+              }}
               render={({ field }) =>
                 <SettingsInput
                   className={checkout.form__input}
@@ -105,7 +155,12 @@ export const CheckoutPage: React.FC = () => {
             />
 
             <div className={checkout.form__inputError}>
-              {errors.city && 'City is require'}
+              {city?.type === 'required' &&
+              <p>This field is required</p>}
+
+              {city?.type === 'pattern' &&
+                <p>Alphabet characters only</p>
+              }
             </div>
           </div>
 
@@ -113,7 +168,10 @@ export const CheckoutPage: React.FC = () => {
             <Controller
               name="address"
               control={control}
-              rules={{ required: true }}
+              rules={{
+                required: true,
+                pattern: /^[#.0-9a-zA-Z\s,-]+$/,
+              }}
               render={({ field }) =>
                 <SettingsInput
                   className={checkout.form__input}
@@ -124,13 +182,21 @@ export const CheckoutPage: React.FC = () => {
             />
 
             <div className={checkout.form__inputError}>
-              {errors.address && 'Address is require'}
+              {address?.type === 'required' &&
+              <p>This field is required</p>}
+
+              {address?.type === 'pattern' &&
+                <p>Uncorect characters &&#10088;%#$</p>
+              }
             </div>
 
             <Controller
               name="apartment"
               control={control}
-              rules={{ required: true }}
+              rules={{
+                required: true,
+                pattern: /[0-9]/,
+              }}
               render={({ field }) =>
                 <SettingsInput
                   className={checkout.form__input}
@@ -141,7 +207,12 @@ export const CheckoutPage: React.FC = () => {
             />
 
             <div className={checkout.form__inputError}>
-              {errors.apartment && 'Apartment is require'}
+              {apartment?.type === 'required' &&
+              <p>This field is required</p>}
+
+              {apartment?.type === 'pattern' &&
+                <p>Digits characters only</p>
+              }
             </div>
           </div>
         </div>
@@ -150,7 +221,13 @@ export const CheckoutPage: React.FC = () => {
           <Controller
             name="cardNumber"
             control={control}
-            rules={{ required: true }}
+            rules={{
+              required: true,
+              // minLength: 19,
+              // maxLength: 19,
+              pattern: /[0-9]/,
+
+            }}
             render={({ field }) =>
               <SettingsInput
                 className={checkout.form__input}
@@ -161,7 +238,14 @@ export const CheckoutPage: React.FC = () => {
           />
 
           <div className={checkout.form__inputError}>
-            {errors.cardNumber && 'Card number is require'}
+            {cardNumber?.type === 'required' &&
+            <p>This field is required</p>}
+
+            {cardNumber?.type === 'pattern' &&
+              <p>Digits characters only</p>
+            }
+
+            {}
           </div>
 
           <Controller
@@ -178,7 +262,12 @@ export const CheckoutPage: React.FC = () => {
           />
 
           <div className={checkout.form__inputError}>
-            {errors.expireDate && 'Expire date is require'}
+            {expireDate?.type === 'required' &&
+            <p>This field is required</p>}
+
+            {expireDate?.type === 'pattern' &&
+              <p>Digits characters only</p>
+            }
           </div>
         </div>
 
@@ -186,6 +275,7 @@ export const CheckoutPage: React.FC = () => {
           text='Checkout'
           size='extraLarge'
           type='primary'
+          disabled={!isValid}
         />
       </form>
     </div>

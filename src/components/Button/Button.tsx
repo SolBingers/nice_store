@@ -7,9 +7,10 @@ type ButtonProps = {
   type: 'primary' | 'secondary';
   size: 'small' | 'large' | 'extraLarge';
   onClick?: () => void;
+  disabled?: boolean;
 };
 
-export const Button: FC<ButtonProps> = ({ text, type, size, onClick }) => {
+export const Button: FC<ButtonProps> = ({ text, type, size, onClick, disabled }) => {
   const buttonClass = classNames(button.button, {
     [button.primary]: type === 'primary',
     [button.secondary]: type === 'secondary',
@@ -22,6 +23,7 @@ export const Button: FC<ButtonProps> = ({ text, type, size, onClick }) => {
     <button
       className={buttonClass}
       onClick={onClick}
+      disabled={disabled}
     >
       {text}
     </button>
