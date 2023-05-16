@@ -1,4 +1,4 @@
-import React, {useContext, useState, useSearchParams} from 'react';
+import React, {useContext, useState,} from 'react';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import classNames from 'classnames';
 import { Categories } from '../../components/Categories';
@@ -10,6 +10,7 @@ import { ProductItem } from '../../types/types';
 import { List } from '../../components/List';
 import { Loader } from '../../components/Loader';
 import { Pagination } from '../../components/Pagination';
+import { useSearchParams } from 'react-router-dom';
 
 type Response = {
   data: ProductItem[];
@@ -42,14 +43,14 @@ export const SearchPage:React.FC = () => {
             </div>
           )}
 
-          {data && (
+          {/* {data && (
             <Pagination
               className={styles.pagination}
               currentPage={selectedPage}
               setSelectedPage={setSelectedPage}
               maxPage={data.pages}
             />
-          )}
+          )} */}
         </div>
       </main>
     </>
