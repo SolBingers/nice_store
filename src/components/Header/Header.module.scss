@@ -65,11 +65,6 @@
   stroke: var(--color-contrast);
 }
 
-.favourites {
-  height: 20px;
-  width: 20px;
-}
-
 .favourites:hover * {
   stroke: var(--color-primary);
 }
