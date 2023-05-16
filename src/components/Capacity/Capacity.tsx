@@ -22,7 +22,7 @@ export const Capacity: React.FC<Props> = ({
 
   return (
     <Link
-      to={`${linkStart}/${namespaceId}-${capacity.toLowerCase()}-${color}`}
+      to={`${linkStart}/${namespaceId}-${capacity.toLowerCase()}-${color.split(' ').join('-')}`}
       className={classNames(
         capacityStyles.capacity,
         {

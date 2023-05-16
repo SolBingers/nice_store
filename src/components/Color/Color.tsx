@@ -21,7 +21,7 @@ export const Color: React.FC<Props> = ({
   const linkStart = location.pathname.slice(0, location.pathname.lastIndexOf('/'));
   return (
     <Link
-      to={`${linkStart}/${namespaceId}-${capacity.toLowerCase()}-${color}`}
+      to={`${linkStart}/${namespaceId}-${capacity.toLowerCase()}-${color.split(' ').join('-')}`}
       className={classNames(
         colorStyles.color,
         {
