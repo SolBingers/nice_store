@@ -11,6 +11,7 @@ interface Props {
 export const ProductDetails: FC<Props> = ({ phoneData }) => {
   const {
     name,
+    namespaceId,
     priceDiscount,
     priceRegular,
     colorsAvailable,
@@ -22,8 +23,8 @@ export const ProductDetails: FC<Props> = ({ phoneData }) => {
 
   const BASE_URL = 'https://nice-store-api.onrender.com';
 
-  const imageURLs = images.map(elemet => {
-    const fullPath = BASE_URL + '/' + elemet;
+  const imageURLs = images.map(element => {
+    const fullPath = BASE_URL + '/' + element;
 
     return fullPath;
   });
@@ -37,12 +38,15 @@ export const ProductDetails: FC<Props> = ({ phoneData }) => {
       <article className={details.sellection}>
         <SelectionSection
           name={name}
+          namespaceId={namespaceId}
           price={priceRegular}
           fullPrice={priceDiscount}
           aviableColors={colorsAvailable}
           aviableCapacities={capacityAvailable}
           selectedColor={color}
           selectedCapacity={capacity}
+          capacity={capacity}
+          color={color}
         />
       </article>
     </div>

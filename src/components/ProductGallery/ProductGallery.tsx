@@ -11,7 +11,7 @@ export const ProductGallery: FC<ProductGalleryProps> = ({ images }) => {
 
   useEffect(() => {
     setMainPhoto(images[0]);
-  }, []);
+  }, [images]);
 
   return (
     <div className={gallery.gallery}>

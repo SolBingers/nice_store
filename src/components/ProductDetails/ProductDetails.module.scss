@@ -11,6 +11,7 @@
   border-radius: 8px;
 
   background-color: $color-black;
+
   @include onDesktop {
     flex-direction: row;
     align-items: start;
@@ -27,4 +28,5 @@
 
 .sellection {
   align-self: flex-start;
+  flex: 50%;
 }

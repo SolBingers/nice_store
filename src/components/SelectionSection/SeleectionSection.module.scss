@@ -9,6 +9,10 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
+
+  @include onTablet {
+    min-width: 390px;
+  }
 }
 
 .selectText {
@@ -29,7 +33,6 @@
 .capacitys {
   display: flex;
 }
-
 
 .prices {
   display: flex;
