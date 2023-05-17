@@ -6,6 +6,7 @@ import { Button } from '../Button';
 import { Product } from '../../types/types';
 import { useLocalStorage } from '../../customHooks/useLocalStorage';
 import { CartContext } from '../../contexts/CartContext';
+import { Link } from 'react-router-dom';
 type Props = {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -93,7 +94,9 @@ export const ModalMenu: React.FC<Props> = ({ isOpen, setIsOpen }) => {
         <div className={modalStyle.modalCards}>
           {products.length === 0 && (
             <div className={modalStyle.emptyCard}>
-              Your cart is empty. Buy something first.
+              <div className={modalStyle.iconEmptyCard}/>
+              Your cart is empty<br />
+              Buy something first
             </div>
           )}
           {products.map((product: Product) => (
@@ -114,7 +117,14 @@ export const ModalMenu: React.FC<Props> = ({ isOpen, setIsOpen }) => {
             <span className={modalStyle.price}>{` ${findTotalPrice()}$`}</span>
           </div>
 
-          <Button type="primary" size="small" text="Checkout" />
+          <Link to='checkout'>
+            <Button 
+              onClick={() => setIsOpen(false)} 
+              type="primary" 
+              size="small" 
+              text="Checkout" 
+            />
+          </Link>
         </div>
       </div>
     </>

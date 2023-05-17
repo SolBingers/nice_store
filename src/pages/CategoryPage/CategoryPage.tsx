@@ -12,9 +12,6 @@ import { ProductItem } from '../../types/types';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { getAllProducts } from '../../api/products';
-import { ToastContainer } from 'react-toastify';
-import { Color } from '../../types/Color';
-import '../../styles/notification.scss';
 import { updateSearch } from '../../utils/helpers';
 
 type Props = {
@@ -32,7 +29,6 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
   const page = searchParams.get('page') || '1';
   const sort = searchParams.get('sort') || 'newest';
   const count = searchParams.get('count') || '6';
-
 
   const onSortChange = (sort: string) => {
     updateSearch({ sort }, searchParams, setSearchParams);
@@ -58,6 +54,8 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     'products',
     getProducts,
   );
+
+  const lenghtDataArray = data?.data.length;
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -74,10 +72,6 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
       onPageChange(newMaxPages.toString());
     }
   }, [data?.pages]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  },[]);
 
   return (
     <>
@@ -112,15 +106,24 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             />
           </div>
 
-          {data && !isLoading ? (
+          {(data && !isLoading && lenghtDataArray !== 0) ? (
             <List className={styles.list} products={data.data} />
-          ) : (
+          ):(
+            <div className={styles.emptyList}>
+              <div className={styles.emptyListIcon}/>
+              <div className={styles.emptyListTitle}>
+                No models were found matching the specified parameters
+              </div>
+            </div>
+          )}
+
+          {isLoading && (
             <div className={styles.loaderContainer}>
               <Loader />
             </div>
           )}
 
-          {data && (
+          {data && lenghtDataArray !== 0 &&(
             <Pagination
               className={styles.pagination}
               currentPage={page}
@@ -130,22 +133,6 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
           )}
         </div>
       </main>
-      
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        progressStyle={{background: Color.Primary}}
-        className={'customNotification'}
-        closeButton={false}
-        draggable
-        pauseOnHover
-        theme='light'
-        toastStyle={{color: Color.Grey}}
-      />
     </>
   );
 };

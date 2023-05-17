@@ -8,6 +8,7 @@ type Props = {
   namespaceId: string,
   capacity: string,
   backgroundColor: string,
+  NormalColor: string,
 }
 
 export const Color: React.FC<Props> = ({
@@ -16,6 +17,7 @@ export const Color: React.FC<Props> = ({
   namespaceId,
   capacity,
   backgroundColor,
+  NormalColor,
 }) => {
 
   const location = useLocation();
@@ -23,7 +25,7 @@ export const Color: React.FC<Props> = ({
 
   const Container = styled.div`
     position: relative;
-    background-color: ${color};
+    background-color: ${NormalColor};
     width: 30px;
     height: 30px;
 
@@ -77,7 +79,7 @@ export const Color: React.FC<Props> = ({
 
   const ContainerActive = styled.div`
   position: relative;
-    background-color: ${color};
+    background-color: ${NormalColor};
     width: 30px;
     height: 30px;
 

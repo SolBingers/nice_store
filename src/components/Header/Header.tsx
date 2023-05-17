@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import header from './Header.module.scss';
 import { ReactComponent as Burger } from '../../images/burger.svg';
 import { ReactComponent as Favourites } from '../../images/favourites.svg';
@@ -22,6 +22,8 @@ export const Header: FC<Props> = ({ className }) => {
   const [isOpenedModal, setIsOpenedModal] = useState(false);
   const { user } = useUser();
   const { signOut } = useClerk();
+  const location = useLocation();
+  const endpoint = location.pathname;
 
   return (
     <>
@@ -30,6 +32,11 @@ export const Header: FC<Props> = ({ className }) => {
       }>
         {isOpenedModal && (
           <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
+        )}
+
+
+        {endpoint !== '/checkout' && (
+          <SearchOnWebsite/>
         )}
 
         <div className={header.section}>
@@ -49,65 +56,64 @@ export const Header: FC<Props> = ({ className }) => {
             />
           </button>
         </div>
+        {endpoint !== '/checkout' && (
+          <div className={header.section}>
+            <NavLink
+              className={({ isActive }) => classNames(
+                header.button,
+                {
+                  [header.activeLink]: isActive,
+                },
+              )}
+              to="/favourites"
+            >
+              <Favourites className={classNames(header.favourites, header.icon)} />
+            </NavLink>
+            <button 
+              className={header.button}
+              onClick={() => setIsOpenedModal(true)}
+            >
+              <Cart className={classNames(header.cart, header.icon)} />
+              <CartCounter/>
+            </button>
+          </div>
+        )}
 
-        <SearchOnWebsite/>
+        <div className={header.userAccount}>
+          <SignedIn>
+            <button 
+              className={classNames(header.button, header.loginButton)}
+              onClick={() => signOut()}
+            >
+              <img
+                src={user?.profileImageUrl}
+                alt="loader_dog"
+                className={header.userimage}
+              />
+            </button>
 
-        <div className={header.section}>
-          <NavLink
-            className={({ isActive }) => classNames(
-              header.button,
-              {
-                [header.activeLink]: isActive,
-              },
-            )}
-            to="/favourites"
-          >
-            <Favourites className={classNames(header.favourites, header.icon)} />
-          </NavLink>
-          <button 
-            className={header.button}
-            onClick={() => setIsOpenedModal(true)}
-          >
-            <Cart className={classNames(header.cart, header.icon)} />
-            <CartCounter/>
-          </button>
+            <p className={header.userName}>
+              {user?.fullName}
+            </p>
+          </SignedIn>
 
-          <div className={header.userAccount}>
-            
-            <SignedIn>
-              <button 
-                className={classNames(header.button, header.loginButton)}
-                onClick={() => signOut()}
-              >
+          <SignedOut>
+            <Link to="/sign-in">
+              <button className={classNames(header.button, header.loginButton)}>
                 <img
-                  src={user?.profileImageUrl}
+                  src={MyLogo}
                   alt="loader_dog"
-                  className={header.userimage}
+                  className={header.dog}
                 />
               </button>
+            </Link>
 
-              <p className={header.userName}>
-                {user?.fullName}
-              </p>
-            </SignedIn>
-
-            <SignedOut>
-              <Link to="/sign-in">
-                <button className={classNames(header.button, header.loginButton)}>
-                  <img
-                    src={MyLogo}
-                    alt="loader_dog"
-                    className={header.dog}
-                  />
-                </button>
-              </Link>
-              
-              <p className={header.userName}>
-                Guest
-              </p>
-            </SignedOut>
-          </div>
+            <p className={header.userName}>
+              Guest
+            </p>
+          </SignedOut>
         </div>
+
         <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened}/>
       </header>
     </>

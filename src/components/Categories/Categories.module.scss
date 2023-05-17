@@ -29,21 +29,24 @@
   &__input {
     display: flex;
     align-items: center;
-    background-image: url('../../images/categories_button.svg');
     background-size: cover;
-    width: 14px;
-    height: 8px;
     appearance: none;
     background-color: transparent;
     border: none;
     padding: 0;
     cursor: pointer;
-    transform: translateY(-50%);
     transition: transform 0.3s ease-in-out;
+    transform: rotate(-180deg);
+
+    & * {
+      width: 14px;
+      height: 8px;
+      stroke: var(--color-contrast);
+    }
   }
 
   .rotate {
-    transform: translateY(-50%) rotate(180deg);
+    transform: rotate(0deg);
   }
 
   &__dropdown {
@@ -53,18 +56,16 @@
     font-size: 14px;
     font-weight: 500;
     padding: 0 35px 25px;
-    height: 356px;
+    height: 352px;
     min-width: 230px;
+    overflow: hidden;
+    transition: all 0.3s;
   }
 
   &__container {
     display: flex;
     flex-direction: column;
     row-gap: 0px;
-  }
-
-  .invisible {
-    display: none;
   }
 
   &__customLink {
@@ -109,4 +110,9 @@
     position: sticky;
     top: 24px;
   }
+}
+
+.invisible {
+  height: 0;
+  padding-bottom: 0;
 }

@@ -33,7 +33,7 @@ export const SettingsInput: FC<Props> = ({
   };
 
   useEffect(() => {
-    if (setQuery) {
+    if (setQuery && debouncedQuery !== '') {
       setQuery(debouncedQuery);
     }
   }, [debouncedQuery]);

@@ -16,7 +16,11 @@ interface FormInputs {
   expireDate: number;
 }
 
-export const FormCheckout: React.FC = () => {
+interface Props {
+  onClear: () => void;
+}
+
+export const FormCheckout: React.FC<Props> = ({ onClear }) => {
   const {
     handleSubmit,
     control,
@@ -286,6 +290,7 @@ export const FormCheckout: React.FC = () => {
               text='Checkout'
               size='extraLarge'
               type='primary'
+              onClick={onClear}
               disabled={!isValid}
             />
           </div>

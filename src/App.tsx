@@ -15,47 +15,71 @@ import { TabletsPage } from './pages/TabletsPage';
 import { AccessoriesPage } from './pages/AccessoriesPage';
 import { SearchPage } from './pages/SearchPage';
 import { SignInPage } from './pages/SignInPage';
+import { CheckoutPage } from './pages/CheckoutPage';
+import { ToastContainer } from 'react-toastify';
+import { Color } from './types/Color';
+import './styles/notification.scss';
 
 export const App: FC = () => {
   return (
-    <div className={styles.app}>
-      <Header className={styles.header} />
+    <>
+      <div className={styles.app}>
+        <Header className={styles.header} />
 
-      <main className={styles.main} >
-        <Routes>
-          <Route path='/' element={<HomePage />} />
+        <main className={styles.main} >
+          <Routes>
+            <Route path='/' element={<HomePage />} />
 
-          <Route path='phones'>
-            <Route index element={<PhonesPage />} />
-            <Route path=':itemId' element={<ItemPage />} />
-          </Route>
+            <Route path='phones'>
+              <Route index element={<PhonesPage />} />
+              <Route path=':itemId' element={<ItemPage />} />
+            </Route>
 
-          <Route path='tablets'>
-            <Route index element={<TabletsPage />} />
-            <Route path=':itemId' element={<ItemPage />} />
-          </Route>
+            <Route path='tablets'>
+              <Route index element={<TabletsPage />} />
+              <Route path=':itemId' element={<ItemPage />} />
+            </Route>
 
-          <Route path='accessories'>
-            <Route index element={<AccessoriesPage />} />
-            <Route path=':itemId' element={<ItemPage />} />
-          </Route>
+            <Route path='accessories'>
+              <Route index element={<AccessoriesPage />} />
+              <Route path=':itemId' element={<ItemPage />} />
+            </Route>
 
-          <Route path='favourites' element={<FavouritesPage />} />
+            <Route path='favourites' element={<FavouritesPage />} />
 
-          <Route path='contacts' element={<ContactsPage />} />
+            <Route path='contacts' element={<ContactsPage />} />
 
-          <Route path='search' element={<SearchPage />} />
+            <Route path='search' element={<SearchPage />} />
+            
+            <Route path='checkout' element={<CheckoutPage />} />
 
-          <Route path='sign-in' element={<SignInPage />} />
+            <Route path='sign-in' element={<SignInPage />} />
 
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </main>
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
 
-      <Footer className={styles.footer} />
+        <Footer className={styles.footer} />
 
-      <ToTopButton />
-    </div>
+        <ToTopButton />
+      </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        progressStyle={{background: Color.Primary}}
+        className={'customNotification'}
+        closeButton={false}
+        draggable
+        pauseOnHover
+        theme='light'
+        toastStyle={{color: Color.Grey}}
+      />
+    </>
   );
 };
 
