@@ -2,7 +2,6 @@ import React from 'react';
 import personCardStyle from './PersonCard.module.scss';
 import { Person } from '../../types/types';
 import classNames from 'classnames';
-import dog from '../../images/smileFace/photo_2023-05-13_14-52-58 (2).jpg';
 
 type Props = {
   personInfo: Person;
@@ -12,6 +11,7 @@ type Props = {
 export const PersonCard: React.FC<Props> = ({ personInfo, isActiveTogler }) => {
   const {
     photo,
+    memePhoto,
     fullName,
     Tl,
     linkedInLink,
@@ -31,7 +31,7 @@ export const PersonCard: React.FC<Props> = ({ personInfo, isActiveTogler }) => {
         <div className={personCardStyle.personPhotoInfo}>
           <img 
             src={isActiveTogler ? (
-              `${dog}`
+              `${memePhoto}`
             ) : (
               `${photo}`
             )} 
