@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import { BurgerMenu } from '../BurgerMenu';
 import { ModalMenu } from '../ModalMenu';
 import { CartCounter } from '../CartCounter';
+import { SearchOnWebsite } from '../SearchOnWebsite';
 import { ThemeToggler } from '../ThemeToggler';
 
 type Props = {
@@ -19,13 +20,15 @@ export const Header: FC<Props> = ({ className }) => {
   const [isOpenedModal, setIsOpenedModal] = useState(false);
   return (
     <>
-      {isOpenedModal && (
-        <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
-      )}
-
       <header className={
         classNames(header.header, className)
       }>
+        {isOpenedModal && (
+          <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
+        )}
+
+        <SearchOnWebsite/>
+
         <div className={header.section}>
           <Link
             to="/"

@@ -14,7 +14,7 @@
     display: block;
     height: 24px;
     width: 24px;
-    border: 2px solid var(--color-grey);
+    border: 2px solid var(--color-contrast);
     border-radius: 50%;
     background-color: var(--color-hover-secondary);
     background-image: url('../../images/dog.svg');
@@ -28,12 +28,12 @@
   }
 
   &Active {
-    background-color: var(--color-hover-primary);
+    background-color: var(--hover-primary);
 
     &::after {
       content: '';
       display: block;
-      border: 2px solid var(--color-hover-primary);
+      border: 2px solid var(--color-contrast);
       left: 100%;
       transform: translateY(-50%) translateX(-100%);
     }
