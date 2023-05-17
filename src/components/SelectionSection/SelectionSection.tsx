@@ -56,7 +56,7 @@ export const SelectionSection: React.FC<Props> = ({
 
       <div className={selection.capacitySelect}>
         <div className={selection.selectText}>
-          Capacity
+          {namespaceId.includes('watch') ? 'Size' : 'Capacity'}
         </div>
 
         <div className={selection.capacitys}>
