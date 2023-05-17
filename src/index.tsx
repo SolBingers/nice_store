@@ -22,6 +22,6 @@ root.render(
         </QueryClientProvider>
       </CartProvider>
     </FavoriteProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 

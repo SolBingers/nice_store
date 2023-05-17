@@ -4,18 +4,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 16px;
 
   @include onTablet {
     flex-direction: row;
     justify-content: left;
+    gap: 20px;
   }
 }
 
 .images {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  gap: 6px;
+  justify-content: start;
+  gap: 12px;
 
   @include onTablet {
     flex-direction: column;
@@ -23,25 +25,22 @@
 }
 
 .mainPhotoContainer {
-  padding: 25px;
+  padding: 10px;
   background-color: #fff;
   border-radius: 8px;
   width: 275px;
   height: 275px;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   @include onTablet {
-    margin-right: 20px;
     min-width: 300px;
     min-height: 300px;
   }
 }
 
 .mainImage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 8px;
   height: 95%;
   width: auto;
@@ -53,7 +52,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 16px;
 
   width: 50px;
   height: 50px;
@@ -61,8 +59,6 @@
   transition: all 0.3s;
   @include onTablet {
     margin-top: 0px;
-    width: 70px;
-    height: 70px;
   }
 }
 
