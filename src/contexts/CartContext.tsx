@@ -7,6 +7,7 @@ interface Context {
   cart: Product[];
   addToCart: (item: Product) => void;
   removeFromCart: (itemId: string) => void;
+  removeAllfromCart: () => void;
 }
 
 const initialValue = {
@@ -17,6 +18,9 @@ const initialValue = {
   removeFromCart: (itemId: string) => {
     itemId;
   },
+  removeAllfromCart: () => {
+    return;
+  }
 };
 
 export const CartContext = React.createContext<Context>(initialValue);
@@ -29,6 +33,9 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   const [cart, setCart] = useLocalStorage<Product[]>('cart', []);
   const notifyAdd = () => toast('Product added to cart 🤝');
   const notifyRemove = () => toast('Product removed from cart 🤝');
+  const notifySuccesfull = () => {
+    toast.success('Paid succesfull');
+  };
 
   const updateLocalStorage = (cartData: Product[]) => {
     localStorage.setItem('cart', JSON.stringify(cartData));
@@ -55,8 +62,14 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     notifyRemove();
   };
 
+  const removeAllfromCart = () => {
+    setCart([]);
+    updateLocalStorage([]);
+    notifySuccesfull();
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, removeAllfromCart }}>
       {children}
     </CartContext.Provider>
   );
