@@ -14,6 +14,7 @@ import { PhonesPage } from './pages/PhonesPage';
 import { TabletsPage } from './pages/TabletsPage';
 import { AccessoriesPage } from './pages/AccessoriesPage';
 import { SearchPage } from './pages/SearchPage';
+import { CheckoutPage } from './pages/CheckoutPage';
 
 export const App: FC = () => {
   return (
