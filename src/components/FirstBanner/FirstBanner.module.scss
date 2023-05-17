@@ -1,5 +1,9 @@
 @import '../../styles/utils/mixins';
 
+.firstBanner {
+  overflow: hidden;
+}
+
 /*#region firstSlide*/
 .firstSlide {
   height: 190px;
