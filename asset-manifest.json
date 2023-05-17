@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/nice_store/static/css/main.98f6dfa6.css",
-    "main.js": "/nice_store/static/js/main.0f4b8118.js",
+    "main.css": "/nice_store/static/css/main.5939bc2c.css",
+    "main.js": "/nice_store/static/js/main.cc05e93f.js",
     "static/media/Rick.mp3": "/nice_store/static/media/Rick.693cd9e996292a0f9ad5.mp3",
     "static/media/thirdSlide.jpg": "/nice_store/static/media/thirdSlide.008090f23fa7d1d25753.jpg",
     "static/media/firstSlide.jpg": "/nice_store/static/media/firstSlide.2d01b5d730029f2ba2f0.jpg",
@@ -10,6 +10,8 @@
     "static/media/categoryAccessories.png": "/nice_store/static/media/categoryAccessories.4cf24089a577d9686da9.png",
     "static/media/categoryPhones.png": "/nice_store/static/media/categoryPhones.e0a179c7140c34805807.png",
     "static/media/categoryTablets.png": "/nice_store/static/media/categoryTablets.724269daaa543f743340.png",
+    "static/media/photo_2023-04-25_16-00-32.jpg": "/nice_store/static/media/photo_2023-04-25_16-00-32.9d865c2f36757e5eb5b8.jpg",
+    "static/media/photo_2023-05-13_14-52-58.jpg": "/nice_store/static/media/photo_2023-05-13_14-52-58.e619fa50fe09fda633bb.jpg",
     "static/media/rock.png": "/nice_store/static/media/rock.87cef568641758ae6596.png",
     "static/media/photo_2023-05-13_14-52-58 (2).jpg": "/nice_store/static/media/photo_2023-05-13_14-52-58 (2).3d075ddaa55b1779e5c6.jpg",
     "static/media/dog.svg": "/nice_store/static/media/dog.5660f275970d0b3089f75339d055522d.svg",
@@ -28,11 +30,11 @@
     "static/media/chevron-left.svg": "/nice_store/static/media/chevron-left.a6c854854b8a8b4a394dcfedbb245ab1.svg",
     "static/media/chevron-down.svg": "/nice_store/static/media/chevron-down.39a461a8c9fa6481507e91408e98d3f8.svg",
     "static/media/chevron-right.svg": "/nice_store/static/media/chevron-right.8699f5c59d077a8f3ea9d8aeda88a5f3.svg",
-    "main.98f6dfa6.css.map": "/nice_store/static/css/main.98f6dfa6.css.map",
-    "main.0f4b8118.js.map": "/nice_store/static/js/main.0f4b8118.js.map"
+    "main.5939bc2c.css.map": "/nice_store/static/css/main.5939bc2c.css.map",
+    "main.cc05e93f.js.map": "/nice_store/static/js/main.cc05e93f.js.map"
   },
   "entrypoints": [
-    "static/css/main.98f6dfa6.css",
-    "static/js/main.0f4b8118.js"
+    "static/css/main.5939bc2c.css",
+    "static/js/main.cc05e93f.js"
   ]
 }
