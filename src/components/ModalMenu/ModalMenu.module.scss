@@ -1,6 +1,9 @@
 @import '../../styles/utils/mixins';
 
 .modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--color-main-background);
   border-radius: 8px;
   padding: 24px;
@@ -12,6 +15,7 @@
 
   width: 100vw;
   max-width: 1000px;
+  min-height: 40vh;
 
   transform: scale(0);
 
@@ -25,10 +29,12 @@
 }
 
 .emptyCard {
+  text-align: center;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 20px;
   color: var(--color-hover-primary);
+  overflow-y: hidden;
 }
 
 .closeModal {
