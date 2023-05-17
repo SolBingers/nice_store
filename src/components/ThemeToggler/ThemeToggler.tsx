@@ -55,6 +55,11 @@ export const ThemeToggler: FC = () => {
       '--color-hover-secondary',
       isDark ? Color.Hover_Secondary : Color.Hover_Secondary_Light
     );
+
+    root.style.setProperty(
+      '--color-another-theme',
+      isDark ? Color.Light : Color.Semi_Dark
+    );
   }, [theme]);
 
   const handleToggleTheme = () => {
@@ -63,14 +68,18 @@ export const ThemeToggler: FC = () => {
 
   return (
     <div 
-      className={classNames(
-        styles.main,
-        { [styles.isLight] : theme === 'light'}
-      )}
+      className={styles.reels}
       onClick={handleToggleTheme}
     >
-      <div className={styles.background} />
-      <div className={styles.primary} />
+      <div 
+        className={classNames(
+          styles.main,
+          { [styles.isLight] : theme === 'light'}
+        )}
+      >
+        <div className={styles.primary} />
+        <div className={styles.background} />
+      </div>
     </div>
   );
 };
