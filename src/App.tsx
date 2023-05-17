@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { ContactsPage } from './pages/ContactsPage';
+import { CheckoutPage} from './pages/CheckoutPage';
 import { ItemPage } from './pages/ItemPage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -48,7 +49,7 @@ export const App: FC = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
-      
+
       <Footer className={styles.footer} />
 
       <ToTopButton />

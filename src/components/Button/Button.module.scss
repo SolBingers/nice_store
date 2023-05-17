@@ -68,6 +68,13 @@
   padding: 6px 19px;
 }
 
+.extraLarge {
+  width: 230px;
+
+  font-size: 16px;
+  line-height: 20px;
+  padding: 6px 19px;
+  
 .customize_search {
   align-self: flex-end;
   height: 40px;
@@ -78,4 +85,5 @@
 
 .customize_search:hover {
   border: solid 1px var(--color-grey);
+
 }
