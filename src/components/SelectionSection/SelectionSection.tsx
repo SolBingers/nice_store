@@ -29,25 +29,47 @@ export const SelectionSection: React.FC<Props> = ({
   capacity,
   color,
 }) => {
+
+  function getNormalColor (str: string) {
+    const colors: { [key: string]: string } = {
+      black: '#000000',
+      gold: '#ffd700',
+      midnightgreen: '#004953',
+      yellow: '#ffff00',
+      green: '#008000',
+      spacegray: '#757575',
+      silver: '#c0c0c0',
+      red: '#ff0000',
+      white: '#ffffff',
+      purple: '#800080',
+      coral: '#ff7f50',
+      rosegold: '#b76e79',
+      midnight: '#191970',
+      spaceblack: '#0a0a0a',
+      pink: '#ffc0cb',
+      sierrablue: '#006994',
+      'space gray': '#737373',
+      'space-gray': '#737373',
+      'sky-blue': '#87ceeb',
+      graphite: '#383838',
+      'rose gold': '#b76e79',
+      blue: '#0000ff',
+      starlight: '#adadad',
+    };
+
+    return colors[str];
+  }
+
   function convertColor (str: string) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    let colo = '#';
-    for (let i = 0; i < 3; i++) {
-      const value = (hash >> (i * 8)) & 0xFF;
-      colo += ('00' + value.toString(16)).substr(-2);
-    }
-    
+    const color = getNormalColor(str);
 
-    const red = parseInt(colo.substr(1, 2), 16);
-    const green = parseInt(colo.substr(3, 2), 16);
-    const blue = parseInt(colo.substr(5, 2), 16);
+    const red = parseInt(color.substr(1, 2), 16);
+    const green = parseInt(color.substr(3, 2), 16);
+    const blue = parseInt(color.substr(5, 2), 16);
 
-    const inverseRed = 255 - red;
-    const inverseGreen = 255 - green;
-    const inverseBlue = 255 - blue;
+    const inverseRed = (red - 10) < 16 ? '00' : red - 50;
+    const inverseGreen = (green - 10) < 16 ? '00' : green - 50 ;
+    const inverseBlue = (blue - 10) < 16 ? '00': blue - 50;
 
     const inverseColor = `#${inverseRed.toString(16)}${inverseGreen.toString(16)}${inverseBlue.toString(16)}`;
 
@@ -69,6 +91,7 @@ export const SelectionSection: React.FC<Props> = ({
           {aviableColors.map(col => (
             <Color
               color={col}
+              NormalColor={getNormalColor(col)}
               isActive={selectedColor === col}
               key={col}
               namespaceId={namespaceId}
