@@ -14,24 +14,23 @@ export const About: FC<Props> = ({ ProductItemSpec }) => {
 
         <div className={about.description}>
           {ProductItemSpec?.description.map((element) => (
-            <>
+            <React.Fragment key={element.title} >
               <h3
-                key={ProductItemSpec.id}
                 className={about.subtitle}>
                 {element.title}
               </h3>
               <section>
                 <div className={about.textContainer}>
-                  {element.text.map(el => (
+                  {element.text.map((el, i) => (
                     <p
-                      key={element.title}
+                      key={element.title + i}
                       className={about.text}>
                       {el}
                     </p>
                   ))}
                 </div>
               </section>
-            </>
+            </React.Fragment>
           ))}
         </div>
       </div>
