@@ -291,7 +291,7 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
               size='extraLarge'
               type='primary'
               onClick={onClear}
-              disabled={isValid}
+              disabled={!isValid}
             />
           </div>
         </form>
