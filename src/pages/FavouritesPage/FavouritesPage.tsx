@@ -26,7 +26,6 @@ export const FavouritesPage: FC = () => {
               Your favorite list is empty.
             </h2>
           )}
-          
         </div>
       </div>
 

@@ -29,6 +29,31 @@ export const SelectionSection: React.FC<Props> = ({
   capacity,
   color,
 }) => {
+  function convertColor (str: string) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    let colo = '#';
+    for (let i = 0; i < 3; i++) {
+      const value = (hash >> (i * 8)) & 0xFF;
+      colo += ('00' + value.toString(16)).substr(-2);
+    }
+    
+
+    const red = parseInt(colo.substr(1, 2), 16);
+    const green = parseInt(colo.substr(3, 2), 16);
+    const blue = parseInt(colo.substr(5, 2), 16);
+
+    const inverseRed = 255 - red;
+    const inverseGreen = 255 - green;
+    const inverseBlue = 255 - blue;
+
+    const inverseColor = `#${inverseRed.toString(16)}${inverseGreen.toString(16)}${inverseBlue.toString(16)}`;
+
+    return inverseColor;
+  }
+
   return (
     <div className={selection.selectiobSection}>
       <div className={selection.productName}>
@@ -48,6 +73,7 @@ export const SelectionSection: React.FC<Props> = ({
               key={col}
               namespaceId={namespaceId}
               capacity={capacity}
+              backgroundColor={convertColor(col)}
             />
           ))}
 

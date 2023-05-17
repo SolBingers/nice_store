@@ -76,15 +76,15 @@
   padding: 6px 19px;
 }
   
-.customize_search {
-  align-self: flex-end;
-  height: 40px;
-  font-size: 14px;
-  font-weight: 400;
-  border: solid 1px var(--color-main-background);
-}
+  .customize_search {
+    align-self: flex-end;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    border: solid 1px var(--color-main-background);
+  }
 
-.customize_search:hover {
-  border: solid 1px var(--color-grey);
+  .customize_search:hover {
+    border: solid 1px var(--color-grey);
+  }
 
-}

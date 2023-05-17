@@ -15,6 +15,7 @@ export interface ProductItem {
 
 export interface Person {
   photo: string;
+  memePhoto: string;
   fullName: string;
   Tl: boolean;
   linkedInLink: string;

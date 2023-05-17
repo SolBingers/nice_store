@@ -40,4 +40,17 @@
     line-height: 20px;
     background-color: var(--color-semi-background);
   }
+
+  &__emptyCart {
+    margin: 0 auto;
+    background-image: url('../../images/iconApple.png');
+    background-size: cover;
+    width: 90px;
+    height: 90px;
+  }
+
+  &__emptyList_title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
