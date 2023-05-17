@@ -66,6 +66,25 @@
   }
 }
 
+.emptyList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 321px;
+}
+
+.emptyListIcon {
+  background-image: url('../../images/iconError.png');
+  background-size: cover;
+  width: 90px;
+  height: 90px;
+}
+
+.emptyListTitle {
+  font-size: 18px;
+}
+
 .loaderContainer {
   width: 100%;
   padding: 40px;

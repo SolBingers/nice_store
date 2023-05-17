@@ -26,9 +26,18 @@ export const FavouritesPage: FC = () => {
                 favComp={favComp}
               />
             ) : (
-              <h2 className={styles.favorites__emptyList}>
-                Your favorite list is empty.
-              </h2>
+              <div className={styles.favorites__emptyList}>
+                <div className={styles.favorites__emptyCart}/>
+                <h2 className={styles.favorites__emptyList_title}>
+                  Oops! Your favorite is empty
+                </h2> 
+                <div>
+                  Fill it up with goods
+                </div>  
+                      
+                
+                
+              </div>
             )}
             
           </div>

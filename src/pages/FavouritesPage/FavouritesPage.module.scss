@@ -35,11 +35,24 @@
   &__emptyList {
     border-radius: 8px;
     text-align: center;
-    padding-top: 180px;
-    padding-bottom: 175px;
+    padding-top: 121px;
+    padding-bottom: 86px;
     margin-top: 24px;
     font-weight: 500;
     line-height: 20px;
     background-color: var(--color-semi-background);
+  }
+
+  &__emptyCart {
+    margin: 0 auto;
+    background-image: url('../../images/iconApple.png');
+    background-size: cover;
+    width: 90px;
+    height: 90px;
+  }
+
+  &__emptyList_title {
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }

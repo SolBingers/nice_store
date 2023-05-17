@@ -32,9 +32,17 @@
   text-align: center;
   font-weight: 600;
   font-size: 18px;
-  line-height: 20px;
-  color: var(--color-hover-primary);
+  line-height: 25px;
+  color: var(--color-primary);
   overflow-y: hidden;
+}
+
+.iconEmptyCard {
+  margin: 0 auto;
+  background-image: url('../../images/iconCart.png');
+  background-size: cover;
+  width: 90px;
+  height: 90px;
 }
 
 .closeModal {

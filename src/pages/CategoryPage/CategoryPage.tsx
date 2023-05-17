@@ -69,6 +69,8 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     'products',
     getProducts,
   );
+
+  const lenghtDataArray = data?.data.length;
   
   useEffect(() => {
     refetch();
@@ -119,15 +121,24 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             />
           </div>
 
-          {data && !isLoading ? (
+          {(data && !isLoading && lenghtDataArray !== 0) ? (
             <List className={styles.list} products={data.data} />
-          ) : (
+          ):(
+            <div className={styles.emptyList}>
+              <div className={styles.emptyListIcon}/>
+              <div className={styles.emptyListTitle}>
+                No models were found matching the specified parameters
+              </div>
+            </div>
+          )}
+
+          {isLoading && (
             <div className={styles.loaderContainer}>
               <Loader />
             </div>
           )}
 
-          {data && (
+          {data && lenghtDataArray !== 0 &&(
             <Pagination
               className={styles.pagination}
               currentPage={page}

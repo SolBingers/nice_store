@@ -93,7 +93,9 @@ export const ModalMenu: React.FC<Props> = ({ isOpen, setIsOpen }) => {
         <div className={modalStyle.modalCards}>
           {products.length === 0 && (
             <div className={modalStyle.emptyCard}>
-              Your cart is empty. Buy something first.
+              <div className={modalStyle.iconEmptyCard}/>
+              Your cart is empty<br />
+              Buy something first
             </div>
           )}
           {products.map((product: Product) => (
