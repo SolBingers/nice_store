@@ -4,7 +4,6 @@ import page from './CheckoutPage.module.scss';
 import { Product } from '../../types/types';
 import { FormCheckout } from '../../components/FormCheckout';
 import { ToastContainer } from 'react-toastify';
-import { Color } from '../../types/Color'; 
 import 'react-toastify/dist/ReactToastify.css';
 
 export const CheckoutPage: FC = () => {
