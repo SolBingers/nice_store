@@ -98,7 +98,7 @@ export const Header: FC<Props> = ({ className }) => {
           </SignedIn>
 
           <SignedOut>
-            <SignInButton mode='modal'>
+            <SignInButton mode='modal' redirectUrl='/nice_store'>
               <button className={classNames(header.button, header.loginButton)}>
                 <img
                   src={MyLogo}
