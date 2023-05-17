@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { CartItems } from '../../components/CheckoutProducts';
 import page from './CheckoutPage.module.scss';
 import { Product } from '../../types/types';
+import { FormCheckout } from '../../components/FormCheckout';
 
 export const CheckoutPage: FC = () => {
   const [cart, setCart] = useState<Product[]>([]);
@@ -34,6 +35,8 @@ export const CheckoutPage: FC = () => {
           <h3 className={page.totalSum__title}>TOTAL SUM:</h3>
           <p className={page.totalSum__sum}>{totalSum}</p>
         </div>
+
+        <FormCheckout />
       </div>
     </div>
   );
