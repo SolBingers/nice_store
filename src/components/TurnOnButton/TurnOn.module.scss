@@ -28,7 +28,7 @@
   }
 
   &Active {
-    background-color: var(--hover-primary);
+    background-color: var(--color-hover-primary);
 
     &::after {
       content: '';
