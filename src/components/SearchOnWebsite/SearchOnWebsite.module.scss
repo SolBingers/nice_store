@@ -6,6 +6,10 @@
   left: 0;
   right: 0;
   bottom: 0;
+
+  @include onTablet{
+    position: static;
+  }
 }
 
 .openSearch {
@@ -38,6 +42,10 @@
   z-index: 100;
 
   transform: translateY(-50%);
+
+  @include onTablet {
+    transform: translateY(0);
+  }
 }
 
 .formContainerOpen {
@@ -117,7 +125,11 @@
     left: inherit;
     right: 0;
 
-    transform: translateX(-50%);
+    transform: translateX(-75%);
+
+    @include onTablet {
+      transform: translateY(0);
+    }
   }
 
   .openSearch {
@@ -126,7 +138,7 @@
 
   .formContainer {
     position: relative;
-    width: 300px;
+    width: 220px;
     display: block;
     right: 10px;
     left: 10px;
@@ -134,6 +146,10 @@
     border-radius: 8px;
     border: 1px solid var(--color-semi-background);
     background-color: var(--color-semi-background);
+
+    @include onDesktop{
+      width: 300px;
+    }
   }
 
   ::placeholder {

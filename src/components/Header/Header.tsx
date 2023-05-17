@@ -10,6 +10,8 @@ import { ModalMenu } from '../ModalMenu';
 import { CartCounter } from '../CartCounter';
 import { SearchOnWebsite } from '../SearchOnWebsite';
 import { ThemeToggler } from '../ThemeToggler';
+import MyLogo from '../../images/dog.svg';
+import { SignedIn, SignedOut, useClerk, useUser } from '@clerk/clerk-react';
 
 type Props = {
   className?: string;
@@ -18,6 +20,9 @@ type Props = {
 export const Header: FC<Props> = ({ className }) => {
   const [isOpened, setIsOpened] = useState(false);
   const [isOpenedModal, setIsOpenedModal] = useState(false);
+  const { user } = useUser();
+  const { signOut } = useClerk();
+
   return (
     <>
       <header className={
@@ -26,8 +31,6 @@ export const Header: FC<Props> = ({ className }) => {
         {isOpenedModal && (
           <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
         )}
-
-        <SearchOnWebsite/>
 
         <div className={header.section}>
           <Link
@@ -40,12 +43,14 @@ export const Header: FC<Props> = ({ className }) => {
           <ThemeToggler />
 
           <button className={classNames(header.button, header.burgerButton)}>
-            <Burger 
+            <Burger
               className={header.burgerImage} 
               onClick={() => setIsOpened(true)}
             />
           </button>
         </div>
+
+        <SearchOnWebsite/>
 
         <div className={header.section}>
           <NavLink
@@ -66,6 +71,42 @@ export const Header: FC<Props> = ({ className }) => {
             <Cart className={classNames(header.cart, header.icon)} />
             <CartCounter/>
           </button>
+
+          <div className={header.userAccount}>
+            
+            <SignedIn>
+              <button 
+                className={classNames(header.button, header.loginButton)}
+                onClick={() => signOut()}
+              >
+                <img
+                  src={user?.profileImageUrl}
+                  alt="loader_dog"
+                  className={header.userimage}
+                />
+              </button>
+
+              <p className={header.userName}>
+                {user?.fullName}
+              </p>
+            </SignedIn>
+
+            <SignedOut>
+              <Link to="/sign-in">
+                <button className={classNames(header.button, header.loginButton)}>
+                  <img
+                    src={MyLogo}
+                    alt="loader_dog"
+                    className={header.dog}
+                  />
+                </button>
+              </Link>
+              
+              <p className={header.userName}>
+                Guest
+              </p>
+            </SignedOut>
+          </div>
         </div>
         <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened}/>
       </header>

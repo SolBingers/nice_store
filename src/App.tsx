@@ -14,6 +14,7 @@ import { PhonesPage } from './pages/PhonesPage';
 import { TabletsPage } from './pages/TabletsPage';
 import { AccessoriesPage } from './pages/AccessoriesPage';
 import { SearchPage } from './pages/SearchPage';
+import { SignInPage } from './pages/SignInPage';
 
 export const App: FC = () => {
   return (
@@ -44,6 +45,8 @@ export const App: FC = () => {
           <Route path='contacts' element={<ContactsPage />} />
 
           <Route path='search' element={<SearchPage />} />
+
+          <Route path='sign-in' element={<SignInPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
