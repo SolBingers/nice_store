@@ -11,12 +11,12 @@ type Props = {
   setQuery?: (input: string) => void;
 }
 
-export const SettingsInput: FC<Props> = ({ 
+export const SettingsInput: FC<Props> = ({
   className,
   title,
   setQuery,
   placeholder,
-  ...formProps,
+  ...formProps
 }) => {
   const [text, setText] = useState('');
 
@@ -36,17 +36,17 @@ export const SettingsInput: FC<Props> = ({
     if (setQuery) {
       setQuery(debouncedQuery);
     }
-  }, [debouncedQuery]); 
+  }, [debouncedQuery]);
 
   return (
     <div className={classNames(className, settingsInput.main)} >
       <p className={settingsInput.title} >{title}</p>
-      <input 
+      <input
         {...formProps}
-        type="text" 
-         placeholder={placeholder}
+        type="text"
+        placeholder={placeholder}
         className={settingsInput.input}
-        value={text}  
+        value={text}
         onChange={handleChangeParams}
       />
     </div>
