@@ -29,7 +29,6 @@ export const SelectionSection: React.FC<Props> = ({
   capacity,
   color,
 }) => {
-  console.log(aviableColors);
 
   function getNormalColor (str: string) {
     const colors: { [key: string]: string } = {
@@ -73,8 +72,6 @@ export const SelectionSection: React.FC<Props> = ({
     const inverseBlue = (blue - 10) < 16 ? '00': blue - 50;
 
     const inverseColor = `#${inverseRed.toString(16)}${inverseGreen.toString(16)}${inverseBlue.toString(16)}`;
-
-    console.log(inverseColor);
 
     return inverseColor;
   }
