@@ -16,7 +16,7 @@ export const SettingsInput: FC<Props> = ({
   title,
   setQuery,
   placeholder,
-  ...formProps,
+  ...formProps
 }) => {
   const [text, setText] = useState('');
 
@@ -44,7 +44,7 @@ export const SettingsInput: FC<Props> = ({
       <input 
         {...formProps}
         type="text" 
-         placeholder={placeholder}
+        placeholder={placeholder}
         className={settingsInput.input}
         value={text}  
         onChange={handleChangeParams}
