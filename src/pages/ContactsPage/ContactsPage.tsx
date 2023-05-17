@@ -13,6 +13,7 @@ export const ContactsPage:React.FC = () => {
 
   const start = () => {
     if(isActiveTogler) {
+      audio.volume = 0.5;
       audio.pause();
     } else {
       audio.play();
@@ -25,6 +26,10 @@ export const ContactsPage:React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    return (() => {
+      audio.pause();
+    });
   },[]);
 
   return (
