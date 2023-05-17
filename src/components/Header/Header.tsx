@@ -98,7 +98,7 @@ export const Header: FC<Props> = ({ className }) => {
           </SignedIn>
 
           <SignedOut>
-            <Link to="/sign-in">
+            <Link to="/auth">
               <button className={classNames(header.button, header.loginButton)}>
                 <img
                   src={MyLogo}

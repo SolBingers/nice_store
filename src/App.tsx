@@ -53,7 +53,7 @@ export const App: FC = () => {
             
             <Route path='checkout' element={<CheckoutPage />} />
 
-            <Route path='sign-in' element={<SignInPage />} />
+            <Route path='auth' element={<SignInPage />} />
 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

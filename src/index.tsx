@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
 import { CartProvider } from './contexts/CartContext';
 import { FavoriteProvider } from './contexts/favoriteContext';
@@ -23,9 +23,9 @@ root.render(
       <FavoriteProvider>
         <CartProvider>
           <QueryClientProvider client={queryClient}>
-            <BrowserRouter basename='/nice_store'>
+            <HashRouter>
               <App />
-            </BrowserRouter>
+            </HashRouter>
           </QueryClientProvider>
         </CartProvider>
       </FavoriteProvider>
