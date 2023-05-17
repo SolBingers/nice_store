@@ -43,7 +43,7 @@ export const SettingsInput: FC<Props> = ({
       <p className={settingsInput.title} >{title}</p>
       <input
         {...formProps}
-        type="text"
+        type="text" 
         placeholder={placeholder}
         className={settingsInput.input}
         value={text}
