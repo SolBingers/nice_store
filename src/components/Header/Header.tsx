@@ -11,7 +11,7 @@ import { CartCounter } from '../CartCounter';
 import { SearchOnWebsite } from '../SearchOnWebsite';
 import { ThemeToggler } from '../ThemeToggler';
 import MyLogo from '../../images/dog.svg';
-import { SignedIn, SignedOut, useClerk, useUser } from '@clerk/clerk-react';
+import { SignInButton, SignedIn, SignedOut, useClerk, useUser } from '@clerk/clerk-react';
 
 type Props = {
   className?: string;
@@ -98,7 +98,7 @@ export const Header: FC<Props> = ({ className }) => {
           </SignedIn>
 
           <SignedOut>
-            <Link to="/sign-in">
+            <SignInButton mode='modal'>
               <button className={classNames(header.button, header.loginButton)}>
                 <img
                   src={MyLogo}
@@ -106,7 +106,7 @@ export const Header: FC<Props> = ({ className }) => {
                   className={header.dog}
                 />
               </button>
-            </Link>
+            </SignInButton>
 
             <p className={header.userName}>
               Guest

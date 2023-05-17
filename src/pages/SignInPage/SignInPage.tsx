@@ -1,12 +1,11 @@
 import React from 'react';
-import { SignIn } from '@clerk/clerk-react';
+import { SignIn, SignInButton } from '@clerk/clerk-react';
 import SignInStyles from './SignInPage.module.scss';
 
 export const SignInPage = () => {
   return (
     <div className={SignInStyles.container}>
-      <SignIn 
-        path='/sign-in'
+      {/* <SignIn
         appearance={{
           elements: {
             footerActionText: SignInStyles.footerActionText,
@@ -23,7 +22,8 @@ export const SignInPage = () => {
             formButtonPrimary: SignInStyles.formButton
           }
         }}
-      />
+      /> */}
+      <SignInButton mode='modal' />
     </div>
   );
 };
