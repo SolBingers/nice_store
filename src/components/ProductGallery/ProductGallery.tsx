@@ -1,9 +1,14 @@
 import classNames from 'classnames';
 import React, { FC, useState, useEffect } from 'react';
 import gallery from './ProductGallery.module.scss';
+import { toast } from 'react-toastify';
 
 type ProductGalleryProps = {
   images: string[];
+};
+
+const handleError = () => {
+  toast.error('Cant load some data');
 };
 
 export const ProductGallery: FC<ProductGalleryProps> = ({ images }) => {
@@ -20,6 +25,7 @@ export const ProductGallery: FC<ProductGalleryProps> = ({ images }) => {
           src={mainPhoto}
           alt="phone__image"
           className={gallery.mainImage}
+          onError={handleError}
         />
       </div>
 
