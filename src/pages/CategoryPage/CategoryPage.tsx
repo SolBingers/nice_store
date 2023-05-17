@@ -30,7 +30,6 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
   const sort = searchParams.get('sort') || 'newest';
   const count = searchParams.get('count') || '6';
 
-
   const onSortChange = (sort: string) => {
     updateSearch({ sort }, searchParams, setSearchParams);
   };
@@ -73,10 +72,6 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
       onPageChange(newMaxPages.toString());
     }
   }, [data?.pages]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  },[]);
 
   return (
     <>
