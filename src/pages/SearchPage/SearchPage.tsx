@@ -3,7 +3,6 @@ import { BreadCrumbs } from '../../components/BreadCrumbs';
 import classNames from 'classnames';
 import { Categories } from '../../components/Categories';
 import styles from '../CategoryPage/CategoryPage.module.scss';
-import { getSearchProducts } from '../../api/products';
 import { useQuery } from 'react-query';
 import { ProductItem } from '../../types/types';
 import { List } from '../../components/List';
@@ -21,10 +20,6 @@ type Response = {
 
 export const SearchPage:React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
-  const getProducts = async () => {
-    return await getSearchProducts(searchParams.toString().split('+').join('-').replace('querySearch', 'query'));
-  };
 
   const page = searchParams.get('page') || '1';
 
@@ -33,8 +28,7 @@ export const SearchPage:React.FC = () => {
   };
 
   const {isLoading, data, refetch} = useQuery<Response>(
-    'searchProduct',
-    getProducts);
+    'searchProduct');
 
   useEffect(() => {
     refetch();
