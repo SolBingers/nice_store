@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { HomePage } from '../pages/HomePage';
 import { PhonesPage } from '../pages/PhonesPage';
 import { ItemPage } from '../pages/ItemPage';
@@ -11,13 +11,12 @@ import { SearchPage } from '../pages/SearchPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import { SignInPage } from '../pages/SignInPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
+import { Layout } from '../components/Layout';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Routes>
-      <Route path='/' element={<HomePage />} >
-        
-      </Route>
+    <Route path='/' element={<Layout />} >
+      <Route index element={<HomePage />} />
 
       <Route path='phones'>
         <Route index element={<PhonesPage />} />
@@ -45,5 +44,5 @@ export const router = createBrowserRouter(
       <Route path='auth' element={<SignInPage />} />
 
       <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+    </Route>
   ));
