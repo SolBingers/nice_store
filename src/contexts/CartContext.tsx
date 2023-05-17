@@ -31,10 +31,9 @@ type Props = {
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
   const [cart, setCart] = useLocalStorage<Product[]>('cart', []);
-  const notifyAdd = () => toast('Product added to cart 🤝');
-  const notifyRemove = () => toast('Product removed from cart 🤝');
+  const notify = (message: string) => toast(message);
   const notifySuccesfull = () => {
-    toast.success('Paid succesfull');
+    toast.success('Payment was successful');
   };
 
   const updateLocalStorage = (cartData: Product[]) => {
@@ -52,14 +51,14 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     const updatedCart = [...cart, item];
     setCart(updatedCart);
     updateLocalStorage(updatedCart);
-    notifyAdd();
+    notify('Product added to cart 🤝');
   };
 
   const removeFromCart = (itemId: string) => {
     const updatedCart = cart.filter((item: Product) => item.id !== itemId);
     setCart(updatedCart);
     updateLocalStorage(updatedCart);
-    notifyRemove();
+    notify('Product removed from cart 🤝');
   };
 
   const removeAllfromCart = () => {

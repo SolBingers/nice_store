@@ -12,9 +12,6 @@ import { ProductItem } from '../../types/types';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { getAllProducts } from '../../api/products';
-import { ToastContainer } from 'react-toastify';
-import { Color } from '../../types/Color';
-import '../../styles/notification.scss';
 import { updateSearch } from '../../utils/helpers';
 
 type Props = {
@@ -130,22 +127,6 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
           )}
         </div>
       </main>
-      
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        progressStyle={{background: Color.Primary}}
-        className={'customNotification'}
-        closeButton={false}
-        draggable
-        pauseOnHover
-        theme='light'
-        toastStyle={{color: Color.Grey}}
-      />
     </>
   );
 };
