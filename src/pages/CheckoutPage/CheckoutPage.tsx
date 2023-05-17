@@ -53,7 +53,6 @@ export const CheckoutPage: FC = () => {
             <h3 className={page.totalSum__title}>TOTAL SUM:</h3>
             <p className={page.totalSum__number}>{totalSum}</p>
           </div>
-
         </div>
       </div>
     </>
