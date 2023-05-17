@@ -1,9 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { SettingsInput } from '../../components/SettingsInput';
 import { Button } from '../../components/Button';
-import { useNavigate  } from 'react-router-dom';
-import { CartContext } from '../../contexts/CartContext';
 
 import form from './FormCheckout.module.scss';
 
@@ -18,9 +16,11 @@ interface FormInputs {
   expireDate: number;
 }
 
-export const FormCheckout: React.FC = () => {
-  const navigate = useNavigate();
-  const { removeAllfromCart } = useContext(CartContext);
+interface Props {
+  onClear: () => void;
+}
+
+export const FormCheckout: React.FC<Props> = ({ onClear }) => {
   const {
     handleSubmit,
     control,
@@ -29,13 +29,6 @@ export const FormCheckout: React.FC = () => {
   } = useForm<FormInputs>({
     mode: 'onBlur',
   });
-
-  const handleClearCart = () => {
-    removeAllfromCart();
-    setTimeout(() => {
-      navigate('/');
-    }, 3000);
-  };
 
   const onSubmit: SubmitHandler<FormInputs> = data => {
     alert(JSON.stringify(data));
@@ -297,8 +290,8 @@ export const FormCheckout: React.FC = () => {
               text='Checkout'
               size='extraLarge'
               type='primary'
-              onClick={handleClearCart}
-              disabled={isValid}
+              onClick={onClear}
+              disabled={!isValid}
             />
           </div>
         </form>

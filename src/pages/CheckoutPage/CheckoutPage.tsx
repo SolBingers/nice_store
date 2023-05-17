@@ -1,13 +1,22 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { CartItems } from '../../components/CheckoutProducts';
 import page from './CheckoutPage.module.scss';
+import { CartContext } from '../../contexts/CartContext';
 import { Product } from '../../types/types';
 import { FormCheckout } from '../../components/FormCheckout';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router';
 
 export const CheckoutPage: FC = () => {
   const [cart, setCart] = useState<Product[]>([]);
+  const { removeAllfromCart } = useContext(CartContext);
+  const navigate = useNavigate();
+  
+  const handleClearCart = () => {
+    removeAllfromCart();
+    setTimeout(() => {
+      navigate('/');
+    }, 3000);
+  };
 
   useEffect(() => {
     const getItems = () => {
@@ -29,7 +38,7 @@ export const CheckoutPage: FC = () => {
     <>
       <div className={page.pageContainer}>
         <div className={page.formContainer}>
-          <FormCheckout />
+          <FormCheckout onClear={handleClearCart} />
         </div>
 
         <div className={page.orderContainer}>
@@ -47,18 +56,6 @@ export const CheckoutPage: FC = () => {
 
         </div>
       </div>
-
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        closeButton={false}
-        draggable
-        pauseOnHover
-      />
     </>
   );
 };
