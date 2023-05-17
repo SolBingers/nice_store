@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignIn, SignInButton } from '@clerk/clerk-react';
+import { SignInButton } from '@clerk/clerk-react';
 import SignInStyles from './SignInPage.module.scss';
 
 export const SignInPage = () => {
