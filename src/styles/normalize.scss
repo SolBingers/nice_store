@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  transition: all 0.3s;
 }
 
 html {
@@ -10,5 +11,4 @@ html {
   font-size: 14px;
   background-color: var(--color-main-background);
   color: var(--color-contrast);
-  transition: all 0.3s;
 }
