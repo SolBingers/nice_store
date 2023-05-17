@@ -26,8 +26,7 @@ type Props = {
 };
 
 export const FavoriteProvider: React.FC<Props> = ({ children }) => {
-  const notifyAdd = () => toast('Product added to favorites 🤝');
-  const notifyRemove = () => toast('Product removed from favorites 🤝');
+  const notification = (message: string) => toast(message);
 
   const [phones, setPhones] = useLocalStorage<ProductItem[]>('phones', []);
 
@@ -46,14 +45,14 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
     const updatedPhone = [...phones, item];
     setPhones(updatedPhone);
     updateLocalStorage(updatedPhone);
-    notifyAdd();
+    notification('Product added to favorites 🤝');
   };
 
   const removePhone = (itemId: string) => {
     const updatedPhone = phones.filter((phone: ProductItem) => phone.itemId !== itemId);
     setPhones(updatedPhone);
     updateLocalStorage(updatedPhone);
-    notifyRemove();
+    notification('Product removed from favorites 🤝');
   };
 
   return (

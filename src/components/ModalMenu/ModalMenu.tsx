@@ -6,6 +6,7 @@ import { Button } from '../Button';
 import { Product } from '../../types/types';
 import { useLocalStorage } from '../../customHooks/useLocalStorage';
 import { CartContext } from '../../contexts/CartContext';
+import { Link } from 'react-router-dom';
 type Props = {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -116,7 +117,14 @@ export const ModalMenu: React.FC<Props> = ({ isOpen, setIsOpen }) => {
             <span className={modalStyle.price}>{` ${findTotalPrice()}$`}</span>
           </div>
 
-          <Button type="primary" size="small" text="Checkout" />
+          <Link to='checkout'>
+            <Button 
+              onClick={() => setIsOpen(false)} 
+              type="primary" 
+              size="small" 
+              text="Checkout" 
+            />
+          </Link>
         </div>
       </div>
     </>
