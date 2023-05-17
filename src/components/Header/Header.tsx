@@ -31,7 +31,9 @@ export const Header: FC<Props> = ({ className }) => {
           <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
         )}
 
-        <SearchOnWebsite/>
+        {endpoint !== '/checkout' && (
+          <SearchOnWebsite/>
+        )}
 
         <div className={header.section}>
           <Link

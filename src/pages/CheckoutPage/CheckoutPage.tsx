@@ -54,8 +54,6 @@ export const CheckoutPage: FC = () => {
             <p className={page.totalSum__number}>{totalSum}</p>
           </div>
         </div>
-
-        <FormCheckout />
       </div>
     </>
   );

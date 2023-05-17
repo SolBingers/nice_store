@@ -1,16 +1,17 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 .container {
-  background-color: $color-black;
-  padding: 14px 0;
+  background-color: var(--color-semi-background);
+  padding: 20px 40px 60px 40px;
+  border-radius: 8px;
+  height: 100%;
 
   @include onTablet {
-    margin: 0 36px;
+    padding: 20px;
   }
 
   @include onDesktop {
-    margin: 0;
+    padding-bottom: 80px;
   }
 }
 
@@ -39,7 +40,7 @@
       flex-wrap: wrap;
       justify-content: space-around;
       gap: 65px;
-      margin-bottom: 42px;
+      margin-bottom: 20px;
     }
 
     &_address {
@@ -65,11 +66,6 @@
   &__button {
     display: flex;
     justify-content: center;
-    margin-bottom: 85px;
-
-    @include onTablet {
-      margin-bottom: 150px;
-    }
   }
 }
 
