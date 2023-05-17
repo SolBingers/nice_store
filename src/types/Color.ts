@@ -8,5 +8,7 @@ export enum Color {
   Banner_Light = '#e1e1e1',
 
   Hover_Primary = '#a17709',
+  Hover_Primary_Light = '#ffcf52',
   Hover_Secondary = '#5c5c5c80',
+  Hover_Secondary_Light = '#e9e9e9',
 }

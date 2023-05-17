@@ -45,6 +45,16 @@ export const ThemeToggler: FC = () => {
       '--toastify-color-light',
       isDark ? Color.Dark : Color.Light
     );
+
+    root.style.setProperty(
+      '--color-hover-primary',
+      isDark ? Color.Hover_Primary : Color.Hover_Primary_Light
+    );
+
+    root.style.setProperty(
+      '--color-hover-secondary',
+      isDark ? Color.Hover_Secondary : Color.Hover_Secondary_Light
+    );
   }, [theme]);
 
   const handleToggleTheme = () => {
