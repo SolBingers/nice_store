@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/nice_store/static/css/main.6cade216.css",
-    "main.js": "/nice_store/static/js/main.37884fed.js",
+    "main.js": "/nice_store/static/js/main.20481143.js",
     "static/media/Rick.mp3": "/nice_store/static/media/Rick.693cd9e996292a0f9ad5.mp3",
     "static/media/thirdSlide.jpg": "/nice_store/static/media/thirdSlide.008090f23fa7d1d25753.jpg",
     "static/media/firstSlide.jpg": "/nice_store/static/media/firstSlide.2d01b5d730029f2ba2f0.jpg",
@@ -28,10 +28,10 @@
     "static/media/chevron-down.svg": "/nice_store/static/media/chevron-down.39a461a8c9fa6481507e91408e98d3f8.svg",
     "static/media/chevron-right.svg": "/nice_store/static/media/chevron-right.8699f5c59d077a8f3ea9d8aeda88a5f3.svg",
     "main.6cade216.css.map": "/nice_store/static/css/main.6cade216.css.map",
-    "main.37884fed.js.map": "/nice_store/static/js/main.37884fed.js.map"
+    "main.20481143.js.map": "/nice_store/static/js/main.20481143.js.map"
   },
   "entrypoints": [
     "static/css/main.6cade216.css",
-    "static/js/main.37884fed.js"
+    "static/js/main.20481143.js"
   ]
 }
