@@ -1,5 +1,4 @@
 @import '../../styles/utils/mixins';
-@import '../../styles/utils/variables';
 
 .saleBanner {
   display: flex;
@@ -9,11 +8,11 @@
 .bannerBlack {
   border-radius: 8px;
   height: 374px;
-  background-color: $color-black;
+  background-color: var(--color--sale-banner-background);
 }
 
 .big {
-  color: $color-primary;
+  color: var(--color-primary);
   font-weight: 300;
   font-size: 36px;
   line-height: 44px;
@@ -23,7 +22,7 @@
 }
 
 .sale {
-  color: $color-primary;
+  color: var(--color-primary);
   font-weight: 300;
   font-size: 96px;
   line-height: 117px;
@@ -58,13 +57,13 @@
   font-size: 20px;
   line-height: 24px;
   text-align: center;
-  color: $color-black;
+  color: #191919;
 
   margin-top: 85px;
 }
 
 .yellowBold {
-  color: $color-primary;
+  color: var(--color-primary);
   font-weight: bold;
 }
 

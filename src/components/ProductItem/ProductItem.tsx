@@ -1,15 +1,16 @@
 import React from 'react';
 import productItemStyle from './ProductItem.module.scss';
-import { Product } from '../types/types';
+import { Product } from '../../types/types';
 import minus from '../../images/minus.svg';
 import plus from '../../images/Plus.svg';
 import classNames from 'classnames';
 
 type Props = {
   productItem: Product,
-  onRemove: () => void,
-  onIncrese: () => void,
-  onDecrease: () => void, 
+  className?: string,
+  onRemove: (productName: string) => void,
+  onIncrese: (productName: string) => void,
+  onDecrease: (productName: string) => void, 
 }
 
 export const ProductItem: React.FC<Props> = ({
@@ -17,30 +18,38 @@ export const ProductItem: React.FC<Props> = ({
   onRemove,
   onIncrese,
   onDecrease,
+  className,
 }) => {
   const {
     image,
-    title,
+    name,
+    id,
     count,
     price,
   } = productItem;
+
+  const BASE_URL = 'https://nice-store-api.onrender.com';
+  const imageURL = BASE_URL + '/' + image;
 
   const isDisabledMinus = count === 1;
   const isDisabledPlus = count === 9;
 
   return (
-    <div className={productItemStyle.container}>
+    <div className={classNames(
+      productItemStyle.container,
+      className
+    )}>
       <div className={productItemStyle.header}>
         <div className={productItemStyle.imageContainer} >
           <img 
             className={productItemStyle.image}
-            src={image} 
+            src={imageURL} 
             alt="phone"
           />
         </div>
 
         <div className={productItemStyle.title}>
-          {title}
+          {name}
         </div>
       </div>
 
@@ -53,7 +62,7 @@ export const ProductItem: React.FC<Props> = ({
                 [productItemStyle.disabledButton]: isDisabledMinus,
               }
             )}
-            onClick={onDecrease}
+            onClick={() => onDecrease(id)}
           >
             <img src={minus} alt="minus"/>
           </button>
@@ -69,7 +78,7 @@ export const ProductItem: React.FC<Props> = ({
                 [productItemStyle.disabledButton]: isDisabledPlus,
               }
             )}
-            onClick={onIncrese}
+            onClick={() => onIncrese(id)}
           >
             <img src={plus} alt="plus" />
           </button>
@@ -77,12 +86,12 @@ export const ProductItem: React.FC<Props> = ({
       </div>
 
       <div className={productItemStyle.price}>
-        {`${price}$`}
+        {`${Number(price) * count}$`}
       </div>
 
       <button 
         className={productItemStyle.closeButton}
-        onClick={onRemove}
+        onClick={() => onRemove(id)}
       />
     </div>  
   );

@@ -1,37 +1,36 @@
 import React, { FC } from 'react';
 import about from './About.module.scss';
-import { PhoneSpec } from '../types/types';
+import { ProductItemSpec } from '../../types/types';
 
 interface Props {
-  phoneSpec: PhoneSpec | null
+  ProductItemSpec: ProductItemSpec | undefined
 }
 
-export const About: FC<Props> = ({ phoneSpec }) => {
+export const About: FC<Props> = ({ ProductItemSpec }) => {
   return (
     <section className={about.aboutSection}>
       <div className={about.container}>
         <h2 className={about.title}>About</h2>
 
         <div className={about.description}>
-          {phoneSpec?.description.map((element) => (
-            <>
+          {ProductItemSpec?.description.map((element) => (
+            <React.Fragment key={element.title} >
               <h3
-                key={phoneSpec.description.indexOf(element)}
                 className={about.subtitle}>
                 {element.title}
               </h3>
               <section>
                 <div className={about.textContainer}>
-                  {element.text.map(el => (
+                  {element.text.map((el, i) => (
                     <p
-                      key={element.text.indexOf(el)}
+                      key={element.title + i}
                       className={about.text}>
                       {el}
                     </p>
                   ))}
                 </div>
               </section>
-            </>
+            </React.Fragment>
           ))}
         </div>
       </div>

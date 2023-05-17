@@ -1,43 +1,72 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import pagination from './Pagination.module.scss';
 import { Arrow } from './components/Arrow';
 import { PageNumber } from './components/PageNumber/PageNumber';
 import classNames from 'classnames';
 
 type Props = {
-  currentPage: number;
   className?: string;
+  currentPage: string;
+  maxPage: number;
+  setSelectedPage: (page: string) => void;
 }
 
-export const Pagination: FC<Props> = ({ currentPage, className }) => {
-  const [pageNumber, setPageNumber] = useState(currentPage);
-  const maxPage = 10;
-  let pages: number[] = []; 
-  
-  if (pageNumber === 1) pages = [pageNumber, pageNumber + 1, pageNumber + 2];
-  if (pageNumber > 1) pages = [pageNumber - 1, pageNumber, pageNumber + 1];
-  if (pageNumber === maxPage) pages = [pageNumber - 2, pageNumber - 1, pageNumber];
+export const Pagination: FC<Props> = ({ 
+  className,
+  currentPage,
+  maxPage,
+  setSelectedPage,
+}) => {
+  const pages = getPageNumbers(currentPage, maxPage);
+  const numberPage = +currentPage;
 
   return (
     <div className={classNames(className, pagination.main)}>
       <Arrow 
         type="left" 
-        disabled={pageNumber === 1}
-        setPageNumber={setPageNumber}
+        disabled={numberPage === 1}
+        setPageNumber={setSelectedPage}
       />
       {pages.map(number => (
         <PageNumber 
           key={number}
           page={number} 
-          isActive={pageNumber === number}
-          setPageNumber={setPageNumber}
+          isActive={numberPage === number}
+          setPageNumber={setSelectedPage}
         />
       ))}
       <Arrow 
         type="right" 
-        disabled={pageNumber === maxPage}
-        setPageNumber={setPageNumber}
+        disabled={numberPage === maxPage}
+        setPageNumber={setSelectedPage}
       />
     </div>
   );
 };
+
+function getPageNumbers(page: string, maxPage:number) {
+  let numberPage = +page;
+  const result = [];
+
+  if (numberPage > maxPage) numberPage = maxPage;
+
+  if (numberPage === 1) {
+    while (numberPage <= maxPage && result.length < 3) {
+      result.push(numberPage);
+      numberPage++;
+    }
+
+    return result;
+  }
+
+  if (numberPage === maxPage) {
+    while (numberPage > 0 && result.length < 3) {
+      result.unshift(numberPage);
+      numberPage--;
+    }
+
+    return result;
+  }
+
+  return [numberPage - 1, numberPage, numberPage + 1];
+}

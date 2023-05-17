@@ -1,60 +1,93 @@
 @import '../../styles/utils/mixins';
-@import '../../styles/utils/variables';
 
-.product {
-  margin-bottom: 24px;
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  column-gap: 24px;
 }
 
-.about {
-  margin-bottom: 24px;
-}
-
-.techSpecs {
+.container {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 24px;
+  width: 100%;
   margin-bottom: 24px;
 }
 
 .productList {
-  margin-bottom: 24px;
+  width: 100%;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.product {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 @include onTablet {
-  .product {
-    padding: 0 24px;
-  }
-
   .about {
-    padding: 0 24px;
+    width: 50%;
   }
 
   .techSpecs {
-    padding: 0 24px 0 24px;
+    padding: 0;
+    width: 50%;
+  }
+
+  .productInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 0;
   }
 }
 
 @include onDesktop {
   .about {
-    padding: 0;
+    width: 60%;
+  }
+
+  .techSpecs {
+    width: 40%;
   }
 
   .product {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    gap: 5px;
-    max-width: 1312px;
-    margin: 0 auto 24px;
+    gap: 24px;
     padding: 0;
-  }
-  
-  .productInfo {
-    display: flex;
-    justify-content: flex-end;
-    max-width: 1312px;
-    margin: 0 auto;
+    width: 75%;
   }
 
-  .techSpecs {
-    margin: 0 0 24px 24px;
-    padding: 0;
+  .loader {
+    display: flex;
+    align-items: center;
+
+    margin: 0 auto;
+    min-width: 800px;
+    min-height: 800px;
+
+    padding: 100px;
   }
 }
-

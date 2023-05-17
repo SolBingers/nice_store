@@ -2,28 +2,23 @@ import React, { FC, useEffect, useState } from 'react';
 import settingsSelect from './SettingsSelect.module.scss';
 import { ReactComponent as Arrow } from '../../images/chevron-down.svg';
 import classNames from 'classnames';
-import { useSearchParams } from 'react-router-dom';
 
 type Props = {
   className?: string;
   title: string;
-  apiTitle: string;
   options: string[];
-  selected?: string;
-  setSelected: React.Dispatch<React.SetStateAction<string>>;
+  selectedlValue: string;
+  setSelected: (value: string) => void;
 };
 
 export const SettingsSelect: FC<Props> = ({
   className,
   title,
-  apiTitle,
   options,
-  selected = 'Choose One',
+  selectedlValue,
   setSelected,
 }) => {
   const [isActive, setIsActive] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(selected);
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleBtnClick = () => {
     setIsActive((state) => !state);
@@ -31,18 +26,26 @@ export const SettingsSelect: FC<Props> = ({
 
   const handleSelection = (option: string) => {
     setSelected(option);
-    setSelectedOption(option);
     setIsActive(false);
   };
 
   useEffect(() => {
-    searchParams.delete(apiTitle);
-    searchParams.append(apiTitle, selectedOption.toLowerCase());
-    setSearchParams(searchParams);
-  }, [selectedOption]);
+    const handleDocumentClick = () => {
+      setIsActive(false);
+    };
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
 
   return (
-    <div className={className}>
+    <div 
+      className={className}
+      onClick={(event) => event.stopPropagation()}
+    >
       <p className={settingsSelect.title}>{title}</p>
 
       <div className={settingsSelect.main}>
@@ -52,7 +55,7 @@ export const SettingsSelect: FC<Props> = ({
           })}
           onClick={handleBtnClick}
         >
-          <span>{selectedOption}</span>
+          <span>{toPresentableString(selectedlValue)}</span>
           <Arrow
             className={classNames(settingsSelect.arrow, {
               [settingsSelect.isActive]: isActive,
@@ -68,7 +71,7 @@ export const SettingsSelect: FC<Props> = ({
                 className={settingsSelect.item}
                 onClick={() => handleSelection(option)}
               >
-                {option}
+                {toPresentableString(option)}
               </div>
             ))}
           </div>
@@ -77,3 +80,7 @@ export const SettingsSelect: FC<Props> = ({
     </div>
   );
 };
+
+function toPresentableString(str: string) {
+  return str.slice(0, 1).toUpperCase() + str.slice(1).toLowerCase();
+}

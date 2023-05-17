@@ -4,14 +4,12 @@ import React, { FC } from 'react';
 interface Props {
   imageUrl: string;
   imageAlt: string;
-  categoryLink: string;
   categoryName: string;
 }
 
 export const CategoryCard: FC<Props> = ({
   imageUrl,
   categoryName,
-  categoryLink, 
   imageAlt,
 }) => {
   return (
@@ -22,9 +20,7 @@ export const CategoryCard: FC<Props> = ({
       
       <div className={category.nameContainer} >
         <h3 className={category.name}>
-          <a href={categoryLink} className={category.link}>
-            {categoryName}
-          </a>
+          {categoryName}
         </h3>
       </div>
     </div>

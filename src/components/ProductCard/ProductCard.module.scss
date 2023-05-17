@@ -1,58 +1,79 @@
-@import '../../styles/utils/variables';
-
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: $color-semi-dark;
+  background-color: var(--color-main-background);
+  border: 4px solid var(--color-main-background);
 
   width: 230px;
-  height: 374px;
+  height: 390px;
 
   transition: box-shadow 0.3s, border-radius 0.3s, border 0.3s;
 
   &:hover {
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.8);
     border-radius: 20px;
   }
 
   border-radius: 8px;
 }
 
-.icon {
+.image {
   display: flex;
   position: relative;
   margin: 0 auto;
-  height: 185px;
-  width: 185px;
+  height: 100%;
+  width: fit-content;
+  object-fit: contain;
 }
 
 .heart {
   fill: none;
   cursor: pointer;
+  transition: fill 0.7s;
 
   &:hover {
-    fill: $color-primary
+    fill: var(--color-primary);
   }
 }
 
 .iconContainer {
-  display: flex;
   position: absolute;
-  padding: 8px 0 0 8px ;
+  background-color: transparent;
+  border-radius: 10px;
+  z-index: 2;
+  top: 5px;
+  left: 2px;
 }
 
-.iconBackground {
-  display: block;
+.heart__active {
+  fill: var(--color-primary);
+}
+
+.imageContainer {
+  display: flex;
+  position: absolute;
+  padding: 8px 0 0 8px;
+  z-index: 2;
+
+  & svg {
+    fill: var(--color-contrast);
+  }
+}
+
+.imageBackground {
+  display: flex;
   justify-content: center;
   height: 186px;
+  padding: 4px;
 
   transition: box-shadow 0.3s, border-radius 0.3s, border 0.3s;
-  background-color: $color-light;
+  background-color: var(--color-image-background);
   border-radius: 8px;
 }
 
-.card:hover > .iconBackground {
+.card:hover > .imageBackground {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
@@ -67,7 +88,7 @@
 }
 
 .link {
-  color: $color-light;
+  color: var(--color-contrast);
 }
 
 .prices {
@@ -83,7 +104,7 @@
   font-size: 18px;
   line-height: 30px;
 
-  color: $color-primary;
+  color: var(--color-primary);
 
   &::before {
     content: '$';
@@ -96,13 +117,12 @@
   align-items: center;
 }
 
-
 .fullPrice {
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
   text-decoration-line: line-through;
-  color: $color-grey;
+  color: var(--color-grey);
 
   &::before {
     content: '$';
@@ -113,7 +133,7 @@
   margin-bottom: 12px;
   width: 100%;
 
-  border: 1px solid $color-grey;
+  border: 1px solid var(--color-grey);
 }
 
 .name {
@@ -135,13 +155,13 @@
   font-size: 12px;
   line-height: 15px;
 
-  color: $color-grey;
+  color: var(--color-grey);
 }
 
 .chars {
   text-align: end;
   font-weight: 500;
-  color: $color-light;
+  color: var(--color-contrast);
   font-size: 12px;
   line-height: 16px;
 }
@@ -154,4 +174,8 @@
 
 .infoContainer {
   padding: 12px;
+}
+
+.disabled {
+  pointer-events: none;
 }

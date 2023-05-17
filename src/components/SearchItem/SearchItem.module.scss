@@ -1,0 +1,15 @@
+.item {
+  background-color: var(--color-semi-background);
+  border: 2px solid var(--image-background);
+  transition: all 0.3s linear;
+
+ &:not(:last-child) {
+  margin-bottom: 10px;
+ }
+
+ &:hover {
+  transform: translateX(10px);
+ }
+}
+
+

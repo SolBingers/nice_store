@@ -1,12 +1,12 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 .button {
-  background-color: $color-semi-dark;
+  background-color: transparent;
   border: none;
   padding: 0;
-  padding-top: 6px;
   cursor: pointer;
+
+  position: relative;
 }
 
 .icon {
@@ -20,6 +20,7 @@
 }
 
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +47,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 19.5px;
-  color: $color-light;
+  color: var(--color-contrast);
   text-transform: uppercase;
 
   @include onTablet {
@@ -62,22 +63,17 @@
 }
 
 .burgerImage:hover * {
-  stroke: $color-light;
-}
-
-.favourites {
-  height: 18px;
-  width: 18px;
+  stroke: var(--color-contrast);
 }
 
 .favourites:hover * {
-  stroke: $color-primary;
+  stroke: var(--color-primary);
 }
 
 .activeLink * {
-  stroke: $color-primary;
+  stroke: var(--color-primary);
 }
 
 .cart:hover * {
-  fill: $color-primary;
+  fill: var(--color-primary);
 }

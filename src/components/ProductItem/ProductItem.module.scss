@@ -1,4 +1,4 @@
-@import '../../styles/main.scss';
+@import '../../styles/utils/mixins';
 
 button {
   border: none;
@@ -6,6 +6,8 @@ button {
 
 .closeButton {
   background: url('../../images/cross.svg');
+  background-position: center;
+  background-repeat: no-repeat;
   height: 13px;
   width: 13px;
   cursor: pointer;
@@ -13,34 +15,30 @@ button {
 
   grid-column: 3;
   grid-row: 1;
+
+  &:hover {
+    filter: brightness(150%);
+  }
 }
 
 .container {
-  background-color: $color-black;
+  background-color: var(--color-semi-background);
   border-radius: 8px;
 
   padding: 6px 14px 14px 14px;
 
   display: grid;
 
-  grid-template-columns: repeat(3,auto);
-  grid-template-rows: repeat(2,auto);
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
 
   row-gap: 13px;
-}
-
-@include onTablet {
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 }
 
 .imageContainer {
   height: 60px;
   width: 60px;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   border-radius: 8px;
 
   display: flex;
@@ -53,6 +51,7 @@ button {
 .image {
   width: 50px;
   height: 50px;
+  object-fit: contain;
 }
 
 .title {
@@ -69,12 +68,14 @@ button {
   align-items: center;
 }
 
-
 .counterContainer {
   grid-row: 2;
   grid-column: 1;
-}
 
+  margin-right: 10px;
+
+  max-width: 87px;
+}
 
 .productsCounter {
   max-width: 100px;
@@ -100,14 +101,14 @@ button {
 .decrease {
   margin-right: 16px;
 
-  background-color: $color-grey;
+  background-color: var(--color-grey);
 
   &:hover {
-    background-color: #6A6A6A;
+    background-color: #6a6a6a;
   }
 
   &Active {
-    background-color: #6A6A6A;
+    background-color: #6a6a6a;
   }
 }
 
@@ -117,18 +118,22 @@ button {
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: $color-grey;
+  color: var(--color-grey);
+
+  width: 8px;
+
+  text-align: center;
 }
 
 .increase {
-  background-color: $color-primary;
+  background-color: var(--color-primary);
 
   &:hover {
-    background-color: $color-hover-primary;
+    background-color: var(--color-hover-primary);
   }
 
   &Active {
-    background-color: $color-hover-primary;
+    background-color: var(--color-hover-primary);
   }
 }
 
@@ -140,11 +145,48 @@ button {
   grid-column: 3;
 
   justify-self: flex-end;
+
+  margin-right: 10px;
 }
 
 .disabledButton {
   pointer-events: none;
 
-  background-color: #6A6A6A;
+  background-color: #6a6a6a;
   opacity: 0.5;
+}
+
+@include onTablet {
+  .container {
+    display: grid;
+    grid-template-columns: 190px 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  .counterContainer {
+    grid-row: 1;
+    grid-column: 2;
+
+    justify-self: flex-end;
+  }
+
+  .price {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+
+    grid-column: 3;
+
+    justify-self: flex-end;
+
+    margin-right: 10px;
+  }
+
+  .closeButton {
+    grid-column: 4;
+    grid-row: 1;
+  }
 }

@@ -1,0 +1,40 @@
+@import '../../styles/utils/mixins';
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+
+  @include onTablet {
+    font-size: 14px;
+  }
+}
+
+.pathLink {
+  margin: 0 5px;
+}
+
+.active {
+  color: var(--color-contrast);
+  pointer-events: none;
+}
+
+.crumb {
+  color: var(--color-grey);
+}
+
+.crumb:last-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.homeLink {
+  font-size: 14px;
+
+  @include onTablet {
+    font-size: 16px;
+  }
+}

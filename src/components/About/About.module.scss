@@ -1,5 +1,4 @@
 @import '../../styles/utils/mixins';
-@import '../../styles/utils/variables';
 
 .container {
   display: flex;
@@ -9,11 +8,7 @@
   width: 100%;
   padding: 24px;
 
-  background-color: $color-black;
-
-  @include onDesktop {
-    max-width: 430px;
-  }
+  background-color: var(--color-semi-background);
 }
 
 .title {
@@ -24,7 +19,7 @@
   margin-bottom: 17px;
 }
 
-.text  {
+.text {
   font-weight: 400;
   font-size: 12px;
 }

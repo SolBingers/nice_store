@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction} from 'react';
 import styles from './BurgerMenu.module.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 interface Props {
@@ -12,18 +12,27 @@ export const BurgerMenu: FC<Props> = ({
   isOpen,
   setIsOpen,
 }) => {
-
+  const { search } = useLocation();
   const itemsLink = [
     {
-      path:'/category/phones',
+      path: {
+        pathname: '/phones',
+        search,
+      },
       title:'Phones'
     },
     {
-      path:'/category/tablets',
+      path: {
+        pathname: '/tablets',
+        search,
+      },
       title:'Tablets'
     },
     {
-      path:'/category/accessories',
+      path: {
+        pathname: '/accessories',
+        search,
+      },
       title:'Accessories'
     },
   ];
@@ -52,19 +61,21 @@ export const BurgerMenu: FC<Props> = ({
         </div>
 
         <nav className={styles.categories__dropdown}>
-          <div className={styles.categories__title}>
-          Categories
+          <div className={styles.categories__container}>
+            <div className={styles.categories__title}>
+              Categories
+            </div>
+            {itemsLink.map(({path, title}) => (
+              <Link 
+                className={styles.categories__customLink} 
+                to={path}
+                key={path.pathname}
+                onClick={() => setIsOpen(false)}
+              >
+                {title}
+              </Link> 
+            ))}
           </div>
-
-          {itemsLink.map(({path, title}) => (
-            <NavLink 
-              className={styles.categories__customLink} 
-              to={path}
-              key={path}
-            >
-              {title}
-            </NavLink> 
-          ))}
 
           <div className={styles.categories__rights}>
             All rights reserved.

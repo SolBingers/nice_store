@@ -3,7 +3,6 @@ import './styles/main.scss';
 import { Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
-import { CategoryPage } from './pages/CategoryPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { ContactsPage } from './pages/ContactsPage';
 import { CheckoutPage} from './pages/CheckoutPage';
@@ -11,6 +10,11 @@ import { ItemPage } from './pages/ItemPage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import styles from './App.module.scss';
+import { ToTopButton } from './components/ToTopButton';
+import { PhonesPage } from './pages/PhonesPage';
+import { TabletsPage } from './pages/TabletsPage';
+import { AccessoriesPage } from './pages/AccessoriesPage';
+import { SearchPage } from './pages/SearchPage';
 
 export const App: FC = () => {
   return (
@@ -21,8 +25,18 @@ export const App: FC = () => {
         <Routes>
           <Route path='/' element={<HomePage />} />
 
-          <Route path="category/:selectedCategory">
-            <Route index element={<CategoryPage />} />
+          <Route path='phones'>
+            <Route index element={<PhonesPage />} />
+            <Route path=':itemId' element={<ItemPage />} />
+          </Route>
+
+          <Route path='tablets'>
+            <Route index element={<TabletsPage />} />
+            <Route path=':itemId' element={<ItemPage />} />
+          </Route>
+
+          <Route path='accessories'>
+            <Route index element={<AccessoriesPage />} />
             <Route path=':itemId' element={<ItemPage />} />
           </Route>
 
@@ -30,13 +44,15 @@ export const App: FC = () => {
 
           <Route path='contacts' element={<ContactsPage />} />
 
-          <Route path='checkout' element={<CheckoutPage />} />
+          <Route path='search' element={<SearchPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
 
       <Footer className={styles.footer} />
+
+      <ToTopButton />
     </div>
   );
 };

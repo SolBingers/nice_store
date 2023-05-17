@@ -1,9 +1,9 @@
-@import '../../styles/main.scss';
+@import '../../styles/utils/mixins';
 
 .footer {
   height: 48px;
   width: 100%;
-  background-color: $color-black;
+  background-color: var(--color-semi-background);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -11,29 +11,23 @@
   padding: 14px;
 }
 
-.logo {
-  height: 18px;
-
-  @include onTablet {
-    height: 21px;
-  }
-}
-
 .text {
-  color: $color-grey;
+  color: var(--color-grey);
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
   margin-left: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
 .text:active,
 .text:hover {
-  color: #f6f6f7;
+  color: var(--color-contrast);
 }
 
 .solBingers {
-  color: $color-primary;
+  color: var(--color-primary);
 }
 
 .gitLink {
@@ -44,7 +38,7 @@
   display: flex;
   justify-content: space-between;
 
-  color: $color-grey;
+  color: var(--color-grey);
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
@@ -52,7 +46,7 @@
 
 .links :active,
 .links :hover {
-  color: $color-hover-primary;
+  color: var(--color-hover-primary);
 }
 
 @include onTablet {
@@ -60,7 +54,6 @@
     height: 72px;
     border-radius: 6px;
     padding: 24px 36px;
-
   }
 
   .logo {
@@ -85,5 +78,18 @@
 @include onDesktop {
   .footer {
     padding: 24px 40px;
+  }
+}
+
+.homeLink {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19.5px;
+  color: var(--color-contrast);
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: 20px;
+    line-height: 24px;
   }
 }

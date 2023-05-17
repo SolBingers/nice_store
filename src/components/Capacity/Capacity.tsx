@@ -1,26 +1,36 @@
 import classNames from 'classnames';
 import React from 'react';
 import capacityStyles from './Capacity.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 type Props = {
-  capacity: number;
+  capacity: string;
   isActive?: boolean;
+  color: string;
+  namespaceId: string;
 }
 
-export const Capacity:React.FC<Props> = ({
+export const Capacity: React.FC<Props> = ({
   capacity,
   isActive,
+  color,
+  namespaceId
 }
-) => (
-  <Link 
-    to='/'  
-    className={classNames(
-      capacityStyles.capacity,
-      {
-        [capacityStyles.capacityActive] : isActive 
-      }
-    )}>
-    {`${capacity} GB`}
-  </Link>
-);
+) => {
+  const location = useLocation();
+  const linkStart = location.pathname.slice(0, location.pathname.lastIndexOf('/'));
+
+  return (
+    <Link
+      to={`${linkStart}/${namespaceId}-${capacity.toLowerCase()}-${color.split(' ').join('-')}`}
+      className={classNames(
+        capacityStyles.capacity,
+        {
+          [capacityStyles.capacityActive]: isActive
+        }
+      )}>
+      {capacity}
+    </Link>
+  );
+};
+

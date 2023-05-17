@@ -2,26 +2,53 @@ import details from './ProductDetails.module.scss';
 import React, { FC } from 'react';
 import { SelectionSection } from '../SelectionSection';
 import { ProductGallery } from '../ProductGallery/ProductGallery';
+import { ProductItemSpec } from '../../types/types';
 
-export const ProductDetails: FC = () => {
+interface Props {
+  phoneData: ProductItemSpec
+}
+
+export const ProductDetails: FC<Props> = ({ phoneData }) => {
+  const {
+    name,
+    namespaceId,
+    priceDiscount,
+    priceRegular,
+    colorsAvailable,
+    capacityAvailable,
+    color,
+    capacity,
+    images,
+  } = phoneData;
+
+  const BASE_URL = 'https://nice-store-api.onrender.com';
+
+  const imageURLs = images.map(element => {
+    const fullPath = BASE_URL + '/' + element;
+
+    return fullPath;
+  });
+
   return (
     <div className={details.details}>
       <article className={details.gallery}>
-        <ProductGallery images={[]} />
+        <ProductGallery images={imageURLs} />
       </article>
 
       <article className={details.sellection}>
         <SelectionSection
-          name={'Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)'}
-          price={1199}
-          fullPrice={599}
-          aviableColors={['white', 'black', 'red']}
-          aviableCapacities={[64, 256, 128]}
-          selectedColor={'white'}
-          selectedCapacity={256}
+          name={name}
+          namespaceId={namespaceId}
+          price={priceRegular}
+          fullPrice={priceDiscount}
+          aviableColors={colorsAvailable}
+          aviableCapacities={capacityAvailable}
+          selectedColor={color}
+          selectedCapacity={capacity}
+          capacity={capacity}
+          color={color}
         />
       </article>
-
     </div>
   );
 };

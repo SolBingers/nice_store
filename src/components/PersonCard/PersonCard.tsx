@@ -1,12 +1,15 @@
 import React from 'react';
 import personCardStyle from './PersonCard.module.scss';
-import { Person } from '../types/types';
+import { Person } from '../../types/types';
+import classNames from 'classnames';
+import dog from '../../images/smileFace/photo_2023-05-13_14-52-58 (2).jpg';
 
 type Props = {
   personInfo: Person;
+  isActiveTogler: boolean;
 };
 
-export const PersonCard: React.FC<Props> = ({ personInfo }) => {
+export const PersonCard: React.FC<Props> = ({ personInfo, isActiveTogler }) => {
   const {
     photo,
     fullName,
@@ -17,15 +20,27 @@ export const PersonCard: React.FC<Props> = ({ personInfo }) => {
     responsibilities,
   } = personInfo;
 
-
   return (
-    <div className={personCardStyle.container}>
-      <div className={personCardStyle.personInfo}>
+    <div className={classNames(
+      personCardStyle.container,{
+        [personCardStyle.containerMemeMode]: isActiveTogler,
+      }
+    )}
+    >
+      <div className={personCardStyle.personInfo} >
         <div className={personCardStyle.personPhotoInfo}>
           <img 
-            src={photo} 
+            src={isActiveTogler ? (
+              `${dog}`
+            ) : (
+              `${photo}`
+            )} 
             alt="Photo"
-            className={personCardStyle.personPhotoInfoImg}
+            className={classNames(
+              personCardStyle.personPhotoInfoImg,{
+                [personCardStyle.personPhotoInfoImgMeme]: isActiveTogler,
+              }
+            )}
           />
         </div>
         
@@ -60,7 +75,7 @@ export const PersonCard: React.FC<Props> = ({ personInfo }) => {
             <a href={gitHubLink}>GitHub</a>
           </li>
 
-          <li className={personCardStyle.CVLink}>
+          <li className={personCardStyle.link}>
             <a href={cvLink}>CV</a>
           </li>
         </ul>

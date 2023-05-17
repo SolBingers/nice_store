@@ -1,12 +1,12 @@
 import React from 'react';
 import listStyle from './List.module.scss';
 import { ProductCard } from '../ProductCard';
-import { Phone } from '../types/types';
+import { ProductItem } from '../../types/types';
 import classNames from 'classnames';
 
 interface Props {
   className?: string;
-  products: Phone[];
+  products: ProductItem[];
   favComp?: boolean;
 }
 
@@ -18,7 +18,7 @@ export const List: React.FC<Props> = ({
   <div className={classNames(listStyle.list,className,{
     [listStyle.fourItem]: favComp,
   })}>
-    {products.map(product => (
+    {products && products.length > 0 && products.map(product => (
       <div className={listStyle.card} key={product.id}>
         <ProductCard
           phone={product}

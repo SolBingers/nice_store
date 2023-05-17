@@ -10,7 +10,13 @@ type ButtonProps = {
   disabled?: boolean;
 };
 
-export const Button: FC<ButtonProps> = ({ text, type, size, onClick, disabled }) => {
+export const Button: FC<ButtonProps> = ({
+  text,
+  type,
+  size,
+  disabled,
+  onClick, 
+}) => {
   const buttonClass = classNames(button.button, {
     [button.primary]: type === 'primary',
     [button.secondary]: type === 'secondary',

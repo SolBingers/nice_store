@@ -1,4 +1,3 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 .not-found-page {
@@ -11,7 +10,7 @@
 
 .heading {
   font-size: 80px;
-  color: $color-primary;
+  color: var(--color-primary);
 
   @include onTablet {
     font-size: 100px;
@@ -39,13 +38,26 @@
 .link {
   padding: 9px 20px;
 
-  color: $color-light;
-  border: 1px solid $color-light;
+  color: var(--color-contrast);
+  border: 1px solid var(--color-contrast);
   border-radius: 6px;
   transition: all 0.3s ease;
 
   &:hover {
-    color: $color-primary;
-    border-color: $color-primary;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+}
+
+.gif {
+  display: block;
+  width: 80vw;
+
+  @include onTablet {
+    width: 50vw;
+  }
+
+  @include onDesktop {
+    width: 40vw;
   }
 }

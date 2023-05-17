@@ -1,16 +1,11 @@
 @import '../../styles/utils/mixins';
-@import '../../styles/utils/variables';
 
 .container {
-  background-color: $color-black;
+  background-color: var(--color-semi-background);
   width: 100%;
   border-radius: 8px;
   padding: 24px;
-
-  @include onDesktop {
-    width: 460px;
-    min-height: 549px;
-  }
+  height: 100%;
 }
 
 .title {
@@ -28,7 +23,7 @@
   flex-direction: column;
   text-align: left;
 
-  color: $color-grey;
+  color: var(--color-grey);
 }
 
 .specs {
@@ -36,7 +31,7 @@
   flex-direction: column;
   text-align: right;
 
-  color: $color-light;
+  color: var(--color-contrast);
 }
 
 .name,
@@ -49,4 +44,3 @@
 .info:not(:last-child) {
   margin-bottom: 14px;
 }
-

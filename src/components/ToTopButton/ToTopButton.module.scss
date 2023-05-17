@@ -1,0 +1,38 @@
+@import '../../styles/utils/mixins';
+
+.button {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  height: 48px;
+  width: 48px;
+  opacity: 0.5;
+  z-index: 10;
+  background-color: var(--color-semi-background);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  scale: 0;
+
+  @include onTablet {
+    bottom: 100px;
+    right: 60px;
+  }
+
+  & * {
+    fill: var(--color-grey);
+  }
+
+  &:hover {
+    background-color: var(--color-primary);
+    opacity: 1;
+
+    & * {
+      fill: var(--color-semi-background);
+    }
+  }
+}
+
+.isShowed {
+  scale: 1;
+}

@@ -1,11 +1,16 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 .main {
   display: flex;
-  align-items: start;
-  justify-content: center;
-  gap: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  column-gap: 24px;
+}
+
+.categoriesContainer {
+  position: sticky;
+  top: 30px;
 }
 
 .content {
@@ -15,11 +20,14 @@
 
   width: 100%;
 
-  background-color: $color-black;
+  background-color: var(--color-semi-background);
   border-radius: 8px;
+  padding: 0 24px;
 
   @include onDesktop {
     max-width: 960px;
+
+    width: 75%;
   }
 }
 
@@ -38,11 +46,11 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0 24px;
   gap: 16px;
   width: 100%;
   max-width: 872px;
   margin-bottom: 24px;
+  padding-top: 24px;
 }
 
 .select {
@@ -50,11 +58,20 @@
 }
 
 .list,
-.pagination
-{
+.pagination {
   margin-bottom: 24px;
 
   @include onTablet {
     margin-bottom: 32px;
+  }
+}
+
+.loaderContainer {
+  width: 100%;
+  padding: 40px;
+  height: 200px;
+
+  @include onTablet {
+    height: 400px;
   }
 }

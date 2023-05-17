@@ -4,7 +4,7 @@ import { Button } from '../Button';
 import { ProductCard } from '../ProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper';
-import { Phone } from '../types/types';
+import { ProductItem } from '../../types/types';
 
 import 'swiper/css';
 import 'swiper/css/scrollbar';
@@ -12,10 +12,11 @@ import { Link } from 'react-router-dom';
 
 type ProductListProps = {
   title: string;
-  products: Phone[];
+  products: ProductItem[];
 };
 
 export const ProductList: FC<ProductListProps> = ({ title, products }) => {
+
   return (
     <section className={productList.productList}>
       <h2 className={productList.title}>
@@ -29,7 +30,7 @@ export const ProductList: FC<ProductListProps> = ({ title, products }) => {
         className={productList.products}
         slidesPerView={'auto'}
       >
-        {products.map((product) => (
+        {products && products.length > 0 && products.map((product) => (
           <SwiperSlide className={productList.item} key={product.id}>
             <ProductCard phone={product} />
           </SwiperSlide>
@@ -37,7 +38,7 @@ export const ProductList: FC<ProductListProps> = ({ title, products }) => {
 
       </Swiper>
 
-      <Link to='category/phones'>
+      <Link to='/phones'>
         <Button
           text={'Shop Now'}
           size={'large'}

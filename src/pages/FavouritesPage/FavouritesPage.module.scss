@@ -1,10 +1,9 @@
-@import '../../styles/main.scss';
+@import '../../styles/utils/mixins';
 
 .favorites {
   margin: 0 auto;
   max-width: 1304px;
-  background-color: $color-semi-dark;
-
+  background-color: var(--color-main-background);
 
   &__title {
     border-radius: 8px;
@@ -13,7 +12,7 @@
     padding-bottom: 26px;
     font-weight: 500;
     line-height: 20px;
-    background-color: $color-black;
+    background-color: var(--color-semi-background);
 
     @include onDesktop {
       padding-bottom: 36px;
@@ -21,11 +20,26 @@
   }
 
   &__list {
-    background-color: $color-black;
+    background-color: var(--color-semi-background);
     border-radius: 10px;
 
     @include onTablet {
       padding-bottom: 24px;
     }
+  }
+
+  .remove__radius {
+    border-radius: 0;
+  }
+
+  &__emptyList {
+    border-radius: 8px;
+    text-align: center;
+    padding-top: 180px;
+    padding-bottom: 175px;
+    margin-top: 24px;
+    font-weight: 500;
+    line-height: 20px;
+    background-color: var(--color-semi-background);
   }
 }
