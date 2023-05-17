@@ -29,8 +29,8 @@ export const CheckoutPage: FC = () => {
     setCart(getItems());
   }, []);
   
-  const totalSum: number = cart.reduce((acc: number, product: any) => 
-    acc + product.price * product.count, 0);
+  const totalSum: number = cart.reduce((acc: number, {price, count}) => 
+    acc + Number(price) * count, 0);
 
   return (
     <>
