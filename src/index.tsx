@@ -23,7 +23,7 @@ root.render(
       <FavoriteProvider>
         <CartProvider>
           <QueryClientProvider client={queryClient}>
-            <BrowserRouter>
+            <BrowserRouter basename='/nice_store'>
               <App />
             </BrowserRouter>
           </QueryClientProvider>
