@@ -13,9 +13,7 @@ export const CheckoutPage: FC = () => {
   
   const handleClearCart = () => {
     removeAllfromCart();
-    setTimeout(() => {
-      navigate('/');
-    }, 3000);
+    navigate('/');
   };
 
   useEffect(() => {
