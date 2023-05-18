@@ -41,6 +41,10 @@
   @include onTablet {
     gap: 24px;
   }
+
+  @media (min-width: 640px) and (max-width: 710px){
+    gap: 12px;
+  }
 }
 
 .homeLink {
@@ -49,6 +53,7 @@
   line-height: 19.5px;
   color: var(--color-contrast);
   text-transform: uppercase;
+  z-index: 1;
 
   @include onTablet {
     font-size: 20px;
@@ -57,6 +62,7 @@
 }
 
 .burgerButton {
+  z-index: 1;
   @include onDesktop {
     display: none;
   }
@@ -79,9 +85,11 @@
 }
 
 .userAccount {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 
   @include onTablet {
     gap: 10px;
@@ -89,15 +97,14 @@
 }
 
 .userName {
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 10px;
-
-  color: #a8a8a8;
+  display: none;
 
   @include onTablet {
+    display: block;
     font-size: 10px;
     line-height: 12px;
+    font-weight: 400;
+    color: #a8a8a8;
   }
 }
 
@@ -126,6 +133,43 @@
   }
 }
 
-.userimage {
+.userImage {
   width: 100%;
+}
+
+.userOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  border-radius: 8px;
+  padding: 6px 0;
+  text-align: center;
+  overflow: hidden;
+  z-index: 10;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+  height: 0;
+}
+
+.userOption {
+  padding: 6px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-main-background);
+  }
+}
+
+.userOptionsOpened {
+  height: 72px;
+  background-color: var(--color-semi-background);
+  border: 1px solid var(--color-contrast);
+}
+
+.logOutButton {
+  color: var(--color-primary);
 }

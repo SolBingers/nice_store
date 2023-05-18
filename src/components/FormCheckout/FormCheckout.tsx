@@ -5,17 +5,7 @@ import { Button } from '../../components/Button';
 import ReactInputMask from 'react-input-mask';
 
 import form from './FormCheckout.module.scss';
-
-interface FormInputs {
-  firstName: string;
-  sureName: string;
-  country: string;
-  city: string;
-  address: string;
-  apartment: number;
-  cardNumber: number;
-  expireDate: number;
-}
+import { FormInputs } from '../../types/FormInputs';
 
 interface Props {
   onClear: () => void;
@@ -33,6 +23,7 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
 
   const onSubmit: SubmitHandler<FormInputs> = data => {
     console.log(JSON.stringify(data));
+
     reset();
   };
 
@@ -49,16 +40,10 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
 
   return (
     <div className={form.container}>
-      <h2 className={form.title}>
-        Checkout form
-      </h2>
+      <h2 className={form.title}>Checkout form</h2>
 
       <div className={form.form}>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          method='POST'
-        >
-
+        <form onSubmit={handleSubmit(onSubmit)} method="POST">
           <div className={form.form__personalInfo}>
             <div className={form.form__controller}>
               <Controller
@@ -68,23 +53,24 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                   required: true,
                   pattern: /^[A-Za-zА-Яа-яЁёІіЇїЄє]{2,20}$/,
                 }}
-                render={({ field }) =>
+                render={({ field }) => (
                   <SettingsInput
                     className={form.form__input}
-                    title='Name'
-                    placeholder='...'
+                    title="Name"
+                    placeholder="..."
                     {...field}
-                  />}
+                  />
+                )}
               />
 
               <div className={form.form__inputError}>
-                {firstName?.type === 'required' &&
-                <p>This field is required</p>}
+                {firstName?.type === 'required' && (
+                  <p>This field is required</p>
+                )}
 
-                {firstName?.type === 'pattern' &&
+                {firstName?.type === 'pattern' && (
                   <p>Alphabetical characters only</p>
-                }
-
+                )}
               </div>
             </div>
 
@@ -96,23 +82,22 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                   required: true,
                   pattern: /^[A-Za-zА-Яа-яЁёІіЇїЄє]{2,20}$/,
                 }}
-                render={({ field }) =>
+                render={({ field }) => (
                   <SettingsInput
                     className={form.form__input}
-                    title='Surname'
-                    placeholder='...'
+                    title="Surname"
+                    placeholder="..."
                     {...field}
-                  />}
+                  />
+                )}
               />
 
               <div className={form.form__inputError}>
-                {sureName?.type === 'required'
-                  &&
-                <p>This field is required</p>}
+                {sureName?.type === 'required' && <p>This field is required</p>}
 
-                {sureName?.type === 'pattern' &&
+                {sureName?.type === 'pattern' && (
                   <p>Alphabetical characters only</p>
-                }
+                )}
               </div>
             </div>
           </div>
@@ -127,21 +112,24 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                     required: true,
                     pattern: /^([^0-9]*)$/,
                   }}
-                  render={({ field }) =>
+                  render={({ field }) => (
                     <SettingsInput
                       className={form.form__input}
                       title='Country'
                       placeholder='...'
                       {...field}
-                    />}
+                    />
+                  )}
                 />
 
                 <div className={form.form__inputError}>
-                  {country?.type === 'required' &&
-                  <p>This field is required</p>}
+                  {country?.type === 'required' && (
+                    <p>This field is required</p>
+                  )}
 
-                  {country?.type === 'pattern' &&
-                    <p>Alphabetical characters only</p>}
+                  {country?.type === 'pattern' && (
+                    <p>Alphabetical characters only</p>
+                  )}
                 </div>
               </div>
 
@@ -153,22 +141,20 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                     required: true,
                     pattern: /^([^0-9]*)$/,
                   }}
-                  render={({ field }) =>
+                  render={({ field }) => (
                     <SettingsInput
                       className={form.form__input}
-                      title='City'
-                      placeholder='...'
+                      title="City"
+                      placeholder="..."
                       {...field}
-                    />}
+                    />
+                  )}
                 />
 
                 <div className={form.form__inputError}>
-                  {city?.type === 'required' &&
-                  <p>This field is required</p>}
+                  {city?.type === 'required' && <p>This field is required</p>}
 
-                  {city?.type === 'pattern' &&
-                    <p>Alphabet characters only</p>
-                  }
+                  {city?.type === 'pattern' && <p>Alphabet characters only</p>}
                 </div>
               </div>
             </div>
@@ -182,22 +168,24 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                     required: true,
                     pattern: /^[a-zA-Z0-9а-яА-ЯЁёІіЇїЄє\s.,-]+$/,
                   }}
-                  render={({ field }) =>
+                  render={({ field }) => (
                     <SettingsInput
                       className={form.form__input}
-                      title='Address'
-                      placeholder='...'
+                      title="Address"
+                      placeholder="..."
                       {...field}
-                    />}
+                    />
+                  )}
                 />
 
                 <div className={form.form__inputError}>
-                  {address?.type === 'required' &&
-                  <p>This field is required</p>}
+                  {address?.type === 'required' && (
+                    <p>This field is required</p>
+                  )}
 
-                  {address?.type === 'pattern' &&
+                  {address?.type === 'pattern' && (
                     <p>Uncorect characters &&#10088;%#$</p>
-                  }
+                  )}
                 </div>
               </div>
 
@@ -209,22 +197,24 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                     required: true,
                     pattern: /[0-9]/,
                   }}
-                  render={({ field }) =>
+                  render={({ field }) => (
                     <SettingsInput
                       className={form.form__input}
-                      title='Apartment'
-                      placeholder='...'
+                      title="Apartment"
+                      placeholder="..."
                       {...field}
-                    />}
+                    />
+                  )}
                 />
 
                 <div className={form.form__inputError}>
-                  {apartment?.type === 'required' &&
-                  <p>This field is required</p>}
+                  {apartment?.type === 'required' && (
+                    <p>This field is required</p>
+                  )}
 
-                  {apartment?.type === 'pattern' &&
+                  {apartment?.type === 'pattern' && (
                     <p>Digits characters only</p>
-                  }
+                  )}
                 </div>
               </div>
             </div>
@@ -291,9 +281,9 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
 
           <div className={form.form__button}>
             <Button
-              text='Checkout'
-              size='extraLarge'
-              type='primary'
+              text="Checkout"
+              size="extraLarge"
+              type="primary"
               onClick={onClear}
               disabled={!isValid}
             />

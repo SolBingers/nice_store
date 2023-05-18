@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Product } from '../types/types';
+import { Product } from '../types/Product';
 import { useLocalStorage } from '../customHooks/useLocalStorage';
 import { toast } from 'react-toastify';
 
@@ -20,7 +20,7 @@ const initialValue = {
   },
   removeAllfromCart: () => {
     return;
-  }
+  },
 };
 
 export const CartContext = React.createContext<Context>(initialValue);
@@ -68,7 +68,9 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, removeAllfromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, removeAllfromCart }}
+    >
       {children}
     </CartContext.Provider>
   );

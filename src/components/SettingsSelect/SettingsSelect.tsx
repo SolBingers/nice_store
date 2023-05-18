@@ -7,7 +7,7 @@ type Props = {
   className?: string;
   title: string;
   options: string[];
-  selectedlValue: string;
+  selectedValue: string;
   setSelected: (value: string) => void;
 };
 
@@ -15,7 +15,7 @@ export const SettingsSelect: FC<Props> = ({
   className,
   title,
   options,
-  selectedlValue,
+  selectedValue,
   setSelected,
 }) => {
   const [isActive, setIsActive] = useState(false);
@@ -55,7 +55,7 @@ export const SettingsSelect: FC<Props> = ({
           })}
           onClick={handleBtnClick}
         >
-          <span>{toPresentableString(selectedlValue)}</span>
+          <span>{toPresentableString(selectedValue)}</span>
           <Arrow
             className={classNames(settingsSelect.arrow, {
               [settingsSelect.isActive]: isActive,

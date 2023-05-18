@@ -55,7 +55,7 @@
   border: none;
 
   &:hover {
-    filter: brightness(150%);
+    filter: invert(75%);
   }
 }
 

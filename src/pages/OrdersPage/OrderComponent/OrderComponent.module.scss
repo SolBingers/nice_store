@@ -1,0 +1,50 @@
+@import '../../../styles/utils/mixins';
+
+.order {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 2px solid var(--color-main-background);
+  padding: 12px;
+
+  @include onTablet {
+    flex-direction: row;
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-main-background);
+
+  @include onTablet {
+    width: 35%;
+    padding-bottom: 0;
+    padding-right: 24px;
+    border-bottom: none;
+    border-right: 2px solid var(--color-main-background);
+  }
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+
+  @include onTablet {
+    gap: 24px;
+    width: 65%;
+  }
+}
+
+.dimmed {
+  color: var(--color-primary);
+  opacity: 0.8;
+}

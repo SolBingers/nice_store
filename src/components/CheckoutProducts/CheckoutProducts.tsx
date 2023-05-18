@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { Product } from '../../types/types';
+import { Product } from '../../types/Product';
 import productItemStyle from './CheckoutProduct.module.scss';
 
 interface Props {
-  product: Product
+  product: Product;
 }
 
 export const CartItems: FC<Props> = ({ product }) => {
@@ -12,29 +12,18 @@ export const CartItems: FC<Props> = ({ product }) => {
   const imageURL = BASE_URL + '/' + image;
 
   return (
-    <div 
-      className={productItemStyle.container}
-      key={id}
-    >
+    <div className={productItemStyle.container} key={id}>
       <div className={productItemStyle.header}>
-        <div className={productItemStyle.imageContainer} >
-          <img 
-            className={productItemStyle.image}
-            src={imageURL} 
-            alt="phone"
-          />
+        <div className={productItemStyle.imageContainer}>
+          <img className={productItemStyle.image} src={imageURL} alt="phone" />
         </div>
 
-        <div className={productItemStyle.title}>
-          {name}
-        </div>
+        <div className={productItemStyle.title}>{name}</div>
       </div>
 
       <div className={productItemStyle.counterContainer}>
         <div className={productItemStyle.productsCounter}>
-          <div className={productItemStyle.count}>
-            {count}
-          </div>
+          <div className={productItemStyle.count}>{count}</div>
         </div>
       </div>
 

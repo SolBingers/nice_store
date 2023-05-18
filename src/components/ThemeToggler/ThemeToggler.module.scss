@@ -6,6 +6,7 @@
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s;
+  z-index: 1;
 
   @include onTablet {
     width: 38px;
