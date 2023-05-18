@@ -86,7 +86,6 @@ export const SearchOnWebsite: React.FC = () => {
 
   const handleEnableSearch = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setIsSearchAviable(true);
-    console.log('en');
     event.stopPropagation();
   };
 
@@ -104,7 +103,11 @@ export const SearchOnWebsite: React.FC = () => {
 
   return (
     <>
-      <div className={searchStyles.container} >
+      <div className={classNames(
+        searchStyles.container,{
+          [searchStyles.containerAviable]: isSearchAviable,
+        }
+      )} >
         <button 
           className={searchStyles.openSearch} 
           onClick={handleEnableSearch}
@@ -112,7 +115,7 @@ export const SearchOnWebsite: React.FC = () => {
           <img src={lens} alt="lens" className={searchStyles.lensOpen}/>
         </button>
 
-        <form className={classNames(
+        {isSearchAviable && <form className={classNames(
           searchStyles.formContainer,{
             [searchStyles.formContainerOpen]: isSearchAviable,
           }
@@ -138,9 +141,10 @@ export const SearchOnWebsite: React.FC = () => {
             <img src={lens} alt="lens" className={searchStyles.lens}/>
           </button>
         </form>
+        }
       </div>
 
-      {isSearchAviable && (
+      {isSearchAviable && query !=='' && (
         <SearchModal items={data?.data} isLoading={isLoading}/>
       )}
     </>
