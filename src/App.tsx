@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './styles/main.scss';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { FavouritesPage } from './pages/FavouritesPage';
@@ -19,6 +19,8 @@ import { CheckoutPage } from './pages/CheckoutPage';
 import { ToastContainer } from 'react-toastify';
 import { Color } from './types/Color';
 import './styles/notification.scss';
+import { OrdersPage } from './pages/OrdersPage/OrdersPage';
+import { SignedIn, SignedOut } from '@clerk/clerk-react';
 
 export const App: FC = () => {
   return (
@@ -54,6 +56,20 @@ export const App: FC = () => {
             <Route path='checkout' element={<CheckoutPage />} />
 
             <Route path='auth' element={<SignInPage />} />
+
+            <Route
+              path="orders"
+              element={
+                <>
+                  <SignedIn>
+                    <OrdersPage />
+                  </SignedIn>
+                  <SignedOut>
+                    <Navigate to="/" replace />
+                  </SignedOut>
+                </>
+              }
+            />
 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

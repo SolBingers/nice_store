@@ -85,9 +85,11 @@
 }
 
 .userAccount {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 
   @include onTablet {
     gap: 10px;
@@ -131,6 +133,43 @@
   }
 }
 
-.userimage {
+.userImage {
   width: 100%;
+}
+
+.userOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  border-radius: 8px;
+  padding: 6px 0;
+  text-align: center;
+  overflow: hidden;
+  z-index: 10;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+  height: 0;
+}
+
+.userOption {
+  padding: 6px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-main-background);
+  }
+}
+
+.userOptionsOpened {
+  height: 72px;
+  background-color: var(--color-semi-background);
+  border: 1px solid var(--color-contrast);
+}
+
+.logOutButton {
+  color: var(--color-primary);
 }

@@ -1,0 +1,12 @@
+@import '../../../styles/utils/mixins';
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.dimmed {
+  color: var(--color-primary);
+  opacity: 0.8;
+}
