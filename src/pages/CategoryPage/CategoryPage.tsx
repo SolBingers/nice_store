@@ -55,7 +55,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     getProducts,
   );
 
-  const lenghtDataArray = data?.data.length;
+  const lengthDataArray = data?.data.length;
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -92,7 +92,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             <SettingsSelect
               className={styles.select}
               title="Sort by"
-              selectedlValue={sort}
+              selectedValue={sort}
               options={['newest', 'oldest', 'cheapest']}
               setSelected={onSortChange}
             />
@@ -100,37 +100,39 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             <SettingsSelect
               className={styles.select}
               title="Items per page"
-              selectedlValue={count}
+              selectedValue={count}
               options={['6', '12', '18']}
               setSelected={onCountChange}
             />
           </div>
 
-          {(data && !isFetching && lenghtDataArray !== 0) ? (
-            <List className={styles.list} products={data.data} />
+          {(data && !!lengthDataArray) ? (
+            <>
+              <List className={styles.list} products={data.data} />
+
+              <Pagination
+                className={styles.pagination}
+                currentPage={page}
+                setSelectedPage={onPageChange}
+                maxPage={data.pages}
+              />
+            </>
           ):(
-            <div className={styles.emptyList}>
-              <div className={styles.emptyListIcon}/>
-              <div className={styles.emptyListTitle}>
-                No models were found matching the specified parameters
+            isFetching ? (
+              <div className={styles.loaderContainer}>
+                <Loader />
               </div>
-            </div>
+            ) : (
+              <div className={styles.emptyList}>
+                <div className={styles.emptyListIcon}/>
+                <div className={styles.emptyListTitle}>
+                  No models were found matching the specified parameters
+                </div>
+              </div>
+            )
           )}
 
-          {isFetching && (
-            <div className={styles.loaderContainer}>
-              <Loader />
-            </div>
-          )}
-
-          {data && lenghtDataArray !== 0 &&(
-            <Pagination
-              className={styles.pagination}
-              currentPage={page}
-              setSelectedPage={onPageChange}
-              maxPage={data.pages}
-            />
-          )}
+          
         </div>
       </main>
     </>
