@@ -103,11 +103,7 @@ export const SearchOnWebsite: React.FC = () => {
 
   return (
     <>
-      <div className={classNames(
-        searchStyles.container,{
-          [searchStyles.containerAviable]: isSearchAviable,
-        }
-      )} >
+      <div className={searchStyles.container} >
         <button 
           className={searchStyles.openSearch} 
           onClick={handleEnableSearch}
