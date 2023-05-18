@@ -111,7 +111,7 @@ export const SearchOnWebsite: React.FC = () => {
           <img src={lens} alt="lens" className={searchStyles.lensOpen}/>
         </button>
 
-        {isSearchAviable && <form className={classNames(
+        <form className={classNames(
           searchStyles.formContainer,{
             [searchStyles.formContainerOpen]: isSearchAviable,
           }
@@ -137,7 +137,6 @@ export const SearchOnWebsite: React.FC = () => {
             <img src={lens} alt="lens" className={searchStyles.lens}/>
           </button>
         </form>
-        }
       </div>
 
       {isSearchAviable && query !=='' && (
