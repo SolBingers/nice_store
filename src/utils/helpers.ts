@@ -3,10 +3,6 @@ export function updateSearch(
   searchParams: URLSearchParams, 
   setSearchParams: (searchParams: URLSearchParams) => void,
 ) {
-  if (!params.key) {
-    return;
-  }
-
   Object.entries(params).forEach(([key, value]) => {
     if (!value) {
       searchParams.delete(key);

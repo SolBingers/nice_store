@@ -50,9 +50,15 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     return await getAllProducts(category, searchParams.toString());
   };
 
+  const queryOptions = {
+    refetchOnWindowFocus: false,
+    retryOnMount: false,
+  };
+
   const { isFetching, data, refetch } = useQuery<Response>(
     'products',
     getProducts,
+    queryOptions,
   );
 
   const lengthDataArray = data?.data.length;
@@ -106,23 +112,23 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             />
           </div>
 
-          {(data && !!lengthDataArray) ? (
-            <>
-              <List className={styles.list} products={data.data} />
-
-              <Pagination
-                className={styles.pagination}
-                currentPage={page}
-                setSelectedPage={onPageChange}
-                maxPage={data.pages}
-              />
-            </>
-          ):(
-            isFetching ? (
-              <div className={styles.loaderContainer}>
-                <Loader />
-              </div>
-            ) : (
+          {isFetching ? (
+            <div className={styles.loaderContainer}>
+              <Loader />
+            </div>
+          ) : (
+            (data && !!lengthDataArray) ? (
+              <>
+                <List className={styles.list} products={data.data} />
+  
+                <Pagination
+                  className={styles.pagination}
+                  currentPage={page}
+                  setSelectedPage={onPageChange}
+                  maxPage={data.pages}
+                />
+              </>
+            ):(
               <div className={styles.emptyList}>
                 <div className={styles.emptyListIcon}/>
                 <div className={styles.emptyListTitle}>
@@ -131,8 +137,6 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
               </div>
             )
           )}
-
-          
         </div>
       </main>
     </>
