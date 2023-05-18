@@ -16,7 +16,7 @@ export const OrderItem: FC<Props> = ({ product }) => {
         <span className={styles.dimmed}>x</span>{count}
       </div>
       <div className={styles.price}>
-        {price}<span className={styles.dimmed}>$</span>
+        <span className={styles.dimmed}>$</span>{price}
       </div>
     </div>
   );

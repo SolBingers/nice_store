@@ -1,5 +1,6 @@
 import { ProductItem } from '../types/ProductItem';
 import { ProductItemSpec } from '../types/ProductItemSpec';
+import { Order } from '../types/Order';
 import { client } from '../utils/fetchClient';
 
 type Response = {
@@ -30,5 +31,5 @@ export const getProductsByType = (
 export const getItemRecomended = (id: string): Promise<ProductItem[]> =>
   client.get(`/products/${id}/recommended`);
 
-export const getAllOrders = (userId: string): Promise<ProductItem[]> =>
+export const getAllOrders = (userId: string): Promise<Order[]> =>
   client.get(`/orders/${userId}`);
