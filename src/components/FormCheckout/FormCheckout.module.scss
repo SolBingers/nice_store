@@ -75,3 +75,37 @@
     gap: 65px;
   }
 }
+
+.cardMask {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 14px;
+  padding: 12px;
+  outline: none;
+  color: var(--color-grey);
+  background-color: var(--color-semi-background);
+  border: 1px solid var(--color-main-background);
+  border-radius: 8px;
+  width: 100%;
+  transition: all 0.3s;
+  height: 40px;
+
+  &:hover {
+    border-color: var(--color-grey);
+  }
+
+  &:focus {
+    color: var(--color-contrast);
+    border-color: var(--color-contrast);
+  }
+}
+
+.maskTitle {
+  padding-left: 8px;
+  color: var(--color-grey);
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 14px;
+  transition: all 0.3s;
+}

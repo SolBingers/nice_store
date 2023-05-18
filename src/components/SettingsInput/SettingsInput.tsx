@@ -47,12 +47,12 @@ export const SettingsInput: FC<Props> = ({
     <div className={classNames(className, settingsInput.main)} >
       <p className={settingsInput.title} >{title}</p>
       <input
-        {...formProps}
-        type="text" 
+        type="text"
         placeholder={placeholder}
         className={settingsInput.input}
         value={text}
         onChange={handleChangeParams}
+        {...formProps}
       />
     </div>
   );
