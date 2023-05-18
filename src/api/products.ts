@@ -29,3 +29,6 @@ export const getProductsByType = (
 
 export const getItemRecomended = (id: string): Promise<ProductItem[]> =>
   client.get(`/products/${id}/recommended`);
+
+export const getAllOrders = (userId: string): Promise<ProductItem[]> =>
+  client.get(`/orders/${userId}`);

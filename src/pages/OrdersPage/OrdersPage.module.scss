@@ -1,0 +1,30 @@
+@import '../../styles/utils/mixins';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 1304px;
+}
+
+.pageTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 8px;
+  background-color: var(--color-semi-background);
+  padding: 24px 40px;
+}
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+  padding: 24px 40px;
+  min-height: 70vh;
+  border-radius: 8px;
+  background-color: var(--color-semi-background);
+}

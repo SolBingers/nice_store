@@ -19,6 +19,7 @@ import { CheckoutPage } from './pages/CheckoutPage';
 import { ToastContainer } from 'react-toastify';
 import { Color } from './types/Color';
 import './styles/notification.scss';
+import { OrdersPage } from './pages/OrdersPage/OrdersPage';
 
 export const App: FC = () => {
   return (
@@ -54,6 +55,8 @@ export const App: FC = () => {
             <Route path='checkout' element={<CheckoutPage />} />
 
             <Route path='auth' element={<SignInPage />} />
+
+            <Route path='orders' element={<OrdersPage />} />
 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
