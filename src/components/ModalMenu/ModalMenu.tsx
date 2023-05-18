@@ -3,7 +3,7 @@ import modalStyle from './ModalMenu.module.scss';
 import classNames from 'classnames';
 import { ProductItem } from '../ProductItem';
 import { Button } from '../Button';
-import { Product } from '../../types/types';
+import { Product } from '../../types/Product';
 import { useLocalStorage } from '../../customHooks/useLocalStorage';
 import { CartContext } from '../../contexts/CartContext';
 import { Link } from 'react-router-dom';
@@ -94,8 +94,9 @@ export const ModalMenu: React.FC<Props> = ({ isOpen, setIsOpen }) => {
         <div className={modalStyle.modalCards}>
           {products.length === 0 && (
             <div className={modalStyle.emptyCard}>
-              <div className={modalStyle.iconEmptyCard}/>
-              Your cart is empty<br />
+              <div className={modalStyle.iconEmptyCard} />
+              Your cart is empty
+              <br />
               Buy something first
             </div>
           )}
@@ -117,12 +118,12 @@ export const ModalMenu: React.FC<Props> = ({ isOpen, setIsOpen }) => {
             <span className={modalStyle.price}>{` ${findTotalPrice()}$`}</span>
           </div>
 
-          <Link to='checkout'>
-            <Button 
-              onClick={() => setIsOpen(false)} 
-              type="primary" 
-              size="small" 
-              text="Checkout" 
+          <Link to="checkout">
+            <Button
+              onClick={() => setIsOpen(false)}
+              type="primary"
+              size="small"
+              text="Checkout"
             />
           </Link>
         </div>

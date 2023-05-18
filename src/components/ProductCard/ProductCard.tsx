@@ -2,7 +2,8 @@ import card from '../ProductCard/ProductCard.module.scss';
 import React, { useState, useEffect, useContext } from 'react';
 import { ReactComponent as Favorite } from '../../images/emptyHeart.svg';
 import { Button } from '../Button';
-import { ProductItem, Product } from '../../types/types';
+import { ProductItem } from '../../types/ProductItem';
+import { Product } from '../../types/Product';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
 import { FavoriteContext } from '../../contexts/favoriteContext';
@@ -15,18 +16,18 @@ interface Props {
 const BASE_URL = 'https://nice-store-api.onrender.com';
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
-  const { 
-    itemId, 
-    image, 
-    name, 
-    screen, 
-    capacity, 
-    price, 
+  const {
+    itemId,
+    image,
+    name,
+    screen,
+    capacity,
+    price,
     fullPrice,
     category,
-    ram 
+    ram,
   } = phone;
-  
+
   const imageURL = BASE_URL + '/' + image;
 
   const itemPath = `/${category}/${itemId}`;
@@ -36,23 +37,21 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   const { phones, addPhone, removePhone } = useContext(FavoriteContext);
   const { cart, addToCart } = useContext(CartContext);
 
-
   const handleFavoritePhone = () => {
     if (isFavorite) {
       removePhone(itemId);
     } else {
       addPhone(phone);
     }
-
   };
 
   useEffect(() => {
-    if(phones.find((phone: ProductItem) => phone.itemId === itemId)) {
+    if (phones.find((phone: ProductItem) => phone.itemId === itemId)) {
       setIsFavorite(true);
     } else {
       setIsFavorite(false);
     }
-  },[phones]);
+  }, [phones]);
 
   useEffect(() => {
     if (cart.find((product: Product) => product.itemId === itemId)) {
@@ -75,16 +74,15 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   return (
     <div className={card.card}>
       <div className={card.imageBackground}>
-        <button 
-          className={card.iconContainer}
-          onClick={handleFavoritePhone}
-        >
-          <Favorite className={classNames(card.heart, {
-            [card.heart__active]: isFavorite === true,
-          })} />
+        <button className={card.iconContainer} onClick={handleFavoritePhone}>
+          <Favorite
+            className={classNames(card.heart, {
+              [card.heart__active]: isFavorite === true,
+            })}
+          />
         </button>
         <Link to={itemPath} className={card.image}>
-          <img className={card.image} src={imageURL} alt='phone'/>
+          <img className={card.image} src={imageURL} alt="phone" />
         </Link>
       </div>
 
