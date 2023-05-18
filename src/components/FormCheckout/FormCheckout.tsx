@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { SettingsInput } from '../../components/SettingsInput';
 import { Button } from '../../components/Button';
+import ReactInputMask from 'react-input-mask';
 
 import form from './FormCheckout.module.scss';
 
@@ -24,14 +25,14 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
   const {
     handleSubmit,
     control,
-    formState: {errors, isValid },
+    formState: {errors, isValid},
     reset,
   } = useForm<FormInputs>({
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   const onSubmit: SubmitHandler<FormInputs> = data => {
-    alert(JSON.stringify(data));
+    console.log(JSON.stringify(data));
     reset();
   };
 
@@ -83,6 +84,7 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                 {firstName?.type === 'pattern' &&
                   <p>Alphabetical characters only</p>
                 }
+
               </div>
             </div>
 
@@ -92,10 +94,7 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                 control={control}
                 rules={{
                   required: true,
-                  pattern: {
-                    value: /^[A-Za-zА-Яа-яЁёІіЇїЄє]{2,20}$/,
-                    message: ''
-                  }
+                  pattern: /^[A-Za-zА-Яа-яЁёІіЇїЄє]{2,20}$/,
                 }}
                 render={({ field }) =>
                   <SettingsInput
@@ -132,7 +131,7 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                     <SettingsInput
                       className={form.form__input}
                       title='Country'
-                      placeholder="..."
+                      placeholder='...'
                       {...field}
                     />}
                 />
@@ -181,7 +180,7 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                   control={control}
                   rules={{
                     required: true,
-                    pattern: /^[#.0-9a-zA-Z\s,-]+$/,
+                    pattern: /^[a-zA-Z0-9а-яА-ЯЁёІіЇїЄє\s.,-]+$/,
                   }}
                   render={({ field }) =>
                     <SettingsInput
@@ -238,25 +237,26 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                 control={control}
                 rules={{
                   required: true,
-                  pattern: /[0-9]/,
-                  max: 19,
+                  pattern: /^[0-9\s]+$/,
                 }}
-                render={({ field }) =>
-                  <SettingsInput
-                    className={form.form__input}
-                    title='Card Number'
-                    placeholder='0000 0000 0000 0000'
-                    {...field}
-                  />}
+                render={({ field }) => (
+                  <div>
+                    <p className={form.maskTitle}>
+                      Card number
+                    </p>
+                    <ReactInputMask
+                      className={form.cardMask}
+                      placeholder='0000 0000 0000 0000'
+                      {...field}
+                      mask="9999 9999 9999 9999"
+                    />
+                  </div>
+                )}
               />
 
               <div className={form.form__inputError}>
                 {cardNumber?.type === 'required' &&
                 <p>This field is required</p>}
-
-                {cardNumber?.type === 'pattern' &&
-                  <p>Digits characters only</p>
-                }
               </div>
             </div>
 
@@ -264,23 +264,27 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
               <Controller
                 name="expireDate"
                 control={control}
-                rules={{ required: true }}
+                rules={{ required: true,
+                  pattern: /^\d{2}\/\d{2}$/,
+                }}
                 render={({ field }) =>
-                  <SettingsInput
-                    className={form.form__input}
-                    title='Expire date'
-                    placeholder='MM/YY'
-                    {...field}
-                  />}
+                  <div>
+                    <p className={form.maskTitle}>
+                      Card number
+                    </p>
+                    <ReactInputMask
+                      className={form.cardMask}
+                      placeholder='MM/YY'
+                      {...field}
+                      mask="99/99"
+                    />
+                  </div>
+                }
               />
 
               <div className={form.form__inputError}>
                 {expireDate?.type === 'required' &&
                 <p>This field is required</p>}
-
-                {expireDate?.type === 'pattern' &&
-                  <p>Digits characters only</p>
-                }
               </div>
             </div>
           </div>
