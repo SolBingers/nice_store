@@ -52,6 +52,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  object-fit: cover;
 
   &Meme {
     animation: scale 1s infinite;
@@ -72,7 +73,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin-right: 16px;
 
   height: 56px;

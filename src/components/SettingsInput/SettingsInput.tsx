@@ -8,17 +8,19 @@ type Props = {
   className?: string;
   title: string;
   placeholder?: string;
+  query?: string;
   setQuery?: (input: string) => void;
 }
 
 export const SettingsInput: FC<Props> = ({
   className,
   title,
+  query,
   setQuery,
   placeholder,
   ...formProps
 }) => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState(query);
 
   const handleSpaces = (text: string) => {
     const modifiedValue = text.replace(/ /g, '-');

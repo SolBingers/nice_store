@@ -24,6 +24,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
   const page = searchParams.get('page') || '1';
   const sort = searchParams.get('sort') || 'newest';
   const count = searchParams.get('count') || '6';
+  const query = searchParams.get('query') || '';
 
   const onSortChange = (sort: string) => {
     updateSearch({ sort }, searchParams, setSearchParams);
@@ -80,6 +81,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             <SettingsInput
               className={styles.input}
               title="Product name"
+              query={query}
               setQuery={onQueryChange}
             />
 
@@ -100,9 +102,11 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             />
           </div>
 
-          {data && !isLoading && lenghtDataArray !== 0 ? (
+          {data && !isLoading && lenghtDataArray !== 0 && (
             <List className={styles.list} products={data.data} />
-          ) : (
+          )}
+
+          {!isLoading && lenghtDataArray === 0 && (
             <div className={styles.emptyList}>
               <div className={styles.emptyListIcon} />
               <div className={styles.emptyListTitle}>
@@ -111,7 +115,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             </div>
           )}
 
-          {isLoading && (
+          {isLoading &&  (
             <div className={styles.loaderContainer}>
               <Loader />
             </div>
