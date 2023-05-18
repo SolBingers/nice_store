@@ -25,17 +25,21 @@ export const TecSpecs: FC<Props> = ({ ProductItemSpec }) => {
       <div className={spec.specContainer}>
         <div className={spec.name}>
           {listOfSpec.map((el) => (
-            <p key={listOfSpec.indexOf(el)} className={spec.info}>
-              {el.name}
-            </p>
+            el.value && (
+              <p key={listOfSpec.indexOf(el)} className={spec.info}>
+                {el.name}
+              </p>
+            )
           ))}
         </div>
 
         <div className={spec.specs}>
           {listOfSpec.map((el) => (
-            <p key={listOfSpec.indexOf(el)} className={spec.info}>
-              {el.value}
-            </p>
+            el.value && (
+              <p key={listOfSpec.indexOf(el)} className={spec.info}>
+                {el.value}
+              </p>
+            )
           ))}
         </div>
       </div>

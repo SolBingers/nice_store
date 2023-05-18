@@ -34,6 +34,11 @@
 }
 
 .name {
+  display: flex;
+  justify-content: center;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
   line-height: 26px;
   font-weight: 700;
   font-size: 20px;
