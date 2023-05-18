@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocalStorage } from '../customHooks/useLocalStorage';
-import { ProductItem } from '../types/types';
+import { ProductItem } from '../types/ProductItem';
 import { toast } from 'react-toastify';
 
 interface Context {
@@ -35,7 +35,7 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
   };
 
   useEffect(() => {
-    const storedPhone= localStorage.getItem('phones');
+    const storedPhone = localStorage.getItem('phones');
     if (storedPhone) {
       setPhones(JSON.parse(storedPhone));
     }
@@ -49,7 +49,9 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
   };
 
   const removePhone = (itemId: string) => {
-    const updatedPhone = phones.filter((phone: ProductItem) => phone.itemId !== itemId);
+    const updatedPhone = phones.filter(
+      (phone: ProductItem) => phone.itemId !== itemId,
+    );
     setPhones(updatedPhone);
     updateLocalStorage(updatedPhone);
     notification('Product removed from favorites 🤝');

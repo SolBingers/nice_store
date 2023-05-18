@@ -8,7 +8,7 @@ import { List } from '../../components/List';
 import { Categories } from '../../components/Categories';
 import { Pagination } from '../../components/Pagination';
 import { useQuery } from 'react-query';
-import { ProductItem } from '../../types/types';
+import { Response } from '../../types/Response';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { getAllProducts } from '../../api/products';
@@ -19,16 +19,12 @@ type Props = {
   category: string;
 };
 
-type Response = {
-  data: ProductItem[];
-  pages: number;
-};
-
 export const CategoryPage: FC<Props> = ({ className, category }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page') || '1';
   const sort = searchParams.get('sort') || 'newest';
   const count = searchParams.get('count') || '6';
+  const query = searchParams.get('query') || '';
 
   const onSortChange = (sort: string) => {
     updateSearch({ sort }, searchParams, setSearchParams);
@@ -50,16 +46,23 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     return await getAllProducts(category, searchParams.toString());
   };
 
-  const { isLoading, data, refetch } = useQuery<Response>(
+  const queryOptions = {
+    refetchOnWindowFocus: false,
+    retryOnMount: false,
+    retry: false,
+  };
+
+  const { isFetching, data, refetch } = useQuery<Response>(
     'products',
     getProducts,
+    queryOptions,
   );
 
-  const lenghtDataArray = data?.data.length;
-  
+  const lengthDataArray = data?.data.length;
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  },[]);
+  }, []);
 
   useEffect(() => {
     refetch();
@@ -81,18 +84,18 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
         <Categories />
 
         <div className={styles.content}>
-
           <div className={styles.settings}>
-            <SettingsInput 
-              className={styles.input} 
-              title="Product name" 
-              setQuery={onQueryChange}  
+            <SettingsInput
+              className={styles.input}
+              title="Product name"
+              query={query}
+              setQuery={onQueryChange}
             />
-            
+
             <SettingsSelect
               className={styles.select}
               title="Sort by"
-              selectedlValue={sort}
+              selectedValue={sort}
               options={['newest', 'oldest', 'cheapest']}
               setSelected={onSortChange}
             />
@@ -100,30 +103,32 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             <SettingsSelect
               className={styles.select}
               title="Items per page"
-              selectedlValue={count}
+              selectedValue={count}
               options={['6', '12', '18']}
               setSelected={onCountChange}
             />
           </div>
 
-          {(data && !isLoading && lenghtDataArray !== 0) ? (
+          {data && !isFetching && lengthDataArray !== 0 && (
             <List className={styles.list} products={data.data} />
-          ):(
+          )}
+
+          {!isFetching && lengthDataArray === 0 && (
             <div className={styles.emptyList}>
-              <div className={styles.emptyListIcon}/>
+              <div className={styles.emptyListIcon} />
               <div className={styles.emptyListTitle}>
                 No models were found matching the specified parameters
               </div>
             </div>
           )}
 
-          {isLoading && (
+          {isFetching &&  (
             <div className={styles.loaderContainer}>
               <Loader />
             </div>
           )}
 
-          {data && lenghtDataArray !== 0 &&(
+          {data && lengthDataArray !== 0 && (
             <Pagination
               className={styles.pagination}
               currentPage={page}

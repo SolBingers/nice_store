@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import header from './Header.module.scss';
 import { ReactComponent as Burger } from '../../images/burger.svg';
@@ -11,39 +11,55 @@ import { CartCounter } from '../CartCounter';
 import { SearchOnWebsite } from '../SearchOnWebsite';
 import { ThemeToggler } from '../ThemeToggler';
 import MyLogo from '../../images/dog.svg';
-import { SignedIn, SignedOut, useClerk, useUser } from '@clerk/clerk-react';
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  useClerk,
+  useUser,
+} from '@clerk/clerk-react';
 
 type Props = {
   className?: string;
-}
+};
 
 export const Header: FC<Props> = ({ className }) => {
   const [isOpened, setIsOpened] = useState(false);
   const [isOpenedModal, setIsOpenedModal] = useState(false);
+  const [isOpenedUserOptions, setIsOpenedUserOptions] = useState(false);
   const { user } = useUser();
   const { signOut } = useClerk();
   const location = useLocation();
   const endpoint = location.pathname;
 
+  const handleUserAccountClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    event.stopPropagation();
+    setIsOpenedUserOptions((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const handleDocumentClick = () => {
+      setIsOpenedUserOptions(false);
+    };
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
+
   return (
     <>
-      <header className={
-        classNames(header.header, className)
-      }>
+      <header className={classNames(header.header, className)}>
         {isOpenedModal && (
           <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
         )}
 
-
-        {endpoint !== '/checkout' && (
-          <SearchOnWebsite/>
-        )}
-
         <div className={header.section}>
-          <Link
-            to="/"
-            className={header.homeLink}
-          >
+          <Link to="/" className={header.homeLink}>
             N🤝ce
           </Link>
 
@@ -51,70 +67,86 @@ export const Header: FC<Props> = ({ className }) => {
 
           <button className={classNames(header.button, header.burgerButton)}>
             <Burger
-              className={header.burgerImage} 
+              className={header.burgerImage}
               onClick={() => setIsOpened(true)}
             />
           </button>
         </div>
-        {endpoint !== '/checkout' && (
-          <div className={header.section}>
-            <NavLink
-              className={({ isActive }) => classNames(
-                header.button,
-                {
-                  [header.activeLink]: isActive,
-                },
-              )}
-              to="/favourites"
-            >
-              <Favourites className={classNames(header.favourites, header.icon)} />
-            </NavLink>
-            <button 
-              className={header.button}
-              onClick={() => setIsOpenedModal(true)}
-            >
-              <Cart className={classNames(header.cart, header.icon)} />
-              <CartCounter/>
-            </button>
-          </div>
-        )}
+        <div className={header.section}>
+          {endpoint !== '/checkout' && (
+            <div className={header.section}>
+              <SearchOnWebsite />
 
-        <div className={header.userAccount}>
+              <NavLink
+                className={({ isActive }) =>
+                  classNames(header.button, {
+                    [header.activeLink]: isActive,
+                  })
+                }
+                to="/favourites"
+              >
+                <Favourites
+                  className={classNames(header.favourites, header.icon)}
+                />
+              </NavLink>
+              <button
+                className={header.button}
+                onClick={() => setIsOpenedModal(true)}
+              >
+                <Cart className={classNames(header.cart, header.icon)} />
+                <CartCounter />
+              </button>
+            </div>
+          )}
           <SignedIn>
-            <button 
-              className={classNames(header.button, header.loginButton)}
-              onClick={() => signOut()}
+            <div 
+              className={header.userAccount}
+              onClick={handleUserAccountClick}
             >
-              <img
-                src={user?.profileImageUrl}
-                alt="loader_dog"
-                className={header.userimage}
-              />
-            </button>
+              <button
+                className={classNames(header.button, header.loginButton)}
+              >
+                <img
+                  src={user?.profileImageUrl}
+                  alt="loader_dog"
+                  className={header.userImage}
+                />
+              </button>
 
-            <p className={header.userName}>
-              {user?.fullName}
-            </p>
+              <p className={header.userName}>{user?.fullName}</p>
+
+              <div
+                className={classNames(header.userOptions, {
+                  [header.userOptionsOpened]: isOpenedUserOptions,
+                })}
+              >
+                <Link to="orders" className={header.userOption}>
+                  Orders
+                </Link>
+                <div
+                  className={classNames(header.userOption, header.logOutButton)}
+                  onClick={() => signOut()}
+                >
+                  Log out
+                </div>
+              </div>
+            </div>
           </SignedIn>
 
           <SignedOut>
-            <Link to="/sign-in">
-              <button className={classNames(header.button, header.loginButton)}>
-                <img
-                  src={MyLogo}
-                  alt="loader_dog"
-                  className={header.dog}
-                />
-              </button>
-            </Link>
-
-            <p className={header.userName}>
-              Guest
-            </p>
+            <div className={header.userAccount}>
+              <SignInButton mode="modal" redirectUrl="/nice_store">
+                <button
+                  className={classNames(header.button, header.loginButton)}
+                >
+                  <img src={MyLogo} alt="loader_dog" className={header.dog} />
+                </button>
+              </SignInButton>
+              <p className={header.userName}>Guest</p>
+            </div>
           </SignedOut>
         </div>
-
-        <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened}/>
+        <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened} />
       </header>
     </>
   );
