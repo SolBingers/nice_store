@@ -2,10 +2,10 @@ import details from './ProductDetails.module.scss';
 import React, { FC } from 'react';
 import { SelectionSection } from '../SelectionSection';
 import { ProductGallery } from '../ProductGallery/ProductGallery';
-import { ProductItemSpec } from '../../types/types';
+import { ProductItemSpec } from '../../types/ProductItemSpec';
 
 interface Props {
-  phoneData: ProductItemSpec
+  phoneData: ProductItemSpec;
 }
 
 export const ProductDetails: FC<Props> = ({ phoneData }) => {
@@ -23,7 +23,7 @@ export const ProductDetails: FC<Props> = ({ phoneData }) => {
 
   const BASE_URL = 'https://nice-store-api.onrender.com';
 
-  const imageURLs = images.map(element => {
+  const imageURLs = images.map((element) => {
     const fullPath = BASE_URL + '/' + element;
 
     return fullPath;

@@ -17,7 +17,7 @@ export const SaleBanner: React.FC = () => {
           SALE
         </h2>
 
-        <Link to='category/phones' className={saleBanner.button}>
+        <Link to='/phones' className={saleBanner.button}>
           <Button 
             text='Shop Now' 
             type='secondary' 

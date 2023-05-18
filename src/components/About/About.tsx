@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import about from './About.module.scss';
-import { ProductItemSpec } from '../../types/types';
+import { ProductItemSpec } from '../../types/ProductItemSpec';
 
 interface Props {
-  ProductItemSpec: ProductItemSpec | undefined
+  ProductItemSpec: ProductItemSpec | undefined;
 }
 
 export const About: FC<Props> = ({ ProductItemSpec }) => {
@@ -14,17 +14,12 @@ export const About: FC<Props> = ({ ProductItemSpec }) => {
 
         <div className={about.description}>
           {ProductItemSpec?.description.map((element) => (
-            <React.Fragment key={element.title} >
-              <h3
-                className={about.subtitle}>
-                {element.title}
-              </h3>
+            <React.Fragment key={element.title}>
+              <h3 className={about.subtitle}>{element.title}</h3>
               <section>
                 <div className={about.textContainer}>
                   {element.text.map((el, i) => (
-                    <p
-                      key={element.title + i}
-                      className={about.text}>
+                    <p key={element.title + i} className={about.text}>
                       {el}
                     </p>
                   ))}

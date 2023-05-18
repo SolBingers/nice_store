@@ -8,7 +8,7 @@ import { List } from '../../components/List';
 import { Categories } from '../../components/Categories';
 import { Pagination } from '../../components/Pagination';
 import { useQuery } from 'react-query';
-import { ProductItem } from '../../types/types';
+import { Response } from '../../types/Response';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { getAllProducts } from '../../api/products';
@@ -17,11 +17,6 @@ import { updateSearch } from '../../utils/helpers';
 type Props = {
   className?: string;
   category: string;
-};
-
-type Response = {
-  data: ProductItem[];
-  pages: number;
 };
 
 export const CategoryPage: FC<Props> = ({ className, category }) => {
@@ -63,10 +58,10 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
   );
 
   const lengthDataArray = data?.data.length;
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  },[]);
+  }, []);
 
   useEffect(() => {
     refetch();
@@ -88,14 +83,13 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
         <Categories />
 
         <div className={styles.content}>
-
           <div className={styles.settings}>
-            <SettingsInput 
-              className={styles.input} 
-              title="Product name" 
-              setQuery={onQueryChange}  
+            <SettingsInput
+              className={styles.input}
+              title="Product name"
+              setQuery={onQueryChange}
             />
-            
+
             <SettingsSelect
               className={styles.select}
               title="Sort by"

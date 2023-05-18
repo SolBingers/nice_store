@@ -4,7 +4,7 @@ import { Button } from '../Button';
 import { ProductCard } from '../ProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper';
-import { ProductItem } from '../../types/types';
+import { ProductItem } from '../../types/ProductItem';
 
 import 'swiper/css';
 import 'swiper/css/scrollbar';
@@ -16,12 +16,9 @@ type ProductListProps = {
 };
 
 export const ProductList: FC<ProductListProps> = ({ title, products }) => {
-
   return (
     <section className={productList.productList}>
-      <h2 className={productList.title}>
-        {title}
-      </h2>
+      <h2 className={productList.title}>{title}</h2>
 
       <Swiper
         freeMode={true}
@@ -30,21 +27,18 @@ export const ProductList: FC<ProductListProps> = ({ title, products }) => {
         className={productList.products}
         slidesPerView={'auto'}
       >
-        {products && products.length > 0 && products.map((product) => (
-          <SwiperSlide className={productList.item} key={product.id}>
-            <ProductCard phone={product} />
-          </SwiperSlide>
-        ))}
-
+        {products &&
+          products.length > 0 &&
+          products.map((product) => (
+            <SwiperSlide className={productList.item} key={product.id}>
+              <ProductCard phone={product} />
+            </SwiperSlide>
+          ))}
       </Swiper>
 
-      <Link to='/phones'>
-        <Button
-          text={'Shop Now'}
-          size={'large'}
-          type={'secondary'}
-        />
+      <Link to="/phones">
+        <Button text={'Shop Now'} size={'large'} type={'secondary'} />
       </Link>
-    </section >
+    </section>
   );
 };

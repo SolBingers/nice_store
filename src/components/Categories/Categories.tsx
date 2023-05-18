@@ -86,9 +86,13 @@ export const Categories: FC<Props> = ({ className }) => {
           </NavLink>
         </div>
 
-        <div className={styles.categories__rights}>
+        <a 
+          href='https://github.com/SolBingers'
+          className={styles.categories__rights}
+          target="_blank" rel="noreferrer"
+        >
           All rights reserved.
-        </div>
+        </a>
       </nav>
     </div>
   );
