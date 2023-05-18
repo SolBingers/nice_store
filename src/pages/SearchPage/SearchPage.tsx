@@ -27,7 +27,7 @@ export const SearchPage:React.FC = () => {
     updateSearch({ page }, searchParams, setSearchParams);
   };
 
-  const {isLoading, data, refetch} = useQuery<Response>(
+  const {isFetching, data, refetch} = useQuery<Response>(
     'searchProduct');
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const SearchPage:React.FC = () => {
         <Categories className={styles.categoriesContainer}/>
 
         <div className={classNames(styles.content, additionalStyles.container)}>
-          {data && !isLoading ? (
+          {data && !isFetching ? (
             <List className={styles.list} products={data.data} />
           ) : (
             <div className={styles.loaderContainer}>

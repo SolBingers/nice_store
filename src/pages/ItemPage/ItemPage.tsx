@@ -12,6 +12,7 @@ import { ProductItem, ProductItemSpec } from '../../types/types';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import classNames from 'classnames';
+import { NotFoundPage } from '../NotFoundPage';
 
 type Props = {
   className?: string;
@@ -20,7 +21,13 @@ type Props = {
 export const ItemPage: FC<Props> = ({ className }) => {
   const { itemId = '0' } = useParams();
 
-  const { data: phoneSingle, isLoading, refetch } = useQuery<ProductItemSpec>('phone', () =>
+  const { 
+    data: phoneSingle, 
+    isLoading,
+    isFetching,
+    refetch,
+    isError,
+  } = useQuery<ProductItemSpec>('phone', () =>
     getItemById(itemId),
   );
 
@@ -32,6 +39,10 @@ export const ItemPage: FC<Props> = ({ className }) => {
     refetch();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [itemId]);
+
+  if (isError) {
+    return (<NotFoundPage />);
+  }
 
   return (
     <>
@@ -46,19 +57,26 @@ export const ItemPage: FC<Props> = ({ className }) => {
 
           <div className={itemPage.container} >
             <Categories />
-
             <div className={itemPage.product}>
-              <ProductDetails phoneData={phoneSingle} />
-
-              <div className={itemPage.productInfo}>
-                <div className={itemPage.about}>
-                  <About ProductItemSpec={phoneSingle} />
+              {isFetching ? (
+                <div className={itemPage.loadContainer} >
+                  <Loader />
                 </div>
+              ) : (
+                <>
+                  <ProductDetails phoneData={phoneSingle} />
 
-                <div className={itemPage.techSpecs}>
-                  <TecSpecs ProductItemSpec={phoneSingle} />
-                </div>
-              </div>
+                  <div className={itemPage.productInfo}>
+                    <div className={itemPage.about}>
+                      <About ProductItemSpec={phoneSingle} />
+                    </div>
+
+                    <div className={itemPage.techSpecs}>
+                      <TecSpecs ProductItemSpec={phoneSingle} />
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 

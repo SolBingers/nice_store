@@ -50,7 +50,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
     return await getAllProducts(category, searchParams.toString());
   };
 
-  const { isLoading, data, refetch } = useQuery<Response>(
+  const { isFetching, data, refetch } = useQuery<Response>(
     'products',
     getProducts,
   );
@@ -106,7 +106,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             />
           </div>
 
-          {(data && !isLoading && lenghtDataArray !== 0) ? (
+          {(data && !isFetching && lenghtDataArray !== 0) ? (
             <List className={styles.list} products={data.data} />
           ):(
             <div className={styles.emptyList}>
@@ -117,7 +117,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             </div>
           )}
 
-          {isLoading && (
+          {isFetching && (
             <div className={styles.loaderContainer}>
               <Loader />
             </div>
