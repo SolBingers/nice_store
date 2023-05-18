@@ -21,18 +21,28 @@ type Props = {
 export const ItemPage: FC<Props> = ({ className }) => {
   const { itemId = '0' } = useParams();
 
+  const queryOptions = {
+    refetchOnWindowFocus: false,
+    retryOnMount: false,
+    retry: false,
+  };
+
   const { 
     data: phoneSingle, 
     isLoading,
     isFetching,
     refetch,
     isError,
-  } = useQuery<ProductItemSpec>('phone', () =>
-    getItemById(itemId),
+  } = useQuery<ProductItemSpec>(
+    'phone', 
+    () => getItemById(itemId),
+    queryOptions
   );
 
-  const { data: phones = [] } = useQuery<ProductItem[]>('phones', () =>
-    getItemRecomended(itemId),
+  const { data: phones = [] } = useQuery<ProductItem[]>(
+    'phones', 
+    () => getItemRecomended(itemId),
+    queryOptions
   );
 
   useEffect(() => {
@@ -40,7 +50,7 @@ export const ItemPage: FC<Props> = ({ className }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [itemId]);
 
-  if (isError) {
+  if (isError && !isFetching) {
     return (<NotFoundPage />);
   }
 

@@ -53,6 +53,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
   const queryOptions = {
     refetchOnWindowFocus: false,
     retryOnMount: false,
+    retry: false,
   };
 
   const { isFetching, data, refetch } = useQuery<Response>(
