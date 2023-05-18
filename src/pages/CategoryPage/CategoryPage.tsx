@@ -109,11 +109,11 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             />
           </div>
 
-         {data && !isFetching && lenghtDataArray !== 0 && (
+          {data && !isFetching && lengthDataArray !== 0 && (
             <List className={styles.list} products={data.data} />
           )}
 
-          {!isFetching && lenghtDataArray === 0 && (
+          {!isFetching && lengthDataArray === 0 && (
             <div className={styles.emptyList}>
               <div className={styles.emptyListIcon} />
               <div className={styles.emptyListTitle}>
@@ -128,7 +128,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             </div>
           )}
 
-          {data && lenghtDataArray !== 0 && (
+          {data && lengthDataArray !== 0 && (
             <Pagination
               className={styles.pagination}
               currentPage={page}
