@@ -8,21 +8,24 @@ import itemPage from './ItemPage.module.scss';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getItemById, getItemRecomended } from '../../api/products';
-import { ProductItem, ProductItemSpec } from '../../types/types';
+import { ProductItem } from '../../types/ProductItem';
+import { ProductItemSpec } from '../../types/ProductItemSpec';
 import { Loader } from '../../components/Loader';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import classNames from 'classnames';
 
 type Props = {
   className?: string;
-}
+};
 
 export const ItemPage: FC<Props> = ({ className }) => {
   const { itemId = '0' } = useParams();
 
-  const { data: phoneSingle, isLoading, refetch } = useQuery<ProductItemSpec>('phone', () =>
-    getItemById(itemId),
-  );
+  const {
+    data: phoneSingle,
+    isLoading,
+    refetch,
+  } = useQuery<ProductItemSpec>('phone', () => getItemById(itemId));
 
   const { data: phones = [] } = useQuery<ProductItem[]>('phones', () =>
     getItemRecomended(itemId),
@@ -43,8 +46,7 @@ export const ItemPage: FC<Props> = ({ className }) => {
         </div>
       ) : (
         <main className={classNames(className, itemPage.main)}>
-
-          <div className={itemPage.container} >
+          <div className={itemPage.container}>
             <Categories />
 
             <div className={itemPage.product}>

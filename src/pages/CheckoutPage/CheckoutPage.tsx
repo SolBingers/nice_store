@@ -2,7 +2,7 @@ import React, { FC, useContext, useEffect, useState } from 'react';
 import { CartItems } from '../../components/CheckoutProducts';
 import page from './CheckoutPage.module.scss';
 import { CartContext } from '../../contexts/CartContext';
-import { Product } from '../../types/types';
+import { Product } from '../../types/Product';
 import { FormCheckout } from '../../components/FormCheckout';
 import { useNavigate } from 'react-router';
 
@@ -10,7 +10,7 @@ export const CheckoutPage: FC = () => {
   const [cart, setCart] = useState<Product[]>([]);
   const { removeAllfromCart } = useContext(CartContext);
   const navigate = useNavigate();
-  
+
   const handleClearCart = () => {
     removeAllfromCart();
     navigate('/');
@@ -28,9 +28,11 @@ export const CheckoutPage: FC = () => {
 
     setCart(getItems());
   }, []);
-  
-  const totalSum: number = cart.reduce((acc: number, {price, count}) => 
-    acc + Number(price) * count, 0);
+
+  const totalSum: number = cart.reduce(
+    (acc: number, { price, count }) => acc + Number(price) * count,
+    0,
+  );
 
   return (
     <>
@@ -43,7 +45,7 @@ export const CheckoutPage: FC = () => {
           <h2 className={page.itemsTitle}>Your order</h2>
 
           <div className={page.itemsContainer}>
-            {cart.map(product => (
+            {cart.map((product) => (
               <CartItems key={product.id} product={product} />
             ))}
           </div>
