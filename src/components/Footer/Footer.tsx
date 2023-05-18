@@ -21,7 +21,13 @@ export const Footer: FC<Props> = ({ className }) => (
     </div>
 
     <div className={footer.links}>
-      <a href='https://github.com/SolBingers' className={footer.gitLink}>GITHUB</a>
+      <a 
+        href='https://github.com/SolBingers'
+        className={footer.gitLink}
+        target="_blank" rel="noreferrer"
+      >
+        GITHUB
+      </a>
       <Link to='/contacts' className={footer.contactLink}>
         CONTACTS
       </Link>

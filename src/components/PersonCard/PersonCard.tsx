@@ -68,15 +68,33 @@ export const PersonCard: React.FC<Props> = ({ personInfo, isActiveTogler }) => {
 
         <ul className={personCardStyle.links}>
           <li className={personCardStyle.link}>
-            <a href={linkedInLink}>LinkedIn</a>
+            <a 
+              href={linkedInLink}
+              target='_blank'
+              rel="noreferrer"
+            >
+                LinkedIn
+            </a>
           </li>
 
           <li className={personCardStyle.link}>
-            <a href={gitHubLink}>GitHub</a>
+            <a 
+              href={gitHubLink}
+              target='_blank'
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
           </li>
 
           <li className={personCardStyle.link}>
-            <a href={cvLink}>CV</a>
+            <a 
+              href={cvLink}
+              target='_blank'
+              rel="noreferrer"
+            >
+              CV
+            </a>
           </li>
         </ul>
       </div>
