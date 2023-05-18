@@ -89,6 +89,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 
   @include onTablet {
     gap: 10px;
@@ -167,4 +168,8 @@
   height: 72px;
   background-color: var(--color-semi-background);
   border: 1px solid var(--color-contrast);
+}
+
+.logOutButton {
+  color: var(--color-primary);
 }

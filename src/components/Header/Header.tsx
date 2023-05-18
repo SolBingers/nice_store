@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import header from './Header.module.scss';
 import { ReactComponent as Burger } from '../../images/burger.svg';
@@ -31,6 +31,25 @@ export const Header: FC<Props> = ({ className }) => {
   const { signOut } = useClerk();
   const location = useLocation();
   const endpoint = location.pathname;
+
+  const handleUserAccountClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    event.stopPropagation();
+    setIsOpenedUserOptions((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const handleDocumentClick = () => {
+      setIsOpenedUserOptions(false);
+    };
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
 
   return (
     <>
@@ -79,11 +98,13 @@ export const Header: FC<Props> = ({ className }) => {
               </button>
             </div>
           )}
-          <div className={header.userAccount}>
-            <SignedIn>
+          <SignedIn>
+            <div 
+              className={header.userAccount}
+              onClick={handleUserAccountClick}
+            >
               <button
                 className={classNames(header.button, header.loginButton)}
-                onClick={() => setIsOpenedUserOptions((prev) => !prev)}
               >
                 <img
                   src={user?.profileImageUrl}
@@ -109,9 +130,11 @@ export const Header: FC<Props> = ({ className }) => {
                   Log out
                 </div>
               </div>
-            </SignedIn>
+            </div>
+          </SignedIn>
 
-            <SignedOut>
+          <SignedOut>
+            <div className={header.userAccount}>
               <SignInButton mode="modal" redirectUrl="/nice_store">
                 <button
                   className={classNames(header.button, header.loginButton)}
@@ -120,10 +143,9 @@ export const Header: FC<Props> = ({ className }) => {
                 </button>
               </SignInButton>
               <p className={header.userName}>Guest</p>
-            </SignedOut>
-          </div>
+            </div>
+          </SignedOut>
         </div>
-
         <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened} />
       </header>
     </>
