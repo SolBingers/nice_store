@@ -2,7 +2,7 @@ import logo from '../../images/dog.svg';
 import BogdanMaliuta from '../../images/photos/photo_2023-04-25_16-00-32.jpg';
 import dog from '../../images/smileFace/photo_2023-05-13_14-52-58 (2).jpg';
 import smileFace from '../../images/smileFace/photo_2023-05-13_14-52-58.jpg';
-import Olecsiy from '../../images/phonoOlecsiy.jpg';
+import Olecsiy from '../../images/photoOlecsiy.jpg';
 
 export const mateStudents = [
   {

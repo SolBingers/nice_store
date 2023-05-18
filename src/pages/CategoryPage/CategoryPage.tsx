@@ -24,6 +24,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
   const page = searchParams.get('page') || '1';
   const sort = searchParams.get('sort') || 'newest';
   const count = searchParams.get('count') || '6';
+  const query = searchParams.get('query') || '';
 
   const onSortChange = (sort: string) => {
     updateSearch({ sort }, searchParams, setSearchParams);
@@ -87,6 +88,7 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             <SettingsInput
               className={styles.input}
               title="Product name"
+              query={query}
               setQuery={onQueryChange}
             />
 
@@ -107,30 +109,32 @@ export const CategoryPage: FC<Props> = ({ className, category }) => {
             />
           </div>
 
-          {isFetching ? (
+         {data && !isFetching && lenghtDataArray !== 0 && (
+            <List className={styles.list} products={data.data} />
+          )}
+
+          {!isFetching && lenghtDataArray === 0 && (
+            <div className={styles.emptyList}>
+              <div className={styles.emptyListIcon} />
+              <div className={styles.emptyListTitle}>
+                No models were found matching the specified parameters
+              </div>
+            </div>
+          )}
+
+          {isFetching &&  (
             <div className={styles.loaderContainer}>
               <Loader />
             </div>
-          ) : (
-            (data && !!lengthDataArray) ? (
-              <>
-                <List className={styles.list} products={data.data} />
-  
-                <Pagination
-                  className={styles.pagination}
-                  currentPage={page}
-                  setSelectedPage={onPageChange}
-                  maxPage={data.pages}
-                />
-              </>
-            ):(
-              <div className={styles.emptyList}>
-                <div className={styles.emptyListIcon}/>
-                <div className={styles.emptyListTitle}>
-                  No models were found matching the specified parameters
-                </div>
-              </div>
-            )
+          )}
+
+          {data && lenghtDataArray !== 0 && (
+            <Pagination
+              className={styles.pagination}
+              currentPage={page}
+              setSelectedPage={onPageChange}
+              maxPage={data.pages}
+            />
           )}
         </div>
       </main>
