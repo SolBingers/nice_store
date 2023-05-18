@@ -21,7 +21,7 @@ export const SearchPage: React.FC = () => {
     updateSearch({ page }, searchParams, setSearchParams);
   };
 
-  const { isLoading, data, refetch } = useQuery<Response>('searchProduct');
+  const { isFetching, data, refetch } = useQuery<Response>('searchProduct');
 
   useEffect(() => {
     refetch();
