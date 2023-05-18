@@ -32,33 +32,33 @@ export const ThemeToggler: FC = () => {
     );
 
     root.style.setProperty(
-      '--color--sale-banner-background',
+      '--color-sale-banner-background',
       isDark ? Color.Dark : Color.Banner_Light,
     );
 
     root.style.setProperty(
       '--toastify-color-light',
-      isDark ? Color.Dark : Color.Light
+      isDark ? Color.Dark : Color.Light,
     );
-    
+
     root.style.setProperty(
       '--toastify-color-light',
-      isDark ? Color.Dark : Color.Light
+      isDark ? Color.Dark : Color.Light,
     );
 
     root.style.setProperty(
       '--color-hover-primary',
-      isDark ? Color.Hover_Primary : Color.Hover_Primary_Light
+      isDark ? Color.Hover_Primary : Color.Hover_Primary_Light,
     );
 
     root.style.setProperty(
       '--color-hover-secondary',
-      isDark ? Color.Hover_Secondary : Color.Hover_Secondary_Light
+      isDark ? Color.Hover_Secondary : Color.Hover_Secondary_Light,
     );
 
     root.style.setProperty(
       '--color-another-theme',
-      isDark ? Color.Light : Color.Semi_Dark
+      isDark ? Color.Light : Color.Semi_Dark,
     );
   }, [theme]);
 
@@ -67,15 +67,11 @@ export const ThemeToggler: FC = () => {
   };
 
   return (
-    <div 
-      className={styles.reels}
-      onClick={handleToggleTheme}
-    >
-      <div 
-        className={classNames(
-          styles.main,
-          { [styles.isLight] : theme === 'light'}
-        )}
+    <div className={styles.reels} onClick={handleToggleTheme}>
+      <div
+        className={classNames(styles.main, {
+          [styles.isLight]: theme === 'light',
+        })}
       >
         <div className={styles.primary} />
         <div className={styles.background} />
