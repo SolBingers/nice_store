@@ -34,11 +34,6 @@ export const Header: FC<Props> = ({ className }) => {
           <ModalMenu isOpen={isOpenedModal} setIsOpen={setIsOpenedModal} />
         )}
 
-
-        {endpoint !== '/checkout' && (
-          <SearchOnWebsite/>
-        )}
-
         <div className={header.section}>
           <Link
             to="/"
@@ -56,62 +51,66 @@ export const Header: FC<Props> = ({ className }) => {
             />
           </button>
         </div>
-        {endpoint !== '/checkout' && (
-          <div className={header.section}>
-            <NavLink
-              className={({ isActive }) => classNames(
-                header.button,
-                {
-                  [header.activeLink]: isActive,
-                },
-              )}
-              to="/favourites"
-            >
-              <Favourites className={classNames(header.favourites, header.icon)} />
-            </NavLink>
-            <button 
-              className={header.button}
-              onClick={() => setIsOpenedModal(true)}
-            >
-              <Cart className={classNames(header.cart, header.icon)} />
-              <CartCounter/>
-            </button>
-          </div>
-        )}
+        <div className={header.section}>
+          {endpoint !== '/checkout' && (
+            <div className={header.section}>
+              <SearchOnWebsite/>
 
-        <div className={header.userAccount}>
-          <SignedIn>
-            <button 
-              className={classNames(header.button, header.loginButton)}
-              onClick={() => signOut()}
-            >
-              <img
-                src={user?.profileImageUrl}
-                alt="loader_dog"
-                className={header.userimage}
-              />
-            </button>
+              <NavLink
+                className={({ isActive }) => classNames(
+                  header.button,
+                  {
+                    [header.activeLink]: isActive,
+                  },
+                )}
+                to="/favourites"
+              >
+                <Favourites className={classNames(header.favourites, header.icon)} />
+              </NavLink>
+              <button 
+                className={header.button}
+                onClick={() => setIsOpenedModal(true)}
+              >
+                <Cart className={classNames(header.cart, header.icon)} />
+                <CartCounter/>
+              </button>
+            </div>
+          )}
 
-            <p className={header.userName}>
-              {user?.fullName}
-            </p>
-          </SignedIn>
-
-          <SignedOut>
-            <SignInButton mode='modal' redirectUrl='/nice_store'>
-              <button className={classNames(header.button, header.loginButton)}>
+          <div className={header.userAccount}>
+            <SignedIn>
+              <button 
+                className={classNames(header.button, header.loginButton)}
+                onClick={() => signOut()}
+              >
                 <img
-                  src={MyLogo}
+                  src={user?.profileImageUrl}
                   alt="loader_dog"
-                  className={header.dog}
+                  className={header.userimage}
                 />
               </button>
-            </SignInButton>
 
-            <p className={header.userName}>
-              Guest
-            </p>
-          </SignedOut>
+              <p className={header.userName}>
+                {user?.fullName}
+              </p>
+            </SignedIn>
+
+            <SignedOut>
+              <SignInButton mode='modal' redirectUrl='/nice_store'>
+                <button className={classNames(header.button, header.loginButton)}>
+                  <img
+                    src={MyLogo}
+                    alt="loader_dog"
+                    className={header.dog}
+                  />
+                </button>
+              </SignInButton>
+
+              <p className={header.userName}>
+                Guest
+              </p>
+            </SignedOut>
+          </div>
         </div>
 
         <BurgerMenu isOpen={isOpened} setIsOpen={setIsOpened}/>

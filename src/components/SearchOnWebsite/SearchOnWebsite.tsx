@@ -86,7 +86,6 @@ export const SearchOnWebsite: React.FC = () => {
 
   const handleEnableSearch = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setIsSearchAviable(true);
-    console.log('en');
     event.stopPropagation();
   };
 
@@ -140,7 +139,7 @@ export const SearchOnWebsite: React.FC = () => {
         </form>
       </div>
 
-      {isSearchAviable && (
+      {isSearchAviable && query !=='' && (
         <SearchModal items={data?.data} isLoading={isLoading}/>
       )}
     </>
