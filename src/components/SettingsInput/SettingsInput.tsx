@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import settingsInput from './SettingsInput.module.scss';
 import classNames from 'classnames';
 
-import { useDebounce } from 'use-debounce';
+import { useDebouncedCallback } from 'use-debounce';
 
 type Props = {
   className?: string;
@@ -25,17 +25,20 @@ export const SettingsInput: FC<Props> = ({
     return modifiedValue;
   };
 
-  const [debouncedQuery] = useDebounce(handleSpaces(text), 1000);
+  const debouncedQuery = useDebouncedCallback((input: string) => {
+    if (setQuery) {
+      setQuery(input);
+    }
+  }, 1000);
 
   const handleChangeParams = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
     setText(inputValue);
+    debouncedQuery(handleSpaces(inputValue));
   };
 
   useEffect(() => {
-    if (setQuery && debouncedQuery !== '') {
-      setQuery(debouncedQuery);
-    }
+    return debouncedQuery.cancel;
   }, [debouncedQuery]);
 
   return (
