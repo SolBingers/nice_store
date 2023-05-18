@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import firstBanner from './FirstBanner.module.scss';
+import { Link } from 'react-router-dom';
 
 export const FirstBanner: React.FC = () => {
   return (
@@ -43,11 +44,13 @@ export const FirstBanner: React.FC = () => {
               <p className={firstBanner.firstSlide__product}>Iphone 11</p>
               <p className={firstBanner.firstSlide__info}>Still fast. Still unique. Still one of the best.</p>
 
-              <Button
-                text={'Shop Now'}
-                size={'small'}
-                type={'primary'}
-              />
+              <Link to='/phones'>
+                <Button
+                  text={'Shop Now'}
+                  size={'small'}
+                  type={'primary'}
+                />
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -58,11 +61,13 @@ export const FirstBanner: React.FC = () => {
               <h2 className={firstBanner.secondSlide__title}>Now availible in our store</h2>
               <p className={firstBanner.secondSlide__info}>Be the first!</p>
 
-              <Button
-                text={'Shop Now'}
-                size={'small'}
-                type={'primary'}
-              />
+              <Link to='/phones'>
+                <Button
+                  text={'Shop Now'}
+                  size={'small'}
+                  type={'primary'}
+                />
+              </Link>
             </div>
             <div className={firstBanner.secondSlide__img} />
           </div>

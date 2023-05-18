@@ -102,6 +102,10 @@
     text-decoration-line: underline;
     color: #576067;
   }
+
+  &__rights:hover {
+    color: var(--color-primary);
+  }
 }
 
 @include onDesktop {
