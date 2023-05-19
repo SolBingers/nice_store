@@ -58,3 +58,10 @@ export interface NextAndPrev {
   page: number;
   limit: number;
 }
+
+export interface Response {
+  data: ProductItem[],
+  pages: number,
+  userId: number,
+  products: ProductItem[] | undefined;
+}

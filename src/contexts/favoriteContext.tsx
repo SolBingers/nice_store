@@ -2,21 +2,26 @@ import React, { useEffect } from 'react';
 import { useLocalStorage } from '../customHooks/useLocalStorage';
 import { ProductItem } from '../types/types';
 import { toast } from 'react-toastify';
+import { useAuth } from '@clerk/clerk-react';
 
 interface Context {
   phones: ProductItem[];
+
   addPhone: (item: ProductItem) => void;
   removePhone: (itemId: string) => void;
+
 }
 
 const initialValue = {
   phones: [],
+
   addPhone: (item: ProductItem) => {
     item;
   },
   removePhone: (itemId: string) => {
     itemId;
   },
+
 };
 
 export const FavoriteContext = React.createContext<Context>(initialValue);
@@ -27,13 +32,14 @@ type Props = {
 
 export const FavoriteProvider: React.FC<Props> = ({ children }) => {
   const notification = (message: string) => toast(message);
-
-  const [phones, setPhones] = useLocalStorage<ProductItem[]>('phones', []);
-
+  const [phones, setPhones] = useLocalStorage<ProductItem[]>('phones', []);  
+  
   const updateLocalStorage = (phonesData: ProductItem[]) => {
     localStorage.setItem('phones', JSON.stringify(phonesData));
   };
 
+  
+  
   useEffect(() => {
     const storedPhone= localStorage.getItem('phones');
     if (storedPhone) {
@@ -47,7 +53,7 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
     updateLocalStorage(updatedPhone);
     notification('Product added to favorites 🤝');
   };
-
+  
   const removePhone = (itemId: string) => {
     const updatedPhone = phones.filter((phone: ProductItem) => phone.itemId !== itemId);
     setPhones(updatedPhone);
@@ -56,7 +62,11 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
   };
 
   return (
-    <FavoriteContext.Provider value={{ phones, addPhone, removePhone }}>
+    <FavoriteContext.Provider value={{ 
+      phones,
+      addPhone,
+      removePhone, 
+    }}>
       {children}
     </FavoriteContext.Provider>
   );

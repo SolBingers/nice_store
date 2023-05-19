@@ -20,15 +20,15 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ClerkProvider publishableKey={clerkPubKey}>
-      <FavoriteProvider>
-        <CartProvider>
-          <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <FavoriteProvider>
+          <CartProvider>
             <HashRouter>
               <App />
             </HashRouter>
-          </QueryClientProvider>
-        </CartProvider>
-      </FavoriteProvider>
+          </CartProvider>
+        </FavoriteProvider>
+      </QueryClientProvider>
     </ClerkProvider>
   </React.StrictMode>,
 );

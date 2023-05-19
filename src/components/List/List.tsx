@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 interface Props {
   className?: string;
-  products: ProductItem[];
+  products: ProductItem[] | undefined;
   favComp?: boolean;
 }
 
