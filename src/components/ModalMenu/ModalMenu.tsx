@@ -14,6 +14,7 @@ type Props = {
 
 export const ModalMenu: React.FC<Props> = ({ isOpen, setIsOpen }) => {
   const [products, setProducts] = useLocalStorage<Product[]>('cart', []);
+  const checkoutAvailable = !!(products as Product[]).length;
   const { removeFromCart } = useContext(CartContext);
 
   const increaseCount = (productId: string) => {
@@ -118,14 +119,14 @@ export const ModalMenu: React.FC<Props> = ({ isOpen, setIsOpen }) => {
             <span className={modalStyle.price}>{` ${findTotalPrice()}$`}</span>
           </div>
 
-          <Link to="checkout">
+          {checkoutAvailable && <Link to="checkout">
             <Button
               onClick={() => setIsOpen(false)}
               type="primary"
               size="small"
               text="Checkout"
             />
-          </Link>
+          </Link>}
         </div>
       </div>
     </>
