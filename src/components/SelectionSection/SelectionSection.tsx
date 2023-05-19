@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import card from '../ProductCard/ProductCard.module.scss';
 import { FavoriteContext } from '../../contexts/favoriteContext';
 import { ProductItemSpec } from '../../types/ProductItemSpec';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 type Props = {
   phoneData: ProductItemSpec;
