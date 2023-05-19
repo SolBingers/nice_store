@@ -10,15 +10,6 @@ interface Props {
 
 export const ProductDetails: FC<Props> = ({ phoneData }) => {
   const {
-    id,
-    name,
-    namespaceId,
-    priceDiscount,
-    priceRegular,
-    colorsAvailable,
-    capacityAvailable,
-    color,
-    capacity,
     images,
   } = phoneData;
 
@@ -38,18 +29,7 @@ export const ProductDetails: FC<Props> = ({ phoneData }) => {
 
       <article className={details.sellection}>
         <SelectionSection
-          id={id}
-          name={name}
-          namespaceId={namespaceId}
-          price={priceRegular}
-          fullPrice={priceDiscount}
-          aviableColors={colorsAvailable}
-          aviableCapacities={capacityAvailable}
-          selectedColor={color}
-          selectedCapacity={capacity}
-          capacity={capacity}
-          color={color}
-          image={images[0]}
+          phoneData={phoneData}
         />
       </article>
     </div>
