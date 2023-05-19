@@ -5,15 +5,37 @@ import { CartContext } from '../../contexts/CartContext';
 import { Product } from '../../types/Product';
 import { FormCheckout } from '../../components/FormCheckout';
 import { useNavigate } from 'react-router';
+import { Order } from '../../types/Order';
+import { postOrder } from '../../api/products';
+import { useAuth } from '@clerk/clerk-react';
 
 export const CheckoutPage: FC = () => {
   const [cart, setCart] = useState<Product[]>([]);
   const { removeAllfromCart } = useContext(CartContext);
   const navigate = useNavigate();
+  const { userId } = useAuth();
 
   const handleClearCart = () => {
     removeAllfromCart();
     navigate('/');
+  };
+
+  const handleSendingOrder = async (address: string) => {
+    if (!userId) return;
+
+    const order: Omit<Order, 'id' | 'updatedAt' | 'createdAt'> = {
+      userId,
+      address,
+      totalPrice: totalSum,
+      products: cart,
+    };
+
+    try {
+      await postOrder(order);
+    } catch (err) {
+      console.log(err);
+    }
+    
   };
 
   useEffect(() => {
@@ -38,7 +60,10 @@ export const CheckoutPage: FC = () => {
     <>
       <div className={page.pageContainer}>
         <div className={page.formContainer}>
-          <FormCheckout onClear={handleClearCart} />
+          <FormCheckout 
+            onClear={handleClearCart}
+            sendOrder={handleSendingOrder}
+          />
         </div>
 
         <div className={page.orderContainer}>
