@@ -75,3 +75,17 @@
 .disabled {
   pointer-events: none;
 }
+
+.heart__container {
+  margin-top: 13px;
+  margin-left: 10px;
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addingToContainer {
+  display: flex;
+  align-items: center;
+}
