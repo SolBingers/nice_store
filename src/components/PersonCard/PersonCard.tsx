@@ -37,12 +37,11 @@ export const PersonCard: React.FC<Props> = ({ personInfo, isActiveTogler }) => {
         </div>
 
         <div className={personCardStyle.personTextInfo}>
+          {Tl && <div className={personCardStyle.tl}>TL</div>}
           <div className={personCardStyle.personName}>{fullName}</div>
 
           <div className={personCardStyle.personSkill}>Fullstack Developer</div>
         </div>
-
-        {Tl && <div className={personCardStyle.tl}>TL</div>}
       </div>
 
       <div className={personCardStyle.contacts}>
