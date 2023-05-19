@@ -5,6 +5,10 @@ import { Color } from '../Color';
 import { Capacity } from '../Capacity/Capacity';
 import { Product } from '../../types/Product';
 import { CartContext } from '../../contexts/CartContext';
+import { ReactComponent as Favorite } from '../../images/emptyHeart.svg';
+import classNames from 'classnames';
+import card from '../ProductCard/ProductCard.module.scss';
+import { FavoriteContext } from '../../contexts/favoriteContext';
 
 type Props = {
   id: string;
@@ -61,6 +65,7 @@ export const SelectionSection: React.FC<Props> = ({
       'rose gold': '#b76e79',
       blue: '#0000ff',
       starlight: '#adadad',
+      'sky blue': '#87ceeb',
     };
 
     return colors[str];
@@ -84,6 +89,28 @@ export const SelectionSection: React.FC<Props> = ({
 
   const [isButtonDissabled, setIsButtonDissabled] = useState(false);
   const { cart, addToCart } = useContext(CartContext);
+  const [isHeartActive, setIsHeartActive] = useState(false);
+  const { addPhone, removePhone } = useContext(FavoriteContext);
+
+  const handleOnHeart = () => {
+    if (!isHeartActive) {
+      const newProduct = {
+        count: 1,
+        id,
+        name,
+        price: price.toString(),
+        image,
+        itemId: id,
+      };
+
+
+      setIsHeartActive(true);
+      addPhone(newProduct);
+    } else {
+      setIsHeartActive(false);
+      removePhone(id);
+    }
+  };
 
 
   useEffect(() => {
@@ -120,17 +147,21 @@ export const SelectionSection: React.FC<Props> = ({
         </div>
 
         <div className={selection.colors}>
-          {aviableColors.map(col => (
-            <Color
-              color={col}
-              NormalColor={getNormalColor(col)}
-              isActive={selectedColor === col}
-              key={col}
-              namespaceId={namespaceId}
-              capacity={capacity}
-              backgroundColor={convertColor(col)}
-            />
-          ))}
+          {aviableColors.map(col => {
+            console.log(col);
+
+            return (
+              <Color
+                color={col}
+                NormalColor={getNormalColor(col)}
+                isActive={selectedColor === col}
+                key={col}
+                namespaceId={namespaceId}
+                capacity={capacity}
+                backgroundColor={convertColor(col)}
+              />
+            );
+          })}
 
         </div>
       </div>
@@ -164,24 +195,36 @@ export const SelectionSection: React.FC<Props> = ({
         </div>
       </div>
 
-      <div className={selection.button}>
-        {!isButtonDissabled ? (
-          <Button
-            text={'Add to cart'}
-            size="small"
-            type={'primary'}
-            onClick={handleAddToCart}
-          />
-        ) : (
-          <div className={selection.disabled}>
+      <div className={selection.addingToContainer}>
+        <div className={selection.button}>
+          {!isButtonDissabled ? (
             <Button
-              text={'In cart'}
+              text={'Add to cart'}
               size="small"
-              type={'secondary'}
+              type={'primary'}
               onClick={handleAddToCart}
             />
-          </div>
-        )}
+          ) : (
+            <div className={selection.disabled}>
+              <Button
+                text={'In cart'}
+                size="small"
+                type={'secondary'}
+                onClick={handleAddToCart}
+              />
+            </div>
+          )}
+        </div>
+        <button 
+          className={selection.heart__container}
+          onClick={handleOnHeart}
+        >
+          <Favorite
+            className={classNames(card.heart, {
+              [card.heart__active]: isHeartActive
+            })}
+          />
+        </button>
       </div>
     </div>
   );
