@@ -12,12 +12,11 @@ interface Props {
   sendOrder: (address: string) => void;
 }
 
-export const FormCheckout: React.FC<Props> = ({ onClear, sendOrder }) => {
+export const FormCheckout: React.FC<Props> = ({ sendOrder }) => {
   const {
     handleSubmit,
     control,
     formState: {errors, isValid},
-    reset,
   } = useForm<FormInputs>({
     mode: 'onChange',
   });
