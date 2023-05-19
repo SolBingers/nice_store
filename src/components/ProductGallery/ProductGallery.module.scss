@@ -65,6 +65,7 @@
 .image {
   height: 90%;
   width: auto;
+  cursor: pointer;
 
   &:not(:last-child) {
     margin-right: 8px;
