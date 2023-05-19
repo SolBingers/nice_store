@@ -89,3 +89,18 @@
   display: flex;
   align-items: center;
 }
+
+.heart * {
+  fill: none;
+  stroke: var(--color-contrast);
+  cursor: pointer;
+  transition: fill 0.7s;
+
+  &:hover {
+    fill: var(--color-primary);
+  }
+}
+
+.heart__active * {
+  fill: var(--color-primary);
+}

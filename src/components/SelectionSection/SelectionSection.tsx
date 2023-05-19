@@ -5,12 +5,11 @@ import { Color } from '../Color';
 import { Capacity } from '../Capacity/Capacity';
 import { Product } from '../../types/Product';
 import { CartContext } from '../../contexts/CartContext';
-import { ReactComponent as Favorite } from '../../images/emptyHeart.svg';
 import classNames from 'classnames';
-import card from '../ProductCard/ProductCard.module.scss';
 import { FavoriteContext } from '../../contexts/favoriteContext';
 import { ProductItemSpec } from '../../types/ProductItemSpec';
 import { useLocation } from 'react-router-dom';
+import { ReactComponent as Favourites } from '../../images/favourites.svg';
 
 type Props = {
   phoneData: ProductItemSpec;
@@ -233,9 +232,9 @@ export const SelectionSection: React.FC<Props> = ({
           className={selection.heart__container}
           onClick={handleOnHeart}
         >
-          <Favorite
-            className={classNames(card.heart, {
-              [card.heart__active]: isHeartActive
+          <Favourites
+            className={classNames(selection.heart, {
+              [selection.heart__active]: isHeartActive
             })}
           />
         </button>

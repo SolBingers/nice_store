@@ -38,6 +38,10 @@
   }
 }
 
+.heart {
+  stroke: var(--color-contrast);
+}
+
 .iconContainer {
   position: absolute;
   background-color: transparent;
