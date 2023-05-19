@@ -10,3 +10,10 @@
   color: var(--color-primary);
   opacity: 0.8;
 }
+
+.countAndPrice {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  gap: 24px;
+}

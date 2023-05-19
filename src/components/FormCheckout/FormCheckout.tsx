@@ -9,21 +9,22 @@ import { FormInputs } from '../../types/FormInputs';
 
 interface Props {
   onClear: () => void;
+  sendOrder: (address: string) => void;
 }
 
-export const FormCheckout: React.FC<Props> = ({ onClear }) => {
+export const FormCheckout: React.FC<Props> = ({ sendOrder }) => {
   const {
     handleSubmit,
     control,
     formState: {errors, isValid},
-    reset,
   } = useForm<FormInputs>({
     mode: 'onChange',
   });
 
   const onSubmit: SubmitHandler<FormInputs> = data => {
-    console.log(JSON.stringify(data));
-    reset();
+    const {address, apartment, country, city} = data;
+    const addressString = [address, apartment, city, country].join(', ');
+    sendOrder(addressString);
   };
 
   const {
@@ -283,7 +284,6 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
               text="Checkout"
               size="extraLarge"
               type="primary"
-              onClick={onClear}
               disabled={!isValid}
             />
           </div>

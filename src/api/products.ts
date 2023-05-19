@@ -33,3 +33,6 @@ export const getItemRecomended = (id: string): Promise<ProductItem[]> =>
 
 export const getAllOrders = (userId: string): Promise<Order[]> =>
   client.get(`/orders/${userId}`);
+
+export const postOrder = (order: Omit<Order, 'id' | 'updatedAt' | 'createdAt'>): Promise<Order> => 
+  client.post('/orders', order as Partial<Order>);

@@ -12,11 +12,13 @@ export const OrderItem: FC<Props> = ({ product }) => {
   return (
     <div className={styles.item}>
       <div className={styles.title}>{name}</div>
-      <div className={styles.count}>
-        <span className={styles.dimmed}>x</span>{count}
-      </div>
-      <div className={styles.price}>
-        <span className={styles.dimmed}>$</span>{price}
+      <div className={styles.countAndPrice} >
+        <div className={styles.count}>
+          <span className={styles.dimmed}>x</span>{count}
+        </div>
+        <div className={styles.price}>
+          <span className={styles.dimmed}>$</span>{price}
+        </div>
       </div>
     </div>
   );
