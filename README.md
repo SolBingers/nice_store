@@ -23,7 +23,7 @@ The Nice Store Project includes the following key features:
 
 The Nice Store utilizes the following technologies:
 
-- **Frontend**: HTML, SCSS, TypeScript, React.js, ReactQuery, Swiper.js for building the user interface and managing state.
+- **Frontend**: HTML, SCSS, TypeScript, React.js, ReactQuery, Swiper.js, Clerk, React-Hook-Form for building the user interface and managing state.
 - **Backend**: Node.js, Express.js, and Sequelize.js for creating a RESTful API and managing data storage.
 - **Database**: Postgress for storing product information, user data, and order details.
 
