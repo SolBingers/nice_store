@@ -5,7 +5,6 @@ import { Color } from '../Color';
 import { Capacity } from '../Capacity/Capacity';
 import { Product } from '../../types/Product';
 import { CartContext } from '../../contexts/CartContext';
-import { ProductItem } from '../../types/ProductItem';
 
 type Props = {
   id: string;
