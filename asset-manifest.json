@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/nice_store/static/css/main.9a66d266.css",
-    "main.js": "/nice_store/static/js/main.c3862f45.js",
+    "main.css": "/nice_store/static/css/main.59f713d5.css",
+    "main.js": "/nice_store/static/js/main.ef867ee8.js",
     "static/media/Rick.mp3": "/nice_store/static/media/Rick.693cd9e996292a0f9ad5.mp3",
-    "static/media/Anastasiya.webp": "/nice_store/static/media/Anastasiya.e6fb5f1800b7d6a520ce.webp",
-    "static/media/Oleksandr.webp": "/nice_store/static/media/Oleksandr.83896dfee716bcbc2f27.webp",
-    "static/media/Mykyta.webp": "/nice_store/static/media/Mykyta.f31ff342e167f6f3b51f.webp",
-    "static/media/Kateryna.webp": "/nice_store/static/media/Kateryna.2200665e3a70bdfd3597.webp",
     "static/media/thirdSlide.jpg": "/nice_store/static/media/thirdSlide.008090f23fa7d1d25753.jpg",
     "static/media/firstSlide.jpg": "/nice_store/static/media/firstSlide.2d01b5d730029f2ba2f0.jpg",
+    "static/media/Mykyta.webp": "/nice_store/static/media/Mykyta.90dbff76af27e2cfaaba.webp",
     "static/media/secondSlide.png": "/nice_store/static/media/secondSlide.913f2dd165fc355dd4f4.png",
+    "static/media/Anastasiya.webp": "/nice_store/static/media/Anastasiya.44b7041cb555ef24736c.webp",
     "static/media/cuteDog.gif": "/nice_store/static/media/cuteDog.54f13b4d62fc0541ea86.gif",
     "static/media/categoryAccessories.png": "/nice_store/static/media/categoryAccessories.1cb983c26ade30cbaad2.png",
     "static/media/categoryTablets.png": "/nice_store/static/media/categoryTablets.d9e4618ab8722b17c24b.png",
@@ -17,9 +15,11 @@
     "static/media/photo_2023-04-25_16-00-32.jpg": "/nice_store/static/media/photo_2023-04-25_16-00-32.9d865c2f36757e5eb5b8.jpg",
     "static/media/rock.png": "/nice_store/static/media/rock.87cef568641758ae6596.png",
     "static/media/photo_2023-05-13_14-52-58 (2).jpg": "/nice_store/static/media/photo_2023-05-13_14-52-58 (2).3d075ddaa55b1779e5c6.jpg",
-    "static/media/memOlecsiy.webp": "/nice_store/static/media/memOlecsiy.758576724a79f265f925.webp",
-    "static/media/Maks.webp": "/nice_store/static/media/Maks.7194b479f83f2e4a8102.webp",
+    "static/media/Oleksandr.webp": "/nice_store/static/media/Oleksandr.6b4aaa25834c5f8d073e.webp",
+    "static/media/Kateryna.webp": "/nice_store/static/media/Kateryna.a4196e527dbc999d88d8.webp",
+    "static/media/Maks.webp": "/nice_store/static/media/Maks.92eb6f24f50a54dc84bb.webp",
     "static/media/dog.svg": "/nice_store/static/media/dog.5660f275970d0b3089f75339d055522d.svg",
+    "static/media/memOlecsiy.webp": "/nice_store/static/media/memOlecsiy.840005e26a58e68153dc.webp",
     "static/media/memMaks.webp": "/nice_store/static/media/memMaks.a40addf886c73392926e.webp",
     "static/media/Olecsiy.webp": "/nice_store/static/media/Olecsiy.1a85907e23da19b50832.webp",
     "static/media/memBogdan.webp": "/nice_store/static/media/memBogdan.a586166206c6f6ea53ad.webp",
@@ -38,11 +38,11 @@
     "static/media/chevron-left.svg": "/nice_store/static/media/chevron-left.a6c854854b8a8b4a394dcfedbb245ab1.svg",
     "static/media/chevron-down.svg": "/nice_store/static/media/chevron-down.39a461a8c9fa6481507e91408e98d3f8.svg",
     "static/media/chevron-right.svg": "/nice_store/static/media/chevron-right.8699f5c59d077a8f3ea9d8aeda88a5f3.svg",
-    "main.9a66d266.css.map": "/nice_store/static/css/main.9a66d266.css.map",
-    "main.c3862f45.js.map": "/nice_store/static/js/main.c3862f45.js.map"
+    "main.59f713d5.css.map": "/nice_store/static/css/main.59f713d5.css.map",
+    "main.ef867ee8.js.map": "/nice_store/static/js/main.ef867ee8.js.map"
   },
   "entrypoints": [
-    "static/css/main.9a66d266.css",
-    "static/js/main.c3862f45.js"
+    "static/css/main.59f713d5.css",
+    "static/js/main.ef867ee8.js"
   ]
 }
