@@ -1,17 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { SettingsInput } from '../../components/SettingsInput';
 import { Button } from '../../components/Button';
 import ReactInputMask from 'react-input-mask';
-
+import Select, { SingleValue } from 'react-select';
 import form from './FormCheckout.module.scss';
 import { FormInputs } from '../../types/FormInputs';
+import countries from '../../api/country.json';
+import { Country } from '../../types/Country';
 
 interface Props {
   onClear: () => void;
 }
 
-export const FormCheckout: React.FC<Props> = ({ onClear }) => {
+interface Option {
+  value: string,
+  label: string,
+}
+
+const options = countries.map((country: Country) => {
+  const option = {
+    value: country.country,
+    label: country.country,
+  };
+
+  return option;
+});
+
+export const FormCheckout: React.FC<Props> = () => {
+  const [country, setCountry] = useState('');
+  const [touched, setToched] = useState(false);
+
+
+  const handleSelectChange = (options: SingleValue<Option>) => {
+    if (options) {
+      setCountry(options.value);
+    } else {
+      setCountry('');
+    }
+  };
+
+  const selectError = touched && country === '';
+
   const {
     handleSubmit,
     control,
@@ -19,17 +49,29 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
     reset,
   } = useForm<FormInputs>({
     mode: 'onChange',
+    defaultValues: {
+      firstName: '',
+      sureName: '',
+      country: '',
+      city: '',
+      address: '',
+      apartment: '',
+      expireDate: '',
+      cardNumber: '',
+    }
   });
 
   const onSubmit: SubmitHandler<FormInputs> = data => {
-    console.log(JSON.stringify(data));
+    if (!data.country) {
+      return;
+    }
+    console.log(data);
     reset();
   };
 
   const {
     firstName,
     sureName,
-    country,
     city,
     address,
     apartment,
@@ -104,31 +146,21 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
           <div className={form.form__personalInfo_address}>
             <div className={form.infoConteiner}>
               <div className={form.form__controller}>
-                <Controller
-                  name="country"
-                  control={control}
-                  rules={{
-                    required: true,
-                    pattern: /^([^0-9]*)$/,
-                  }}
-                  render={({ field }) => (
-                    <SettingsInput
-                      className={form.form__input}
-                      title='Country'
-                      placeholder='...'
-                      {...field}
-                    />
-                  )}
-                />
-
-                <div className={form.form__inputError}>
-                  {country?.type === 'required' && (
-                    <p>This field is required</p>
-                  )}
-
-                  {country?.type === 'pattern' && (
-                    <p>Alphabetical characters only</p>
-                  )}
+                <div>
+                  <p className={form.maskTitle}>
+                    Country
+                  </p>
+                  <Select
+                    options={options}
+                    placeholder='--Select country--'
+                    className="custom-container"
+                    classNamePrefix='custom'
+                    onBlur={() => setToched(true)}
+                    onChange={handleSelectChange}
+                  />
+                  <div className={form.form__inputError}>
+                    {selectError && <p>This field is required</p>}
+                  </div>
                 </div>
               </div>
 
@@ -259,7 +291,7 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
                 render={({ field }) =>
                   <div>
                     <p className={form.maskTitle}>
-                      Card number
+                      Expire date
                     </p>
                     <ReactInputMask
                       className={form.cardMask}
@@ -283,7 +315,6 @@ export const FormCheckout: React.FC<Props> = ({ onClear }) => {
               text="Checkout"
               size="extraLarge"
               type="primary"
-              onClick={onClear}
               disabled={!isValid}
             />
           </div>

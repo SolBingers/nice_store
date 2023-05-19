@@ -4,7 +4,7 @@ export interface FormInputs {
   country: string;
   city: string;
   address: string;
-  apartment: number;
-  cardNumber: number;
-  expireDate: number;
+  apartment: string;
+  cardNumber: string;
+  expireDate: string;
 }
