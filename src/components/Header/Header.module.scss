@@ -154,6 +154,12 @@
   border: 1px solid transparent;
   transition: all 0.3s;
   height: 0;
+
+  @include onTablet {
+    width: 120px;
+    top: 40px;
+    right: 10px;
+  }
 }
 
 .userOption {
