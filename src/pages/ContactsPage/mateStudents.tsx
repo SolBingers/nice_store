@@ -1,15 +1,15 @@
 import BogdanMaliuta from '../../images/photos/photo_2023-04-25_16-00-32.jpg';
 import dog from '../../images/smileFace/photo_2023-05-13_14-52-58 (2).jpg';
-import Olecsiy from '../../images/Olecsiy.jpeg';
-import Anastasiya from '../../images/Anastasiya.jpeg';
-import Kateryna from '../../images/Kateryna.jpeg';
-import Oleksandr from '../../images/Oleksandr.jpeg';
-import Mykyta from '../../images/Mykyta.jpeg';
-import Maks from '../../images/Maks.jpeg';
-import memNastya from '../../images/memNastya.jpeg';
-import memMaks from '../../images/memMaks.jpeg';
-import memBogdan from '../../images/memBogdan.jpeg';
-import memOlecsiy from '../../images/memOlecsiy.jpeg';
+import Olecsiy from '../../images/Olecsiy.webp';
+import Anastasiya from '../../images/Anastasiya.webp';
+import Kateryna from '../../images/Kateryna.webp';
+import Oleksandr from '../../images/Oleksandr.webp';
+import Mykyta from '../../images/Mykyta.webp';
+import Maks from '../../images/Maks.webp';
+import memNastya from '../../images/memNastya.webp';
+import memMaks from '../../images/memMaks.webp';
+import memBogdan from '../../images/memBogdan.webp';
+import memOlecsiy from '../../images/memOlecsiy.webp';
 
 export const mateStudents = [
   {
