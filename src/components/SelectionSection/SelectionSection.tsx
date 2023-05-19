@@ -9,36 +9,31 @@ import { ReactComponent as Favorite } from '../../images/emptyHeart.svg';
 import classNames from 'classnames';
 import card from '../ProductCard/ProductCard.module.scss';
 import { FavoriteContext } from '../../contexts/favoriteContext';
+import { ProductItemSpec } from '../../types/ProductItemSpec';
+import { useLocation } from 'react-router-dom';
 
 type Props = {
-  id: string;
-  name: string;
-  namespaceId: string;
-  price: number;
-  fullPrice: number;
-  aviableColors: string[],
-  aviableCapacities: string[],
-  selectedColor: string,
-  selectedCapacity: string,
-  capacity: string,
-  color: string,
-  image: string,
+  phoneData: ProductItemSpec;
 }
 
 export const SelectionSection: React.FC<Props> = ({
-  id,
-  name,
-  namespaceId,
-  price,
-  fullPrice,
-  aviableColors,
-  aviableCapacities,
-  selectedColor,
-  selectedCapacity,
-  capacity,
-  color,
-  image,
+  phoneData
 }) => {
+
+  const {
+    id,
+    name,
+    namespaceId,
+    priceDiscount,
+    screen,
+    ram,
+    priceRegular,
+    colorsAvailable,
+    capacityAvailable,
+    capacity,
+    color,
+    images,
+  } = phoneData;
 
   function getNormalColor(str: string) {
     const colors: { [key: string]: string } = {
@@ -90,27 +85,18 @@ export const SelectionSection: React.FC<Props> = ({
   const [isButtonDissabled, setIsButtonDissabled] = useState(false);
   const { cart, addToCart } = useContext(CartContext);
   const [isHeartActive, setIsHeartActive] = useState(false);
-  const { addPhone, removePhone } = useContext(FavoriteContext);
+  const { addPhone, removePhone, phones } = useContext(FavoriteContext);
+  const { pathname }= useLocation();
 
-  const handleOnHeart = () => {
-    if (!isHeartActive) {
-      const newProduct = {
-        count: 1,
-        id,
-        name,
-        price: price.toString(),
-        image,
-        itemId: id,
-      };
+  const category = pathname.split('/')[1];
 
+  console.log(category);
 
+  useEffect(() => {
+    if((phones.findIndex(phone => phone.itemId === id) !== -1)) {
       setIsHeartActive(true);
-      addPhone(newProduct);
-    } else {
-      setIsHeartActive(false);
-      removePhone(id);
     }
-  };
+  }, []);
 
 
   useEffect(() => {
@@ -121,14 +107,44 @@ export const SelectionSection: React.FC<Props> = ({
     }
   }, [cart]);
 
+  const handleOnHeart = () => {
+    if (!isHeartActive) {
+      const newProduct = {
+        id,
+        itemId: id,
+        category,
+        name,
+        fullPrice: priceRegular.toString(),
+        price: priceDiscount.toString(),
+        screen,
+        capacity,
+        color,
+        ram,
+        image: images[0],
+      };
+
+      if(phones.findIndex(phone => phone.itemId === newProduct.itemId) === -1) {
+        setIsHeartActive(true);
+        addPhone(newProduct);
+      } else {
+        setIsHeartActive(false);
+        removePhone(id);
+      }
+ 
+    } else {
+      setIsHeartActive(false);
+      removePhone(id);
+    }
+  };
+
   const handleAddToCart = () => {
     setIsButtonDissabled(true);
     const newProduct = {
       count: 1,
       id,
       name,
-      price: price.toString(),
-      image,
+      price: priceDiscount.toString(),
+      image: images[0],
       itemId: id,
     };
 
@@ -147,14 +163,12 @@ export const SelectionSection: React.FC<Props> = ({
         </div>
 
         <div className={selection.colors}>
-          {aviableColors.map(col => {
-            console.log(col);
-
+          {colorsAvailable.map(col => {
             return (
               <Color
                 color={col}
                 NormalColor={getNormalColor(col)}
-                isActive={selectedColor === col}
+                isActive={color === col}
                 key={col}
                 namespaceId={namespaceId}
                 capacity={capacity}
@@ -172,10 +186,10 @@ export const SelectionSection: React.FC<Props> = ({
         </div>
 
         <div className={selection.capacitys}>
-          {aviableCapacities.map(cap => (
+          {capacityAvailable.map(cap => (
             <Capacity
               capacity={cap}
-              isActive={selectedCapacity === cap}
+              isActive={capacity === cap}
               key={cap}
               color={color}
               namespaceId={namespaceId}
@@ -187,11 +201,11 @@ export const SelectionSection: React.FC<Props> = ({
 
       <div className={selection.prices}>
         <div className={selection.newPrice}>
-          {`${price}$`}
+          {`${priceDiscount}$`}
         </div>
 
         <div className={selection.oldPrice}>
-          {`${fullPrice}$`}
+          {`${priceDiscount}$`}
         </div>
       </div>
 
