@@ -2,3 +2,55 @@
 @import './normalize.scss';
 @import './utils/mixins';
 @import './utils/colors';
+
+.cl-card {
+  background-color: var(--color-semi-background);
+}
+
+.cl-headerTitle,
+.cl-headerSubtitle,
+.cl-dividerText,
+.cl-formFieldLabel {
+  color: var(--color-contrast);
+}
+
+.cl-socialButtonsBlockButton {
+  background-color: var(--color-main-background);
+  color: var(--color-contrast);
+  transition: 0.7s;
+
+  &:hover {
+    background-color: var(--color-hover-secondary);
+  }
+}
+
+.cl-formFieldInput {
+  background-color: var(--color-main-background);
+  color: var(--color-contrast);
+}
+
+.cl-dividerLine {
+  background-color: var(--color-contrast);
+}
+
+.cl-formButtonPrimary {
+  background-color: var(--color-primary) !important;
+  transition: 0.7s;
+
+  &:hover {
+    background-color: var(--color-hover-primary) !important;
+  }
+}
+
+.cl-footerAction {
+  display: none;
+}
+
+.cl-modalCloseButton {
+  background-color: var(--color-main-background);
+  transition: 0.7s;
+
+  &:hover {
+    background-color: var(--color-hover-secondary);
+  }
+}
