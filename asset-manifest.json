@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/nice_store/static/css/main.3d0aa7e0.css",
-    "main.js": "/nice_store/static/js/main.e45e85e4.js",
+    "main.css": "/nice_store/static/css/main.9a66d266.css",
+    "main.js": "/nice_store/static/js/main.c3862f45.js",
     "static/media/Rick.mp3": "/nice_store/static/media/Rick.693cd9e996292a0f9ad5.mp3",
     "static/media/Anastasiya.webp": "/nice_store/static/media/Anastasiya.e6fb5f1800b7d6a520ce.webp",
     "static/media/Oleksandr.webp": "/nice_store/static/media/Oleksandr.83896dfee716bcbc2f27.webp",
@@ -38,11 +38,11 @@
     "static/media/chevron-left.svg": "/nice_store/static/media/chevron-left.a6c854854b8a8b4a394dcfedbb245ab1.svg",
     "static/media/chevron-down.svg": "/nice_store/static/media/chevron-down.39a461a8c9fa6481507e91408e98d3f8.svg",
     "static/media/chevron-right.svg": "/nice_store/static/media/chevron-right.8699f5c59d077a8f3ea9d8aeda88a5f3.svg",
-    "main.3d0aa7e0.css.map": "/nice_store/static/css/main.3d0aa7e0.css.map",
-    "main.e45e85e4.js.map": "/nice_store/static/js/main.e45e85e4.js.map"
+    "main.9a66d266.css.map": "/nice_store/static/css/main.9a66d266.css.map",
+    "main.c3862f45.js.map": "/nice_store/static/js/main.c3862f45.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d0aa7e0.css",
-    "static/js/main.e45e85e4.js"
+    "static/css/main.9a66d266.css",
+    "static/js/main.c3862f45.js"
   ]
 }
