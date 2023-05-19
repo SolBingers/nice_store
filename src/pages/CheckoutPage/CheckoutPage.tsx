@@ -21,7 +21,10 @@ export const CheckoutPage: FC = () => {
   };
 
   const handleSendingOrder = async (address: string) => {
-    if (!userId) return;
+    if (!userId) {
+      handleClearCart();
+      return;
+    }
 
     const order: Omit<Order, 'id' | 'updatedAt' | 'createdAt'> = {
       userId,
@@ -35,7 +38,8 @@ export const CheckoutPage: FC = () => {
     } catch (err) {
       console.log(err);
     }
-    
+
+    handleClearCart();
   };
 
   useEffect(() => {
