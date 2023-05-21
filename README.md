@@ -6,6 +6,8 @@ Welcome to the Nice Store Full-stack Project! This README file will provide you 
 
 Nice Store is platform that offers a wide range of gadgets for tech enthusiasts. Our goal is to provide an enjoyable shopping experience where users can explore and purchase their favorite gadgets with ease. This project focuses on both the frontend and backend aspects, creating a full-stack application that covers all necessary functionalities. Here you can see the Front-end side.
 
+Back-end - [HERE](https://github.com/SolBingers/nice_store_api)
+
 ## Preview
 You can see the demo [HERE](https://solbingers.github.io/nice_store/)
 
